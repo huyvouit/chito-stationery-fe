@@ -1,0 +1,6 @@
+- npm: 
+react-router-dom 
+react-bootstrap
+bootstrap 
+axios
+

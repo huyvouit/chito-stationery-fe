@@ -1,0 +1,18 @@
+@import "./constants/Color/variable.css";
+
+body {
+  background-color: var(--primary-background);
+  font-size: 16px;
+  line-height: 1;
+  color: var(--primary-text);
+  max-width: 1920px;
+  margin: 0 auto;
+  font-family: "Bellota Text", cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
