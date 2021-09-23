@@ -1,0 +1,25 @@
+@import "../../constants/Color/variable.css";
+
+.circle-loading {
+  display: inline-flex;
+  animation: loading 1s infinite;
+}
+.child {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--blend-mode);
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+@keyframes loading {
+  50% {
+    transform: rotate(200deg);
+  }
+  75% {
+    transform: rotate(160deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}

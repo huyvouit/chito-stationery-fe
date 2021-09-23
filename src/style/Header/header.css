@@ -1,0 +1,54 @@
+@import "../../constants/Color/variable.css";
+header {
+  height: 146px;
+  padding: 40px 70px 18px;
+  /* display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  position: absolute;
+  z-index: 1; */
+}
+.navigation-bar {
+  height: 88px;
+  opacity: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-left {
+  height: 70px;
+}
+.navbar-logo,
+.nav-link {
+  color: #966a57;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar-logo {
+  font-size: 70px;
+  font-weight: bold;
+}
+.nav-link {
+  font-size: 25px;
+}
+.navbar-logo:hover,
+.nav-link:hover,
+.nav-link:focus {
+  color: #966a57;
+}
+
+.navbar-right {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 50px;
+  list-style: none;
+  align-items: center;
+  margin-bottom: 0 !important;
+}
+
+.navbar-icon {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 35px;
+}

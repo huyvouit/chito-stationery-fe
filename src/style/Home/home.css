@@ -1,0 +1,5 @@
+.home-screen {
+  position: relative;
+  top: -146px;
+  z-index: -1;
+}
