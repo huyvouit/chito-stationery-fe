@@ -1,0 +1,31 @@
+@import "../../constants/Color/variable.css";
+.intro-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 126px;
+}
+
+.intro-title {
+  margin-bottom: 10px;
+}
+
+.intro-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 75%;
+}
+.intro-title-name {
+  font-size: 50px;
+  text-transform: uppercase;
+  color: var(--text-title);
+}
+
+.intro-content-text {
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: 0.8px;
+}

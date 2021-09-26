@@ -6,24 +6,25 @@ footer {
   background-color: var(--primary-footer);
 }
 footer .footer-content {
-  display: grid;
+  align-items: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-around;
+
+  /* display: grid;
   grid-template-columns: repeat(3, auto);
-  grid-gap: 250px;
+  grid-gap: 250px; */
 }
 
 .col-top {
-  font-weight: bold;
   font-size: 20px;
+  font-weight: bold;
   text-transform: uppercase;
 }
-/* .col-bottom {
-  display: flex;
-  
-} */
+
 .col-bottom .col-cate {
   display: flex;
   flex-direction: column;
-  /* align-items: flex-start; */
   justify-content: flex-start;
 }
 

@@ -1,0 +1,16 @@
+@import "../../constants/Color/variable.css";
+
+.marketing-title {
+  margin: 65px 0;
+  text-align: center;
+}
+
+.marketing-title-name {
+  text-transform: uppercase;
+  font-size: 30px;
+  color: var(--text-subTitle);
+}
+
+.marketing-image {
+  height: 450px;
+}
