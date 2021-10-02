@@ -1,7 +1,9 @@
 @import "./constants/Color/variable.css";
 
-body {
+* {
   box-sizing: border-box;
+}
+body {
   background-color: var(--primary-background);
   font-size: 16px;
   line-height: 1;

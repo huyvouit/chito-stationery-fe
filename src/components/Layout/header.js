@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import userIcon from "../../assets/Icons/user.svg";
 import cartIcon from "../../assets/Icons/shopping-basket.svg";
 import searchIcon from "../../assets/Icons/search-interface-symbol.svg";
 import "../../style/Header/header.css";
 
-export const Header = () => {
+export const Header = ({ onClickUser }) => {
   return (
     <header>
       <div className="navigation-bar">
@@ -48,17 +48,19 @@ export const Header = () => {
                 width="34px"
                 height="34px"
                 alt="React Logo"
+                on
               />
             </Link>
-            <Link to="/profile" className="item-icon">
+            <div className="item-icon">
               <img
-                className="image-icon"
+                className="image-icon "
                 src={userIcon}
                 width="34px"
                 height="34px"
-                alt="React Logo"
+                alt="user icon"
+                onClick={onClickUser}
               />
-            </Link>
+            </div>
           </li>
         </ul>
       </div>

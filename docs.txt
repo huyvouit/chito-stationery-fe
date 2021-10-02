@@ -3,4 +3,17 @@ react-router-dom
 react-bootstrap
 bootstrap 
 axios
+aos
 
+-function:
++ đăng nhập/ đăng kí
++ lấy thông user
++ get tất cả sản phẩm
++ get sp theo type: washi tape, sticker, sticky note
++ chi tiết sản phẩm
++ filter: type, price 
++ search sản phẩm theo tên
++ mua hàng: lưu thông tin user, thanh toán
++ lưu đơn hàng đã mua
++ giỏ hàng
++ có thể thêm lưu thông tin contact

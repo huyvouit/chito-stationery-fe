@@ -2,14 +2,10 @@
 header {
   height: 146px;
   padding: 40px 70px 18px;
-  /* display: flex;
-  width: 100%;
-  flex-wrap: nowrap;
-  position: absolute;
-  z-index: 1; */
 }
 .navigation-bar {
   height: 88px;
+
   opacity: 1;
   display: flex;
   justify-content: space-between;
@@ -51,4 +47,8 @@ header {
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-gap: 35px;
+}
+
+.image-icon {
+  cursor: pointer;
 }

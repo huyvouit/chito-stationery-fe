@@ -1,5 +1,4 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
 import "../../style/Home/marketing.css";
 
 import washiTape from "../../assets/Images/washi_tape.jpg";
