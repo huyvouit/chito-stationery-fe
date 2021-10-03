@@ -1,0 +1,35 @@
+.card {
+    margin-bottom: 30px;
+    padding: 32px;
+    width: 286px;
+    height: 458px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+}
+
+.card:hover {
+    background-color: antiquewhite;
+    color: #FFFFFF;
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 0.5s ease;
+}
+.ItemImg {
+    width: 220px;
+    height: 220px;
+}
+
+
+.ItemTxt > h5 {
+    padding-top: 20px;
+    font: normal normal bold 24px/30px Bellota Text;
+    letter-spacing: 0.6px;
+    color: #524D4B;
+    text-transform: capitalize;
+}
+
+.ItemTxt > p {
+    padding-top: 40%;
+    font: normal normal bold 24px/30px Bellota Text;
+    letter-spacing: 0.6px;
+    color: #7C7B7B;
+}
