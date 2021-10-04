@@ -1,0 +1,64 @@
+.title {
+    padding-top: 30px;
+}
+
+.title-head{
+    align-items: center;
+}
+
+.title-head-name {
+    text-align: center;
+}
+
+.title-content {
+    padding-bottom: 30px;
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.title-content-left {
+    display: flex;
+    align-items: center;
+}
+
+.title-content-left > h6 {
+    margin-left: 15px;
+    width: 70px;
+    height: 9px;
+    text-align: center;
+    font: normal normal bold 18px/22px Bellota Text;
+    letter-spacing: 0.45px;
+    color: #524D4B;
+    text-transform: uppercase;
+}
+.title-content-right {
+    display: flex;
+}
+
+.title-content-right > p {
+    width: 100px;
+    height: 2px;
+    text-align: center;
+    font: normal normal bold 18px/22px Bellota Text;
+    letter-spacing: 0.45px;
+    color: #524D4B;
+}
+
+.title-content-right > strong {
+    width: 0px;
+    height: 10px;
+    text-align: end;
+    margin-right: 20px;
+}
+
+.title-content-right > h6 {
+    width: 126px;
+    height: 6px;
+    text-align: center;
+    font: normal normal bold 18px/22px Bellota Text;
+    letter-spacing: 0.45px;
+    color: #524D4B;
+    text-transform: uppercase;
+}
