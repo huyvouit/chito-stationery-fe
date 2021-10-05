@@ -1,64 +1,58 @@
 .title {
-    padding-top: 30px;
+  padding-top: 30px;
 }
 
-.title-head{
-    align-items: center;
+.title-head {
+  align-items: center;
 }
 
 .title-head-name {
-    text-align: center;
+  text-align: center;
 }
 
 .title-content {
-    padding-bottom: 30px;
-    padding-top: 50px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  padding-bottom: 30px;
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 }
 
 .title-content-left {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .title-content-left > h6 {
-    margin-left: 15px;
-    width: 70px;
-    height: 9px;
-    text-align: center;
-    font: normal normal bold 18px/22px Bellota Text;
-    letter-spacing: 0.45px;
-    color: #524D4B;
-    text-transform: uppercase;
+  margin-left: 15px;
+
+  font: normal normal bold 18px/22px Bellota Text;
+  letter-spacing: 0.45px;
+  color: #524d4b;
+  text-transform: uppercase;
 }
 .title-content-right {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .title-content-right > p {
-    width: 100px;
-    height: 2px;
-    text-align: center;
-    font: normal normal bold 18px/22px Bellota Text;
-    letter-spacing: 0.45px;
-    color: #524D4B;
+  text-align: center;
+  font: normal normal bold 18px/22px Bellota Text;
+  letter-spacing: 0.45px;
+  color: #524d4b;
 }
 
 .title-content-right > strong {
-    width: 0px;
-    height: 10px;
-    text-align: end;
-    margin-right: 20px;
+  margin: 0 20px;
+  text-align: center;
 }
 
 .title-content-right > h6 {
-    width: 126px;
-    height: 6px;
-    text-align: center;
-    font: normal normal bold 18px/22px Bellota Text;
-    letter-spacing: 0.45px;
-    color: #524D4B;
-    text-transform: uppercase;
+  text-align: center;
+  font: normal normal bold 18px/22px Bellota Text;
+  letter-spacing: 0.45px;
+  color: #524d4b;
+  text-transform: uppercase;
 }
