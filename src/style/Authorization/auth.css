@@ -1,42 +1,96 @@
 @import "../../constants//Color/variable.css";
-.modal-wrapper {
+.signin-signup {
   background: var(--primary-background);
   left: 50%;
-  margin: 4rem auto;
-  width: 645px;
-  height: 635px;
-  padding: 28px 40px 56px 30px;
+  width: 70vw;
+  height: 500px;
+
   position: absolute;
   top: 10%;
   transition: all 0.5s ease;
 }
 
-.modal-header {
-  align-items: center;
+.signin-signup-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.content-right {
+  /* margin: 50px 0; */
+}
+
+.auth-form {
+  padding: 28px 30px 30px 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form-title {
+  font-size: 2.2rem;
   color: var(--text-title);
+}
+
+.form-input {
+  margin: 40px 0;
+}
+
+.input-field {
+  width: 100%;
+  background-color: #f0f0f0;
+  margin: 20px 0;
+  height: 50px;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  position: relative;
+  background-color: transparent;
+}
+
+.form-label {
+  font-size: 1rem;
+  color: var(--primary-text);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.input-field input {
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+  font-size: 18px;
+  color: var(--primary-text);
+}
+
+.form-submit {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.modal-content {
+.form-linking {
+  font-size: 1.2rem;
+  color: var(--primary-text);
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
 }
-
-.modal-body {
-  margin-bottom: 1rem;
+.auth-btn-submit {
+  height: 50px;
+  width: 150px;
+  background-color: var(--text-title);
+  color: white;
+  font-size: 16px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
 }
-
-.modal-body h4 {
-  font-size: 1.8rem;
-  color: #dd501d;
-}
-
-.modal-body p {
-  background: #eee;
-  color: #333;
-  font-size: 1rem;
-  margin: 1rem 0 2rem 0;
-}
-
 .modal-footer button {
   background: var(--text-title);
   border: none;

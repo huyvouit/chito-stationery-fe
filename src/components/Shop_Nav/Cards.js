@@ -1,43 +1,29 @@
-import React from 'react'
+import React from "react";
 import candy from "../../assets/Images/candy.jpg";
 import summer from "../../assets/Images/summer.jpg";
-import CardItems from './CardItems'
-import '../../style/Shop/Card.css';
+import CardItems from "./CardItems";
+import "../../style/Shop/Card.css";
 
 function Cards(props) {
-    return (
-        <>
-            <div className="groupCard">
-                <div className="groupCard-column">
-                    <CardItems src={summer} text="hiiiii" price="1000000000 VND" />
-                </div>
-                <div className="groupCard-column">
-                    <CardItems src={summer} text="hiiiii" price="1000000 VND" />
-                </div>
-                <div className="groupCard-column">
-                    <CardItems src={summer} text="hiiiii" price="1000000 VND" />
-                </div>
-                <div className="groupCard-column">
-                    <CardItems src={summer} text="hiiiii" price="1000000 VND" />
-                </div>
-                <div className="groupCard-column">
-                    <CardItems src={summer} text="hiiiii" price="1000000 VND" />
-                </div>
-                <div className="groupCard-column">
-                    <CardItems src={summer} text="hiiiii" price="1000000 VND" />
-                </div>
-                <div className="groupCard-column">
-                    <CardItems src={summer} text="hiiiii" price="1000000 VND" />
-                </div>
-                <div className="groupCard-column">
-                    <CardItems src={summer} text="hiiiii" price="1000000 VND" />
-                </div>
-                <div className="groupCard-column">
-                    <CardItems src={summer} text="hiiiii" price="1000000 VND" />
-                </div>
+  const { productList } = props;
+  return (
+    <>
+      <div className="groupCard">
+        {productList.map((item) => {
+          return (
+            <div className="groupCard-column">
+              <CardItems
+                key={item._id}
+                src={item.image}
+                price={item.price.$numberDecimal}
+                text={item.productName}
+              />
             </div>
-        </>
-    )
+          );
+        })}
+      </div>
+    </>
+  );
 }
 
-export default Cards
+export default Cards;

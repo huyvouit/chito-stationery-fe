@@ -1,29 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "../../style/Authorization/auth.css";
+//component
+import "./signin_form";
+import { SignInform } from "./signin_form";
+import "./signup_form";
+import { SignUpForm } from "./signup_form";
 export const AuthScreen = ({ show, close }) => {
+  const [isSignin, setIsSignin] = useState(true);
+
+  const handleIsSignIn = () => {
+    setIsSignin(!isSignin);
+  };
   return (
     <div
-      className="modal-wrapper"
+      className="signin-signup"
       style={{
-        transform: show ? "translate(-50%, 0vh)" : "translate(-50%,-100vh)",
+        transform: show ? "translate(-50%, 0vh)" : "translate(-50%,-1000px)",
         opacity: show ? "1" : "0",
       }}
     >
-      <div className="modal-header">
-        <h1>Sign in</h1>
-      </div>
-      <div className="modal-content">
-        <div className="modal-body">
-          s<h4>abc</h4>
-          <p>abc</p>
-        </div>
-        <div className="modal-footer">
-          <button onClick={close} className="btn-cancel">
-            Close
-          </button>
-        </div>
-      </div>
+      {isSignin ? (
+        <SignInform clickSignUp={handleIsSignIn} />
+      ) : (
+        <SignUpForm clickSignIn={handleIsSignIn} />
+      )}
     </div>
   );
 };
