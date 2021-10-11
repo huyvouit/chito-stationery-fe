@@ -7,7 +7,7 @@ import { ShopScreen } from "./components/Shop_Nav/shop_screen";
 import { ErrorPage } from "./components/Layout/error_page";
 import { Footer } from "./components/Layout/footer";
 import { Header } from "./components/Layout/header";
-import { AuthScreen } from "./components/Authorization/auth_screen";
+import { AuthScreen } from "./components/Authentication/auth_screen";
 function App() {
   const [show, setShow] = useState(false);
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "../../style/Authorization/auth.css";
+import "../../style/Authentication/auth.css";
 //component
 import "./signin_form";
 import { SignInform } from "./signin_form";

@@ -13,12 +13,12 @@ export const SignUpForm = ({ clickSignIn }) => {
   const [alert, setAlert] = useState(null);
 
   //function onChange Input Form
-  function onChangeRegisterForm(event) {
+  const onChangeRegisterForm = (event) =>
     setRegisterForm({
       ...registerForm,
       [event.target.name]: event.target.value,
     });
-  }
+
   //function post to server
   const registerUser = async (userForm) => {
     try {
