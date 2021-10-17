@@ -1,8 +1,11 @@
 .card {
+    overflow: hidden;
     margin-bottom: 30px;
-    padding: 32px;
+    padding-top: 32.6px;
+    padding-left: 35.75px;
+    padding-right: 35.75px;
     width: 286px;
-    height: 458px;
+    height: 427.4px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
 }
 
@@ -13,14 +16,19 @@
     transform: scale(1.03);
     transition: all 0.5s ease;
 }
+
 .ItemImg {
-    width: 220px;
-    height: 220px;
+    width: 214.5px;
+    height: 214.5px;
+    object-fit: cover;
 }
 
+.ItemTxt {
+    background-color: cyan;
+}
 
 .ItemTxt > h5 {
-    padding-top: 20px;
+    background-color: crimson;
     font: normal normal bold 24px/30px Bellota Text;
     letter-spacing: 0.6px;
     color: #524D4B;
@@ -28,7 +36,7 @@
 }
 
 .ItemTxt > p {
-    padding-top: 40%;
+    padding-top: 0px;
     font: normal normal bold 24px/30px Bellota Text;
     letter-spacing: 0.6px;
     color: #7C7B7B;
