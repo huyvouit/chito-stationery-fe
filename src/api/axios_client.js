@@ -9,13 +9,21 @@ const axiosClient = axios.create({
   headers: {
     "content-type": "application/json",
   },
-  timeout: 30000,
+  // timeout: 30000,
   paramsSerializer: (params) => queryString.stringify(params),
 });
-axiosClient.interceptors.request.use(async (config) => {
-  // Handle token here ...
-  return config;
-});
+axiosClient.interceptors.request.use(
+  async (config) => {
+    // Handle token here ...
+    const token = localStorage.getItem("chito_stationery");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (err) => err
+);
+
 axiosClient.interceptors.response.use(
   (response) => {
     return response;

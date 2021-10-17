@@ -1,8 +1,13 @@
-import React, { useState } from "react";
-import authApi from "../../api/auth_api";
-import AlertMessage from "../Layout/message";
-
+import React, { useContext, useState } from "react";
+// import authApi from "../../api/auth_api";
+import { AuthContext } from "../../contexts/auth_context";
+// import AlertMessage from "../Layout/message";
+import { Validation } from "../../Helper/validation";
+import { toast } from "react-toastify";
 export const SignUpForm = ({ clickSignIn }) => {
+  //authContext
+  const { registerUser } = useContext(AuthContext);
+
   const [registerForm, setRegisterForm] = useState({
     username: "",
     email: "",
@@ -10,7 +15,7 @@ export const SignUpForm = ({ clickSignIn }) => {
   });
 
   const { username, email, password } = registerForm;
-  const [alert, setAlert] = useState(null);
+  const [errors, setErrors] = useState({});
 
   //function onChange Input Form
   const onChangeRegisterForm = (event) =>
@@ -19,87 +24,96 @@ export const SignUpForm = ({ clickSignIn }) => {
       [event.target.name]: event.target.value,
     });
 
-  //function post to server
-  const registerUser = async (userForm) => {
-    try {
-      const response = await authApi.postSignUp(userForm);
-      if (response.data) {
-        console.log(`data: ${response.data}`);
-      }
-
-      return response.data;
-    } catch (error) {
-      console.log(error.response.data);
-      if (error.response.data) return error.response.data;
-    }
-  };
+  // const checkValidate = () => {
+  //   setErrors(Validation(registerForm));
+  //   console.log(Object.keys(errors).length);
+  //   console.log(errors);
+  //   console.log(registerForm);
+  //   if (Object.keys(errors).length > 0) {
+  //     return false;
+  //   } else {
+  //     return true;
+  //   }
+  // };
 
   //function submit form
   const register = async (event) => {
     event.preventDefault();
+    setErrors(Validation(registerForm));
+    console.log(errors);
+    if (Object.keys(errors).length > 0) return;
 
     try {
       const registerData = await registerUser(registerForm);
-      if (registerData) {
-        console.log("thanh cong");
-        setAlert({ type: "success", message: `Successfully. ${registerData}` });
-        setTimeout(() => setAlert(null), 6000);
-      }
+
+      toast.success(registerData, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     } catch (error) {
       console.log(error);
-      setAlert({ type: "danger", message: { error } });
-      setTimeout(() => setAlert(null), 5000);
+      toast.error(error, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     }
   };
 
   return (
     <div className="signin-signup-container">
-      <div className="auth-image">
-        <AlertMessage info={alert} />
-      </div>
-      <div className="content-right">
-        <form className="auth-form" onSubmit={register}>
-          <h2 className="form-title">Sign up</h2>
-          <div className="form-input">
-            <div className="input-field">
-              <p className="form-label">Username*</p>
-              <input
-                type="text"
-                name="username"
-                required
-                value={username}
-                onChange={onChangeRegisterForm}
-              />
-            </div>
-            <div className="input-field">
-              <div className="form-label">Email*</div>
-              <input
-                type="email"
-                name="email"
-                required
-                value={email}
-                onChange={onChangeRegisterForm}
-              />
-            </div>
-            <div className="input-field">
-              <div className="form-label">Password*</div>
-              <input
-                type="password"
-                name="password"
-                required
-                value={password}
-                onChange={onChangeRegisterForm}
-              />
-            </div>
+      <form className="auth-form" onSubmit={register}>
+        <h2 className="form-title">Sign up</h2>
+        <div className="form-input">
+          <div className="input-field">
+            <p className="form-label">Username*</p>
+            <input
+              type="text"
+              name="username"
+              value={username}
+              onChange={onChangeRegisterForm}
+            />
+            {errors.username && (
+              <p className="validate-error">{errors.username}</p>
+            )}
           </div>
-          <div className="form-submit">
-            <p className="form-linking" onClick={clickSignIn}>
-              back to sign in
-            </p>
-            <input type="submit" className="auth-btn-submit" value="Sign up" />
+          <div className="input-field">
+            <div className="form-label">Email*</div>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={onChangeRegisterForm}
+            />
+            {errors.email && <p className="validate-error">{errors.email}</p>}
           </div>
-        </form>
-      </div>
+          <div className="input-field">
+            <div className="form-label">Password*</div>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={onChangeRegisterForm}
+            />
+            {errors.password && (
+              <p className="validate-error">{errors.password}</p>
+            )}
+          </div>
+        </div>
+        <div className="form-submit">
+          <p className="form-linking" onClick={clickSignIn}>
+            back to sign in
+          </p>
+          <input type="submit" className="auth-btn-submit" value="Sign up" />
+        </div>
+      </form>
     </div>
   );
 };

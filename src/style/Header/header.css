@@ -50,7 +50,7 @@ header {
 .navbar-icon {
   display: grid;
   grid-template-columns: repeat(3, auto);
-  grid-gap: 35px;
+  grid-gap: 15px;
 }
 
 .image-icon {
