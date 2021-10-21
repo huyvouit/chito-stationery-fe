@@ -32,6 +32,6 @@ export const Validation = (registerForm) => {
     errors.password =
       "Password must have character, number and at least 6 characters";
   }
-
+  console.log("valie err:", errors);
   return errors;
 };

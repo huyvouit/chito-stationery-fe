@@ -24,52 +24,55 @@ export const SignUpForm = ({ clickSignIn }) => {
       [event.target.name]: event.target.value,
     });
 
-  // const checkValidate = () => {
-  //   setErrors(Validation(registerForm));
-  //   console.log(Object.keys(errors).length);
-  //   console.log(errors);
-  //   console.log(registerForm);
-  //   if (Object.keys(errors).length > 0) {
-  //     return false;
-  //   } else {
-  //     return true;
-  //   }
-  // };
-
+  console.log(`err: ${errors}`);
   //function submit form
   const register = async (event) => {
     event.preventDefault();
-    setErrors(Validation(registerForm));
-    console.log(errors);
-    if (Object.keys(errors).length > 0) return;
+
+    if (
+      // Validation(registerForm) &&
+      Object.keys(Validation(registerForm)).length !== 0
+    ) {
+      console.log("Validate Fail!!");
+      setErrors(Validation(registerForm));
+      return;
+    }
 
     try {
+      setErrors(Validation(registerForm));
       const registerData = await registerUser(registerForm);
-
-      toast.success(registerData, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
+      if (registerData.success) {
+        toast.success(registerData, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        setRegisterForm({
+          username: "",
+          email: "",
+          password: "",
+        });
+      } else {
+        toast.error(registerData.error, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      }
     } catch (error) {
-      console.log(error);
-      toast.error(error, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
+      throw error;
     }
   };
 
   return (
     <div className="signin-signup-container">
-      <form className="auth-form" onSubmit={register}>
+      <form className="auth-form">
         <h2 className="form-title">Sign up</h2>
         <div className="form-input">
           <div className="input-field">
@@ -80,7 +83,7 @@ export const SignUpForm = ({ clickSignIn }) => {
               value={username}
               onChange={onChangeRegisterForm}
             />
-            {errors.username && (
+            {errors["username"] && ( //will work even if data has not declared propertyName
               <p className="validate-error">{errors.username}</p>
             )}
           </div>
@@ -92,7 +95,9 @@ export const SignUpForm = ({ clickSignIn }) => {
               value={email}
               onChange={onChangeRegisterForm}
             />
-            {errors.email && <p className="validate-error">{errors.email}</p>}
+            {errors["email"] && (
+              <p className="validate-error">{errors.email}</p>
+            )}
           </div>
           <div className="input-field">
             <div className="form-label">Password*</div>
@@ -102,7 +107,7 @@ export const SignUpForm = ({ clickSignIn }) => {
               value={password}
               onChange={onChangeRegisterForm}
             />
-            {errors.password && (
+            {errors["password"] && (
               <p className="validate-error">{errors.password}</p>
             )}
           </div>
@@ -111,7 +116,9 @@ export const SignUpForm = ({ clickSignIn }) => {
           <p className="form-linking" onClick={clickSignIn}>
             back to sign in
           </p>
-          <input type="submit" className="auth-btn-submit" value="Sign up" />
+          <button className="auth-btn-submit" onClick={register}>
+            Sign up
+          </button>
         </div>
       </form>
     </div>

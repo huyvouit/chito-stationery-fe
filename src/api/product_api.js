@@ -6,9 +6,14 @@ const productApi = {
     return axiosClient.get(url);
   },
 
-  getById: (id) => {
-    const url = `/products/${id}`;
-    return axiosClient.get(url);
+  getById: (params) => {
+    const url = `/product`;
+    return axiosClient.get(url, { params });
+  },
+
+  getBySearch: (params) => {
+    const url = `/product/search`;
+    return axiosClient.get(url, { params });
   },
 };
 

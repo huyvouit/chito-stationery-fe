@@ -41,7 +41,7 @@ function App() {
             <Route exact path="/shop" component={ShopScreen} />
             <Route exact path="*" component={ErrorPage} />
           </Switch>
-          <SearchBox />
+          {showSearch && <SearchBox />}
           <AuthScreen />
           <Footer />
         </div>

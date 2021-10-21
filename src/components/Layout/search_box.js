@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 //context
 import { PopUpContext } from "../../contexts/popup_context";
@@ -6,11 +6,50 @@ import { PopUpContext } from "../../contexts/popup_context";
 import "../../style/Layout/search_box.css";
 import iconClose from "../../assets/Icons/cancel.svg";
 //component
+import productApi from "../../api/product_api";
 
 export const SearchBox = () => {
-  //   const [isSignin, setIsSignin] = useState(true);
+  const { showSearch, closePopUp } = useContext(PopUpContext);
 
-  const { showSearch } = useContext(PopUpContext);
+  // state lưu các input search
+  const [searchSubmit, setSearchSubmit] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+  //ds sản phẩm trả về
+  const [productSearch, setProductSearch] = useState([]);
+  const debounce = useRef(null);
+
+  useEffect(() => {
+    console.log("useEfect search");
+    const fetchProductBySearch = async () => {
+      try {
+        const param = {
+          q: searchSubmit,
+        };
+
+        const response = await productApi.getBySearch(param);
+        // console.log(response.data.searchedProducts);
+        setProductSearch(response.data.searchedProducts);
+        console.log(productSearch);
+      } catch (error) {
+        console.log("Failed to fetch product list: ", error);
+      }
+    };
+    fetchProductBySearch();
+  }, [searchSubmit]);
+
+  //function handle input search
+  const handleSearchInput = (e) => {
+    const value = e.target.value;
+    console.log("sdsd");
+    setSearchInput(value);
+    if (debounce.current) {
+      // console.log("clear");
+      clearTimeout(debounce.current);
+    }
+    debounce.current = setTimeout(() => {
+      setSearchSubmit(value);
+    }, 900);
+  };
 
   return (
     <div
@@ -32,13 +71,34 @@ export const SearchBox = () => {
               width="20px"
               height="20px"
               alt="cart icon"
+              onClick={closePopUp}
             />
           </div>
           <form className="search-input">
-            <input type="text" />
+            <input
+              type="text"
+              value={searchInput}
+              onChange={handleSearchInput}
+              autoFocus
+            />
           </form>
         </div>
-        <div className="search-result"></div>
+        <div className="search-result">
+          <div className="show-product-field">
+            {productSearch.map((item, index) => (
+              <div key={item._id} className="product-index">
+                <div className="product-image">
+                  <img className="item-image" src={item.image} alt="Avatar" />
+                </div>
+                <div className="product-info">
+                  <h4 className="info-name">{item.productName}</h4>
+                  <p className="info-desc">{item.description}</p>
+                  <p className="info-price">{item.price.$numberDecimal}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

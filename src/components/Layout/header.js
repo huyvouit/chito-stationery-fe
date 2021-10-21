@@ -54,16 +54,22 @@ export const Header = () => {
                 alt="cart icon"
               />
             </Link>
-            <div className="item-icon">
-              <img
-                className="image-icon "
-                src={userIcon}
-                width="20px"
-                height="20px"
-                alt="user icon"
-                onClick={() => setShowPopUp(true)}
-              />
-            </div>
+            {false ? (
+              <div className="item-icon">
+                <div className="avatar-user"></div>
+              </div>
+            ) : (
+              <div className="item-icon">
+                <img
+                  className="image-icon "
+                  src={userIcon}
+                  width="20px"
+                  height="20px"
+                  alt="user icon"
+                  onClick={() => setShowPopUp(true)}
+                />
+              </div>
+            )}
           </li>
         </ul>
       </div>

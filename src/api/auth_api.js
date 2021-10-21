@@ -10,6 +10,11 @@ const authApi = {
     const url = "/user/login";
     return axiosClient.post(url, body);
   },
+
+  verifyUser: () => {
+    const url = "/user/auth";
+    return axiosClient.get(url);
+  },
 };
 
 export default authApi;

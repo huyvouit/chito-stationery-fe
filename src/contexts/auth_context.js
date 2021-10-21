@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 // import { authReducer } from '../reducers/authReducer'
 import { TOKEN_NAME } from "../constants/constant";
 import authApi from "../api/auth_api";
@@ -6,46 +6,31 @@ import authApi from "../api/auth_api";
 export const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
-  // const [authState, dispatch] = useReducer(authReducer, {
-  // 	authLoading: true,
-  // 	isAuthenticated: false,
-  // 	user: null
-  // })
+  //Authenticate user
+  const loadUser = async () => {
+    console.log("checking user");
+    try {
+      const response = await authApi.verifyUser();
+      if (response.data.success) {
+        console.log("Verify token");
+      }
+    } catch (error) {
+      localStorage.removeItem(TOKEN_NAME);
+      console.log("faild verify");
+    }
+  };
 
-  // Authenticate user
-  // const loadUser = async () => {
-  // 	if (localStorage[LOCAL_STORAGE_TOKEN_NAME]) {
-  // 		setAuthToken(localStorage[LOCAL_STORAGE_TOKEN_NAME])
-  // 	}
-
-  // 	try {
-  // 		const response = await axios.get(`${apiUrl}/auth`)
-  // 		if (response.data.success) {
-  // 			dispatch({
-  // 				type: 'SET_AUTH',
-  // 				payload: { isAuthenticated: true, user: response.data.user }
-  // 			})
-  // 		}
-  // 	} catch (error) {
-  // 		localStorage.removeItem(LOCAL_STORAGE_TOKEN_NAME)
-  // 		setAuthToken(null)
-  // 		dispatch({
-  // 			type: 'SET_AUTH',
-  // 			payload: { isAuthenticated: false, user: null }
-  // 		})
-  // 	}
-  // }
-
-  // useEffect(() => loadUser(), [])
+  useEffect(() => loadUser(), []);
 
   // Login
   const loginUser = async (userForm) => {
     try {
       const response = await authApi.postSignIn(userForm);
-
-      localStorage.setItem(TOKEN_NAME, response.data.accessToken);
+      console.log(response.data.accessToken);
+      if (response.data.success)
+        localStorage.setItem(TOKEN_NAME, response.data.accessToken);
       console.log(`data: ${response.data}`);
-      // await loadUser()
+      await loadUser();
 
       return response.data;
     } catch (error) {

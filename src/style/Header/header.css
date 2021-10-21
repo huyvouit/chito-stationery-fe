@@ -51,8 +51,20 @@ header {
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-gap: 15px;
+  align-items: center;
 }
 
 .image-icon {
   cursor: pointer;
+}
+
+.item-icon {
+  margin-right: 17px;
+}
+
+.avatar-user {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 100rem;
 }
