@@ -8,9 +8,7 @@ import { ErrorPage } from "./components/Layout/error_page";
 import { Footer } from "./components/Layout/footer";
 import { Header } from "./components/Layout/header";
 import { AuthScreen } from "./components/Authentication/auth_screen";
-
 import { About } from "./components/About_Nav/about_screen";
-
 
 //context
 import AuthContextProvider from "./contexts/auth_context";

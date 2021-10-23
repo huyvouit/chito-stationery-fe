@@ -8,8 +8,8 @@ export const About = () => {
         <>
             <div className="about">
                 {/* <Delivery/> */}
-                {/* <Terms/> */}
-                <Privacy/>
+                <Terms/>
+                {/* <Privacy/> */}
             </div>
         </>
     )
