@@ -10,7 +10,7 @@ import DropDown from "../Shop_Dropdown/DropDown";
 
 export const Header = ({ onClickUser }) => {
   const [click, setClick] = useState(false);
-  const [dropDown, setDropdown]
+  // const [dropDown, setDropdown]
 
   const handleClick = () => setClick(!click);
 
@@ -33,7 +33,7 @@ export const Header = ({ onClickUser }) => {
               SHOP
             </Link>
           </li>
-          {dropDown && <DropDown />}
+          {/* {dropDown && <DropDown />} */}
           <li className="nav-item">
             <Link to="/about" className="nav-link">
               ABOUT
