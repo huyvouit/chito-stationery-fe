@@ -29,9 +29,11 @@ header {
   font-weight: bold;
   margin-left: 7px;
 }
-/* .nav-link {
+
+.nav-link {
   font-size: 20px;
-} */
+}
+
 .navbar-logo:hover,
 .nav-link:hover,
 .nav-link:focus {
