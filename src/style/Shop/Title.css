@@ -8,6 +8,7 @@
 
 .title-head-name {
   text-align: center;
+  color: var(--text-title);
 }
 
 .title-content {
