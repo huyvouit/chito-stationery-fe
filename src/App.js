@@ -12,7 +12,6 @@ import { About } from "./components/About_Nav/about_screen";
 //context
 import AuthContextProvider from "./contexts/auth_context";
 import { PopUpContext } from "./contexts/popup_context";
-
 import { ToastContainer } from "react-toastify";
 import { SearchBox } from "./components/Layout/search_box";
 function App() {
@@ -41,6 +40,8 @@ function App() {
             <Route exact path="/" component={HomeScreen} />
             <Route exact path="/shop" component={ShopScreen} />
             <Route exact path="/about" component={About} />
+            {/* <Route exact path="/detail/:id" component={ErrorPage} /> */}
+            <Route exact path="*" component={ErrorPage} />
           </Switch>
           {showSearch && <SearchBox />}
           <AuthScreen />

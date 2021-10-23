@@ -5,10 +5,15 @@ import cartIcon from "../../assets/Icons/shopping-basket.svg";
 import searchIcon from "../../assets/Icons/search-interface-symbol.svg";
 import "../../style/Header/header.css";
 import { PopUpContext } from "../../contexts/popup_context";
-//context
+import DropDown from "../Shop_Dropdown/DropDown";
 
-export const Header = () => {
+export const Header = ({ onClickUser }) => {
   const { setShowPopUp, setShowSearch } = useContext(PopUpContext);
+  const [click, setClick] = useState(false);
+  // const [dropDown, setDropdown]
+
+  const handleClick = () => setClick(!click);
+
   return (
     <header>
       <div className="navigation-bar">

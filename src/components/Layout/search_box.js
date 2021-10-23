@@ -29,18 +29,16 @@ export const SearchBox = () => {
         const response = await productApi.getBySearch(param);
         // console.log(response.data.searchedProducts);
         setProductSearch(response.data.searchedProducts);
-        console.log(productSearch);
       } catch (error) {
         console.log("Failed to fetch product list: ", error);
       }
     };
     fetchProductBySearch();
   }, [searchSubmit]);
-
+  console.log("alo:", productSearch);
   //function handle input search
   const handleSearchInput = (e) => {
     const value = e.target.value;
-    console.log("sdsd");
     setSearchInput(value);
     if (debounce.current) {
       // console.log("clear");
@@ -85,18 +83,22 @@ export const SearchBox = () => {
         </div>
         <div className="search-result">
           <div className="show-product-field">
-            {productSearch.map((item, index) => (
-              <div key={item._id} className="product-index">
-                <div className="product-image">
-                  <img className="item-image" src={item.image} alt="Avatar" />
+            {productSearch.length > 0 ? (
+              productSearch.slice(0, 4).map((item) => (
+                <div key={item._id} className="product-index">
+                  <div className="product-image">
+                    <img className="item-image" src={item.image} alt="Avatar" />
+                  </div>
+                  <div className="product-info">
+                    <h4 className="info-name">{item.productName}</h4>
+                    <p className="info-desc">{item.description}</p>
+                    <p className="info-price">{item.price.$numberDecimal}</p>
+                  </div>
                 </div>
-                <div className="product-info">
-                  <h4 className="info-name">{item.productName}</h4>
-                  <p className="info-desc">{item.description}</p>
-                  <p className="info-price">{item.price.$numberDecimal}</p>
-                </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <div>No found product</div>
+            )}
           </div>
         </div>
       </div>

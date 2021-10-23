@@ -56,6 +56,9 @@
   margin-bottom: 10px;
 }
 
+.product-index:hover {
+  background-color: #e9e7e4;
+}
 .product-image {
   width: 100%;
   height: 100%;
