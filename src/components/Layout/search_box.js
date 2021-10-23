@@ -97,7 +97,7 @@ export const SearchBox = () => {
                 </div>
               ))
             ) : (
-              <div>No found product</div>
+              <div>What are you looking for?</div>
             )}
           </div>
         </div>
