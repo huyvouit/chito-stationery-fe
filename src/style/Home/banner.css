@@ -1,12 +1,12 @@
 .home-banner-top {
   position: relative;
-  height: 1080px;
+
   width: 100%;
   overflow: hidden;
 }
 
 .image-banner {
   width: 100%;
-  height: auto;
+  height: 500px;
   overflow: hidden;
 }

@@ -7,7 +7,7 @@ import { ShopScreen } from "./components/Shop_Nav/shop_screen";
 import { ErrorPage } from "./components/Layout/error_page";
 import { Footer } from "./components/Layout/footer";
 import { Header } from "./components/Layout/header";
-import { AuthScreen } from "./components/Authorization/auth_screen";
+import { AuthScreen } from "./components/Authentication/auth_screen";
 function App() {
   const [show, setShow] = useState(false);
 
@@ -34,8 +34,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={HomeScreen} />
             <Route exact path="/shop" component={ShopScreen} />
-            <Route exact path="/:sonething" component={ErrorPage} />
-            <Route exact path="/:sonething/:sonething" component={ErrorPage} />
+            <Route exact path="*" component={ErrorPage} />
           </Switch>
           <AuthScreen show={show} close={closeModalHandler} />
           <Footer />

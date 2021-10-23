@@ -61,7 +61,6 @@ export const Header = ({ onClickUser }) => {
                 width="34px"
                 height="34px"
                 alt="React Logo"
-                on
               />
             </Link>
             <div className="item-icon">

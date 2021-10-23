@@ -3,5 +3,5 @@
   height: 100%;
   position: fixed;
   transition: all 1.3s;
-  width: 1920px;
+  width: 100vw;
 }
