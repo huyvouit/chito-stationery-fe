@@ -1,10 +1,9 @@
-@import "../../constants//Color/variable.css";
+@import "../../constants/Color/variable.css";
 .signin-signup {
   background: var(--primary-background);
   left: 50%;
-  width: 70vw;
+  width: 50vw;
   height: 500px;
-
   position: absolute;
   top: 10%;
   transition: all 0.5s ease;
@@ -13,16 +12,10 @@
 .signin-signup-container {
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-columns: 40% 60%;
-}
-
-.content-right {
-  /* margin: 50px 0; */
 }
 
 .auth-form {
-  padding: 28px 30px 30px 0;
+  padding: 28px 30px 28px 30px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -39,32 +32,31 @@
 }
 
 .input-field {
-  width: 100%;
-  background-color: #f0f0f0;
-  margin: 20px 0;
-  height: 50px;
+  background-color: transparent;
   display: grid;
   grid-template-rows: 50% 50%;
+  height: 50px;
+  margin: 20px 0;
   position: relative;
-  background-color: transparent;
+  width: 100%;
 }
 
 .form-label {
-  font-size: 1rem;
   color: var(--primary-text);
-  text-transform: uppercase;
+  font-size: 1rem;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 .input-field input {
-  border-left: 0;
-  border-top: 0;
-  border-right: 0;
-  border-bottom: 1px solid #999;
-  outline: none;
   background: transparent;
-  font-size: 18px;
+  border-bottom: 1px solid #999;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
   color: var(--primary-text);
+  font-size: 18px;
+  outline: none;
 }
 
 .form-submit {
@@ -74,22 +66,22 @@
 }
 
 .form-linking {
-  font-size: 1.2rem;
   color: var(--primary-text);
-  text-transform: uppercase;
-  font-weight: bold;
   cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 .auth-btn-submit {
-  height: 50px;
-  width: 150px;
   background-color: var(--text-title);
-  color: white;
-  font-size: 16px;
-  font-size: 1.2rem;
-  text-transform: uppercase;
   border: none;
+  color: white;
   cursor: pointer;
+  font-size: 1.2rem;
+  font-size: 16px;
+  height: 50px;
+  text-transform: uppercase;
+  width: 150px;
 }
 .modal-footer button {
   background: var(--text-title);

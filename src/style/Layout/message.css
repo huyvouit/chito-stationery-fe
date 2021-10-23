@@ -1,0 +1,8 @@
+.message {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  width: 200px;
+  height: 100px;
+  background-color: red;
+}

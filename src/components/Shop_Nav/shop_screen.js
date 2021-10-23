@@ -17,7 +17,7 @@ export const ShopScreen = () => {
     try {
       const response = await productApi.getAll();
       console.log(productList);
-      console.log(response.data.products);
+      console.log(response.data);
       setProductList(response.data.products);
       console.log(productList);
     } catch (error) {

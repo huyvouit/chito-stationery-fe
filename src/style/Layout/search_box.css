@@ -1,0 +1,81 @@
+@import "../../constants/Color/variable.css";
+.search-box {
+  background: var(--primary-background);
+  left: 50%;
+  transform: translate(-50%, 0vh);
+  width: 760px;
+  height: auto;
+  position: fixed;
+  top: 20px;
+  transition: all 0.5s ease;
+}
+.icon-close-search {
+  position: absolute;
+}
+.search-main {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.search-input {
+  width: 100%;
+  background-color: transparent;
+}
+
+.search-input input {
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+  padding-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--primary-text);
+  width: 100%;
+}
+
+.search-result {
+  /* height: 200px; */
+  width: 100%;
+  margin: 20px 0 0 0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-index {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  margin-bottom: 10px;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+}
+
+.item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: fill;
+}
+
+.product-info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.info-name {
+  font-weight: bold;
+  font-size: 18px;
+}

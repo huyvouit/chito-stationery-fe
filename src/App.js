@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import "./style/Layout/back_drop.css";
@@ -8,40 +8,50 @@ import { ErrorPage } from "./components/Layout/error_page";
 import { Footer } from "./components/Layout/footer";
 import { Header } from "./components/Layout/header";
 import { AuthScreen } from "./components/Authentication/auth_screen";
-import { About } from "./components/About_Nav/about_screen";
-function App() {
-  const [show, setShow] = useState(false);
 
-  const closeModalHandler = () => setShow(false);
+import { About } from "./components/About_Nav/about_screen";
+
+
+//context
+import AuthContextProvider from "./contexts/auth_context";
+import { PopUpContext } from "./contexts/popup_context";
+
+
+import { ToastContainer } from "react-toastify";
+import { SearchBox } from "./components/Layout/search_box";
+function App() {
+  const { showPopUp, showSearch, closePopUp } = useContext(PopUpContext);
 
   useEffect(() => {
-    if (show) {
+    if (showPopUp || showSearch) {
       document.body.style.overflow = "hidden";
     }
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [show]);
+  }, [showPopUp, showSearch]);
 
   return (
-    <div className="App">
-      <Router>
+    <Router>
+      <AuthContextProvider>
         <div>
-          {show ? (
-            <div onClick={closeModalHandler} className="back-drop"></div>
+          {showPopUp || showSearch ? (
+            <div onClick={closePopUp} className="back-drop"></div>
           ) : null}
 
-          <Header onClickUser={() => setShow(true)} />
+          <Header />
+          <ToastContainer />
           <Switch>
             <Route exact path="/" component={HomeScreen} />
             <Route exact path="/shop" component={ShopScreen} />
             <Route exact path="/about" component={About} />
           </Switch>
-          <AuthScreen show={show} close={closeModalHandler} />
+          {showSearch && <SearchBox />}
+          <AuthScreen />
           <Footer />
         </div>
-      </Router>
-    </div>
+      </AuthContextProvider>
+    </Router>
   );
 }
 
