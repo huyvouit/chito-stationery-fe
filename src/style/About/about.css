@@ -1,20 +1,29 @@
-.delivery_wrapper {
+.about_wrapper {
     margin-left: 206px;
     margin-right: 206px;
     margin-top: 30px;
     margin-bottom: 80px;
 }
 
-.delivery_title {
+.about_title {
     color: var(--text-title);
     text-align: center;
 }
 
-.delivery_content {
+.about_content {
     margin-top: 50px;
 }
 
-.delivery_subwrapper {
+.about_subwrapper {
     margin-top: 32px;
     line-height: 1.5;
+}
+
+/* Terms */
+.about_link {
+    padding-right: 19px;
+    background: url(../../assets/Icons/external-link.svg) no-repeat 100% 0;
+    background-size: 16px 16px;
+    text-decoration: none;
+    color: var(--text-title);
 }
