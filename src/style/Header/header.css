@@ -1,19 +1,22 @@
 @import "../../constants/Color/variable.css";
 header {
-  height: 146px;
-  padding: 40px 70px 18px;
+  height: 120px;
+  padding: 20px 20px 18px;
+  width: 100%;
+  /* display: inline-block; */
 }
 .navigation-bar {
-  height: 88px;
-
+  height: 60px;
+  max-width: 1280px;
+  margin: 0 auto;
   opacity: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.navbar-left {
+/* .navbar-left {
   height: 70px;
-}
+} */
 .navbar-logo,
 .nav-link {
   color: #966a57;
@@ -22,13 +25,13 @@ header {
 }
 
 .navbar-logo {
-  font-size: 60px;
+  font-size: 45px;
   font-weight: bold;
   margin-left: 7px;
 }
-.nav-link {
-  font-size: 25px;
-}
+/* .nav-link {
+  font-size: 20px;
+} */
 .navbar-logo:hover,
 .nav-link:hover,
 .nav-link:focus {

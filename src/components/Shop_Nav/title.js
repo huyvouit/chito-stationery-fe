@@ -17,6 +17,7 @@ function Title(props) {
                             width="34px"
                             height="34px"
                             alt="React Logo"
+                            onClick={props.onClickFilter}
                         />
                         <h6>FILTERS</h6>
                     </div>

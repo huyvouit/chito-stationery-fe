@@ -8,7 +8,8 @@ function CardItems(props) {
                 <img className="ItemImg" src={props.src} alt="Avatar" />
                 <div className="ItemTxt">
                     <h5>{props.text}</h5>
-                    <p>{props.price}</p>
+                    <p>{props.description}</p>
+                    <h6>{props.price} VNĐ</h6>
                 </div>
             </div>
         </>

@@ -1,0 +1,11 @@
+@import "../../constants//Color/variable.css";
+.filter {
+  background: var(--primary-background);
+  left: 0;
+  width: 25vw;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  transition: all 0.5s ease;
+}

@@ -1,58 +1,58 @@
-  .title-head {
-    height: 63px;
-    align-items: center;
-  }
-  
-  .title-head-name {
-    text-align: center;
-    font: normal normal normal 50px/63px Bellota Text;
-    letter-spacing: 1.25px;
-    color: #966A57;
-    text-transform: uppercase;
-  }
-  
-  .title-content {
-    padding-top: 9px;
-    padding-bottom: 5px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-  }
-  
-  .title-content-left {
-    display: flex;
-    align-items: center;
-  }
-  .title-content-left > h6 {
-    margin-left: 15px;
-    font: normal normal bold 18px/22px Bellota Text;
-    letter-spacing: 0.45px;
-    color: #524d4b;
-    text-transform: uppercase;
-  }
+.title {
+  padding-top: 30px;
+}
 
-  .title-content-right {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .title-content-right > p {
-    text-align: center;
-    font: normal normal bold 18px/22px Bellota Text;
-    letter-spacing: 0.45px;
-    color: #524d4b;
-  }
-  
-  .title-content-right > strong {
-    margin: 0 20px;
-    text-align: center;
-  }
-  
-  .title-content-right > h6 {
-    text-align: center;
-    font: normal normal bold 18px/22px Bellota Text;
-    letter-spacing: 0.45px;
-    color: #524d4b;
-    text-transform: uppercase;
-  }
+.title-head {
+  align-items: center;
+}
+
+.title-head-name {
+  text-align: center;
+}
+
+.title-content {
+  padding-bottom: 30px;
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.title-content-left {
+  display: flex;
+  align-items: center;
+}
+
+.title-content-left > h6 {
+  margin-left: 15px;
+
+  font: normal normal bold 18px/22px Bellota Text;
+  letter-spacing: 0.45px;
+  color: #524d4b;
+  text-transform: uppercase;
+}
+.title-content-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-content-right > p {
+  text-align: center;
+  font: normal normal bold 18px/22px Bellota Text;
+  letter-spacing: 0.45px;
+  color: #524d4b;
+}
+
+.title-content-right > strong {
+  margin: 0 20px;
+  text-align: center;
+}
+
+.title-content-right > h6 {
+  text-align: center;
+  font: normal normal bold 18px/22px Bellota Text;
+  letter-spacing: 0.45px;
+  color: #524d4b;
+  text-transform: uppercase;
+}
