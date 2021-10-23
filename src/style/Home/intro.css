@@ -20,13 +20,12 @@
   max-width: 75%;
 }
 .intro-title-name {
-  font-size: 50px;
   text-transform: uppercase;
   color: var(--text-title);
 }
 
 .intro-content-text {
-  font-size: 27px;
+  font-size: 18px;
   line-height: 1.2;
   letter-spacing: 0.8px;
 }
