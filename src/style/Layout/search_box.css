@@ -54,6 +54,7 @@
   display: grid;
   grid-template-columns: 20% 80%;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .product-index:hover {
