@@ -50,6 +50,7 @@ export const SignUpForm = ({ clickSignIn }) => {
           pauseOnHover: true,
           draggable: true,
         });
+
         setRegisterForm({
           username: "",
           email: "",
@@ -64,6 +65,7 @@ export const SignUpForm = ({ clickSignIn }) => {
           pauseOnHover: true,
           draggable: true,
         });
+        // clickSignIn();
       }
     } catch (error) {
       throw error;

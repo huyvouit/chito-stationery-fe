@@ -39,6 +39,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={HomeScreen} />
             <Route exact path="/shop" component={ShopScreen} />
+            {/* <Route exact path="/detail/:id" component={ErrorPage} /> */}
             <Route exact path="*" component={ErrorPage} />
           </Switch>
           {showSearch && <SearchBox />}

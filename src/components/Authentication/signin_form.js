@@ -2,11 +2,12 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/auth_context";
 // import AlertMessage from "../Layout/message";
 import { toast } from "react-toastify";
+import { PopUpContext } from "../../contexts/popup_context";
 
 export const SignInform = ({ clickSignUp }) => {
   // Context
   const { loginUser } = useContext(AuthContext);
-
+  const { setShowPopUp } = useContext(PopUpContext);
   // Local state
   const [loginForm, setLoginForm] = useState({
     email: "",
@@ -29,16 +30,17 @@ export const SignInform = ({ clickSignUp }) => {
       if (loginData.success) {
         toast.success(loginData.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
         });
+        setShowPopUp(false);
       } else {
         toast.error(loginData.error, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
