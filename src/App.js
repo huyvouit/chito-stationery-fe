@@ -8,10 +8,10 @@ import { ErrorPage } from "./components/Layout/error_page";
 import { Footer } from "./components/Layout/footer";
 import { Header } from "./components/Layout/header";
 import { AuthScreen } from "./components/Authentication/auth_screen";
+import { About } from "./components/About_Nav/about_screen";
 //context
 import AuthContextProvider from "./contexts/auth_context";
 import { PopUpContext } from "./contexts/popup_context";
-
 import { ToastContainer } from "react-toastify";
 import { SearchBox } from "./components/Layout/search_box";
 function App() {
@@ -39,6 +39,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={HomeScreen} />
             <Route exact path="/shop" component={ShopScreen} />
+            <Route exact path="/about" component={About} />
             {/* <Route exact path="/detail/:id" component={ErrorPage} /> */}
             <Route exact path="*" component={ErrorPage} />
           </Switch>

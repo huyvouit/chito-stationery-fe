@@ -3,12 +3,19 @@ import { Link } from "react-router-dom";
 import userIcon from "../../assets/Icons/user.svg";
 import cartIcon from "../../assets/Icons/shopping-basket.svg";
 import searchIcon from "../../assets/Icons/search-interface-symbol.svg";
+import cancelIcon from "../../assets/Icons/cancel.svg";
+import barIcon from "../../assets/Icons/bars.svg";
 import "../../style/Header/header.css";
 import { PopUpContext } from "../../contexts/popup_context";
-//context
+import DropDown from "../Shop_Dropdown/DropDown";
 
-export const Header = () => {
+export const Header = ({ onClickUser }) => {
   const { setShowPopUp, setShowSearch } = useContext(PopUpContext);
+  const [click, setClick] = useState(false);
+  // const [dropDown, setDropdown]
+
+  const handleClick = () => setClick(!click);
+
   return (
     <header>
       <div className="navigation-bar">
@@ -18,12 +25,17 @@ export const Header = () => {
           </Link>
         </div>
 
+        {/* <div className="nav-icon">
+          <i className={click ? {cancelIcon} : {barIcon}}></i>
+        </div> */}
+
         <ul className="navbar-right">
           <li className="nav-item">
             <Link to="/shop" className="nav-link">
               SHOP
             </Link>
           </li>
+          {/* {dropDown && <DropDown />} */}
           <li className="nav-item">
             <Link to="/about" className="nav-link">
               ABOUT
