@@ -3,6 +3,7 @@ import { AuthContext } from "../../contexts/auth_context";
 // import AlertMessage from "../Layout/message";
 import { toast } from "react-toastify";
 import { PopUpContext } from "../../contexts/popup_context";
+import "../../style/Authentication/signin.css";
 
 export const SignInform = ({ clickSignUp }) => {
   // Context
@@ -55,7 +56,7 @@ export const SignInform = ({ clickSignUp }) => {
   };
 
   return (
-    <div className="signin-signup-container">
+    <div className="signin-container">
       <form className="auth-form" onSubmit={login}>
         <h2 className="form-title">Sign in</h2>
         <div className="form-input">
@@ -80,6 +81,7 @@ export const SignInform = ({ clickSignUp }) => {
             />
           </div>
         </div>
+        <p>This site is protected by reCAPTCHA and the Google <a className="signin_link" href="https://policies.google.com/privacy">Privacy Policy</a> and <a className="signin_link" href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
         <div className="form-submit">
           <p className="form-linking" onClick={clickSignUp}>
             create a account

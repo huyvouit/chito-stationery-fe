@@ -4,6 +4,8 @@ import { AuthContext } from "../../contexts/auth_context";
 // import AlertMessage from "../Layout/message";
 import { Validation } from "../../Helper/validation";
 import { toast } from "react-toastify";
+import "../../style/Authentication/signup.css";
+
 export const SignUpForm = ({ clickSignIn }) => {
   //authContext
   const { registerUser } = useContext(AuthContext);
@@ -73,7 +75,7 @@ export const SignUpForm = ({ clickSignIn }) => {
   };
 
   return (
-    <div className="signin-signup-container">
+    <div className="signup-container">
       <form className="auth-form">
         <h2 className="form-title">Sign up</h2>
         <div className="form-input">
@@ -114,6 +116,7 @@ export const SignUpForm = ({ clickSignIn }) => {
             )}
           </div>
         </div>
+        <p>This site is protected by reCAPTCHA and the Google <a className="signin_link" href="https://policies.google.com/privacy">Privacy Policy</a> and <a className="signin_link" href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
         <div className="form-submit">
           <p className="form-linking" onClick={clickSignIn}>
             back to sign in

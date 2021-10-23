@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 //context
 import { PopUpContext } from "../../contexts/popup_context";
-import "../../style/Authentication/auth.css";
 //component
 import "./signin_form";
 import { SignInform } from "./signin_form";
