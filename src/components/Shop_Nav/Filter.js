@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Filter.css"
+import "../../style/Shop/Filter.css"
 
 function Filter({ show, close }) {
     return (
