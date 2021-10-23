@@ -9,11 +9,9 @@ import { Footer } from "./components/Layout/footer";
 import { Header } from "./components/Layout/header";
 import { AuthScreen } from "./components/Authentication/auth_screen";
 import { About } from "./components/About_Nav/about_screen";
-
 //context
 import AuthContextProvider from "./contexts/auth_context";
 import { PopUpContext } from "./contexts/popup_context";
-
 
 import { ToastContainer } from "react-toastify";
 import { SearchBox } from "./components/Layout/search_box";

@@ -1,53 +1,78 @@
-import React, { useContext, useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "./App.css";
-import "./style/Layout/back_drop.css";
-import { HomeScreen } from "./components/Home/home_screen";
-import { ShopScreen } from "./components/Shop_Nav/shop_screen";
-import { ErrorPage } from "./components/Layout/error_page";
-import { Footer } from "./components/Layout/footer";
-import { Header } from "./components/Layout/header";
-import { AuthScreen } from "./components/Authentication/auth_screen";
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import userIcon from "../../assets/Icons/user.svg";
+import cartIcon from "../../assets/Icons/shopping-basket.svg";
+import searchIcon from "../../assets/Icons/search-interface-symbol.svg";
+import "../../style/Header/header.css";
+import { PopUpContext } from "../../contexts/popup_context";
 //context
-import AuthContextProvider from "./contexts/auth_context";
-import { PopUpContext } from "./contexts/popup_context";
 
-import { ToastContainer } from "react-toastify";
-import { SearchBox } from "./components/Layout/search_box";
-function App() {
-  const { showPopUp, showSearch, closePopUp } = useContext(PopUpContext);
-
-  useEffect(() => {
-    if (showPopUp || showSearch) {
-      document.body.style.overflow = "hidden";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [showPopUp, showSearch]);
-
+export const Header = () => {
+  const { setShowPopUp, setShowSearch } = useContext(PopUpContext);
   return (
-    <Router>
-      <AuthContextProvider>
-        <div>
-          {showPopUp || showSearch ? (
-            <div onClick={closePopUp} className="back-drop"></div>
-          ) : null}
-
-          <Header />
-          <ToastContainer />
-          <Switch>
-            <Route exact path="/" component={HomeScreen} />
-            <Route exact path="/shop" component={ShopScreen} />
-            <Route exact path="*" component={ErrorPage} />
-          </Switch>
-          {showSearch && <SearchBox />}
-          <AuthScreen />
-          <Footer />
+    <header>
+      <div className="navigation-bar">
+        <div className="navbar-left">
+          <Link to="/" className="navbar-logo">
+            CHITO STATIONERY
+          </Link>
         </div>
-      </AuthContextProvider>
-    </Router>
-  );
-}
 
-export default App;
+        <ul className="navbar-right">
+          <li className="nav-item">
+            <Link to="/shop" className="nav-link">
+              SHOP
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/about" className="nav-link">
+              ABOUT
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/contact" className="nav-link">
+              CONTACT
+            </Link>
+          </li>
+          <li className="navbar-icon">
+            <div className="item-icon">
+              <img
+                className="image-icon"
+                src={searchIcon}
+                width="20px"
+                height="20px"
+                alt="search icon"
+                onClick={() => setShowSearch(true)}
+              />
+            </div>
+            <Link to="/cart" className="item-icon">
+              <img
+                className="image-icon"
+                src={cartIcon}
+                width="20px"
+                height="20px"
+                alt="cart icon"
+              />
+            </Link>
+            {false ? (
+              <div className="item-icon">
+                <div className="avatar-user"></div>
+              </div>
+            ) : (
+              <div className="item-icon">
+                <img
+                  className="image-icon "
+                  src={userIcon}
+                  width="20px"
+                  height="20px"
+                  alt="user icon"
+                  onClick={() => setShowPopUp(true)}
+                />
+              </div>
+            )}
+          </li>
+        </ul>
+      </div>
+    </header>
+  );
+};
