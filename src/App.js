@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import "./style/Layout/back_drop.css";
@@ -14,23 +14,25 @@ import AuthContextProvider from "./contexts/auth_context";
 import { PopUpContext } from "./contexts/popup_context";
 import { ToastContainer } from "react-toastify";
 import { SearchBox } from "./components/Layout/search_box";
+import Filter from "./components/Shop_Nav/Filter";
 function App() {
-  const { showPopUp, showSearch, closePopUp } = useContext(PopUpContext);
+  const { showPopUp, showSearch, showFilter, closePopUp, setShowFilter } =
+    useContext(PopUpContext);
 
   useEffect(() => {
-    if (showPopUp || showSearch) {
+    if (showPopUp || showSearch || showFilter) {
       document.body.style.overflow = "hidden";
     }
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [showPopUp, showSearch]);
+  }, [showPopUp, showSearch, showFilter]);
 
   return (
     <Router>
       <AuthContextProvider>
         <div>
-          {showPopUp || showSearch ? (
+          {showPopUp || showSearch || showFilter ? (
             <div onClick={closePopUp} className="back-drop"></div>
           ) : null}
 
@@ -38,13 +40,24 @@ function App() {
           <ToastContainer />
           <Switch>
             <Route exact path="/" component={HomeScreen} />
-            <Route exact path="/shop" component={ShopScreen} />
+            <Route
+              exact
+              path="/shop"
+              render={(props) => (
+                <ShopScreen
+                  {...props}
+                  onClickFilter={() => setShowFilter(true)}
+                />
+              )}
+            />
             <Route exact path="/about" component={About} />
             {/* <Route exact path="/detail/:id" component={ErrorPage} /> */}
+
             <Route exact path="*" component={ErrorPage} />
           </Switch>
           {showSearch && <SearchBox />}
           <AuthScreen />
+          <Filter />
           <Footer />
         </div>
       </AuthContextProvider>

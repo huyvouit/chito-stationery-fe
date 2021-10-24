@@ -11,12 +11,12 @@ function Cards(props) {
       <div className="groupCard">
         {productList.map((item) => {
           return (
-            <div className="groupCard-column">
+            <div key={item._id} className="groupCard-column">
               <CardItems
-                key={item._id}
                 src={item.image}
                 price={item.price.$numberDecimal}
                 text={item.productName}
+                description={item.description}
               />
             </div>
           );

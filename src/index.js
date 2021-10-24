@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import PopUpContextProvider from "./contexts/popup_context";
+// import FilterContextProvider from "./contexts/filter_context";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 ReactDOM.render(

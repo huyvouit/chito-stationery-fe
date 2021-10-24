@@ -5,10 +5,12 @@ export const PopUpContext = createContext();
 const PopUpContextProvider = ({ children }) => {
   const [showPopUp, setShowPopUp] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
 
   const closePopUp = () => {
     setShowPopUp(false);
     setShowSearch(false);
+    setShowFilter(false);
   };
 
   //Context data
@@ -18,6 +20,8 @@ const PopUpContextProvider = ({ children }) => {
     closePopUp,
     showSearch,
     setShowSearch,
+    showFilter,
+    setShowFilter,
   };
 
   return (

@@ -7,7 +7,7 @@ import "../../style/Header/header.css";
 import { PopUpContext } from "../../contexts/popup_context";
 import DropDown from "../Shop_Dropdown/DropDown";
 
-export const Header = ({ onClickUser }) => {
+export const Header = () => {
   const { setShowPopUp, setShowSearch } = useContext(PopUpContext);
   const [click, setClick] = useState(false);
   // const [dropDown, setDropdown]

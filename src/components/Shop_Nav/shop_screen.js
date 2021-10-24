@@ -4,7 +4,8 @@ import Title from "./title";
 import "../../style/Shop/Shop_screen.css";
 import productApi from "../../api/product_api";
 import { Loader } from "../Layout/loader";
-export const ShopScreen = () => {
+
+export const ShopScreen = ({ onClickFilter }) => {
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
@@ -16,10 +17,10 @@ export const ShopScreen = () => {
   const fetchProductList = async () => {
     try {
       const response = await productApi.getAll();
-      console.log(productList);
-      console.log(response.data);
+      // console.log(productList);
+      // console.log(response.data);
       setProductList(response.data.products);
-      console.log(productList);
+      // console.log(productList);
     } catch (error) {
       console.log("Failed to fetch product list: ", error);
     }
@@ -30,7 +31,7 @@ export const ShopScreen = () => {
   ) : (
     <>
       <div className="ShopScreen">
-        <Title head="ALL PRODUCT" item={productList.length} />
+        <Title item={productList.length} onClickFilter={onClickFilter} />
         <Cards productList={productList} />
       </div>
     </>
