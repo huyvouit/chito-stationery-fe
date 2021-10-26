@@ -28,6 +28,15 @@ function App() {
     };
   }, [showPopUp, showSearch, showFilter]);
 
+  useEffect(() => {
+    if (showFilter) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [showFilter]);
+
   return (
     <Router>
       <AuthContextProvider>

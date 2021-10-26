@@ -4,7 +4,6 @@ import Title from "./title";
 import "../../style/Shop/Shop_screen.css";
 import productApi from "../../api/product_api";
 import { Loader } from "../Layout/loader";
-
 export const ShopScreen = ({ onClickFilter }) => {
   const [productList, setProductList] = useState([]);
 
