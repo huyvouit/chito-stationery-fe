@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-
-import "../../style/Authentication/auth.css";
+import React, { useContext, useState } from "react";
+//context
+import { PopUpContext } from "../../contexts/popup_context";
 //component
 import "./signin_form";
 import { SignInform } from "./signin_form";
 import "./signup_form";
 import { SignUpForm } from "./signup_form";
-export const AuthScreen = ({ show, close }) => {
+export const AuthScreen = () => {
   const [isSignin, setIsSignin] = useState(true);
+
+  const { showPopUp } = useContext(PopUpContext);
 
   const handleIsSignIn = () => {
     setIsSignin(!isSignin);
@@ -16,8 +18,10 @@ export const AuthScreen = ({ show, close }) => {
     <div
       className="signin-signup"
       style={{
-        transform: show ? "translate(-50%, 0vh)" : "translate(-50%,-1000px)",
-        opacity: show ? "1" : "0",
+        transform: showPopUp
+          ? "translate(-50%, 0vh)"
+          : "translate(-50%,-1000px)",
+        opacity: showPopUp ? "1" : "0",
       }}
     >
       {isSignin ? (

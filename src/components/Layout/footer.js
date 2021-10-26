@@ -54,8 +54,8 @@ export const Footer = () => {
                 <img
                   className="image-icon"
                   src={Facebook}
-                  width="34px"
-                  height="34px"
+                  width="30px"
+                  height="30px"
                   alt="React Logo"
                 />
               </Link>
@@ -63,8 +63,8 @@ export const Footer = () => {
                 <img
                   className="image-icon"
                   src={Instagram}
-                  width="34px"
-                  height="34px"
+                  width="30px"
+                  height="30px"
                   alt="React Logo"
                 />
               </Link>

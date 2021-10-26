@@ -1,8 +1,11 @@
 import Alert from "react-bootstrap/Alert";
+import "../../style/Layout/message.css";
 
 const AlertMessage = ({ info }) => {
-  return info === null ? null : (
-    <Alert variant={info.type}>{info.message}</Alert>
+  return (
+    <div className="message">
+      {info === null ? null : <div>{info.message}</div>}
+    </div>
   );
 };
 

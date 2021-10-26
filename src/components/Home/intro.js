@@ -11,7 +11,7 @@ export const Intro = () => {
     <>
       <div className="intro-main">
         <div className="intro-title">
-          <h2 className="intro-title-name">The modern stationery</h2>
+          <h1 className="intro-title-name">The modern stationery</h1>
         </div>
         <div data-aos="fade-down" className="intro-content">
           <p className="intro-content-text">

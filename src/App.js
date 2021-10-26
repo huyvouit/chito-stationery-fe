@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import "./style/Layout/back_drop.css";
@@ -8,24 +8,25 @@ import { ErrorPage } from "./components/Layout/error_page";
 import { Footer } from "./components/Layout/footer";
 import { Header } from "./components/Layout/header";
 import { AuthScreen } from "./components/Authentication/auth_screen";
+import { About } from "./components/About_Nav/about_screen";
+//context
+import AuthContextProvider from "./contexts/auth_context";
+import { PopUpContext } from "./contexts/popup_context";
+import { ToastContainer } from "react-toastify";
+import { SearchBox } from "./components/Layout/search_box";
 import Filter from "./components/Shop_Nav/Filter";
 function App() {
-  const [show, setShow] = useState(false);
-
-  const closeModalHandler = () => setShow(false);
+  const { showPopUp, showSearch, showFilter, closePopUp, setShowFilter } =
+    useContext(PopUpContext);
 
   useEffect(() => {
-    if (show) {
+    if (showPopUp || showSearch || showFilter) {
       document.body.style.overflow = "hidden";
     }
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [show]);
-
-  const [showFilter, setShowFilter] = useState(false);
-
-  const closeFilter = () => setShowFilter(false);
+  }, [showPopUp, showSearch, showFilter]);
 
   useEffect(() => {
     if (showFilter) {
@@ -37,29 +38,39 @@ function App() {
   }, [showFilter]);
 
   return (
-    <div className="App">
-      <Router>
+    <Router>
+      <AuthContextProvider>
         <div>
-          {show ? (
-            <div onClick={closeModalHandler} className="back-drop"></div>
+          {showPopUp || showSearch || showFilter ? (
+            <div onClick={closePopUp} className="back-drop"></div>
           ) : null}
 
-          {showFilter ? (
-            <div onClick={closeFilter} className="back-drop"></div>
-          ) : null}
-
-          <Header onClickUser={() => setShow(true)} />
+          <Header />
+          <ToastContainer />
           <Switch>
             <Route exact path="/" component={HomeScreen} />
-            <Route exact path="/shop" render={(props) => (<ShopScreen {...props} onClickFilter={() => setShowFilter(true)} />)} />
+            <Route
+              exact
+              path="/shop"
+              render={(props) => (
+                <ShopScreen
+                  {...props}
+                  onClickFilter={() => setShowFilter(true)}
+                />
+              )}
+            />
+            <Route exact path="/about" component={About} />
+            {/* <Route exact path="/detail/:id" component={ErrorPage} /> */}
+
             <Route exact path="*" component={ErrorPage} />
           </Switch>
-          <AuthScreen show={show} close={closeModalHandler} />
-          <Filter show={showFilter} close={closeFilter} />
+          {showSearch && <SearchBox />}
+          <AuthScreen />
+          <Filter />
           <Footer />
         </div>
-      </Router>
-    </div>
+      </AuthContextProvider>
+    </Router>
   );
 }
 

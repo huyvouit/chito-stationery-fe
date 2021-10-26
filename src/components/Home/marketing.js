@@ -1,7 +1,7 @@
 import React from "react";
 import "../../style/Home/marketing.css";
 
-import washiTape from "../../assets/Images/washi_tape.jpg";
+// import washiTape from "../../assets/Images/washi_tape.jpg";
 
 export const Marketing = () => {
   return (

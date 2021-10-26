@@ -5,6 +5,7 @@ footer {
   padding: 70px 350px;
   background-color: var(--primary-footer);
 }
+
 footer .footer-content {
   align-items: flex-start;
   display: flex;
@@ -15,7 +16,7 @@ footer .footer-content {
 }
 
 .col-top {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -26,18 +27,18 @@ footer .footer-content {
   justify-content: flex-start;
 }
 
+.col-bottom {
+  margin-top: 10px;
+}
+
 .link-cate {
   text-transform: uppercase;
   margin-bottom: 16px;
   color: var(--primary-text);
-  font-size: 18px;
+  font-size: 15px;
   text-decoration: none;
 }
 
 .link-cate:hover {
   color: var(--primary-text);
-}
-
-.item-icon {
-  margin-right: 17px;
 }

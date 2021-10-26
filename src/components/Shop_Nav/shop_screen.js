@@ -16,10 +16,10 @@ export const ShopScreen = ({ onClickFilter }) => {
   const fetchProductList = async () => {
     try {
       const response = await productApi.getAll();
-      console.log(productList);
-      console.log(response.data.products);
+      // console.log(productList);
+      // console.log(response.data);
       setProductList(response.data.products);
-      console.log(productList);
+      // console.log(productList);
     } catch (error) {
       console.log("Failed to fetch product list: ", error);
     }
@@ -30,7 +30,7 @@ export const ShopScreen = ({ onClickFilter }) => {
   ) : (
     <>
       <div className="ShopScreen">
-        <Title onClickFilter={ onClickFilter } head="ALL PRODUCT" item={productList.length} />
+        <Title item={productList.length} onClickFilter={onClickFilter} />
         <Cards productList={productList} />
       </div>
     </>
