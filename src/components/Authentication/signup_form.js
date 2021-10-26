@@ -116,7 +116,17 @@ export const SignUpForm = ({ clickSignIn }) => {
             )}
           </div>
         </div>
-        <p>This site is protected by reCAPTCHA and the Google <a className="signin_link" href="https://policies.google.com/privacy">Privacy Policy</a> and <a className="signin_link" href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
+        <p>
+          This site is protected by reCAPTCHA and the Google{" "}
+          <a className="signin_link" href="https://policies.google.com/privacy">
+            Privacy Policy
+          </a>{" "}
+          and{" "}
+          <a className="signin_link" href="https://policies.google.com/terms">
+            Terms of Service
+          </a>{" "}
+          apply.
+        </p>
         <div className="form-submit">
           <p className="form-linking" onClick={clickSignIn}>
             back to sign in

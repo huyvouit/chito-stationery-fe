@@ -23,7 +23,7 @@ export const SearchBox = () => {
     const fetchProductBySearch = async () => {
       try {
         const param = {
-          q: searchSubmit,
+          q: [searchSubmit],
         };
 
         const response = await productApi.getBySearch(param);

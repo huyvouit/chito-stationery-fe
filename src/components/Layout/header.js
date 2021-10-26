@@ -6,14 +6,23 @@ import searchIcon from "../../assets/Icons/search-interface-symbol.svg";
 import "../../style/Header/header.css";
 import { PopUpContext } from "../../contexts/popup_context";
 import DropDown from "../Shop_Dropdown/DropDown";
+import { AuthContext } from "../../contexts/auth_context";
 
 export const Header = () => {
   const { setShowPopUp, setShowSearch } = useContext(PopUpContext);
-  const [click, setClick] = useState(false);
-  // const [dropDown, setDropdown]
+  // const [click, setClick] = useState(false);
+  // // const [dropDown, setDropdown]
 
-  const handleClick = () => setClick(!click);
+  // const handleClick = () => setClick(!click);
 
+  const {
+    authState: {
+      authLoading,
+      isAuthenticated,
+      user: { username },
+    },
+  } = useContext(AuthContext);
+  console.log(authLoading, isAuthenticated);
   return (
     <header>
       <div className="navigation-bar">
@@ -59,9 +68,9 @@ export const Header = () => {
                 alt="cart icon"
               />
             </Link>
-            {false ? (
+            {!authLoading && isAuthenticated ? (
               <div className="item-icon">
-                <div className="avatar-user"></div>
+                <div className="avatar-user">{username}</div>
               </div>
             ) : (
               <div className="item-icon">

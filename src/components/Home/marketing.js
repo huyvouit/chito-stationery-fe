@@ -1,17 +1,41 @@
 import React from "react";
 import "../../style/Home/marketing.css";
 
-// import washiTape from "../../assets/Images/washi_tape.jpg";
+import washiTape from "../../assets/Images/washi_tape.jpg";
 
 export const Marketing = () => {
   return (
-    <>
-      <div className="marketing">
-        <div className="marketing-title">
-          <h2 className="marketing-title-name">shop all stationery</h2>
+    <div className="marketing">
+      <div className="marketing-title">
+        <h2 className="marketing-title-name">shop all stationery</h2>
+      </div>
+      <div className="marketing-cards">
+        <div className="marketing-child-card">
+          <div className="marketing-img">
+            <img src={washiTape} alt="washi-tape" />
+          </div>
+          <div className="marketing-script">
+            <p>fdfdf</p>
+          </div>
+        </div>
+        <div className="marketing-child-card">
+          <div className="marketing-img">
+            <img src={washiTape} alt="washi-tape" />
+          </div>
+          <div className="marketing-script">
+            <p>fdfdf</p>
+          </div>
+        </div>
+        <div className="marketing-child-card">
+          <div className="marketing-img">
+            <img src={washiTape} alt="washi-tape" />
+          </div>
+          <div className="marketing-script">
+            <p>fdfdf</p>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

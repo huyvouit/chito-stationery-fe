@@ -9,18 +9,20 @@ function Cards(props) {
   return (
     <>
       <div className="groupCard">
-        {productList.map((item) => {
-          return (
-            <div key={item._id} className="groupCard-column">
-              <CardItems
-                src={item.image}
-                price={item.price.$numberDecimal}
-                text={item.productName}
-                description={item.description}
-              />
-            </div>
-          );
-        })}
+        {productList &&
+          productList.length > 0 &&
+          productList.map((item) => {
+            return (
+              <div key={item._id} className="groupCard-column">
+                <CardItems
+                  src={item.image}
+                  price={item.price.$numberDecimal}
+                  text={item.productName}
+                  description={item.description}
+                />
+              </div>
+            );
+          })}
       </div>
     </>
   );
