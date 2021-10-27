@@ -1,30 +1,30 @@
 .error {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 75px;
 }
 
 .error_image {
-    width: 450px;
-    height: 450px;
+  width: 450px;
+  height: 450px;
 }
 
 .error_msg {
-    color: var(--text-title);
-    margin-bottom: 45px;
+  color: var(--text-title);
+  margin-bottom: 45px;
 }
 
 .error_btn {
-    background-color: var(--text-title);
-    border: none;
-    color: white;
-    padding: 16px 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    font-family: "Bellota Text", cursive;
-    cursor: pointer;
+  background-color: var(--text-title);
+  border: none;
+  color: white;
+  padding: 16px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: "Bellota Text", cursive;
+  cursor: pointer;
 }

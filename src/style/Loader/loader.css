@@ -2,14 +2,16 @@
 
 .loader {
   height: 450px;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .loader-box {
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50px);
+  /* left: 50%; */
+  display: flex;
+  justify-content: center;
   position: relative;
+  top: 50%;
+  /* transform: translateX(-50px); */
 }
 
 .circle-loading {

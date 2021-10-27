@@ -44,7 +44,7 @@ export const SignUpForm = ({ clickSignIn }) => {
       setErrors(Validation(registerForm));
       const registerData = await registerUser(registerForm);
       if (registerData.success) {
-        toast.success(registerData, {
+        toast.success(registerData.message, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,

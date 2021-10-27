@@ -1,5 +1,7 @@
 @import "../../constants/Color/variable.css";
 .intro-main {
+  position: relative;
+  top: -146px;
   display: flex;
   flex-direction: column;
   justify-content: center;

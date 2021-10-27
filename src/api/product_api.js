@@ -6,6 +6,11 @@ const productApi = {
     return axiosClient.get(url);
   },
 
+  getByFilter: (params) => {
+    const url = "/product/filter";
+    return axiosClient.get(url, { params });
+  },
+
   getById: (params) => {
     const url = `/product`;
     return axiosClient.get(url, { params });

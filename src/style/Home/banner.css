@@ -1,5 +1,7 @@
 .home-banner-top {
   position: relative;
+  top: -146px;
+  z-index: -1;
   width: 100%;
   overflow: hidden;
 }

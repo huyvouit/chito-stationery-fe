@@ -27,7 +27,7 @@ export const SignInform = ({ clickSignUp }) => {
 
     try {
       const loginData = await loginUser(loginForm);
-      console.log(loginData.success, loginData.message);
+      // console.log(loginData.success, loginData.message);
       if (loginData.success) {
         toast.success(loginData.message, {
           position: "top-right",
@@ -81,7 +81,17 @@ export const SignInform = ({ clickSignUp }) => {
             />
           </div>
         </div>
-        <p>This site is protected by reCAPTCHA and the Google <a className="signin_link" href="https://policies.google.com/privacy">Privacy Policy</a> and <a className="signin_link" href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
+        <p>
+          This site is protected by reCAPTCHA and the Google{" "}
+          <a className="signin_link" href="https://policies.google.com/privacy">
+            Privacy Policy
+          </a>{" "}
+          and{" "}
+          <a className="signin_link" href="https://policies.google.com/terms">
+            Terms of Service
+          </a>{" "}
+          apply.
+        </p>
         <div className="form-submit">
           <p className="form-linking" onClick={clickSignUp}>
             create a account

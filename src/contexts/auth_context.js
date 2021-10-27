@@ -27,6 +27,7 @@ const AuthContextProvider = ({ children }) => {
             user: response.data.user,
           },
         });
+        console.log(response.data.user);
       }
     } catch (error) {
       localStorage.removeItem(TOKEN_NAME);

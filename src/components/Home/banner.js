@@ -5,7 +5,7 @@ export const Banner = () => {
   return (
     <>
       <div className="home-banner-top">
-        <img className="image-banner" src={banner} upIcon />
+        <img className="image-banner" src={banner} />
       </div>
     </>
   );

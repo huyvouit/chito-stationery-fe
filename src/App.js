@@ -46,7 +46,7 @@ function App() {
           ) : null}
 
           <Header />
-          <ToastContainer />
+
           <Switch>
             <Route exact path="/" component={HomeScreen} />
             <Route
@@ -67,6 +67,7 @@ function App() {
           {showSearch && <SearchBox />}
           <AuthScreen />
           <Filter />
+          <ToastContainer />
           <Footer />
         </div>
       </AuthContextProvider>

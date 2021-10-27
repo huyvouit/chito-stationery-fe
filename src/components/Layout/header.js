@@ -7,7 +7,7 @@ import "../../style/Header/header.css";
 import { PopUpContext } from "../../contexts/popup_context";
 import DropDown from "../Shop_Dropdown/DropDown";
 import { AuthContext } from "../../contexts/auth_context";
-
+// import refreshPage from "../../Helper/refresh_page";
 export const Header = () => {
   const { setShowPopUp, setShowSearch } = useContext(PopUpContext);
   // const [click, setClick] = useState(false);
@@ -22,7 +22,7 @@ export const Header = () => {
       user: { username },
     },
   } = useContext(AuthContext);
-  console.log(authLoading, isAuthenticated);
+  // console.log(authLoading, isAuthenticated);
   return (
     <header>
       <div className="navigation-bar">
