@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 //lib
 import queryString from "query-string";
 import { useQuery } from "../../Helper/use_query";
@@ -11,31 +11,34 @@ import ErrorImage from "../../assets/Icons/404_Error.svg";
 import Cards from "./Cards";
 import Title from "./title";
 import { Loader } from "../Layout/loader";
+import { FilterContext } from "../../contexts/filter_context";
+
 export const ShopScreen = ({ onClickFilter }) => {
-  const query = queryString.parse(useQuery());
+  // const query = queryString.parse(useQuery());
+  const { query } = useContext(FilterContext);
+
   const [isLoading, setIsLoading] = useState(true);
   const [productList, setProductList] = useState([]);
-
+  // const [query, setQuery] = useState(queryString.parse(useQuery()));
   useEffect(() => {
     console.log("useEfect");
-
+    setIsLoading(true);
+    const fetchProductList = async () => {
+      try {
+        const params = query;
+        console.log("params: ", params);
+        const response = await productApi.getByFilter(params);
+        // console.log(productList);
+        // console.log(response.data);
+        setProductList(response.data.filteredProducts);
+        setIsLoading(false);
+        // console.log(productList);
+      } catch (error) {
+        console.log("Failed to fetch product list: ", error);
+      }
+    };
     fetchProductList();
-  }, []);
-
-  const fetchProductList = async () => {
-    try {
-      const params = query;
-      console.log("params: ", params);
-      const response = await productApi.getByFilter(params);
-      // console.log(productList);
-      // console.log(response.data);
-      setProductList(response.data.filteredProducts);
-      setIsLoading(false);
-      // console.log(productList);
-    } catch (error) {
-      console.log("Failed to fetch product list: ", error);
-    }
-  };
+  }, [query]);
 
   return isLoading ? (
     <Loader />

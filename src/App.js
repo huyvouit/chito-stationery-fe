@@ -11,6 +11,7 @@ import { AuthScreen } from "./components/Authentication/auth_screen";
 import { About } from "./components/About_Nav/about_screen";
 //context
 import AuthContextProvider from "./contexts/auth_context";
+import FilterContextProvider from "./contexts/filter_context";
 import { PopUpContext } from "./contexts/popup_context";
 import { ToastContainer } from "react-toastify";
 import { SearchBox } from "./components/Layout/search_box";
@@ -46,27 +47,28 @@ function App() {
           ) : null}
 
           <Header />
+          <FilterContextProvider>
+            <Switch>
+              <Route exact path="/" component={HomeScreen} />
+              <Route
+                exact
+                path="/shop"
+                render={(props) => (
+                  <ShopScreen
+                    {...props}
+                    onClickFilter={() => setShowFilter(true)}
+                  />
+                )}
+              />
+              <Route exact path="/about" component={About} />
+              {/* <Route exact path="/detail/:id" component={ErrorPage} /> */}
 
-          <Switch>
-            <Route exact path="/" component={HomeScreen} />
-            <Route
-              exact
-              path="/shop"
-              render={(props) => (
-                <ShopScreen
-                  {...props}
-                  onClickFilter={() => setShowFilter(true)}
-                />
-              )}
-            />
-            <Route exact path="/about" component={About} />
-            {/* <Route exact path="/detail/:id" component={ErrorPage} /> */}
-
-            <Route exact path="*" component={ErrorPage} />
-          </Switch>
-          {showSearch && <SearchBox />}
-          <AuthScreen />
-          <Filter />
+              <Route exact path="*" component={ErrorPage} />
+            </Switch>
+            {showSearch && <SearchBox />}
+            <AuthScreen />
+            <Filter />
+          </FilterContextProvider>
           <ToastContainer />
           <Footer />
         </div>

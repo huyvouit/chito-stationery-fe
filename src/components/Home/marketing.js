@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../../style/Home/marketing.css";
 
 import washiTape from "../../assets/Images/washi_tape.jpg";
 import { Link } from "react-router-dom";
+import { FilterContext } from "../../contexts/filter_context";
 
 export const Marketing = () => {
+  const { handleQuery } = useContext(FilterContext);
   return (
     <div className="marketing">
       <div className="marketing-title">

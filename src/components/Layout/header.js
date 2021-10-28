@@ -5,7 +5,7 @@ import cartIcon from "../../assets/Icons/shopping-basket.svg";
 import searchIcon from "../../assets/Icons/search-interface-symbol.svg";
 import "../../style/Header/header.css";
 import { PopUpContext } from "../../contexts/popup_context";
-import DropDown from "../Shop_Dropdown/DropDown";
+// import DropDown from "../Shop_Dropdown/DropDown";
 import { AuthContext } from "../../contexts/auth_context";
 // import refreshPage from "../../Helper/refresh_page";
 export const Header = () => {

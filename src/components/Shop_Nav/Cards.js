@@ -1,6 +1,6 @@
 import React from "react";
-import candy from "../../assets/Images/candy.jpg";
-import summer from "../../assets/Images/summer.jpg";
+// import candy from "../../assets/Images/candy.jpg";
+// import summer from "../../assets/Images/summer.jpg";
 import CardItems from "./CardItems";
 import "../../style/Shop/Card.css";
 

@@ -14,7 +14,7 @@
   text-align: center;
   font: normal normal bold 50px/55px Bellota Text;
   letter-spacing: 0.9px;
-  color: #966A57;
+  color: #966a57;
 }
 
 .filter-group-product {
@@ -33,14 +33,14 @@
   justify-content: space-between;
   margin-left: 15px;
   margin-right: 15px;
-  border-bottom: 1px solid #966A57;
+  border-bottom: 1px solid #966a57;
 }
 
 .filter-title > p {
   text-align: start;
   font: normal normal bold 24px/27px Bellota Text;
   letter-spacing: 1.2px;
-  color: #524D4B;
+  color: #524d4b;
   text-transform: uppercase;
 }
 
@@ -53,12 +53,14 @@
   display: grid;
   margin-left: 15px;
   margin-right: 15px;
-  border-bottom: 1px solid #966A57;
 }
-
+.list-type {
+  border-bottom: 1px solid #966a57;
+  margin: 0 15px;
+}
 .list > .btn-list {
   display: flex;
-  background: var(--primary-background) ;
+  background: var(--primary-background);
   border: none;
   margin-left: 5%;
   margin-bottom: 1.5%;
@@ -66,11 +68,10 @@
 }
 
 .list > .btn-list > label {
-  
   text-align: left;
   font: normal normal bold 18px/30px Bellota Text;
   letter-spacing: 1.2px;
-  color: #524D4B;
+  color: #524d4b;
 }
 
 .list > .btn-list > input {
@@ -80,39 +81,42 @@
   width: 20px;
 }
 
-.list > .btn-list >input[type=checkbox]:checked {
-  background-color: #966A57;
+.list > .btn-list > input[type="checkbox"]:checked {
+  background-color: #966a57;
 }
 
-.group-input{
+.group-input {
   display: flex;
   justify-content: space-between;
   margin-left: 15px;
   margin-right: 15px;
-  border-bottom: 1px solid #966A57;
+  border-bottom: 1px solid #966a57;
   height: 58px;
 }
 
+.btn-list label {
+  text-transform: uppercase;
+}
 .price > input {
   font: normal normal bold 24px/27px Bellota Text;
   letter-spacing: 1.2px;
-  color: #524D4B;
+  color: #524d4b;
   text-align: center;
   width: 160px;
   height: 40px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #707070;
   outline: none;
 }
 
-.price > input[type=number]::-webkit-inner-spin-button {
+.price > input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
 .line > h2 {
   margin: 0;
   font: normal normal bold 50px/40px Bellota Text;
-  color: #524D4B;
+  color: #524d4b;
 }
 
 .filter-group-btn {
@@ -127,22 +131,22 @@
 
 .btn-clear {
   text-align: center;
-  background: #E5E1DF 0% 0% no-repeat padding-box;
+  background: #e5e1df 0% 0% no-repeat padding-box;
   width: 150px;
   height: 27px;
   font: normal normal bold 15px/27px Bellota Text;
   letter-spacing: 0.9px;
-  color: #966A57;
+  color: #966a57;
   text-transform: uppercase;
 }
 
 .btn-apply {
-  background: #966A57 0% 0% no-repeat padding-box;
+  background: #966a57 0% 0% no-repeat padding-box;
   width: 180px;
   height: 27px;
   text-align: center;
   font: normal normal bold 15px/27px Bellota Text;
   letter-spacing: 0.9px;
-  color: #F2EFED;
+  color: #f2efed;
   text-transform: uppercase;
 }

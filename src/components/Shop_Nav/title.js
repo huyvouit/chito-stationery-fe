@@ -7,7 +7,7 @@ function Title(props) {
     <>
       <div className="title">
         <div className="title-head">
-          <h2 className="title-head-name">{props.head}</h2>
+          <h2 className="title-head-name">ALL PRODUCTS</h2>
         </div>
         <div className="title-content">
           <div className=" title-content-left">
