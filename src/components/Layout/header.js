@@ -48,8 +48,8 @@ export const Header = () => {
             <Link to="/about" className="nav-link">
               ABOUT
               <ul className="dropdown-menu about">
-                <li>DELIVERY & RETURNS</li>
-                <li>TERMS & CONDITIONS</li>
+                <li>DELIVERY RETURNS</li>
+                <li>TERMS CONDITIONS</li>
                 <li>PRIVACY POLICY</li>
               </ul>
             </Link>
