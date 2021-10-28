@@ -24,14 +24,25 @@ export const Header = ({ onClickUser }) => {
         </div>
 
         <ul className="navbar-right">
-          <li className="nav-item">
+          <li className="hover-menu nav-item">
             <Link to="/shop" className="nav-link">
               SHOP
+              <ul className="dropdown-menu shop">
+                <li>WASHI TAPE</li>
+                <li>STICKER</li>
+                <li>STICKY NOTE</li>
+                <li>GIFT BOXES</li>
+              </ul>
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="hover-menu nav-item">
             <Link to="/about" className="nav-link">
               ABOUT
+              <ul className="dropdown-menu about">
+                <li>DELIVERY & RETURNS</li>
+                <li>TERMS & CONDITIONS</li>
+                <li>PRIVACY POLICY</li>
+              </ul>
             </Link>
           </li>
           <li className="nav-item">
