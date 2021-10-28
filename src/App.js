@@ -15,6 +15,7 @@ import { PopUpContext } from "./contexts/popup_context";
 import { ToastContainer } from "react-toastify";
 import { SearchBox } from "./components/Layout/search_box";
 import Filter from "./components/Shop_Nav/Filter";
+import ContactScreen from "./components/Contact/contact_screen";
 function App() {
   const { showPopUp, showSearch, showFilter, closePopUp, setShowFilter } =
     useContext(PopUpContext);
@@ -62,6 +63,7 @@ function App() {
             <Route exact path="/about" component={About} />
             {/* <Route exact path="/detail/:id" component={ErrorPage} /> */}
 
+            <Route exact path="/contact" component={ContactScreen} />
             <Route exact path="*" component={ErrorPage} />
           </Switch>
           {showSearch && <SearchBox />}

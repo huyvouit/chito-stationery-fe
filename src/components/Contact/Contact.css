@@ -1,0 +1,124 @@
+
+.contact h1 {
+    text-align: center;
+    margin-top: 20px;
+    font: normal normal normal 50px/63px Bellota Text;
+    letter-spacing: 1.25px;
+    color: #966a57;
+    text-transform: uppercase;
+}
+
+.contact p {
+    margin-top: 30px;
+    text-align: center;
+    font: normal normal bold 24px/30px Bellota Text;
+    letter-spacing: 0.6px;
+    color: #524d4b;
+}
+.contact form {
+    padding: 0 450px;
+    box-sizing: border-box;
+}
+
+form .contact-txt_field {
+    position: relative;
+    border-bottom: 1px solid #966a57;
+    margin: 30px 0;
+}
+
+.contact-txt_field input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font: normal normal bold 18px/55px Bellota Text;
+    letter-spacing: 0.75px;
+    color: #524d4b;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.contact-txt_field label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font: normal normal bold 15px/55px Bellota Text;
+    letter-spacing: 0.75px;
+    color: #524d4b;
+    pointer-events: none;
+}
+
+.contact-txt_field span::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    background: #966a57;
+}
+
+.contact-txt_field input:focus ~ label,
+.contact-txt_field input[type="email"]:invalid ~ label,
+.contact-txt_field input:valid ~ label {
+    top: -5px;
+    color: #966a57;
+}
+.contact-txt_field input:focus ~ span::before,
+.contact-txt_field input[type="email"]:invalid ~ span::before,
+.contact-txt_field input:valid ~ span::before {
+    width: 100%;
+}
+
+.contact input[type="submit"] {
+    margin-bottom: 30px;
+    margin-left: 80%;
+    width: 20%;
+    height: 50px;
+    border: 1px solid;
+    background: #966a57;
+    font: normal normal bold 18px/27px Bellota Text;
+    letter-spacing: 0.27px;
+    color: #f2efed;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+}
+.contact input[type="submit"]:hover {
+    border-color: #966a57;
+    transition: 0.5s;
+}
+
+.contact-fullName {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-message {
+    display: grid;
+}
+.contact-message label {
+    font: normal normal bold 15px/27px Bellota Text;
+    letter-spacing: 0.75px;
+    color: #524d4b;
+    text-transform: uppercase;
+}
+
+.contact-message textarea {
+    
+    margin-top: 15px;
+    margin-bottom: 40px;
+    padding: 15px;
+    border: none;
+    height: 12vw;
+    text-align: start;
+    font: normal normal bold 18px/20px Bellota Text;
+    letter-spacing: 0.75px;
+    color: #524d4b;
+}
+
+.contact-message textarea:focus { 
+    outline: none !important;
+    border: 2px solid #966a57;
+}
+
