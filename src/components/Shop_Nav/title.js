@@ -7,15 +7,15 @@ function Title(props) {
     <>
       <div className="title">
         <div className="title-head">
-          <h2 className="title-head-name">ALL PRODUCTS</h2>
+          <h1 className="title-head-name">ALL PRODUCTS</h1>
         </div>
         <div className="title-content">
           <div className=" title-content-left">
             <img
               className="image-icon"
               src={filterIcon}
-              width="34px"
-              height="34px"
+              width="20px"
+              height="20px"
               alt="React Logo"
               onClick={props.onClickFilter}
             />
