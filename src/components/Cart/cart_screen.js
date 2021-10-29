@@ -3,7 +3,7 @@ import "../../style/Cart/cart_screen.css";
 import ProductImg from "../../assets/Images/candy.jpg" ;
 import { Link } from "react-router-dom";
 
-export const Cart = () => {
+export const CartScreen = () => {
   return (
     <>
         <div className="cart_wrapper">
@@ -68,5 +68,5 @@ export const Cart = () => {
           
         </div>
     </>
-)
+  );
 };

@@ -9,7 +9,7 @@ import { Footer } from "./components/Layout/footer";
 import { Header } from "./components/Layout/header";
 import { AuthScreen } from "./components/Authentication/auth_screen";
 import { About } from "./components/About_Nav/about_screen";
-import { Cart } from "./components/Cart/cart_screen";
+import { CartScreen } from "./components/Cart/cart_screen";
 //context
 import AuthContextProvider from "./contexts/auth_context";
 import FilterContextProvider from "./contexts/filter_context";
@@ -62,11 +62,11 @@ function App() {
                   />
                 )}
               />
-              {/* <Route exact path="/about" component={About} /> */}
-              <Route exact path="/about" component={Cart} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/cart" component={CartScreen} />
               {/* <Route exact path="/detail/:id" component={ErrorPage} /> */}
-
               <Route exact path="/contact" component={ContactScreen} />
+              <Route exact path="*" component={ErrorPage} />
             </Switch>
             {showSearch && <SearchBox />}
             <AuthScreen />

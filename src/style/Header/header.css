@@ -59,12 +59,13 @@ header {
 }
 
 .about {
-  left: -105%
+  left: -105%;
 }
 
-.hover-menu:hover .dropdown-menu{
+.hover-menu:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
+  transition: all 1s ease;
 }
 
 .dropdown-menu li {
@@ -74,7 +75,8 @@ header {
   transition: background-color 200ms ease-in-out;
 }
 
-.dropdown-menu li:hover, .dropdown-menu li:focus {
+.dropdown-menu li:hover,
+.dropdown-menu li:focus {
   background-color: var(--primary-footer);
 }
 
