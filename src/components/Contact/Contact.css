@@ -1,27 +1,24 @@
 .contact h1 {
+    color: var(--text-title);
     text-align: center;
-    margin-top: 20px;
-    font: normal normal normal 50px/63px Bellota Text;
-    letter-spacing: 1.25px;
-    color: #966a57;
+    margin-top: 30px;
+    margin-bottom: 60px;
     text-transform: uppercase;
 }
 
 .contact p {
-    margin-top: 30px;
     text-align: center;
-    font: normal normal bold 24px/30px Bellota Text;
-    letter-spacing: 0.6px;
+    font: normal normal bold 18px/30px Bellota Text;
     color: #524d4b;
 }
 .contact form {
-    padding: 0 450px;
+    padding: 0 524px;
     box-sizing: border-box;
 }
 
 form .contact-txt_field {
     position: relative;
-    border-bottom: 1px solid #966a57;
+    border-bottom: 1px solid var(--underline);
     margin: 30px 0;
 }
 
@@ -104,7 +101,7 @@ form .contact-txt_field {
 }
 
 .contact-message textarea {
-    
+    resize: none;
     margin-top: 15px;
     margin-bottom: 40px;
     padding: 15px;

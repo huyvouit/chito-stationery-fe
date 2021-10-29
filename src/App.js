@@ -62,8 +62,8 @@ function App() {
                   />
                 )}
               />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/cart" component={CartScreen} />
+              {/* <Route exact path="/about" component={About} /> */}
+              <Route exact path="/about" component={CartScreen} />
               {/* <Route exact path="/detail/:id" component={ErrorPage} /> */}
               <Route exact path="/contact" component={ContactScreen} />
               <Route exact path="*" component={ErrorPage} />
