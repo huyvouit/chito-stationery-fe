@@ -1,0 +1,126 @@
+.cart_wrapper {
+    margin: 0 300px;
+}
+
+.cart_title {
+    color: var(--text-title);
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.cart_tab {
+    border-bottom: 1px solid var(--underline);
+    display: flex;
+    justify-content: space-between;
+    padding-right: 42px;
+    padding-bottom: 12px;
+    padding-left: 32px;
+}
+
+.cart_right {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 150px;
+}
+
+.cart_product {
+    border-bottom: 1px solid var(--underline);
+    margin-top: 27px;
+    padding-bottom: 27px;
+    display: flex;
+}
+
+.cart_tab_2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart_right_2 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 103px;
+    width: max-content;
+    padding-bottom: 6.1%;
+    padding-left: 8.3rem;
+}
+
+.cart_product_image {
+    width: 120px;
+    height: 120px;
+    margin-right: 27px;
+    cursor: pointer;
+}
+
+.cart_product_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 5%;
+}
+
+.cart_product_info_name {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cart_product_info_remove {
+    border-bottom: 1px solid var(--underline);
+    width: max-content;
+    font-size: 14px;
+    color: var(--underline);
+    cursor: pointer;
+}
+
+.product_incr_decr {
+    display: flex;
+}
+
+.product_incr_decr button {
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.product_incr_decr p {
+    padding-top: 8px;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    background-color: white;
+}
+
+.cart_note {
+    margin-top: 27px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart_note_area {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 36px;
+}
+
+.cart_note_area_right {
+    margin-top: 12px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cart_note_area textarea{
+    margin-top: 12px;
+    width: 27vw;
+    height: 8vw;
+    resize: none;
+    border: none;
+    padding: 15px;
+    font-family: "Bellota Text", cursive;
+}
