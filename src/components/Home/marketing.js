@@ -18,7 +18,7 @@ export const Marketing = () => {
             <img src={washiTape} alt="washi-tape" />
           </div>
           <div className="marketing-script">
-            <p>fdfdf</p>
+            <p>WASHI TAPE</p>
           </div>
         </Link>
         <Link to="/shop?type=sticker" className="marketing-child-card">
@@ -26,7 +26,7 @@ export const Marketing = () => {
             <img src={washiTape} alt="washi-tape" />
           </div>
           <div className="marketing-script">
-            <p>fdfdf</p>
+            <p>STICKER</p>
           </div>
         </Link>
         <Link to="/shop?type=sticky%20note" className="marketing-child-card">
@@ -34,7 +34,7 @@ export const Marketing = () => {
             <img src={washiTape} alt="washi-tape" />
           </div>
           <div className="marketing-script">
-            <p>fdfdf</p>
+            <p>STICKY NOTE</p>
           </div>
         </Link>
       </div>
