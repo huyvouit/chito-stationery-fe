@@ -69,7 +69,7 @@ function Filter() {
         className="filter-group-product"
         role="button"
         style={{
-          borderBottom: openProduct ? "1px solid #966A57" : "none",
+          borderBottom: openProduct ? "1px solid var(--underline)" : "none",
         }}
         onClick={() => toggleProduct(!openProduct)}
       >
@@ -104,7 +104,7 @@ function Filter() {
         className="filter-group-price"
         role="button"
         style={{
-          borderBottom: openPrice ? "1px solid #966A57" : "none",
+          borderBottom: openPrice ? "1px solid var(--underline)" : "none",
         }}
         onClick={() => togglePrice(!openPrice)}
       >
