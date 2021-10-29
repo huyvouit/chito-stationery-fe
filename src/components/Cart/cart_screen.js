@@ -1,11 +1,11 @@
 import React from "react";
 
-export const Cart = () => {
+export const CartScreen = () => {
   return (
     <>
-        <div className="cart">
-            <h1>Hi</h1>
-        </div>
+      <div className="cart">
+        <h1>Hi</h1>
+      </div>
     </>
-)
+  );
 };
