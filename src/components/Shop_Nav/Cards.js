@@ -4,6 +4,7 @@ import React from "react";
 import CardItems from "./CardItems";
 import "../../style/Shop/Card.css";
 
+
 function Cards(props) {
   const { productList } = props;
   return (
