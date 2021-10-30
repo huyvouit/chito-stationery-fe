@@ -1,4 +1,4 @@
-.card-wrapper:hover {
+/* .card-wrapper:hover {
   transform: scale(1.03);
   transition: all 0.1s ease-out;
 }
@@ -68,4 +68,4 @@
 .card_btn:hover {
   color: white;
   background-color: var(--text-title);
-}
+} */
