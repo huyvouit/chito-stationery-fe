@@ -83,11 +83,21 @@ export const SignInform = ({ clickSignUp }) => {
         </div>
         <p>
           This site is protected by reCAPTCHA and the Google{" "}
-          <a className="signin_link" href="https://policies.google.com/privacy" target="_blank">
+          <a
+            className="signin_link"
+            href="https://policies.google.com/privacy"
+            rel="noreferrer"
+            target="_blank"
+          >
             Privacy Policy
           </a>{" "}
           and{" "}
-          <a className="signin_link" href="https://policies.google.com/terms" target="_blank">
+          <a
+            className="signin_link"
+            href="https://policies.google.com/terms"
+            rel="noreferrer"
+            target="_blank"
+          >
             Terms of Service
           </a>{" "}
           apply.
