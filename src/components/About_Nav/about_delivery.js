@@ -8,7 +8,7 @@ export const Delivery = () => {
             <div className="about_content">
                 <div className="about_subwrapper">
                     <h3 className="about_subtitle">FREE SHIPPING</h3>
-                    <p>We offer Free Shipping on all orders over 200.000 VND.</p>
+                    <p>We offer Free Shipping Nationwide.</p>
                 </div>
                 <div className="about_subwrapper">
                     <h3 className="about_subtitle">DISPATCH</h3>

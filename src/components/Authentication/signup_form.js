@@ -80,7 +80,7 @@ export const SignUpForm = ({ clickSignIn }) => {
         <h2 className="form-title">Sign up</h2>
         <div className="form-input">
           <div className="input-field">
-            <p className="form-label">Username*</p>
+            <p className="form-label">Full name*</p>
             <input
               type="text"
               name="username"
