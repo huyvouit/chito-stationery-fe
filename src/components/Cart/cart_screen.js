@@ -21,7 +21,7 @@ export const CartScreen = () => {
         <div className="cart-empty">
           <img className="cart-empty-image" src={cartIcon} alt="404 error" />
           <h2 className="cart-empty-msg">
-            Your cart is empty! Please select products you wanna buy
+            Your cart is empty! Please select products you wanna buy.
           </h2>
           <Link to="/shop" className="cart-empty-btn">
             BUY NOW
@@ -94,8 +94,7 @@ export const CartScreen = () => {
               })}
             <tr className="cart-total-checkout">
               <td colSpan="4">
-                <h4>{totalPrice} VND</h4>
-                <h4>SHIPPING FREE</h4>
+                <h3>{totalPrice} VND</h3>
                 <Link to="/" className="error_btn">
                   CHECKOUT
                 </Link>
