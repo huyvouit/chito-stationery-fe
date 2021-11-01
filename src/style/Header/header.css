@@ -18,7 +18,8 @@ header {
   height: 70px;
 } */
 .navbar-logo,
-.nav-link {
+.nav-link,
+.drop-link {
   color: #966a57;
   text-decoration: none;
   cursor: pointer;
@@ -109,6 +110,20 @@ header {
   margin-right: 17px;
 }
 
+.btn-number-cart-item {
+  display: inline-block;
+  position: relative;
+  top: -15px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 100rem;
+  background-color: white;
+  text-decoration: none;
+  font-size: 12px;
+  text-align: center;
+  color: var(--text-title);
+}
 .avatar-user {
   width: 40px;
   height: 40px;

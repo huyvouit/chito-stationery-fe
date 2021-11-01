@@ -1,4 +1,5 @@
-.error {
+.error,
+.cart-empty {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,12 +12,14 @@
   height: 450px;
 }
 
-.error_msg {
+.error_msg,
+.cart-empty-msg {
   color: var(--text-title);
   margin-bottom: 45px;
 }
 
-.error_btn {
+.error_btn,
+.cart-empty-btn {
   background-color: var(--text-title);
   border: none;
   color: white;

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../../style/Shop/Card.css";
 import { CART } from "../../constants/constant";
+import { CartContext } from "../../contexts/cart_context";
 function Cards(props) {
   const { productList } = props;
-
+  const { addItem } = useContext(CartContext);
   return (
     <>
       <div className="groupCard">
@@ -21,7 +22,9 @@ function Cards(props) {
                       <h6>{item.price.$numberDecimal} VND</h6>
                     </div>
                   </div>
-                  <div className="card_btn ">ADD TO CART</div>
+                  <div className="card_btn " onClick={() => addItem(item)}>
+                    ADD TO CART
+                  </div>
                 </div>
               </div>
             );

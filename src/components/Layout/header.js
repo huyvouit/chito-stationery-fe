@@ -7,12 +7,13 @@ import "../../style/Header/header.css";
 import { PopUpContext } from "../../contexts/popup_context";
 // import DropDown from "../Shop_Dropdown/DropDown";
 import { AuthContext } from "../../contexts/auth_context";
+import { CartContext } from "../../contexts/cart_context";
 // import refreshPage from "../../Helper/refresh_page";
 export const Header = () => {
   const { setShowPopUp, setShowSearch } = useContext(PopUpContext);
   // const [click, setClick] = useState(false);
   // // const [dropDown, setDropdown]
-
+  const { state } = useContext(CartContext);
   // const handleClick = () => setClick(!click);
 
   const {
@@ -48,9 +49,21 @@ export const Header = () => {
             <Link to="/about" className="nav-link">
               ABOUT
               <ul className="dropdown-menu about">
-                <li>DELIVERY RETURNS</li>
-                <li>TERMS CONDITIONS</li>
-                <li>PRIVACY POLICY</li>
+                <li>
+                  <Link className="drop-link" to="/about">
+                    DELIVERY RETURNS
+                  </Link>
+                </li>
+                <li>
+                  <Link className="drop-link" to="/about/term-consition">
+                    TERMS CONDITIONS
+                  </Link>
+                </li>
+                <li>
+                  <Link className="drop-link" to="/about/privacy-policy">
+                    PRIVACY POLICY
+                  </Link>
+                </li>
               </ul>
             </Link>
           </li>
@@ -78,6 +91,9 @@ export const Header = () => {
                 height="20px"
                 alt="cart icon"
               />
+              {state.totalItems !== 0 && (
+                <span className="btn-number-cart-item">{state.totalItems}</span>
+              )}
             </Link>
             {!authLoading && isAuthenticated ? (
               <div className="item-icon">
