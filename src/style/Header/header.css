@@ -14,9 +14,7 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-/* .navbar-left {
-  height: 70px;
-} */
+
 .navbar-logo,
 .nav-link,
 .drop-link {
@@ -34,7 +32,7 @@ header {
 .nav-link {
   font-size: 20px;
   position: relative;
-  padding-bottom: 15px;
+  padding-bottom: 18px;
 }
 
 .dropdown-menu {
@@ -52,7 +50,7 @@ header {
   gap: 0.5rem;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 200ms ease-in-out;
+  transition: opacity 0.01s ease-in-out;
 }
 
 .shop {
@@ -63,17 +61,34 @@ header {
   left: -105%;
 }
 
+.icon {
+  right: 91px;
+  top: 69px;
+}
+
 .hover-menu:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transition: all 1s ease;
+  transition: all 0.01s ease;
+}
+
+.hover-user{
+  padding-bottom: 15px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.hover-user:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.01s ease;
 }
 
 .dropdown-menu li {
   list-style: none;
   padding: 0.5rem;
   border-radius: 2px;
-  transition: background-color 200ms ease-in-out;
+  transition: background-color 0.01s ease-in-out;
 }
 
 .dropdown-menu li:hover,
@@ -124,9 +139,10 @@ header {
   text-align: center;
   color: var(--text-title);
 }
+
 .avatar-user {
-  width: 40px;
-  height: 40px;
-  background-color: red;
+  width: 30px;
+  height: 30px;
+  background-color: var(--text-subTitle);
   border-radius: 100rem;
 }

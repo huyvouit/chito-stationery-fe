@@ -96,9 +96,22 @@ export const Header = () => {
               )}
             </Link>
             {!authLoading && isAuthenticated ? (
-              <div className="item-icon">
+              <Link to="/profile" className="item-icon hover-user">
                 <div className="avatar-user">{username}</div>
-              </div>
+                <ul className="dropdown-menu icon">
+                  <li>
+                    <Link to="*" className="drop-link">
+                      PROFILE
+                    </Link>
+                      
+                  </li>
+                  <li>
+                    <Link to="*" className="drop-link">
+                      SIGN OUT
+                    </Link>
+                  </li>
+                </ul>
+              </Link>
             ) : (
               <div className="item-icon">
                 <img
