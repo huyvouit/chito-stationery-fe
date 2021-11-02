@@ -46,7 +46,7 @@ export const Header = () => {
             </Link>
           </li>
           <li className="hover-menu nav-item">
-            <Link to="/about" className="nav-link">
+            <Link to="/about"  className="nav-link">
               ABOUT
               <ul className="dropdown-menu about">
                 <li>
