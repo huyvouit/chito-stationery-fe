@@ -7,7 +7,7 @@ export const AccInfo = () => {
             <h1 className="profile-title">MY ACCOUNT</h1>
             <div className="profile-content">
                 <SideBar/>
-                <div className="profile-content-right">
+                <div>
                     <div className="account-info">
                         <div className="profile-col-width">
                             <h2>Account Information</h2>
