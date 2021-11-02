@@ -100,7 +100,7 @@ export const Header = () => {
                 <div className="avatar-user">{username}</div>
                 <ul className="dropdown-menu icon">
                   <li>
-                    <Link to="*" className="drop-link">
+                    <Link to="/profile" className="drop-link">
                       PROFILE
                     </Link>
                       
