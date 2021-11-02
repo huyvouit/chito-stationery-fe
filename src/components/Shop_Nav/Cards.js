@@ -2,9 +2,15 @@ import React, { useContext } from "react";
 import "../../style/Shop/Card.css";
 import { CART } from "../../constants/constant";
 import { CartContext } from "../../contexts/cart_context";
+import { useHistory } from "react-router-dom";
 function Cards(props) {
   const { productList } = props;
   const { addItem } = useContext(CartContext);
+  let history = useHistory();
+  const handleClickItemPassDetail = (item) => {
+    console.log("sdd");
+    history.push("/detail/" + item._id);
+  };
   return (
     <>
       <div className="groupCard">
@@ -14,7 +20,10 @@ function Cards(props) {
             return (
               <div key={item._id} className="groupCard-column">
                 <div className="card-wrapper">
-                  <div className="card">
+                  <div
+                    className="card"
+                    onClick={() => handleClickItemPassDetail(item)}
+                  >
                     <img className="ItemImg" src={item.image} alt="Avatar" />
                     <div className="ItemTxt">
                       <h5>{item.productName}</h5>

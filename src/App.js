@@ -23,6 +23,8 @@ import { SearchBox } from "./components/Layout/search_box";
 import Filter from "./components/Shop_Nav/Filter";
 import ContactScreen from "./components/Contact/contact_screen";
 import CartContextProvider from "./contexts/cart_context";
+import { DetailScreen } from "./components/Detail/detail_screen";
+
 function App() {
   const { showPopUp, showSearch, showFilter, closePopUp, setShowFilter } =
     useContext(PopUpContext);
@@ -73,7 +75,7 @@ function App() {
                 <Route exact path="/about/term-consition" component={Terms} />
                 <Route exact path="/about/privacy-policy" component={Privacy} />
                 <Route exact path="/cart" component={CartScreen} />
-                {/* <Route exact path="/detail/:id" component={ErrorPage} /> */}
+                <Route exact path="/detail/:id" component={DetailScreen} />
                 <Route exact path="/contact" component={ContactScreen} />
                 <Route exact path="/profile" component={ProfileScreen} />
                 <Route exact path="/abc" component={AfterCheckout} />
