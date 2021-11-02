@@ -17,7 +17,7 @@ export const ProfileScreen = () => {
                             <p>Sweet Latte</p>
                             <p>sweetlatte@gmail.com</p>
                             <div className="btn-container">
-                                <Link to="*" className="profile-info-btn">CHANGE PASSWORD</Link>
+                                <Link to="/profile/acc-info" className="profile-info-btn">CHANGE PASSWORD</Link>
                             </div>
                         </div>
                         <div className="profile-col-width">
@@ -27,7 +27,7 @@ export const ProfileScreen = () => {
                             <p>0909272727</p>
                             <p>2710 Cappuccino Street, Espresso, Robusta City</p>
                             <div className="btn-container">
-                                <Link to="*" className="profile-info-btn">EDIT ADDRESS</Link>
+                                <Link to="/profile/acc-address/edit-address" className="profile-info-btn">EDIT ADDRESS</Link>
                             </div>
                         </div>
                     </div>

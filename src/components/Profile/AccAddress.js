@@ -16,7 +16,7 @@ export const AccAddress = () => {
                         <p>2710 Cappuccino Street, Espresso, Robusta City</p>
                     </div>
                     <div className="btn-container">
-                        <Link to="*" className="profile-info-btn">CHANGE SHIPPING ADDRESS</Link>
+                        <Link to="/profile/acc-address/edit-address" className="profile-info-btn">CHANGE SHIPPING ADDRESS</Link>
                     </div>
                 </div>
             </div>

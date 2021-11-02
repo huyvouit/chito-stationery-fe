@@ -17,7 +17,7 @@ export const AccInfo = () => {
                             </div>
                             <h5 className="profile-info-subtitle">EMAIL</h5>
                             <div className="profile-info-input">
-                                <input type="text" required placeholder="email nữa"/>
+                                <input type="email" required placeholder="email nữa"/>
                             </div>
                             <label class="container profile-info-subtitle">CHANGE PASSWORD
                                 <input type="checkbox"/>
