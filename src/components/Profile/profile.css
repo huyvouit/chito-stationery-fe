@@ -1,3 +1,4 @@
+/* General CSS + Main Profile Page */
 .profile-wrapper {
     margin: 0 200px;
 }
@@ -61,9 +62,11 @@ th {
     padding: 0;
 }
 
+/* Sidebar */
 .sidebar-wrapper {
     width: 190px;
     margin-right: 80px;
+    margin-bottom: 70px;
 }
 
 .sidebar-img {
@@ -86,4 +89,117 @@ th {
 .sidebar-title {
     text-decoration: none;
     color: var(--primary-text);
+}
+
+/* Account Information */
+.account-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+}
+
+.account-width {
+    width: 21vw;
+}
+
+.account-info-right {
+    margin-bottom: 45px;
+}
+
+.profile-info-input {
+    border-bottom: 1px solid var(--text-title);
+}
+  
+.profile-info-input input {
+    width: 100%;
+    height: 21px;
+    font: normal normal bold 16px/55px Bellota Text;
+    letter-spacing: 0.75px;
+    color: #524d4b;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+/* BUTTON */
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 32px;
+    padding-top: 3px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+  
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border: solid 1px var(--text-title);
+}
+  
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #e5e1df;
+}
+  
+/* When the checkbox is checked, add a background */
+.container input:checked ~ .checkmark {
+    background-color: #966a57;
+}
+  
+/* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 6px;
+    top: 1px;
+    width: 3px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.btn-save {
+    float: right;
+    margin-top: 36px;
+    background-color: var(--text-title);
+    border: none;
+    color: var(--primary-background);
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: "Bellota Text", cursive;
+    cursor: pointer;
+    text-transform: uppercase;
 }
