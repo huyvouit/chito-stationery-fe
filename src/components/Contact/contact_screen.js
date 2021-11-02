@@ -8,7 +8,7 @@ function ContactScreen() {
             <p>Please get in touch if you have any questions or feedback.</p>
             <form method="post" action="">
                 <div className="contact-txt_field">
-                        <input type="email" required />
+                        <input type="email" required  autoFocus/>
                         <span></span>
                         <label>EMAIL*</label>
                     </div>
@@ -25,7 +25,7 @@ function ContactScreen() {
                     </div>
                 </div>
                 <div className="contact-message">
-                    <label>MESSAGE</label>
+                    <label>MESSAGE*</label>
                     <textarea type="text" required />
                 </div>
                 <input type="submit" value="SUBMIT" />
