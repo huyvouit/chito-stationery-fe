@@ -70,7 +70,7 @@ form .contact-txt_field {
   width: 100%;
 }
 
-.contact input[type="submit"] {
+.contact .submit {
   margin-bottom: 30px;
   margin-left: 80%;
   width: 20%;
@@ -84,7 +84,7 @@ form .contact-txt_field {
   cursor: pointer;
   outline: none;
 }
-.contact input[type="submit"]:hover {
+.contact .submit:hover {
   border-color: #966a57;
   transition: 0.5s;
 }
