@@ -36,7 +36,8 @@ export const DetailScreen = () => {
     <>
       {infoProduct && Object.keys(infoProduct).length !== 0 && (
         <div>
-          {infoProduct["_id"]} {infoProduct["productName"]}
+          {infoProduct["_id"]} {infoProduct["detail"]}
+          <img src={infoProduct["image"]} />
         </div>
       )}
     </>
