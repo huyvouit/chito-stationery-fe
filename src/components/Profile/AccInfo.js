@@ -9,7 +9,7 @@ export const AccInfo = () => {
                 <SideBar/>
                 <div className="profile-content-right">
                     <div className="account-info">
-                        <div className="account-width">
+                        <div className="profile-col-width">
                             <h2>Account Information</h2>
                             <h5 className="profile-info-subtitle">FULL NAME</h5>
                             <div className="profile-info-input">
@@ -24,7 +24,7 @@ export const AccInfo = () => {
                                 <span class="checkmark"></span>
                             </label> 
                         </div>
-                        <div className="account-width account-info-right">
+                        <div className="profile-col-width account-info-right">
                             <h2>Change Password</h2>
                             <h5 className="profile-info-subtitle">CURRENT PASSWORD*</h5>
                             <div className="profile-info-input">

@@ -17,7 +17,7 @@
 .profile-info {
     display: flex;
     justify-content: space-between;
-    gap: 212px;
+    gap: 100px;
 }
 
 .profile-info-subtitle {
@@ -98,7 +98,7 @@ th {
     gap: 100px;
 }
 
-.account-width {
+.profile-col-width {
     width: 21vw;
 }
 

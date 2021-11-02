@@ -11,7 +11,7 @@ export const ProfileScreen = () => {
                 <SideBar/>
                 <div className="profile-content-right">
                     <div className="profile-info">
-                        <div className="profile-info-contact">
+                        <div className="profile-col-width">
                             <h2>Account Information</h2>
                             <h5 className="profile-info-subtitle">CONTACT INFORMATION</h5>
                             <p>Sweet Latte</p>
@@ -20,7 +20,7 @@ export const ProfileScreen = () => {
                                 <Link to="*" className="profile-info-btn">CHANGE PASSWORD</Link>
                             </div>
                         </div>
-                        <div className="profile-info-address">
+                        <div className="profile-col-width">
                             <h2>Address Book</h2>
                             <h5 className="profile-info-subtitle">DEFAULT SHIPPING ADDRESS</h5>
                             <p>Sweet Latte</p>
