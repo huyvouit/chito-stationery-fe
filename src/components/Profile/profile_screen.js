@@ -26,7 +26,13 @@ export const ProfileScreen = () => {
                   <p>{user.fullname}</p>
                   <p>{user.email}</p>
                   <div className="btn-container">
-                    <Link to="/profile/acc-info" className="profile-info-btn">
+                    <Link
+                      to={{
+                        pathname: "/profile/acc-info",
+                        state: { isChangePass: true },
+                      }}
+                      className="profile-info-btn"
+                    >
                       CHANGE PASSWORD
                     </Link>
                   </div>
@@ -51,7 +57,7 @@ export const ProfileScreen = () => {
               </div>
               <div className="profile-order">
                 <h2>My Orders</h2>
-                <table>
+                <table className="table-profile">
                   <colgroup>
                     <col style={{ width: "10%" }}></col>
                     <col style={{ width: "50%" }}></col>

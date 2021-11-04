@@ -9,7 +9,7 @@ export const MyOrders = () => {
                 <SideBar/>
                 <div>
                     <h2>My Orders</h2>
-                    <table className="table-width">
+                    <table className="table-profile table-width">
                         <colgroup>
                             <col style={{ width: "10%" }}></col>
                             <col style={{ width: "50%" }}></col>

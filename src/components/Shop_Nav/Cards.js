@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import "../../style/Shop/Card.css";
-import { CART } from "../../constants/constant";
 import { CartContext } from "../../contexts/cart_context";
 import { useHistory } from "react-router-dom";
 function Cards(props) {
