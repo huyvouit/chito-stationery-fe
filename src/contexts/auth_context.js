@@ -45,7 +45,7 @@ const AuthContextProvider = ({ children }) => {
   const loginUser = async (userForm) => {
     try {
       const response = await authApi.postSignIn(userForm);
-      console.log(response.data.accessToken);
+      // console.log(response.data.accessToken);
       if (response.data.success)
         localStorage.setItem(TOKEN_NAME, response.data.accessToken);
       // console.log(`data: ${response.data}`);
