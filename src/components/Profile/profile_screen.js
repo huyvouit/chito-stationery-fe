@@ -33,7 +33,7 @@ export const ProfileScreen = () => {
                     </div>
                     <div className="profile-order">
                         <h2>My Orders</h2>
-                        <table>
+                        <table className="table-profile">
                             <colgroup>
                                 <col style={{ width: "10%" }}></col>
                                 <col style={{ width: "50%" }}></col>

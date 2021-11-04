@@ -17,6 +17,7 @@ import { ProfileScreen } from "./components/Profile/profile_screen";
 import { AccInfo } from "./components/Profile/AccInfo";
 import { AccAddress } from "./components/Profile/AccAddress";
 import { MyOrders } from "./components/Profile/MyOrders";
+import { DetailOrder } from "./components/Profile/DetailOrder";
 import { EditAddress } from "./components/Profile/EditAddress";
 //context
 import AuthContextProvider from "./contexts/auth_context";
@@ -84,7 +85,8 @@ function App() {
                 <Route exact path="/profile/acc-info" component={AccInfo} />
                 <Route exact path="/profile/acc-address" component={AccAddress} />
                 <Route exact path="/profile/acc-address/edit-address" component={EditAddress}/>
-                <Route exact path="/profile/acc-orders" component={MyOrders} />
+                <Route exact path="/profile/acc-orders" component={DetailOrder} />
+                {/* <Route exact path="/profile/acc-orders/detail-order" component={DetailOrder} /> */}
 
                 <Route exact path="/abc" component={AfterCheckout} />
                 <Route exact path="*" component={ErrorPage} />
