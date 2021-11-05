@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../contexts/cart_context";
 import { useHistory } from "react-router-dom";
+import "../../style/Shop/Card.css";
 function Cards(props) {
   const { productList } = props;
   const { addItem } = useContext(CartContext);
