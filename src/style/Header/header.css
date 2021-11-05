@@ -32,14 +32,13 @@ header {
 .nav-link {
   font-size: 20px;
   position: relative;
-  padding-bottom: 18px;
 }
 
 .dropdown-menu {
   text-align: center;
   position: absolute;
   font-size: 16px;
-  top: 2rem;
+  top: 1.2rem;
   background-color: var(--primary-background);
   box-shadow: 0 3px 5px var(--blend-mode);
   border-radius: 10px;
@@ -62,8 +61,8 @@ header {
 }
 
 .icon {
-  right: 91px;
-  top: 69px;
+  right: 20px;
+  top: 30px;
 }
 
 .hover-menu:hover .dropdown-menu {
@@ -72,10 +71,10 @@ header {
   transition: all 0.01s ease;
 }
 
-.hover-user{
+.hover-user {
   padding-bottom: 15px;
-    margin-top: 5px;
-    cursor: pointer;
+  margin-top: 5px;
+  cursor: pointer;
 }
 
 .hover-user:hover .dropdown-menu {
@@ -123,13 +122,14 @@ header {
 
 .item-icon {
   margin-right: 17px;
+  position: relative;
 }
 
 .btn-number-cart-item {
   display: inline-block;
-  position: relative;
-  top: -15px;
-  right: 10px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
   width: 18px;
   height: 18px;
   border-radius: 100rem;

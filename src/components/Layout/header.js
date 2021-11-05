@@ -9,19 +9,18 @@ import { PopUpContext } from "../../contexts/popup_context";
 import { AuthContext } from "../../contexts/auth_context";
 import { CartContext } from "../../contexts/cart_context";
 // import refreshPage from "../../Helper/refresh_page";
+import { useHistory } from "react-router-dom";
 export const Header = () => {
   const { setShowPopUp, setShowSearch } = useContext(PopUpContext);
-  // const [click, setClick] = useState(false);
-  // // const [dropDown, setDropdown]
+  const { logoutUser } = useContext(AuthContext);
   const { state } = useContext(CartContext);
   // const handleClick = () => setClick(!click);
-
+  let history = useHistory();
+  const handleClickNavbar = (item) => {
+    history.push(`/${item}`);
+  };
   const {
-    authState: {
-      authLoading,
-      isAuthenticated,
-      user: { username },
-    },
+    authState: { authLoading, isAuthenticated, user },
   } = useContext(AuthContext);
   // console.log(authLoading, isAuthenticated);
   return (
@@ -35,19 +34,30 @@ export const Header = () => {
 
         <ul className="navbar-right">
           <li className="hover-menu nav-item">
-            <Link to="/shop" className="nav-link">
-              SHOP
+            <div className="nav-link">
+              <p onClick={() => handleClickNavbar("shop")}>SHOP</p>
               <ul className="dropdown-menu shop">
-                <li>WASHI TAPE</li>
-                <li>STICKER</li>
-                <li>STICKY NOTE</li>
-                <li>GIFT BOXES</li>
+                <li>
+                  <Link to="/shop?type=washi%20tape" className="drop-link">
+                    WASHI TAPE
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/shop?type=sticker" className="drop-link">
+                    STICKER
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/shop?type=sticky%20note" className="drop-link">
+                    STICKY NOTE
+                  </Link>
+                </li>
               </ul>
-            </Link>
+            </div>
           </li>
           <li className="hover-menu nav-item">
-            <Link to="/about" className="nav-link">
-              ABOUT
+            <div className="nav-link">
+              <p onClick={() => handleClickNavbar("about")}>ABOUT</p>
               <ul className="dropdown-menu about">
                 <li>
                   <Link className="drop-link" to="/about">
@@ -65,7 +75,7 @@ export const Header = () => {
                   </Link>
                 </li>
               </ul>
-            </Link>
+            </div>
           </li>
           <li className="nav-item">
             <Link to="/contact" className="nav-link">
@@ -96,8 +106,8 @@ export const Header = () => {
               )}
             </Link>
             {!authLoading && isAuthenticated ? (
-              <Link to="/profile" className="item-icon hover-user">
-                <div className="avatar-user">{username}</div>
+              <div className="item-icon hover-user">
+                <div className="avatar-user"></div>
                 <ul className="dropdown-menu icon">
                   <li>
                     <Link to="/profile" className="drop-link">
@@ -105,12 +115,12 @@ export const Header = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to="*" className="drop-link">
+                    <div className="drop-link" onClick={logoutUser}>
                       SIGN OUT
-                    </Link>
+                    </div>
                   </li>
                 </ul>
-              </Link>
+              </div>
             ) : (
               <div className="item-icon">
                 <img
