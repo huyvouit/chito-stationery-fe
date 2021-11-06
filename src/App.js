@@ -83,23 +83,20 @@ function App() {
                 <Route exact path="/detail/:id" component={DetailScreen} />
                 <Route exact path="/contact" component={ContactScreen} />
                 <PrivateRoute path="/profile" component={ProfileScreen} />
+
                 {/* <Route exact path="/profile" component={ProfileScreen} /> */}
-                <PrivateRoute
-                  exact
-                  path="/profile/acc-info"
-                  component={AccInfo}
-                />
-                <PrivateRoute
+                <Route exact path="/profile/acc-info" component={AccInfo} />
+                <Route
                   exact
                   path="/profile/acc-address"
                   component={AccAddress}
                 />
-                <PrivateRoute
+                <Route
                   exact
                   path="/profile/acc-address/edit-address"
                   component={EditAddress}
                 />
-                <PrivateRoute
+                <Route
                   exact
                   path="/profile/acc-orders"
                   component={DetailOrder}

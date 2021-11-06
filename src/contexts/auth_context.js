@@ -34,7 +34,7 @@ const AuthContextProvider = ({ children }) => {
       console.log("faild verify");
       dispatch({
         type: "SET_AUTH",
-        payload: { authLoading: true, isAuthenticated: false, user: "" },
+        payload: { authLoading: false, isAuthenticated: false, user: "" },
       });
     }
   };
@@ -81,7 +81,7 @@ const AuthContextProvider = ({ children }) => {
     localStorage.removeItem(TOKEN_NAME);
     dispatch({
       type: "SET_AUTH",
-      payload: { authLoading: true, isAuthenticated: false, user: null },
+      payload: { authLoading: false, isAuthenticated: false, user: null },
     });
   };
 
