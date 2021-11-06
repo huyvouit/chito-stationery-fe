@@ -29,7 +29,7 @@ import Filter from "./components/Shop_Nav/Filter";
 import ContactScreen from "./components/Contact/contact_screen";
 import CartContextProvider from "./contexts/cart_context";
 import { DetailScreen } from "./components/Detail/detail_screen";
-
+import PrivateRoute from "./Helper/private_route";
 function App() {
   const { showPopUp, showSearch, showFilter, closePopUp, setShowFilter } =
     useContext(PopUpContext);
@@ -82,15 +82,32 @@ function App() {
                 <Route exact path="/cart" component={CartScreen} />
                 <Route exact path="/detail/:id" component={DetailScreen} />
                 <Route exact path="/contact" component={ContactScreen} />
-
-                <Route exact path="/profile" component={ProfileScreen} />
-                <Route exact path="/profile/acc-info" component={AccInfo} />
-                <Route exact path="/profile/acc-address" component={AccAddress} />
-                <Route exact path="/profile/acc-address/edit-address" component={EditAddress}/>
-                <Route exact path="/profile/acc-orders" component={DetailOrder} />
+                <PrivateRoute path="/profile" component={ProfileScreen} />
+                {/* <Route exact path="/profile" component={ProfileScreen} /> */}
+                <PrivateRoute
+                  exact
+                  path="/profile/acc-info"
+                  component={AccInfo}
+                />
+                <PrivateRoute
+                  exact
+                  path="/profile/acc-address"
+                  component={AccAddress}
+                />
+                <PrivateRoute
+                  exact
+                  path="/profile/acc-address/edit-address"
+                  component={EditAddress}
+                />
+                <PrivateRoute
+                  exact
+                  path="/profile/acc-orders"
+                  component={DetailOrder}
+                />
                 {/* <Route exact path="/profile/acc-orders/detail-order" component={DetailOrder} /> */}
 
                 <Route exact path="/abc" component={AfterCheckout} />
+                <Route exact path="/404" component={ErrorPage} />
                 <Route exact path="*" component={ErrorPage} />
               </Switch>
               {showSearch && <SearchBox />}
