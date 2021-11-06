@@ -8,7 +8,7 @@ import { ErrorPage } from "../Layout/error_page";
 import rightIcon from "../../assets/Icons/right-arrow.svg";
 import downIcon from "../../assets/Icons/down-arrow.svg";
 import "./Detail.css";
-import Cards from "../Shop_Nav/Cards";
+import candy from "../../assets/Images/candy.jpg";
 export const DetailScreen = () => {
   const { id } = useParams();
   const [infoProduct, setInfoProduct] = useState({});
@@ -22,6 +22,22 @@ export const DetailScreen = () => {
 
   const [openProduct2, setOpenProduct2] = useState([]);
   const toggleProduct2 = () => setOpenProduct2(!openProduct2);
+
+  const [count, setCount] = useState(1);
+
+  function countSubClick() {
+    if (count > 1)
+    {
+      setCount(count - 1);
+    }
+  };
+
+  function countPlusClick() {
+    if(count < 10)
+    {
+      setCount(count + 1);
+    }
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -60,9 +76,9 @@ export const DetailScreen = () => {
                 {infoProduct.price.$numberDecimal} VNĐ
               </p>
               <div className="detail-contain-right-quantity">
-                <button>-</button>
-                <p>1</p>
-                <button>+</button>
+                <button onClick={countSubClick} >-</button>
+                <p>{count}</p>
+                <button onClick={countPlusClick}>+</button>
               </div>
               <div className="detail-contain-right-button">
                 <button className="add">ADD TO CART</button>
@@ -157,15 +173,45 @@ export const DetailScreen = () => {
         <div className="detail-groupCard">
           <div className="detail-card-wrapper">
             <div className="detail-card">
-              <img className="detail-ItemImg" src="" alt="Avatar" />
+              <img className="detail-ItemImg" src={candy} alt="Avatar" />
               <div className="detail-ItemTxt">
-                <h5></h5>
-                <p></p>
-                <h6> VND</h6>
+                <h5>Halo000 000000000 000000000000</h5>
+                <h6> 100000 VND</h6>
               </div>
             </div>
-            <div className="detail-card_btn ">ADD TO CART</div>
           </div>
+
+          <div className="detail-card-wrapper">
+            <div className="detail-card">
+              <img className="detail-ItemImg" src={candy} alt="Avatar" />
+              <div className="detail-ItemTxt">
+                <h5>Halo000 000000000 000000000000</h5>
+                <h6> 100000 VND</h6>
+              </div>
+            </div>
+          </div>
+
+          <div className="detail-card-wrapper">
+            <div className="detail-card">
+              <img className="detail-ItemImg" src={candy} alt="Avatar" />
+              <div className="detail-ItemTxt">
+                <h5>Halo000 000000000 000000000000</h5>
+                <h6> 100000 VND</h6>
+              </div>
+            </div>
+          </div>
+
+          <div className="detail-card-wrapper">
+            <div className="detail-card">
+              <img className="detail-ItemImg" src={candy} alt="Avatar" />
+              <div className="detail-ItemTxt">
+                <h5>Halo000 000000000
+                  000000000000</h5>
+                <h6> 100000 VND</h6>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </>
