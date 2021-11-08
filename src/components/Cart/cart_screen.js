@@ -96,7 +96,7 @@ export const CartScreen = () => {
               <tr className="cart-total-checkout">
                 <td colSpan="4">
                   <h3>{totalPrice} VND</h3>
-                  <Link to="/" className="error_btn">
+                  <Link to="/checkout" className="error_btn">
                     CHECKOUT
                   </Link>
                 </td>
