@@ -1,4 +1,4 @@
-export const addItemsToCart = (cartItems, cartItemToAdd) => {
+export const addItemsToCart = (cartItems, cartItemToAdd, number) => {
   // console.log("cartAdd: ", cartItemToAdd._id);
   // console.log("cartInit: ", cartItems);
 
@@ -14,7 +14,7 @@ export const addItemsToCart = (cartItems, cartItemToAdd) => {
     );
   }
   // console.log("k ton tai");
-  return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
+  return [...cartItems, { ...cartItemToAdd, quantity: number }];
 };
 
 export const removeItemWithQuantityFromCart = (cartItems, cartItemToRemove) => {

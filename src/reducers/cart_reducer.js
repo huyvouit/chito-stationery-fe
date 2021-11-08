@@ -15,7 +15,11 @@ export const cartReducer = (state, action) => {
   switch (action.type) {
     case ADD_TO_CART: {
       // console.log()
-      const items = addItemsToCart(state.cartItems, action.payload);
+      const items = addItemsToCart(
+        state.cartItems,
+        action.payload.item,
+        action.payload.quantity
+      );
       // console.log("after item: ", items);
       return {
         ...state,

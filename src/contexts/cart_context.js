@@ -25,10 +25,10 @@ const CartContextProvider = ({ children }) => {
     console.log("save local");
   }, [state]);
   // console.log(state);
-  const addItem = (item) => {
+  const addItem = (item, number) => {
     dispatch({
       type: ADD_TO_CART,
-      payload: item,
+      payload: { item, quantity: number },
     });
   };
   const removeItem = (item) =>
