@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-
+import { useHistory } from "react-router-dom";
+import queryString from "query-string";
 //context
 import { PopUpContext } from "../../contexts/popup_context";
+import { FilterContext } from "../../contexts/filter_context";
 //css
 import "../../style/Layout/search_box.css";
 import iconClose from "../../assets/Icons/cancel.svg";
@@ -10,7 +12,7 @@ import productApi from "../../api/product_api";
 
 export const SearchBox = () => {
   const { showSearch, closePopUp } = useContext(PopUpContext);
-
+  const { handleQuery } = useContext(FilterContext);
   // state lưu các input search
   const [searchSubmit, setSearchSubmit] = useState("");
   const [searchInput, setSearchInput] = useState("");
@@ -34,12 +36,31 @@ export const SearchBox = () => {
       }
     };
     fetchProductBySearch();
+    return () => {
+      setSearchSubmit("");
+    };
   }, [searchSubmit]);
-  console.log("alo:", productSearch);
+
   //function handle input search
+  const history = useHistory();
+  const handleKeyDown = (e) => {
+    const value = {
+      q: e.target.value,
+    };
+    if (e.key === "Enter") {
+      closePopUp();
+      handleQuery(value);
+      history.push({
+        pathname: "/search",
+        search: queryString.stringify(value),
+      });
+    }
+  };
+
   const handleSearchInput = (e) => {
     const value = e.target.value;
     setSearchInput(value);
+
     if (debounce.current) {
       // console.log("clear");
       clearTimeout(debounce.current);
@@ -72,14 +93,15 @@ export const SearchBox = () => {
               onClick={closePopUp}
             />
           </div>
-          <form className="search-input">
+          <div className="search-input">
             <input
               type="text"
               value={searchInput}
               onChange={handleSearchInput}
+              onKeyDown={handleKeyDown}
               autoFocus
             />
-          </form>
+          </div>
         </div>
         <div className="search-result">
           <div className="show-product-field">

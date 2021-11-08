@@ -9,9 +9,8 @@ const FilterContextProvider = ({ children }) => {
 
   const handleQuery = (nameQuery) => {
     setQuery(nameQuery);
-    console.log("setQuery: ", query);
   };
-
+  console.log("query context: ", query);
   //Context data
   const FilterContextData = {
     query,

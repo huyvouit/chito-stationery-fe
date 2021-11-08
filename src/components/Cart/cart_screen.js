@@ -37,18 +37,19 @@ export const CartScreen = () => {
               <col style={{ width: "30%" }}></col>
               <col style={{ width: "15%" }}></col>
             </colgroup>
-            <tr className="cart-table-header">
-              <th>Product</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total</th>
-            </tr>
-
-            {cartItems &&
-              cartItems.length > 0 &&
-              cartItems.map((item) => {
-                return (
-                  <tbody>
+            <thead>
+              <tr className="cart-table-header">
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartItems &&
+                cartItems.length > 0 &&
+                cartItems.map((item) => {
+                  return (
                     <tr key={item._id} className="cart-table-body">
                       <td>
                         <div className="cart-table-body-product">
@@ -89,17 +90,18 @@ export const CartScreen = () => {
                         <h4>{calculateTotalPriceByItem(item)} VND</h4>
                       </td>
                     </tr>
-                  </tbody>
-                );
-              })}
-            <tr className="cart-total-checkout">
-              <td colSpan="4">
-                <h3>{totalPrice} VND</h3>
-                <Link to="/" className="error_btn">
-                  CHECKOUT
-                </Link>
-              </td>
-            </tr>
+                  );
+                })}
+
+              <tr className="cart-total-checkout">
+                <td colSpan="4">
+                  <h3>{totalPrice} VND</h3>
+                  <Link to="/" className="error_btn">
+                    CHECKOUT
+                  </Link>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
       )}
