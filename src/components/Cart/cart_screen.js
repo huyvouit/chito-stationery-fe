@@ -3,7 +3,7 @@ import "../../style/Cart/cart_screen.css";
 import cartIcon from "../../assets/Icons/shopping-basket.svg";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/cart_context";
-
+import { useHistory } from "react-router-dom";
 export const CartScreen = () => {
   const {
     state: { cartItems, totalPrice, totalItems },
@@ -14,6 +14,11 @@ export const CartScreen = () => {
   console.log(totalItems);
   const calculateTotalPriceByItem = (item) => {
     return item.price.$numberDecimal * item.quantity;
+  };
+
+  let history = useHistory();
+  const handleClickItemPassDetail = (item) => {
+    history.push("/detail/" + item);
   };
   return (
     <>
@@ -57,9 +62,15 @@ export const CartScreen = () => {
                             src={item.image}
                             alt="product"
                             className="cart-table-body-product-image"
+                            onClick={() => handleClickItemPassDetail(item._id)}
                           />
                           <div className="cart-table-body-product-content">
-                            <p className="cart-table-body-product-content-name">
+                            <p
+                              className="cart-table-body-product-content-name"
+                              onClick={() =>
+                                handleClickItemPassDetail(item._id)
+                              }
+                            >
                               {item.productName}
                             </p>
                             <p
@@ -83,7 +94,7 @@ export const CartScreen = () => {
                             -
                           </button>
                           <p>{item.quantity}</p>
-                          <button onClick={() => addItem(item)}>+</button>
+                          <button onClick={() => addItem(item, 1)}>+</button>
                         </div>
                       </td>
                       <td>

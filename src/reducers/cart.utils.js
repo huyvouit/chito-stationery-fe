@@ -9,7 +9,7 @@ export const addItemsToCart = (cartItems, cartItemToAdd, number) => {
   if (existingCartItem !== undefined) {
     return cartItems.map((cartItem) =>
       cartItem._id === cartItemToAdd._id
-        ? { ...cartItem, quantity: cartItem.quantity + 1 }
+        ? { ...cartItem, quantity: cartItem.quantity + number }
         : cartItem
     );
   }

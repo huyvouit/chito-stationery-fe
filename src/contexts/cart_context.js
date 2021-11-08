@@ -7,6 +7,7 @@ import {
 } from "../actions/action_type";
 import { CART } from "../constants/constant";
 import { cartReducer } from "../reducers/cart_reducer";
+import { toast } from "react-toastify";
 
 export const CartContext = createContext();
 
@@ -30,6 +31,18 @@ const CartContextProvider = ({ children }) => {
       type: ADD_TO_CART,
       payload: { item, quantity: number },
     });
+    let check = state.cartItems.find((x) => x._id === item._id);
+
+    if (check === undefined) {
+      toast.success("Added to cart successfully", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
   };
   const removeItem = (item) =>
     dispatch({

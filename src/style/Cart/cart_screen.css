@@ -40,13 +40,14 @@
 
 .cart-table-body-product {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   padding: 20px 0;
   /* width: 100%; */
 }
 .cart-table-body-product-image {
   width: 120px;
   height: 120px;
+  cursor: pointer;
 }
 .cart-table-body-product-content {
   margin-left: 20px;
@@ -56,9 +57,7 @@
 }
 .cart-table-body-product-content .cart-table-body-product-content-name {
   font-size: 20px;
-  /* position: relative;
-  top: 50%;
-  transform: translateY(-50%); */
+  cursor: pointer;
 }
 
 .cart-table-body-product-content .cart-table-body-product-content-remove {
