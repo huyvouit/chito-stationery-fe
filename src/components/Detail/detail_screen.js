@@ -6,13 +6,15 @@ import { ErrorPage } from "../Layout/error_page";
 import rightIcon from "../../assets/Icons/right-arrow.svg";
 import downIcon from "../../assets/Icons/down-arrow.svg";
 import "./Detail.css";
-import candy from "../../assets/Images/candy.jpg";
+import queryString from "query-string";
 import { CartContext } from "../../contexts/cart_context";
 import { useHistory } from "react-router-dom";
+
 export const DetailScreen = () => {
   const { id } = useParams();
   const { addItem } = useContext(CartContext);
   const [infoProduct, setInfoProduct] = useState({});
+  const [relatedProduct, setRelatedProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const [openProduct, setOpenProduct] = useState(true);
@@ -37,7 +39,7 @@ export const DetailScreen = () => {
       setCount(count + 1);
     }
   }
-  console.log("count ", count);
+
   useEffect(() => {
     setIsLoading(true);
     const fetchProductById = async () => {
@@ -46,6 +48,22 @@ export const DetailScreen = () => {
         const response = await productApi.getById(params);
         if (response.data) {
           setInfoProduct(response.data);
+
+          await fetchRelatedProduct(response.data.type);
+        }
+      } catch (error) {
+        console.log(error.response.data);
+        console.log("Failed to fetch product list: ", error);
+        setIsLoading(false);
+      }
+    };
+    const fetchRelatedProduct = async (type) => {
+      try {
+        const params = { type: type };
+
+        const response = await productApi.getByFilter(params);
+        if (response.data) {
+          setRelatedProduct(response.data.filteredProducts);
           setIsLoading(false);
         }
       } catch (error) {
@@ -56,6 +74,31 @@ export const DetailScreen = () => {
     };
     fetchProductById();
   }, [id]);
+
+  function shuffle(array) {
+    let currentIndex = array.length,
+      randomIndex;
+
+    // While there remain elements to shuffle...
+    while (currentIndex !== 0) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
+  }
+
+  let history = useHistory();
+  const handleClickItemPassDetail = (item) => {
+    history.push("/detail/" + item);
+  };
 
   return isLoading ? (
     <Loader />
@@ -74,6 +117,7 @@ export const DetailScreen = () => {
               <p className="detail-contain-right-price">
                 {infoProduct.price.$numberDecimal} VNĐ
               </p>
+
               <div className="detail-contain-right-quantity">
                 <button onClick={countSubClick}>-</button>
                 <p>{count}</p>
@@ -173,47 +217,33 @@ export const DetailScreen = () => {
 
       <div className="more-products">
         <h1 className="title-more-product">More Products</h1>
-        {/* <Cards productList={productList} /> */}
+
         <div className="detail-groupCard">
-          <div className="detail-card-wrapper">
-            <div className="detail-card">
-              <img className="detail-ItemImg" src={candy} alt="Avatar" />
-              <div className="detail-ItemTxt">
-                <h5>Halo000 000000000 000000000000</h5>
-                <h6> 100000 VND</h6>
-              </div>
-            </div>
-          </div>
-
-          <div className="detail-card-wrapper">
-            <div className="detail-card">
-              <img className="detail-ItemImg" src={candy} alt="Avatar" />
-              <div className="detail-ItemTxt">
-                <h5>Halo000 000000000 000000000000</h5>
-                <h6> 100000 VND</h6>
-              </div>
-            </div>
-          </div>
-
-          <div className="detail-card-wrapper">
-            <div className="detail-card">
-              <img className="detail-ItemImg" src={candy} alt="Avatar" />
-              <div className="detail-ItemTxt">
-                <h5>Halo000 000000000 000000000000</h5>
-                <h6> 100000 VND</h6>
-              </div>
-            </div>
-          </div>
-
-          <div className="detail-card-wrapper">
-            <div className="detail-card">
-              <img className="detail-ItemImg" src={candy} alt="Avatar" />
-              <div className="detail-ItemTxt">
-                <h5>Halo000 000000000 000000000000</h5>
-                <h6> 100000 VND</h6>
-              </div>
-            </div>
-          </div>
+          {relatedProduct &&
+            relatedProduct.length > 0 &&
+            shuffle(relatedProduct)
+              .slice(0, 4)
+              .map((item) => {
+                return (
+                  <div
+                    key={item._id}
+                    className="detail-card-wrapper"
+                    onClick={() => handleClickItemPassDetail(item._id)}
+                  >
+                    <div className="detail-card">
+                      <img
+                        className="detail-ItemImg"
+                        src={item.image}
+                        alt={item.productName}
+                      />
+                      <div className="detail-ItemTxt">
+                        <h5>{item.productName}</h5>
+                        <h6>{item.price.$numberDecimal} VND</h6>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
         </div>
       </div>
     </>
