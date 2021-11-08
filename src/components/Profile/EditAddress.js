@@ -111,7 +111,7 @@ export const EditAddress = () => {
                       onChange={onChangeInfoUserForm}
                     />
                   </div>
-                  <h5 className="profile-info-subtitle">PHONE</h5>
+                  <h5 className="profile-info-subtitle">PHONE NUMBER</h5>
                   <div className="profile-info-input">
                     <input
                       type="number"

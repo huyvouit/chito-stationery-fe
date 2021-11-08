@@ -20,6 +20,7 @@ import { MyOrders } from "./components/Profile/MyOrders";
 import { DetailOrder } from "./components/Profile/DetailOrder";
 import { EditAddress } from "./components/Profile/EditAddress";
 import { SearchScreen } from "./components/Search/search_screen";
+import { Checkout } from "./components/Checkout/checkout_screen";
 //context
 import AuthContextProvider from "./contexts/auth_context";
 import FilterContextProvider from "./contexts/filter_context";
@@ -85,6 +86,9 @@ function App() {
                 <Route exact path="/contact" component={ContactScreen} />
                 <Route exact path="/search" component={SearchScreen} />
                 <PrivateRoute path="/profile" component={ProfileScreen} />
+
+                <Route exact path="/checkout" component={Checkout} />
+                <Route exact path="/after-checkout" component={AfterCheckout} />
 
                 {/* <Route exact path="/profile" component={ProfileScreen} /> */}
                 <Route exact path="/profile/acc-info" component={AccInfo} />
