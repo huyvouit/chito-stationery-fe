@@ -7,12 +7,15 @@ import { formatter } from "../../Helper/formatter";
 import { AuthContext } from "../../contexts/auth_context";
 import { useHistory } from "react-router-dom";
 import checkoutApi from "../../api/checkout_api";
+import cartIcon from "../../assets/Icons/shopping-basket.svg";
+
 export const Checkout = () => {
   const {
     state: { cartItems, totalPrice, totalItems },
+    clearItemFromCart,
   } = useContext(CartContext);
   const {
-    authState: { authLoading, user },
+    authState: { user },
   } = useContext(AuthContext);
 
   const [infoCheckout, setInfoCheckout] = useState({
@@ -23,7 +26,11 @@ export const Checkout = () => {
     province: "",
   });
   const { fullname, phone, streetAddress, district, province } = infoCheckout;
-  console.log("info:", infoCheckout);
+
+  const [openCart, setOpenCart] = useState(true);
+  const [openStepOne, setStepOne] = useState(true);
+  const [openStepTwo, setStepTwo] = useState(false);
+  const [confirmOrder, setConfirmOrder] = useState(false);
 
   useEffect(() => {
     console.log("run effect");
@@ -58,15 +65,14 @@ export const Checkout = () => {
         totalCost: totalPrice,
       };
       console.log("postCheckout: ", info);
-      handlePushPage();
-      // const checkoutData = await checkoutApi.postCheckout(info);
-      // if (checkoutData.data.success) {
-      //   // handlePushPage("profile/acc-address");
-      //   console.log(checkoutData.data.msg);
-      // }
+      const checkoutData = await checkoutApi.postCheckout(info);
+      if (checkoutData.data.success) {
+        console.log(checkoutData.data.message);
+        handlePushPage();
+        clearItemFromCart({ id: 0 });
+      }
     } catch (error) {
-      // console.log("error pass", error.response.data);
-      console.log("error");
+      console.log("error pass", error.response.data);
     }
   };
 
@@ -76,184 +82,236 @@ export const Checkout = () => {
   };
 
   return (
-    <div className="checkout-wrapper">
-      <div className="checkout-left">
-        <div className="checkout-header">
-          <h1 className="checkout-title">CHECKOUT</h1>
-          <Link className="checkout-link" to="/shop">
-            KEEP SHOPPING
-            <img className="checkout-arrow-icon" src={arrow} alt="arrow"></img>
+    <>
+      {totalItems === 0 ? (
+        <div className="cart-empty">
+          <img className="cart-empty-image" src={cartIcon} alt="404 error" />
+          <h2 className="cart-empty-msg">
+            Your cart is empty! Please select products you wanna buy.
+          </h2>
+          <Link to="/shop" className="cart-empty-btn">
+            BUY NOW
           </Link>
         </div>
-        <div className="checkout-view-cart">
-          <div className="checkout-cart-info">
-            <div className="checkout-cart-info-style">
-              <h3>PRODUCT</h3>
-              <h5>({totalItems} ITEMS)</h5>
+      ) : (
+        <div className="checkout-wrapper">
+          <div className="checkout-left">
+            <div className="checkout-header">
+              <h1 className="checkout-title">CHECKOUT</h1>
+              <Link className="checkout-link" to="/shop">
+                KEEP SHOPPING
+                <img
+                  className="checkout-arrow-icon"
+                  src={arrow}
+                  alt="arrow"
+                ></img>
+              </Link>
             </div>
-            <div className="checkout-cart-info-style">
-              <h5>Close Cart</h5>
-              <button className="checkout-cart-info-btn">-</button>
+            <div className="checkout-view-cart">
+              <div className="checkout-cart-info">
+                <div className="checkout-cart-info-style">
+                  <h3>PRODUCT</h3>
+                  <h5>({totalItems} ITEMS)</h5>
+                </div>
+                <div className="checkout-cart-info-style">
+                  <h5>{openCart ? "Close Cart" : "Open Cart"}</h5>
+                  <button
+                    className="checkout-cart-info-btn"
+                    onClick={() => setOpenCart(!openCart)}
+                  >
+                    {openCart ? "-" : "+"}
+                  </button>
+                </div>
+              </div>
+              {openCart && (
+                <table className="checkout-cart">
+                  <colgroup>
+                    <col style={{ width: "21%" }}></col>
+                    <col style={{ width: "50%" }}></col>
+                    <col style={{ width: "18%" }}></col>
+                  </colgroup>
+                  <tbody className="checkout-table-tbody">
+                    {cartItems &&
+                      cartItems.length > 0 &&
+                      cartItems.map((item) => {
+                        return (
+                          <tr key={item._id}>
+                            <td>
+                              <img
+                                className="detail-img"
+                                src={item.image}
+                                alt="detail"
+                              ></img>
+                            </td>
+                            <td>
+                              <h4 className="detail-name">
+                                {item.productName}{" "}
+                              </h4>
+                              <p>Quantity: {item.quantity}</p>
+                            </td>
+                            <td>{formatter.format(item.totalPriceByItem)} </td>
+                          </tr>
+                        );
+                      })}
+                  </tbody>
+                </table>
+              )}
+            </div>
+            <div className="checkout-info-wrapper">
+              <div className="checkout-info-title">
+                <h3>1. Shipping</h3>
+                {!openStepOne && (
+                  <button
+                    className="checkout-btn checkout-info-title-btn"
+                    onClick={() => {
+                      setStepOne(true);
+                      setStepTwo(false);
+                      setConfirmOrder(false);
+                    }}
+                  >
+                    EDIT
+                  </button>
+                )}
+              </div>
+              {openStepOne && (
+                <div className="checkout-info-form">
+                  <div className="checkout-info-content">
+                    <div className="checkout-subtitle">FULL NAME*</div>
+                    <input
+                      type="text"
+                      className="checkout-info-input"
+                      name="fullname"
+                      value={fullname}
+                      onChange={onChangeInfoCheckout}
+                    />
+                  </div>
+                  <div className="checkout-info-content">
+                    <div className="checkout-subtitle">PHONE NUMBER*</div>
+                    <input
+                      type="number"
+                      className="checkout-info-input"
+                      name="phone"
+                      value={phone}
+                      onChange={onChangeInfoCheckout}
+                    />
+                  </div>
+                  <div className="checkout-info-content">
+                    <div className="checkout-subtitle">STREET ADDRESS*</div>
+                    <input
+                      type="text"
+                      className="checkout-info-input"
+                      name="streetAddress"
+                      value={streetAddress}
+                      onChange={onChangeInfoCheckout}
+                    />
+                  </div>
+                  <div className="checkout-info-content">
+                    <div className="checkout-subtitle">DISTRICT*</div>
+                    <input
+                      type="text"
+                      className="checkout-info-input"
+                      name="district"
+                      value={district}
+                      onChange={onChangeInfoCheckout}
+                    />
+                  </div>
+                  <div className="checkout-info-content">
+                    <div className="checkout-subtitle">PROVINCE/CITY*</div>
+                    <input
+                      type="text"
+                      className="checkout-info-input"
+                      name="province"
+                      value={province}
+                      onChange={onChangeInfoCheckout}
+                    />
+                  </div>
+                  <div className="checkout-btn-continue">
+                    <button
+                      className="checkout-btn checkout-info-content-btn"
+                      onClick={() => {
+                        setStepOne(false);
+                        setStepTwo(true);
+                      }}
+                    >
+                      CONTINUE
+                    </button>
+                  </div>
+                </div>
+              )}
+              {!openStepOne && (
+                <div className="checkout-info-after">
+                  {fullname && <p>{fullname}</p>}
+                  {phone && <p>{phone}</p>}
+                  {streetAddress && district && province && (
+                    <p>{`${streetAddress}, ${district}, ${province}`}</p>
+                  )}
+                </div>
+              )}
+            </div>
+            <div className="checkout-info-wrapper">
+              <h3>2. Payment</h3>
+              {openStepTwo && (
+                <div className="checkout-payment-content">
+                  <div className="checkout-group-button">
+                    <label className="container">
+                      Cash on Delivery (COD)
+                      <input type="radio" name="radio" checked="checked" />
+                      <span className="checkmark"></span>
+                    </label>
+                    <label className="container">
+                      VISA
+                      <input type="radio" name="radio" />
+                      <span className="checkmark"></span>
+                    </label>
+                    <label className="container">
+                      Momo E-Wallet
+                      <input type="radio" name="radio" />
+                      <span className="checkmark"></span>
+                    </label>
+                  </div>
+                  <div className="checkout-btn-continue">
+                    <button
+                      className="checkout-btn checkout-info-content-btn"
+                      onClick={() => setConfirmOrder(true)}
+                    >
+                      CONTINUE
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-          <table className="checkout-cart">
-            <colgroup>
-              <col style={{ width: "21%" }}></col>
-              <col style={{ width: "50%" }}></col>
-              <col style={{ width: "18%" }}></col>
-            </colgroup>
-            <tbody className="checkout-table-tbody">
-              {cartItems &&
-                cartItems.length > 0 &&
-                cartItems.map((item) => {
-                  return (
-                    <tr key={item._id}>
-                      <td>
-                        <img
-                          className="detail-img"
-                          src={item.image}
-                          alt="detail"
-                        ></img>
-                      </td>
-                      <td>
-                        <h4 className="detail-name">{item.productName} </h4>
-                        <p>Quantity: {item.quantity}</p>
-                      </td>
-                      <td>{formatter.format(item.totalPriceByItem)} </td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
-        </div>
-        <div className="checkout-info-wrapper">
-          <div className="checkout-info-title">
-            <h3>2. Shipping</h3>
-            <button className="checkout-btn checkout-info-title-btn">
-              EDIT
-            </button>
-          </div>
-          <div className="checkout-info-content">
-            <div className="checkout-subtitle">FULL NAME*</div>
-            <input
-              type="text"
-              className="checkout-info-input"
-              name="fullname"
-              value={fullname}
-              onChange={onChangeInfoCheckout}
-            />
-          </div>
-          <div className="checkout-info-content">
-            <div className="checkout-subtitle">PHONE NUMBER*</div>
-            <input
-              type="number"
-              className="checkout-info-input"
-              name="phone"
-              value={phone}
-              onChange={onChangeInfoCheckout}
-            />
-          </div>
-          <div className="checkout-info-content">
-            <div className="checkout-subtitle">STREET ADDRESS*</div>
-            <input
-              type="text"
-              className="checkout-info-input"
-              name="streetAddress"
-              value={streetAddress}
-              onChange={onChangeInfoCheckout}
-            />
-          </div>
-          <div className="checkout-info-content">
-            <div className="checkout-subtitle">DISTRICT*</div>
-            <input
-              type="text"
-              className="checkout-info-input"
-              name="district"
-              value={district}
-              onChange={onChangeInfoCheckout}
-            />
-          </div>
-          <div className="checkout-info-content">
-            <div className="checkout-subtitle">PROVINCE/CITY*</div>
-            <input
-              type="text"
-              className="checkout-info-input"
-              name="province"
-              value={province}
-              onChange={onChangeInfoCheckout}
-            />
-          </div>
-          <div className="checkout-btn-continue">
-            <button className="checkout-btn checkout-info-content-btn">
-              CONTINUE
-            </button>
-          </div>
-        </div>
-        <div className="checkout-info-payment">
-          <h3>3. Payment</h3>
-          <div className="checkout-group-button">
-            <label className="container">
-              Cash on Delivery (COD)
-              <input type="radio" name="radio" checked="checked" />
-              <span className="checkmark"></span>
-            </label>
-            <label className="container">
-              VISA
-              <input type="radio" name="radio" />
-              <span className="checkmark"></span>
-            </label>
-            <label className="container">
-              Momo E-Wallet
-              <input type="radio" name="radio" />
-              <span className="checkmark"></span>
-            </label>
-          </div>
-        </div>
-        <div className="checkout-info-wrapper">
-          <div className="checkout-info-title">
-            <h3>1. Contact Information</h3>
-            <button className="checkout-btn checkout-info-title-btn">
-              EDIT
-            </button>
-          </div>
-          <div className="checkout-info-content">
-            <div className="checkout-subtitle">EMAIL*</div>
-            <input type="email" className="checkout-info-input" />
-          </div>
-          <div className="checkout-btn-continue">
-            <button className="checkout-btn checkout-info-content-btn">
-              CONTINUE
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="checkout-right">
-        <div className="checkout-summary">
-          <div className="checkout-summary-title">ORDER SUMMARY</div>
-          <div className="checkout-summary-content">
-            <div className="checkout-right-flex checkout-more-space">
-              <div>Subtotal</div>
-              <div>{formatter.format(totalPrice)}</div>
-            </div>
-            <div className="checkout-right-flex">
-              <div>Shipping</div>
-              <div>{formatter.format(0)}</div>
+          <div className="checkout-right">
+            <div className="checkout-right-content">
+              <div className="checkout-summary">
+                <div className="checkout-summary-title">ORDER SUMMARY</div>
+                <div className="checkout-summary-content">
+                  <div className="checkout-right-flex checkout-more-space">
+                    <div>Subtotal</div>
+                    <div>{formatter.format(totalPrice)}</div>
+                  </div>
+                  <div className="checkout-right-flex">
+                    <div>Shipping</div>
+                    <div>{formatter.format(0)}</div>
+                  </div>
+                </div>
+                <div className="checkout-right-flex">
+                  <div>ORDER TOTAL</div>
+                  <div>{formatter.format(totalPrice)}</div>
+                </div>
+              </div>
+              {confirmOrder && (
+                <div
+                  className="checkout-btn-bigger checkout-info-content-btn"
+                  onClick={handleSubmitInfoCheckout}
+                >
+                  ORDER
+                </div>
+              )}
             </div>
           </div>
-          <div className="checkout-right-flex">
-            <div>ORDER TOTAL</div>
-            <div>{formatter.format(totalPrice)}</div>
-          </div>
         </div>
-        <div className="checkout-btn-continue">
-          <div
-            className="checkout-btn-bigger checkout-info-content-btn"
-            onClick={handleSubmitInfoCheckout}
-          >
-            ORDER
-          </div>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
