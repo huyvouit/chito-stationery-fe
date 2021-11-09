@@ -44,7 +44,7 @@
 }
 
 .detail-contain-right-quantity {
-    margin-top: 4vh;
+    margin-top: 2vh;
     background-color: white;
     display: flex;
     height: 5vh;
@@ -170,12 +170,13 @@
 
 .detail-ItemImg {
     width: 100%;
-    height: 60%;
+    height: 24vh;
+    object-fit: fill;
 }
 
 .detail-ItemTxt h5 {
     padding-top: 1vh;
-    height: 10vh;
+    height: 9vh;
     text-align: left;
     font: normal normal bold 20px/20px Bellota Text;
     letter-spacing: 0.6px;
@@ -186,7 +187,17 @@
 
 .detail-ItemTxt h6{
     text-align: left;
+    margin: 0;
     font: normal normal bold 18px/30px Bellota Text;
     letter-spacing: 0.6px;
     color: #7C7B7B;
+}
+
+.labelQuantity{
+    padding-top: 4vh;
+    text-align: left;
+    font: normal normal bold 30px/27px Bellota Text;
+    letter-spacing: 0.6px;
+    color: #524D4B;
+    text-transform: capitalize;
 }

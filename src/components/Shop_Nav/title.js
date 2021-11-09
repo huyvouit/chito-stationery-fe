@@ -1,8 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import filterIcon from "../../assets/Icons/filter.svg";
 import "../../style/Shop/Title.css";
+import upIcon from "../../assets/Icons/up.svg";
+import downIcon from "../../assets/Icons/down-arrow.svg";
 
 function Title(props) {
+  const [open, setOpen] = useState([]);
+  const toggle = () => setOpen(!open);
   return (
     <>
       <div className="title">
@@ -24,10 +28,27 @@ function Title(props) {
           <div className="title-content-right">
             <p>{props.item} items</p>
             <strong>|</strong>
-            <h6>BEST SELLERS</h6>
+            <div className="groupDefaut" role="button"
+              style={{
+                backgroundColor: open ? "#F5F2F0" : "#ffffff",
+                boxShadow: open ? "none" : "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+              }}
+              onClick={() => toggle(!open)}>
+              <h6 className="default">Default Sorting</h6>
+              <img
+                src={open ? downIcon : upIcon}
+                alt="Icon open and close"
+              />
+            </div>
           </div>
         </div>
       </div>
+      {!open && (
+        <div className="groupPrice">
+          <p className="price">Price: Low To High</p>
+          <p className="price">Price: High To Low</p>
+        </div>
+      )}
     </>
   );
 }

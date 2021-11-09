@@ -5,7 +5,7 @@ import { Loader } from "../Layout/loader";
 import { ErrorPage } from "../Layout/error_page";
 import rightIcon from "../../assets/Icons/right-arrow.svg";
 import downIcon from "../../assets/Icons/down-arrow.svg";
-import "./Detail.css";
+import "../../style/Detail/Detail.css";
 import queryString from "query-string";
 import { CartContext } from "../../contexts/cart_context";
 import { useHistory } from "react-router-dom";
@@ -17,13 +17,13 @@ export const DetailScreen = () => {
   const [relatedProduct, setRelatedProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const [openProduct, setOpenProduct] = useState(true);
+  const [openProduct, setOpenProduct] = useState([]);
   const toggleProduct = () => setOpenProduct(!openProduct);
 
-  const [openProduct1, setOpenProduct1] = useState(false);
+  const [openProduct1, setOpenProduct1] = useState([]);
   const toggleProduct1 = () => setOpenProduct1(!openProduct1);
 
-  const [openProduct2, setOpenProduct2] = useState(false);
+  const [openProduct2, setOpenProduct2] = useState([]);
   const toggleProduct2 = () => setOpenProduct2(!openProduct2);
 
   const [count, setCount] = useState(1);
@@ -118,6 +118,7 @@ export const DetailScreen = () => {
                 {infoProduct.price.$numberDecimal} VNĐ
               </p>
 
+              <p className="labelQuantity">Quantity</p>
               <div className="detail-contain-right-quantity">
                 <button onClick={countSubClick}>-</button>
                 <p>{count}</p>
@@ -137,9 +138,7 @@ export const DetailScreen = () => {
                 className="detail-contain-right-group"
                 role="button"
                 style={{
-                  borderBottom: openProduct
-                    ? "1px solid var(--underline)"
-                    : "none",
+                  borderBottom: openProduct ? "none" : "1px solid var(--underline)" ,
                 }}
                 onClick={() => toggleProduct(!openProduct)}
               >
@@ -148,7 +147,7 @@ export const DetailScreen = () => {
                 </div>
                 <div className="detail-icon">
                   <img
-                    src={openProduct ? rightIcon : downIcon}
+                    src={openProduct ? downIcon : rightIcon}
                     alt="Icon open and close"
                   />
                 </div>
@@ -179,7 +178,7 @@ export const DetailScreen = () => {
                   />
                 </div>
               </div>
-              {openProduct1 && (
+              {!openProduct1 && (
                 <p className="detail-title-group-container">
                   {infoProduct["detail"]}
                 </p>
@@ -205,7 +204,7 @@ export const DetailScreen = () => {
                   />
                 </div>
               </div>
-              {openProduct2 && (
+              {!openProduct2 && (
                 <p className="detail-title-group-container">
                   Email help@chitostationery.com or call 0927272727
                 </p>
