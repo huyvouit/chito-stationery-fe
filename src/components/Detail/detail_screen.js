@@ -138,7 +138,7 @@ export const DetailScreen = () => {
                 className="detail-contain-right-group"
                 role="button"
                 style={{
-                  borderBottom: openProduct ? "none" : "1px solid var(--underline)" ,
+                  borderBottom: openProduct ? "none" : "1px solid var(--underline)",
                 }}
                 onClick={() => toggleProduct(!openProduct)}
               >
