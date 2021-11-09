@@ -9,7 +9,7 @@ const AuthContextProvider = ({ children }) => {
   const [authState, dispatch] = useReducer(authReducer, {
     authLoading: true,
     isAuthenticated: false,
-    user: "",
+    user: null,
   });
 
   //Authenticate user
@@ -34,7 +34,7 @@ const AuthContextProvider = ({ children }) => {
       console.log("faild verify");
       dispatch({
         type: "SET_AUTH",
-        payload: { authLoading: false, isAuthenticated: false, user: "" },
+        payload: { authLoading: false, isAuthenticated: false, user: null },
       });
     }
   };

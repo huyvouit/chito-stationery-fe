@@ -4,6 +4,8 @@ import cartIcon from "../../assets/Icons/shopping-basket.svg";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/cart_context";
 import { useHistory } from "react-router-dom";
+import { formatter } from "../../Helper/formatter";
+
 export const CartScreen = () => {
   const {
     state: { cartItems, totalPrice, totalItems },
@@ -12,9 +14,6 @@ export const CartScreen = () => {
     removeItemWithQuantity,
   } = useContext(CartContext);
   console.log(totalItems);
-  const calculateTotalPriceByItem = (item) => {
-    return item.price.$numberDecimal * item.quantity;
-  };
 
   let history = useHistory();
   const handleClickItemPassDetail = (item) => {
@@ -83,7 +82,7 @@ export const CartScreen = () => {
                         </div>
                       </td>
                       <td className="">
-                        <h4>{item.price.$numberDecimal} VND</h4>
+                        <h4>{formatter.format(item.price.$numberDecimal)} </h4>
                       </td>
                       <td>
                         <div className="cart-table-body-quantity">
@@ -98,7 +97,7 @@ export const CartScreen = () => {
                         </div>
                       </td>
                       <td>
-                        <h4>{calculateTotalPriceByItem(item)} VND</h4>
+                        <h4>{formatter.format(item.totalPriceByItem)}</h4>
                       </td>
                     </tr>
                   );
@@ -106,7 +105,7 @@ export const CartScreen = () => {
 
               <tr className="cart-total-checkout">
                 <td colSpan="4">
-                  <h3>{totalPrice} VND</h3>
+                  <h3>{formatter.format(totalPrice)}</h3>
                   <Link to="/checkout" className="error_btn">
                     CHECKOUT
                   </Link>

@@ -12,7 +12,7 @@ export const EditAddress = () => {
   } = useContext(AuthContext);
 
   const [infoUserForm, setInfoUserForm] = useState({
-    fullname: user.fullname || "",
+    fullname: user?.fullname || "",
     phone: "",
     streetAddress: "",
     district: "",
@@ -26,18 +26,18 @@ export const EditAddress = () => {
 
   useEffect(() => {
     console.log("run effect");
-    let arrAddress = " ";
-    if (user.address) {
-      arrAddress = user.address.split(",") || " ";
+    let arrAddress = "";
+    if (user?.address) {
+      arrAddress = user?.address.split(",") || "";
       console.log("ar:", arrAddress);
     }
     setInfoUserForm({
       ...infoUserForm,
-      fullname: user.fullname || " ",
-      phone: user.phone || " ",
-      streetAddress: arrAddress !== " " ? arrAddress[0] : "abc ",
-      district: arrAddress !== " " ? arrAddress[1] : " ",
-      province: arrAddress !== " " ? arrAddress[2] : " ",
+      fullname: user?.fullname || "",
+      phone: user?.phone || "",
+      streetAddress: arrAddress !== "" ? arrAddress[0] : "",
+      district: arrAddress !== "" ? arrAddress[1] : "",
+      province: arrAddress !== "" ? arrAddress[2] : "",
     });
   }, [user]);
 

@@ -1,229 +1,235 @@
 .checkout-wrapper {
-    margin-left: 206px;
-    margin-right: 206px;
-    margin-top: 30px;
-    margin-bottom: 80px;
-    display: flex;
-    justify-content: space-between;
-    gap: 3vw;
+  margin-left: 206px;
+  margin-right: 206px;
+  margin-top: 30px;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 3vw;
 }
 
 .checkout-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 270px;
-    margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 270px;
+  margin-bottom: 18px;
 }
 
 .checkout-title {
-    color: var(--text-title);
-    text-align: center;
+  color: var(--text-title);
+  text-align: center;
 }
 
 .checkout-link {
-    text-decoration: none;
-    color: var(--primary-text);
-    font-weight: bold;
+  text-decoration: none;
+  color: var(--primary-text);
+  font-weight: bold;
 }
 
 .checkout-arrow-icon {
-    width: 18px;
-    margin-bottom: -4px;
+  width: 18px;
+  margin-bottom: -4px;
 }
 
 .checkout-view-cart {
-    border: 1px solid var(--primary-text);
-    background-color: white;
-    padding: 27px 27px 5px 27px;
-    margin-bottom: 27px;
+  border: 1px solid var(--primary-text);
+  background-color: white;
+  padding: 27px 27px 5px 27px;
+  margin-bottom: 27px;
+  /* height: auto; */
 }
 
 .checkout-cart-info {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .checkout-cart-info-style {
-    display: flex;
-    gap: 5px;
-    align-items: baseline;
+  display: flex;
+  gap: 5px;
+  align-items: baseline;
 }
 
 .checkout-cart-info-btn {
-    width: 24px;
-    height: 24px;
-    background-color: var(--primary-background);
-    border: solid 1px var(--underline);
-    cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary-background);
+  border: solid 1px var(--underline);
+  cursor: pointer;
 }
 
 .checkout-cart {
-    border-collapse:separate; 
-    border-spacing: 0 1em;
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  height: 300px;
 }
 
 .checkout-info-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 9px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 9px;
 }
 
-.checkout-btn{
-    padding: 12px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
+.checkout-btn {
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .checkout-info-title-btn {
-    background-color: var(--primary-background);
-    border: solid 1px var(--primary-text);
-    color: var(--primary-text);
+  background-color: var(--primary-background);
+  border: solid 1px var(--primary-text);
+  color: var(--primary-text);
 }
 
 .checkout-info-wrapper {
-    margin-bottom: 27px;
-    border-bottom: 1px solid var(--underline);
-    padding-bottom: 27px;
+  margin-bottom: 27px;
+  border-bottom: 1px solid var(--underline);
+  padding-bottom: 27px;
 }
 
 .checkout-info-content {
-    margin-left: 18px;
-    margin-right: 90px;
+  margin-left: 18px;
+  margin-right: 90px;
 }
 
 .checkout-info-content-btn {
-    background-color: var(--text-title);
-    border: none;
-    color: var(--primary-background);
+  background-color: var(--text-title);
+  border: none;
+  color: var(--primary-background);
 }
 
 .checkout-subtitle {
-    font-size: 14px;
+  font-size: 14px;
 }
 
-.checkout-btn-continue{
-    text-align: right;
+.checkout-btn-continue {
+  text-align: right;
 }
 
 .checkout-info-input {
-    margin-top: 9px;
-    margin-bottom: 24px;
-    border: none;
-    border-bottom: solid 1px var(--underline);
-    background-color: var(--primary-background);
-    height: 27px;
-    width: 100%;
-    font-family: "Bellota Text", cursive;
-    font-size: 16px;
+  margin-top: 9px;
+  margin-bottom: 24px;
+  border: none;
+  border-bottom: solid 1px var(--underline);
+  background-color: var(--primary-background);
+  height: 27px;
+  width: 100%;
+  font-family: "Bellota Text", cursive;
+  font-size: 16px;
 }
 
 .checkout-info-input:focus {
-    outline: none;
+  outline: none;
 }
 
 .checkout-group-button {
-    margin-top: 18px;
+  margin-top: 18px;
 }
 
 .container {
-    display: block;
-    position: relative;
-    padding-left: 32px;
-    margin-bottom: 18px;
-    cursor: pointer;
-    font-size: 16px;
+  display: block;
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  font-size: 16px;
 }
-  
+
 /* Hide the browser's default radio button */
 .container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
 }
-  
+
 /* Create a custom radio button */
 .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 21px;
-    width: 21px;
-    background-color: white;
-    border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 21px;
+  width: 21px;
+  background-color: white;
+  border-radius: 50%;
 }
-  
+
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-    background-color: var(--primary-background);
+  background-color: var(--primary-background);
 }
-  
+
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
-    background-color: var(--text-title);
+  background-color: var(--text-title);
 }
-  
+
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
+  content: "";
+  position: absolute;
+  display: none;
 }
-  
+
 /* Show the indicator (dot/circle) when checked */
 .container input:checked ~ .checkmark:after {
-    display: block;
+  display: block;
 }
-  
+
 /* Style the indicator (dot/circle) */
 .container .checkmark:after {
-    top: 5px;
-    left: 5px;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: white;
-  }
+  top: 5px;
+  left: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
 
 .checkout-summary {
-    border: 1px solid var(--primary-text);
-    height: max-content;
-    background-color: white;
-    padding: 27px;
-    margin-bottom: 27px;
-    width: 27rem;
+  border: 1px solid var(--primary-text);
+  height: max-content;
+  background-color: white;
+  padding: 27px;
+  margin-bottom: 27px;
+  width: 27rem;
 }
 
 .checkout-summary-title {
-    font-weight: bold;
-    margin-bottom: 18px;
+  font-weight: bold;
+  margin-bottom: 18px;
 }
 
 .checkout-summary-content {
-    margin-bottom: 18px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid var(--underline);
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--underline);
 }
 
 .checkout-btn-bigger {
-    width: 100%;
-    padding: 16px 36px;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
+  width: 100%;
+  padding: 16px 36px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .checkout-right-flex {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
 }
 
 .checkout-more-space {
-    margin-bottom: 9px;
+  margin-bottom: 9px;
+}
+
+.checkout-table-tbody {
+  overflow-y: scroll;
 }
