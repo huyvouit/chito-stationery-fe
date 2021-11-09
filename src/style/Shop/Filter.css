@@ -4,7 +4,7 @@
   left: 0;
   width: 30vw;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   transition: all 0.5s ease;
   z-index: 101;
