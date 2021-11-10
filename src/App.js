@@ -85,31 +85,29 @@ function App() {
                 <Route exact path="/detail/:id" component={DetailScreen} />
                 <Route exact path="/contact" component={ContactScreen} />
                 <Route exact path="/search" component={SearchScreen} />
-                <PrivateRoute path="/profile" component={ProfileScreen} />
-
                 <Route exact path="/checkout" component={Checkout} />
                 <Route exact path="/after-checkout" component={AfterCheckout} />
-
-                {/* <Route exact path="/profile" component={ProfileScreen} /> */}
-                <Route exact path="/profile/acc-info" component={AccInfo} />
-                <Route
+                <PrivateRoute exact path="/profile" component={ProfileScreen} />
+                <PrivateRoute
+                  exact
+                  path="/profile/acc-info"
+                  component={AccInfo}
+                />
+                <PrivateRoute
                   exact
                   path="/profile/acc-address"
                   component={AccAddress}
                 />
-                <Route
+                <PrivateRoute
                   exact
                   path="/profile/acc-address/edit-address"
                   component={EditAddress}
                 />
-                <Route
+                <PrivateRoute
                   exact
                   path="/profile/acc-orders"
                   component={DetailOrder}
                 />
-                {/* <Route exact path="/profile/acc-orders/detail-order" component={DetailOrder} /> */}
-
-                <Route exact path="/abc" component={AfterCheckout} />
                 <Route exact path="/404" component={ErrorPage} />
                 <Route exact path="*" component={ErrorPage} />
               </Switch>

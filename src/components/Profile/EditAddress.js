@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 export const EditAddress = () => {
   const {
     authState: { authLoading, user },
+    loadUser,
   } = useContext(AuthContext);
 
   const [infoUserForm, setInfoUserForm] = useState({
@@ -29,7 +30,6 @@ export const EditAddress = () => {
     let arrAddress = "";
     if (user?.address) {
       arrAddress = user?.address.split(",") || "";
-      console.log("ar:", arrAddress);
     }
     setInfoUserForm({
       ...infoUserForm,
@@ -39,7 +39,7 @@ export const EditAddress = () => {
       district: arrAddress !== "" ? arrAddress[1] : "",
       province: arrAddress !== "" ? arrAddress[2] : "",
     });
-  }, [user]);
+  }, []);
 
   const onChangeInfoUserForm = (event) =>
     setInfoUserForm({
@@ -60,7 +60,8 @@ export const EditAddress = () => {
       };
       const passData = await userApi.patchUpdateInfoUser(infoUser);
       if (passData.data.success) {
-        // handlePushPage("profile/acc-address");
+        await loadUser();
+        handlePushPage("profile/acc-address");
         toast.success(passData.data.msg, {
           position: "top-right",
           autoClose: 5000,

@@ -27,7 +27,7 @@ const AuthContextProvider = ({ children }) => {
             user: response.data.user,
           },
         });
-        console.log(response.data.user);
+        // console.log(response.data.user);
       }
     } catch (error) {
       localStorage.removeItem(TOKEN_NAME);
@@ -86,7 +86,13 @@ const AuthContextProvider = ({ children }) => {
   };
 
   // Context data
-  const authContextData = { registerUser, loginUser, logoutUser, authState };
+  const authContextData = {
+    registerUser,
+    loginUser,
+    logoutUser,
+    authState,
+    loadUser,
+  };
 
   // Return provider
   return (

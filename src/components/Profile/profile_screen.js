@@ -1,17 +1,36 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { SideBar } from "./SideBar";
 import "./profile.css";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/auth_context";
 import { Loader } from "../Layout/loader";
-
+import userApi from "../../api/user_api";
+import { formatter } from "../../Helper/formatter";
+import Moment from "react-moment";
 export const ProfileScreen = () => {
   const {
-    authState: { authLoading, isAuthenticated, user },
+    authState: { authLoading, user },
   } = useContext(AuthContext);
+  const [purchaseHistory, setPurchaseHistory] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
+    const fetchPurchaseHistory = async () => {
+      try {
+        const param = { email: user.email };
+        const response = await userApi.getPurchaseHistory(param);
+        setPurchaseHistory(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log("Failed to fetch product list: ", error);
+      }
+    };
+    fetchPurchaseHistory();
+  }, []);
+
   return (
     <>
-      {authLoading ? (
+      {authLoading || isLoading ? (
         <Loader />
       ) : (
         <div className="profile-wrapper">
@@ -25,17 +44,6 @@ export const ProfileScreen = () => {
                   <h5 className="profile-info-subtitle">CONTACT INFORMATION</h5>
                   <p>{user.fullname}</p>
                   <p>{user.email}</p>
-                  <div className="btn-container">
-                    <Link
-                      to={{
-                        pathname: "/profile/acc-info",
-                        state: { isChangePass: true },
-                      }}
-                      className="profile-info-btn"
-                    >
-                      CHANGE PASSWORD
-                    </Link>
-                  </div>
                 </div>
                 <div className="profile-col-width">
                   <h2>Address Book</h2>
@@ -45,38 +53,53 @@ export const ProfileScreen = () => {
                   {user.fullname && <p>{user.fullname}</p>}
                   {user.phone && <p>{user.phone}</p>}
                   {user.address && <p>{user.address}</p>}
-                  <div className="btn-container">
-                    <Link
-                      to="/profile/acc-address/edit-address"
-                      className="profile-info-btn"
-                    >
-                      EDIT ADDRESS
-                    </Link>
-                  </div>
                 </div>
               </div>
               <div className="profile-order">
                 <h2>My Orders</h2>
-                <table className="table-profile">
-                  <colgroup>
-                    <col style={{ width: "10%" }}></col>
-                    <col style={{ width: "50%" }}></col>
-                    <col style={{ width: "10%" }}></col>
-                    <col style={{ width: "30%" }}></col>
-                  </colgroup>
-                  <tr>
-                    <th>ID</th>
-                    <th>Date</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                  </tr>
-                  <tr>
-                    <td>#0001</td>
-                    <td>27/10/2021</td>
-                    <td>5</td>
-                    <td>590.000 VND</td>
-                  </tr>
-                </table>
+                {purchaseHistory && purchaseHistory.length === 0 ? (
+                  <p>You have purchased no orders.</p>
+                ) : (
+                  <table className="table-profile">
+                    <colgroup>
+                      <col style={{ width: "10%" }}></col>
+                      <col style={{ width: "50%" }}></col>
+                      <col style={{ width: "10%" }}></col>
+                      <col style={{ width: "30%" }}></col>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {purchaseHistory
+                        .reverse()
+                        .slice(0, 4)
+                        .map((item) => {
+                          return (
+                            <tr key={item._id}>
+                              <td>#{item._id}</td>
+                              <td>
+                                <Moment format="DD/MM/YYYY">
+                                  {item.createdAt}
+                                </Moment>
+                              </td>
+                              <td>{item.productList.length}</td>
+                              <td>
+                                {formatter.format(
+                                  item.totalCost.$numberDecimal
+                                )}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                    </tbody>
+                  </table>
+                )}
               </div>
             </div>
           </div>
