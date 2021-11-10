@@ -8,6 +8,7 @@ import { AuthContext } from "../../contexts/auth_context";
 import { useHistory } from "react-router-dom";
 import checkoutApi from "../../api/checkout_api";
 import cartIcon from "../../assets/Icons/shopping-basket.svg";
+import isEmpty from "validator/lib/isEmpty";
 
 export const Checkout = () => {
   const {
@@ -31,7 +32,7 @@ export const Checkout = () => {
   const [openStepOne, setStepOne] = useState(true);
   const [openStepTwo, setStepTwo] = useState(false);
   const [confirmOrder, setConfirmOrder] = useState(false);
-
+  const [validationMsg, setValidationMsg] = useState({});
   useEffect(() => {
     console.log("run effect");
     let arrAddress = "";
@@ -79,6 +80,29 @@ export const Checkout = () => {
   let history = useHistory();
   const handlePushPage = () => {
     history.push("/after-checkout");
+  };
+
+  const validateAll = () => {
+    const msg = {};
+    if (isEmpty(fullname)) {
+      msg.fullname = "Please input your fullname.";
+    }
+    if (isEmpty(phone)) {
+      msg.phone = "Please input your phone.";
+    }
+    if (isEmpty(streetAddress)) {
+      msg.streetAddress = "Please input your street address.";
+    }
+    if (isEmpty(district)) {
+      msg.district = "Please input your district.";
+    }
+    if (isEmpty(province)) {
+      msg.province = "Please input your province or city.";
+    }
+
+    setValidationMsg(msg);
+    if (Object.keys(msg).length > 0) return false;
+    return true;
   };
 
   return (
@@ -184,6 +208,7 @@ export const Checkout = () => {
                       value={fullname}
                       onChange={onChangeInfoCheckout}
                     />
+                    <p style={{ color: "red" }}>{validationMsg["fullname"]}</p>
                   </div>
                   <div className="checkout-info-content">
                     <div className="checkout-subtitle">PHONE NUMBER*</div>
@@ -194,6 +219,7 @@ export const Checkout = () => {
                       value={phone}
                       onChange={onChangeInfoCheckout}
                     />
+                    <p style={{ color: "red" }}>{validationMsg["phone"]}</p>
                   </div>
                   <div className="checkout-info-content">
                     <div className="checkout-subtitle">STREET ADDRESS*</div>
@@ -204,6 +230,9 @@ export const Checkout = () => {
                       value={streetAddress}
                       onChange={onChangeInfoCheckout}
                     />
+                    <p style={{ color: "red" }}>
+                      {validationMsg["streetAddress"]}
+                    </p>
                   </div>
                   <div className="checkout-info-content">
                     <div className="checkout-subtitle">DISTRICT*</div>
@@ -214,6 +243,7 @@ export const Checkout = () => {
                       value={district}
                       onChange={onChangeInfoCheckout}
                     />
+                    <p style={{ color: "red" }}>{validationMsg["district"]}</p>
                   </div>
                   <div className="checkout-info-content">
                     <div className="checkout-subtitle">PROVINCE/CITY*</div>
@@ -224,11 +254,14 @@ export const Checkout = () => {
                       value={province}
                       onChange={onChangeInfoCheckout}
                     />
+                    <p style={{ color: "red" }}>{validationMsg["province"]}</p>
                   </div>
                   <div className="checkout-btn-continue">
                     <button
                       className="checkout-btn checkout-info-content-btn"
                       onClick={() => {
+                        const isValid = validateAll();
+                        if (!isValid) return;
                         setStepOne(false);
                         setStepTwo(true);
                       }}

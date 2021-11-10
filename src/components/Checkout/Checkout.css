@@ -93,8 +93,7 @@
 }
 
 .checkout-info-content {
-  margin-left: 18px;
-  margin-right: 90px;
+  margin: 0 90px 20px 18px;
 }
 
 .checkout-info-content-btn {
@@ -113,7 +112,6 @@
 
 .checkout-info-input {
   margin-top: 9px;
-  margin-bottom: 24px;
   border: none;
   border-bottom: solid 1px var(--underline);
   background-color: var(--primary-background);
