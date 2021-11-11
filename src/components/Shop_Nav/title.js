@@ -6,7 +6,9 @@ function Title(props) {
   const newProductList = props.productList; 
 
   function sortMin(){
-    props.setProductList(props.productList.sort((a, b) => (a.price.$numberDecimal - b.price.$numberDecimal)));
+    const x = props.productList.sort((a, b) => (a.price.$numberDecimal - b.price.$numberDecimal));
+    console.log(x);
+    props.setProductList(x);
     console.log("min");
   }
 
