@@ -1,12 +1,32 @@
-import React, { useContext, useState } from "react";
+import React, { useContext,useState } from "react";
 import filterIcon from "../../assets/Icons/filter.svg";
 import "../../style/Shop/Title.css";
-import upIcon from "../../assets/Icons/up.svg";
-import downIcon from "../../assets/Icons/down-arrow.svg";
 
 function Title(props) {
-  const [open, setOpen] = useState([]);
-  const toggle = () => setOpen(!open);
+  const newProductList = props.productList; 
+
+  function sortMin(){
+    const x = props.productList.sort((a, b) => (a.price.$numberDecimal - b.price.$numberDecimal));
+    console.log(x);
+    props.setProductList(x);
+    console.log("min");
+  }
+
+  function sortMax(){
+    props.setProductList(props.productList.sort((a, b) => (b.price.$numberDecimal - a.price.$numberDecimal)));
+    console.log("max");
+  }
+
+  function OnChange(event){
+    if(event.target.value ===  "1")
+    {
+      sortMin();
+    }
+    if (event.target.value === "2"){
+      sortMax();
+    }
+  }
+  console.log(props.productList);
   return (
     <>
       <div className="title">
@@ -28,27 +48,14 @@ function Title(props) {
           <div className="title-content-right">
             <p>{props.item} items</p>
             <strong>|</strong>
-            <div className="groupDefaut" role="button"
-              style={{
-                backgroundColor: open ? "#F5F2F0" : "#ffffff",
-                boxShadow: open ? "none" : "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-              }}
-              onClick={() => toggle(!open)}>
-              <h6 className="default">Default Sorting</h6>
-              <img
-                src={open ? downIcon : upIcon}
-                alt="Icon open and close"
-              />
-            </div>
+            <select className="default" onChange={ OnChange}>
+              <option value="0">Default Sorting</option>
+              <option value="1">Price: Low To High</option>
+              <option value="2">Price: High To Low</option>
+            </select>
           </div>
         </div>
       </div>
-      {!open && (
-        <div className="groupPrice">
-          <p className="price">Price: Low To High</p>
-          <p className="price">Price: High To Low</p>
-        </div>
-      )}
     </>
   );
 }
