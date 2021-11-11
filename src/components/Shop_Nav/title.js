@@ -1,12 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import filterIcon from "../../assets/Icons/filter.svg";
 import "../../style/Shop/Title.css";
 import upIcon from "../../assets/Icons/up.svg";
 import downIcon from "../../assets/Icons/down-arrow.svg";
 
 function Title(props) {
-  const [open, setOpen] = useState([]);
-  const toggle = () => setOpen(!open);
   return (
     <>
       <div className="title">
@@ -29,9 +27,9 @@ function Title(props) {
             <p>{props.item} items</p>
             <strong>|</strong>
             <select className="default" >
-              <option className="price">Default Sorting</option>
-              <option className="price">Price: Low To High</option>
-              <option className="price">Price: High To Low</option>
+              <option >Default Sorting</option>
+              <option >Price: Low To High</option>
+              <option >Price: High To Low</option>
             </select>
           </div>
         </div>
