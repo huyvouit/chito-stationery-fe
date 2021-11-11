@@ -1,10 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import filterIcon from "../../assets/Icons/filter.svg";
 import "../../style/Shop/Title.css";
-import upIcon from "../../assets/Icons/up.svg";
-import downIcon from "../../assets/Icons/down-arrow.svg";
 
 function Title(props) {
+  const newProductList = props.productList; 
+
+  function sortMin(){
+    props.setProductList(props.productList.sort((a, b) => (a.price.$numberDecimal - b.price.$numberDecimal)));
+    console.log("min");
+  }
+
+  function sortMax(){
+    props.setProductList(props.productList.sort((a, b) => (b.price.$numberDecimal - a.price.$numberDecimal)));
+    console.log("max");
+  }
+
+  function OnChange(event){
+    if(event.target.value ===  "1")
+    {
+      sortMin();
+    }
+    if (event.target.value === "2"){
+      sortMax();
+    }
+  }
+  console.log(props.productList);
   return (
     <>
       <div className="title">
@@ -26,10 +46,10 @@ function Title(props) {
           <div className="title-content-right">
             <p>{props.item} items</p>
             <strong>|</strong>
-            <select className="default" >
-              <option >Default Sorting</option>
-              <option >Price: Low To High</option>
-              <option >Price: High To Low</option>
+            <select className="default" onChange={ OnChange}>
+              <option value="0">Default Sorting</option>
+              <option value="1">Price: Low To High</option>
+              <option value="2">Price: High To Low</option>
             </select>
           </div>
         </div>

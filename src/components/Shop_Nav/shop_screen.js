@@ -53,7 +53,7 @@ export const ShopScreen = ({ onClickFilter }) => {
   ) : (
     <>
       <div className="ShopScreen">
-        <Title item={productList.length} onClickFilter={onClickFilter} />
+        <Title item={productList.length} onClickFilter={onClickFilter} productList={productList}  setProductList={setProductList}/>
         <Cards productList={productList} />
       </div>
     </>
