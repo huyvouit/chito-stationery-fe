@@ -1,32 +1,44 @@
-import React, { useContext,useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import filterIcon from "../../assets/Icons/filter.svg";
+import { ProductContext } from "../../contexts/product_context";
 import "../../style/Shop/Title.css";
 
 function Title(props) {
-  const newProductList = props.productList; 
+  const { productList, setProductList } = useContext(ProductContext);
+  const [list, setList] = useState([]);
 
-  function sortMin(){
-    const x = props.productList.sort((a, b) => (a.price.$numberDecimal - b.price.$numberDecimal));
-    console.log(x);
-    props.setProductList(x);
+  useEffect(() => {
+    setList(productList);
+  }, []);
+
+  function sortMin() {
+    const x = [...productList].sort(
+      (a, b) => a.price.$numberDecimal - b.price.$numberDecimal
+    );
+    setProductList(x);
     console.log("min");
   }
 
-  function sortMax(){
-    props.setProductList(props.productList.sort((a, b) => (b.price.$numberDecimal - a.price.$numberDecimal)));
+  function sortMax() {
+    const x = [...productList].sort(
+      (a, b) => b.price.$numberDecimal - a.price.$numberDecimal
+    );
+    setProductList(x);
     console.log("max");
   }
 
-  function OnChange(event){
-    if(event.target.value ===  "1")
-    {
+  function OnChange(event) {
+    if (event.target.value === "0") {
+      setProductList(list);
+    }
+    if (event.target.value === "1") {
       sortMin();
     }
-    if (event.target.value === "2"){
+    if (event.target.value === "2") {
       sortMax();
     }
   }
-  console.log(props.productList);
+
   return (
     <>
       <div className="title">
@@ -46,9 +58,9 @@ function Title(props) {
             <h6>FILTERS</h6>
           </div>
           <div className="title-content-right">
-            <p>{props.item} items</p>
+            <p>{productList.length} items</p>
             <strong>|</strong>
-            <select className="default" onChange={ OnChange}>
+            <select className="default" onChange={OnChange}>
               <option value="0">Default Sorting</option>
               <option value="1">Price: Low To High</option>
               <option value="2">Price: High To Low</option>

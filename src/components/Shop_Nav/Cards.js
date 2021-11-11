@@ -1,15 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { CartContext } from "../../contexts/cart_context";
 import { useHistory } from "react-router-dom";
 import "../../style/Shop/Card.css";
-function Cards(props) {
-  const { productList } = props;
+import { ProductContext } from "../../contexts/product_context";
+
+function Cards() {
+  const { productList } = useContext(ProductContext);
   const { addItem } = useContext(CartContext);
+
   let history = useHistory();
   const handleClickItemPassDetail = (item) => {
-    console.log("sdd");
     history.push("/detail/" + item._id);
   };
+
   return (
     <>
       <div className="groupCard">

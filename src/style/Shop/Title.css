@@ -54,14 +54,10 @@
   font: normal normal bold 18px/22px Bellota Text;
   letter-spacing: 0.45px;
   color: #524d4b;
-  background: #F5F2F0 0% 0% no-repeat padding-box;
+  background: transparent 0% 0% no-repeat padding-box;
 }
 
-.default:focus{
+.default:focus {
   outline: none;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: transparent 0% 0% no-repeat padding-box;
 }
-
-
-
-
