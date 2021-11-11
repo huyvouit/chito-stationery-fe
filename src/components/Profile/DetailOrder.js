@@ -31,6 +31,18 @@ export const DetailOrder = () => {
                             <td>590.000 VND</td>
                         </tr>
                     </table>
+                    <div className="detail-order-bottom">
+                        <div className="detail-order-title">Shipping Address</div>
+                        <div className="detail-order-title">Total: 590.000 VND</div>
+                    </div>
+                    <div>
+                        <div className="detail-order-content">Sweet Latte</div>
+                        <div className="detail-order-content">0909272727</div>
+                        <div className="detail-order-content">2710 Cappuccino Street, Espresso, Robusta City</div>
+                        <div>
+                            <button className="detail-order-bottom-btn">BACK</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

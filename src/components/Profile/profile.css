@@ -270,7 +270,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .table-detail-profile {
-  margin-bottom: 70px;
+  margin-bottom: 58px;
 }
 
 .table-detail-profile,
@@ -288,4 +288,35 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .detail-name {
   margin-bottom: 9px;
+}
+
+.detail-order-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-order-bottom-btn {
+  margin-top: 36px;
+  background-color: var(--primary-background);
+  border: solid 1px var(--text-title);
+  color: var(--text-title);
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: "Bellota Text", cursive;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-right: 36px;
+}
+
+.detail-order-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.detail-order-content {
+  margin-bottom: 5px;
 }
