@@ -9,7 +9,7 @@ const AuthContextProvider = ({ children }) => {
   const [authState, dispatch] = useReducer(authReducer, {
     authLoading: true,
     isAuthenticated: false,
-    user: "",
+    user: null,
   });
 
   //Authenticate user
@@ -27,14 +27,14 @@ const AuthContextProvider = ({ children }) => {
             user: response.data.user,
           },
         });
-        console.log(response.data.user);
+        // console.log(response.data.user);
       }
     } catch (error) {
       localStorage.removeItem(TOKEN_NAME);
       console.log("faild verify");
       dispatch({
         type: "SET_AUTH",
-        payload: { authLoading: false, isAuthenticated: false, user: "" },
+        payload: { authLoading: false, isAuthenticated: false, user: null },
       });
     }
   };
@@ -86,7 +86,13 @@ const AuthContextProvider = ({ children }) => {
   };
 
   // Context data
-  const authContextData = { registerUser, loginUser, logoutUser, authState };
+  const authContextData = {
+    registerUser,
+    loginUser,
+    logoutUser,
+    authState,
+    loadUser,
+  };
 
   // Return provider
   return (

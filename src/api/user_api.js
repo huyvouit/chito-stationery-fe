@@ -15,6 +15,11 @@ const userApi = {
     const url = "/user/updateinfo";
     return axiosClient.patch(url, body);
   },
+
+  getPurchaseHistory: (params) => {
+    const url = "/purchase/history/";
+    return axiosClient.get(url, { params });
+  },
 };
 
 export default userApi;

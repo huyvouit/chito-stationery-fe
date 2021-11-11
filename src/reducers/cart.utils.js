@@ -7,14 +7,27 @@ export const addItemsToCart = (cartItems, cartItemToAdd, number) => {
   ); // check item exxited in array local yet?
   // console.log("exist item: ", existingCartItem);
   if (existingCartItem !== undefined) {
+    console.log(cartItemToAdd.price.$numberDecimal * 2);
     return cartItems.map((cartItem) =>
       cartItem._id === cartItemToAdd._id
-        ? { ...cartItem, quantity: cartItem.quantity + number }
+        ? {
+            ...cartItem,
+            quantity: cartItem.quantity + number,
+            totalPriceByItem:
+              cartItem.price.$numberDecimal * (cartItem.quantity + number),
+          }
         : cartItem
     );
   }
   // console.log("k ton tai");
-  return [...cartItems, { ...cartItemToAdd, quantity: number }];
+  return [
+    ...cartItems,
+    {
+      ...cartItemToAdd,
+      quantity: number,
+      totalPriceByItem: number * cartItemToAdd.price.$numberDecimal,
+    },
+  ];
 };
 
 export const removeItemWithQuantityFromCart = (cartItems, cartItemToRemove) => {
@@ -31,7 +44,12 @@ export const removeItemWithQuantityFromCart = (cartItems, cartItemToRemove) => {
 
   return cartItems.map((cartItem) =>
     cartItem._id === cartItemToRemove._id
-      ? { ...cartItem, quantity: cartItem.quantity - 1 }
+      ? {
+          ...cartItem,
+          quantity: cartItem.quantity - 1,
+          totalPriceByItem:
+            (cartItem.quantity - 1) * cartItem.price.$numberDecimal,
+        }
       : cartItem
   );
 };

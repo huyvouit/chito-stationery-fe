@@ -9,10 +9,11 @@ import { useHistory } from "react-router-dom";
 export const EditAddress = () => {
   const {
     authState: { authLoading, user },
+    loadUser,
   } = useContext(AuthContext);
 
   const [infoUserForm, setInfoUserForm] = useState({
-    fullname: user.fullname || "",
+    fullname: user?.fullname || "",
     phone: "",
     streetAddress: "",
     district: "",
@@ -26,20 +27,19 @@ export const EditAddress = () => {
 
   useEffect(() => {
     console.log("run effect");
-    let arrAddress = " ";
-    if (user.address) {
-      arrAddress = user.address.split(",") || " ";
-      console.log("ar:", arrAddress);
+    let arrAddress = "";
+    if (user?.address) {
+      arrAddress = user?.address.split(",") || "";
     }
     setInfoUserForm({
       ...infoUserForm,
-      fullname: user.fullname || " ",
-      phone: user.phone || " ",
-      streetAddress: arrAddress !== " " ? arrAddress[0] : "abc ",
-      district: arrAddress !== " " ? arrAddress[1] : " ",
-      province: arrAddress !== " " ? arrAddress[2] : " ",
+      fullname: user?.fullname || "",
+      phone: user?.phone || "",
+      streetAddress: arrAddress !== "" ? arrAddress[0] : "",
+      district: arrAddress !== "" ? arrAddress[1] : "",
+      province: arrAddress !== "" ? arrAddress[2] : "",
     });
-  }, [user]);
+  }, []);
 
   const onChangeInfoUserForm = (event) =>
     setInfoUserForm({
@@ -60,7 +60,8 @@ export const EditAddress = () => {
       };
       const passData = await userApi.patchUpdateInfoUser(infoUser);
       if (passData.data.success) {
-        // handlePushPage("profile/acc-address");
+        await loadUser();
+        handlePushPage("profile/acc-address");
         toast.success(passData.data.msg, {
           position: "top-right",
           autoClose: 5000,
