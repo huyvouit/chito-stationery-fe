@@ -28,27 +28,14 @@ function Title(props) {
           <div className="title-content-right">
             <p>{props.item} items</p>
             <strong>|</strong>
-            <div className="groupDefaut" role="button"
-              style={{
-                backgroundColor: open ? "#F5F2F0" : "#ffffff",
-                boxShadow: open ? "none" : "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-              }}
-              onClick={() => toggle(!open)}>
-              <h6 className="default">Default Sorting</h6>
-              <img
-                src={open ? downIcon : upIcon}
-                alt="Icon open and close"
-              />
-            </div>
+            <select className="default" >
+              <option className="price">Default Sorting</option>
+              <option className="price">Price: Low To High</option>
+              <option className="price">Price: High To Low</option>
+            </select>
           </div>
         </div>
       </div>
-      {!open && (
-        <div className="groupPrice">
-          <p className="price">Price: Low To High</p>
-          <p className="price">Price: High To Low</p>
-        </div>
-      )}
     </>
   );
 }
