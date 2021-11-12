@@ -127,7 +127,7 @@ export const DetailScreen = () => {
               <div className="detail-contain-right-button">
                 <button
                   className="add"
-                  onClick={() => addItem(infoProduct, count)}
+                  onClick={() => addItem(infoProduct, count, 0)}
                 >
                   ADD TO CART
                 </button>
@@ -138,7 +138,9 @@ export const DetailScreen = () => {
                 className="detail-contain-right-group"
                 role="button"
                 style={{
-                  borderBottom: openProduct ? "none" : "1px solid var(--underline)",
+                  borderBottom: openProduct
+                    ? "none"
+                    : "1px solid var(--underline)",
                 }}
                 onClick={() => toggleProduct(!openProduct)}
               >

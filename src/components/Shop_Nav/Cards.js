@@ -33,7 +33,10 @@ function Cards() {
                       <h6>{item.price.$numberDecimal} VND</h6>
                     </div>
                   </div>
-                  <div className="card_btn " onClick={() => addItem(item, 1)}>
+                  <div
+                    className="card_btn "
+                    onClick={() => addItem(item, 1, 0)}
+                  >
                     ADD TO CART
                   </div>
                 </div>

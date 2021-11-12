@@ -93,7 +93,7 @@ export const CartScreen = () => {
                             -
                           </button>
                           <p>{item.quantity}</p>
-                          <button onClick={() => addItem(item, 1)}>+</button>
+                          <button onClick={() => addItem(item, 1, 1)}>+</button>
                         </div>
                       </td>
                       <td>
