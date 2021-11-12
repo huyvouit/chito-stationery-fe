@@ -23,6 +23,7 @@ import { SearchScreen } from "./components/Search/search_screen";
 import { Checkout } from "./components/Checkout/checkout_screen";
 import Filter from "./components/Shop_Nav/Filter";
 import { SearchBox } from "./components/Layout/search_box";
+import { AfterAuth } from "./components/Authentication/After_auth";
 //context
 import AuthContextProvider from "./contexts/auth_context";
 import FilterContextProvider from "./contexts/filter_context";
