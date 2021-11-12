@@ -21,6 +21,7 @@ import { DetailOrder } from "./components/Profile/DetailOrder";
 import { EditAddress } from "./components/Profile/EditAddress";
 import { SearchScreen } from "./components/Search/search_screen";
 import { Checkout } from "./components/Checkout/checkout_screen";
+import { AfterAuth } from "./components/Authentication/After_auth";
 //context
 import AuthContextProvider from "./contexts/auth_context";
 import FilterContextProvider from "./contexts/filter_context";
@@ -77,8 +78,8 @@ function App() {
                     />
                   )}
                 />
-                {/* <Route exact path="/about" component={About} /> */}
-                <Route exact path="/about" component={AboutScreen} />
+                {/* <Route exact path="/after-auth" component={AfterAuth} /> */}
+                <Route exact path="/about" component={AfterAuth} />
                 <Route exact path="/about/term-consition" component={Terms} />
                 <Route exact path="/about/privacy-policy" component={Privacy} />
                 <Route exact path="/cart" component={CartScreen} />
@@ -106,7 +107,7 @@ function App() {
                 <PrivateRoute
                   exact
                   path="/profile/acc-orders"
-                  component={DetailOrder}
+                  component={MyOrders}
                 />
                 <Route exact path="/404" component={ErrorPage} />
                 <Route exact path="*" component={ErrorPage} />
