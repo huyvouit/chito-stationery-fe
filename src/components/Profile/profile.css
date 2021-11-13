@@ -209,7 +209,7 @@
   padding: 12px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: block;
   font-size: 16px;
   font-family: "Bellota Text", cursive;
   cursor: pointer;
@@ -230,7 +230,7 @@
   padding: 12px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: block;
   font-size: 16px;
   font-family: "Bellota Text", cursive;
   cursor: pointer;
@@ -246,7 +246,7 @@
   padding: 12px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: block;
   font-size: 16px;
   font-family: "Bellota Text", cursive;
   cursor: pointer;
@@ -319,4 +319,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .detail-order-content {
   margin-bottom: 5px;
+}
+
+.detail-order-tr:hover {
+  background-color: var(--primary-footer);
 }

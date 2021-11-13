@@ -123,6 +123,11 @@ function App() {
                     path="/profile/acc-orders"
                     component={MyOrders}
                   />
+                  <PrivateRoute
+                    exact
+                    path="/profile/acc-orders/:id"
+                    component={DetailOrder}
+                  />
                   <Route exact path="/404" component={ErrorPage} />
                   <Route exact path="*" component={ErrorPage} />
                 </Switch>

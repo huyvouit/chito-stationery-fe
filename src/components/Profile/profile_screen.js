@@ -6,6 +6,8 @@ import { Loader } from "../Layout/loader";
 import userApi from "../../api/user_api";
 import { formatter } from "../../Helper/formatter";
 import Moment from "react-moment";
+import { useHistory } from "react-router-dom";
+
 export const ProfileScreen = () => {
   const {
     authState: { authLoading, user },
@@ -28,6 +30,11 @@ export const ProfileScreen = () => {
     fetchPurchaseHistory();
   }, []);
 
+  let history = useHistory();
+  const handleRoute = (endpoint) => {
+    history.push(endpoint);
+  };
+
   return (
     <>
       {authLoading || isLoading ? (
@@ -40,13 +47,23 @@ export const ProfileScreen = () => {
             <div className="profile-content-right">
               <div className="profile-info">
                 <div className="profile-col-width">
-                  <h2>Account Information</h2>
+                  <h2
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleRoute("/profile/acc-info")}
+                  >
+                    Account Information
+                  </h2>
                   <h5 className="profile-info-subtitle">CONTACT INFORMATION</h5>
                   <p>{user.fullname}</p>
                   <p>{user.email}</p>
                 </div>
                 <div className="profile-col-width">
-                  <h2>Address Book</h2>
+                  <h2
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleRoute("/profile/acc-address")}
+                  >
+                    Address Book
+                  </h2>
                   <h5 className="profile-info-subtitle">
                     DEFAULT SHIPPING ADDRESS
                   </h5>
@@ -56,7 +73,12 @@ export const ProfileScreen = () => {
                 </div>
               </div>
               <div className="profile-order">
-                <h2>My Orders</h2>
+                <h2
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleRoute("/profile/acc-orders")}
+                >
+                  My Orders
+                </h2>
                 {purchaseHistory && purchaseHistory.length === 0 ? (
                   <p>You have purchased no orders.</p>
                 ) : (

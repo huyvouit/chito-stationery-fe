@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 //lib
-import queryString from "query-string";
-import { useQuery } from "../../Helper/use_query";
 import { Link } from "react-router-dom";
 import productApi from "../../api/product_api";
 //css

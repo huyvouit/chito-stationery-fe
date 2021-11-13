@@ -6,7 +6,6 @@ import { ErrorPage } from "../Layout/error_page";
 import rightIcon from "../../assets/Icons/right-arrow.svg";
 import downIcon from "../../assets/Icons/down-arrow.svg";
 import "../../style/Detail/Detail.css";
-import queryString from "query-string";
 import { CartContext } from "../../contexts/cart_context";
 import { useHistory } from "react-router-dom";
 
@@ -67,8 +66,8 @@ export const DetailScreen = () => {
           setIsLoading(false);
         }
       } catch (error) {
-        console.log(error.response.data);
-        console.log("Failed to fetch product list: ", error);
+        // console.log(error.response.data);
+        // console.log("Failed to fetch product list: ", error);
         setIsLoading(false);
       }
     };

@@ -5,7 +5,6 @@ import rightIcon from "../../assets/Icons/right-arrow.svg";
 import downIcon from "../../assets/Icons/down-arrow.svg";
 import { useHistory } from "react-router-dom";
 import queryString from "query-string";
-import refreshPage from "../../Helper/refresh_page";
 import { FilterContext } from "../../contexts/filter_context";
 
 function Filter() {
