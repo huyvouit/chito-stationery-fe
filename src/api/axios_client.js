@@ -1,6 +1,6 @@
 import axios from "axios";
 import queryString from "query-string";
-import { TOKEN_NAME } from "../constants/constant";
+import { TOKEN_NAME, REFTOKEN } from "../constants/constant";
 // Set up default config for http requests here
 
 // Please have a look at here `https://github.com/axios/axios#request-config` for the full list of configs
@@ -25,13 +25,53 @@ axiosClient.interceptors.request.use(
   (err) => err
 );
 
+const getNewTokenAndReattemptRequest = async (config, refToken) => {
+  try {
+    const getNewToken = await axios.post(
+      "https://chito-stationery.herokuapp.com/auth/refresh",
+      {
+        refreshToken: refToken,
+      }
+    );
+    console.log("đã refresh: ", getNewToken);
+    const { accessToken, refreshToken } = getNewToken.data;
+    localStorage.setItem(TOKEN_NAME, accessToken);
+    localStorage.setItem(REFTOKEN, refreshToken);
+    config.headers.common["Authorization"] = `Bearer ${accessToken}`;
+    return await axios(config);
+  } catch (err) {
+    window.location.reload();
+    return Promise.reject(err);
+  }
+};
+
 axiosClient.interceptors.response.use(
-  (response) => {
-    return response;
-  },
+  (res) => res,
   (error) => {
-    // Handle errors
-    throw error;
+    const {
+      config,
+      config: { validateStatus },
+      response: { status },
+    } = error;
+    if (validateStatus()) {
+      console.log("validateStatus");
+      return error;
+    }
+    if (status === 401) {
+      console.log("401");
+      const refreshToken = localStorage.getItem(REFTOKEN);
+      if (refreshToken)
+        return getNewTokenAndReattemptRequest(config, refreshToken);
+      else {
+        console.log("chưa có refreshToken");
+        return;
+      }
+    }
+    if (status === 404) {
+      console.log("404 error");
+      return;
+    }
+    return error;
   }
 );
 export default axiosClient;
