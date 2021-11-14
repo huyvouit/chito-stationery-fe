@@ -70,6 +70,10 @@ export const SearchBox = () => {
     }, 900);
   };
 
+  const handleClickItemPassDetail = (item) => {
+    history.push("/detail/" + item);
+  };
+
   return (
     <div
       className="search-box"
@@ -107,7 +111,14 @@ export const SearchBox = () => {
           <div className="show-product-field">
             {productSearch.length > 0 ? (
               productSearch.slice(0, 4).map((item) => (
-                <div key={item._id} className="product-index">
+                <div
+                  key={item._id}
+                  className="product-index"
+                  onClick={() => {
+                    handleClickItemPassDetail(item._id);
+                    closePopUp();
+                  }}
+                >
                   <div className="product-image">
                     <img className="item-image" src={item.image} alt="Avatar" />
                   </div>

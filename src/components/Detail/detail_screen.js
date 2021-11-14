@@ -130,7 +130,15 @@ export const DetailScreen = () => {
                 >
                   ADD TO CART
                 </button>
-                <button className="buy">BUY NOW</button>
+                <button
+                  className="buy"
+                  onClick={() => {
+                    addItem(infoProduct, count, 0);
+                    history.push("/cart");
+                  }}
+                >
+                  BUY NOW
+                </button>
               </div>
 
               <div
@@ -207,7 +215,8 @@ export const DetailScreen = () => {
               </div>
               {!openProduct2 && (
                 <p className="detail-title-group-container">
-                  Email <a href="mailto:">help@chitostationery.com</a> or call 0927272727
+                  Email <a href="mailto:">help@chitostationery.com</a> or call
+                  0927272727
                 </p>
               )}
             </div>

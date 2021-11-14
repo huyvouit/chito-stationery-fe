@@ -113,41 +113,43 @@ export const Header = () => {
                   <span className="btn-number-cart-item">{totalItems}</span>
                 )}
               </Link>
-              <div className="dropdown-menu cart">
-                {cartItems &&
-                  cartItems.length > 0 &&
-                  cartItems.slice(0, 3).map((item) => {
-                    return (
-                      <div
-                        key={item._id}
-                        className="hover-flex"
-                        title={item.productName}
-                        onClick={() => handleClickItemPassDetail(item._id)}
-                      >
-                        <div className="sub-hover-flex">
-                          <img
-                            className="img-hover"
-                            src={item.image}
-                            alt={item.productName}
-                          />
-                          <div className="cart-hover-info">
-                            <p>{item.productName}</p>
-                            <p>Quantity: {item.quantity}</p>
+              {totalItems > 0 && (
+                <div className="dropdown-menu cart">
+                  {cartItems &&
+                    cartItems.length > 0 &&
+                    cartItems.slice(0, 3).map((item) => {
+                      return (
+                        <div
+                          key={item._id}
+                          className="hover-flex"
+                          title={item.productName}
+                          onClick={() => handleClickItemPassDetail(item._id)}
+                        >
+                          <div className="sub-hover-flex">
+                            <img
+                              className="img-hover"
+                              src={item.image}
+                              alt={item.productName}
+                            />
+                            <div className="cart-hover-info">
+                              <p>{item.productName}</p>
+                              <p>Quantity: {item.quantity}</p>
+                            </div>
                           </div>
+                          <div>{formatter.format(item.totalPriceByItem)}</div>
                         </div>
-                        <div>{formatter.format(item.totalPriceByItem)}</div>
-                      </div>
-                    );
-                  })}
-                <div className="cart-hover-footer">
-                  <div className="cart-hover-more">
-                    More {totalItems - 3} item(s)
+                      );
+                    })}
+                  <div className="cart-hover-footer">
+                    <div className="cart-hover-more">
+                      More {totalItems - 3} item(s)
+                    </div>
+                    <Link to="/cart" className="cart-hover-btn">
+                      SEE CART
+                    </Link>
                   </div>
-                  <Link to="/cart" className="cart-hover-btn">
-                    SEE CART
-                  </Link>
                 </div>
-              </div>
+              )}
             </div>
             {!authLoading && isAuthenticated ? (
               <div className="item-icon hover-user">

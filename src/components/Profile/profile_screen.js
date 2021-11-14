@@ -98,7 +98,7 @@ export const ProfileScreen = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {purchaseHistory
+                      {[...purchaseHistory]
                         .reverse()
                         .slice(0, 4)
                         .map((item) => {

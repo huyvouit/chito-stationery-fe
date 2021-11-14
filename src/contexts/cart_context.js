@@ -36,7 +36,7 @@ const CartContextProvider = ({ children }) => {
     if (check === undefined || exist === 0) {
       toast.success("Added to cart successfully", {
         position: "bottom-right",
-        autoClose: 3000,
+        autoClose: 2500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

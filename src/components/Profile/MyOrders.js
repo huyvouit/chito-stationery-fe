@@ -62,7 +62,7 @@ export const MyOrders = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {purchaseHistory.reverse().map((item) => {
+                    {[...purchaseHistory].reverse().map((item) => {
                       return (
                         <tr
                           key={item._id}
