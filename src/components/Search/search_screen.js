@@ -6,11 +6,12 @@ import { FilterContext } from "../../contexts/filter_context";
 import productApi from "../../api/product_api";
 import { Loader } from "../Layout/loader";
 import "../../style/Search/search_screen.css";
+import { ProductContext } from "../../contexts/product_context";
 export const SearchScreen = () => {
   const { query, handleQuery } = useContext(FilterContext);
   const [isLoading, setIsLoading] = useState(true);
-  const [productList, setProductList] = useState([]);
-  const [searchInput, setSearchInput] = useState(query.q);
+  const { productList, setProductList } = useContext(ProductContext);
+  const [searchInput, setSearchInput] = useState(query.q || "");
   useEffect(() => {
     console.log("useEfect search");
     setIsLoading(true);
@@ -18,7 +19,7 @@ export const SearchScreen = () => {
       try {
         const params = query;
         const response = await productApi.getBySearch(params);
-
+        console.log(response.data.searchedProducts);
         setProductList(response.data.searchedProducts);
         setIsLoading(false);
       } catch (error) {
@@ -46,7 +47,7 @@ export const SearchScreen = () => {
       });
     }
   };
-
+  console.log("pro", productList);
   return isLoading ? (
     <Loader />
   ) : productList.length === 0 ? (

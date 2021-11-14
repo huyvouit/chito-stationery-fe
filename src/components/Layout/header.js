@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import userIcon from "../../assets/Icons/user.svg";
 import cartIcon from "../../assets/Icons/shopping-basket.svg";
@@ -20,7 +20,7 @@ export const Header = () => {
     history.push(`/${item}`);
   };
   const {
-    authState: { authLoading, isAuthenticated, user },
+    authState: { authLoading, isAuthenticated },
   } = useContext(AuthContext);
   // console.log(authLoading, isAuthenticated);
   return (
