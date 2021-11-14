@@ -23,13 +23,13 @@
 
 .detail-contain .detail-contain-right{
     flex: 50%;
-    margin-top: 8vh;
+    margin-top: 1vh;
     margin-left: 10vh;
 }
 
 .detail-contain .detail-contain-right h2 {
     text-align: left;
-    font: normal normal bold 42px/27px Bellota Text;
+    font: normal normal bold 27px/27px Bellota Text;
     letter-spacing: 1.05px;
     color: #524D4B;
     text-transform: capitalize;
@@ -38,34 +38,38 @@
  .detail-contain-right-price {
     padding-top: 4vh;
     text-align: left;
-    font: normal normal bold 32px/27px Bellota Text;
+    font: normal normal bold 24px/27px Bellota Text;
     letter-spacing: 0.48px;
     color: #524D4B;
 }
 
 .detail-contain-right-quantity {
     margin-top: 2vh;
-    background-color: white;
     display: flex;
-    height: 5vh;
-    width: 13vh;
+    align-items: center;
+    text-align: center;
 }
 
 .detail-contain-right-quantity p {
-    margin: auto;
-    font: normal normal bold 32px/27px Bellota Text;
-    letter-spacing: 0.48px;
-    color: #524D4B;
+    padding-top: 8px;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    background-color: white;
+    font-size: 18px;
 }
 
 .detail-contain-right-quantity button {
-    cursor: pointer;
-    margin: auto;
+    width: 36px;
+    height: 36px;
     background-color: white;
     border: none;
-    font: normal normal bold 32px/27px Bellota Text;
-    letter-spacing: 0.48px;
-    color: #524D4B;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.detail-contain-right-quantity button:hover {
+    background-color: var(--underline);
 }
 
 .detail-contain-right-button {
@@ -76,14 +80,13 @@
 }
 
 .add {
-    height: 5vh;
-    width: 18vh;
+    padding: 12px 24px;
     cursor: pointer;
     border: none;
-    margin-right: 10vh;
+    margin-right: 5vh;
     background: #E5E1DF 0% 0% no-repeat padding-box;
     text-align: center;
-    font: normal normal bold 18px/27px Bellota Text;
+    font: normal normal bold 16px/27px Bellota Text;
     letter-spacing: 0.27px;
     color: #966A57;
     text-transform: uppercase;
@@ -93,10 +96,9 @@
     border: none;
     cursor: pointer;
     background: #966A57 0% 0% no-repeat padding-box;
-    height: 5vh;
-    width: 18vh;
+    padding: 12px 24px;
     text-align: center;
-    font: normal normal bold 18px/27px Bellota Text;
+    font: normal normal bold 16px/27px Bellota Text;
     letter-spacing: 0.27px;
     color: #F2EFED;
     text-transform: uppercase;
@@ -112,7 +114,7 @@
 
 .detail-title-group {
     text-align: left;
-    font: normal normal bold 24px/27px Bellota Text;
+    font: normal normal bold 18px/27px Bellota Text;
     letter-spacing: 0.36px;
     color: #524D4B;
     text-transform: uppercase;
@@ -122,37 +124,37 @@
 .detail-title-group-container {
     width: 60%;
     text-align: left;
-    font: normal normal bold 18px/27px Bellota Text;
+    font: normal normal bold 15px/27px Bellota Text;
     letter-spacing: 0.27px;
     color: #524D4B;
-    padding-bottom: 1vh;
+    padding-bottom: 3vh;
     border-bottom: 1px solid var(--underline);
 }
 
 .more-products {
-    margin: 5vh 28.5vh;
+    margin: 5vh 32vh;
 }
 
 .title-more-product {
     text-align: left;
-    font: normal normal bold 42px/27px Bellota Text;
+    font: normal normal bold 27px/27px Bellota Text;
     letter-spacing: 0.63px;
     color: #524D4B;
     text-transform: capitalize;
-    margin-bottom: 8vh;
+    margin-bottom: 3vh;
 }
 
 .detail-groupCard {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 27px;
     overflow: hidden;
 }
 
 .detail-card-wrapper {
-    width: 20%;
+    width: 220px;
     background-color: white;
-    height: 40vh;
 }
 
 .detail-card-wrapper:hover {
@@ -167,22 +169,22 @@
     padding: 20px;
 }
 
-
 .detail-ItemImg {
-    width: 100%;
-    height: 24vh;
-    object-fit: fill;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
 }
 
 .detail-ItemTxt h5 {
     padding-top: 1vh;
     height: 9vh;
     text-align: left;
-    font: normal normal bold 20px/20px Bellota Text;
+    font: normal normal bold 17px/20px Bellota Text;
     letter-spacing: 0.6px;
     color: #524D4B;
     text-transform: capitalize;
     overflow: hidden;
+    margin-bottom: 5px;
 }
 
 .detail-ItemTxt h6{
@@ -196,8 +198,8 @@
 .labelQuantity{
     padding-top: 4vh;
     text-align: left;
-    font: normal normal bold 30px/27px Bellota Text;
+    font: normal normal bold 15px/27px Bellota Text;
     letter-spacing: 0.6px;
     color: #524D4B;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
