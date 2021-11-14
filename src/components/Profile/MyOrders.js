@@ -5,6 +5,7 @@ import { Loader } from "../Layout/loader";
 import userApi from "../../api/user_api";
 import { formatter } from "../../Helper/formatter";
 import Moment from "react-moment";
+import { useHistory } from "react-router-dom";
 export const MyOrders = () => {
   const {
     authState: { authLoading, user },
@@ -12,6 +13,10 @@ export const MyOrders = () => {
   const [purchaseHistory, setPurchaseHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  let history = useHistory();
+  const handleClickItemPassDetail = (item) => {
+    history.push("/profile/acc-orders/" + item);
+  };
   useEffect(() => {
     setIsLoading(true);
     const fetchPurchaseHistory = async () => {
@@ -57,25 +62,27 @@ export const MyOrders = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {purchaseHistory
-                      .reverse()
-                      .slice(0, 4)
-                      .map((item) => {
-                        return (
-                          <tr key={item._id}>
-                            <td>#{item._id}</td>
-                            <td>
-                              <Moment format="DD/MM/YYYY">
-                                {item.createdAt}
-                              </Moment>
-                            </td>
-                            <td>{item.productList.length}</td>
-                            <td>
-                              {formatter.format(item.totalCost.$numberDecimal)}
-                            </td>
-                          </tr>
-                        );
-                      })}
+                    {purchaseHistory.reverse().map((item) => {
+                      return (
+                        <tr
+                          key={item._id}
+                          onClick={() => handleClickItemPassDetail(item._id)}
+                          className="detail-order-tr"
+                          style={{ cursor: "pointer" }}
+                        >
+                          <td>#{item._id}</td>
+                          <td>
+                            <Moment format="DD/MM/YYYY">
+                              {item.createdAt}
+                            </Moment>
+                          </td>
+                          <td>{item.productList.length}</td>
+                          <td>
+                            {formatter.format(item.totalCost.$numberDecimal)}
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               )}

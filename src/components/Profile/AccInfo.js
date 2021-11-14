@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 export const AccInfo = () => {
   const [isChangePass, setIsChangePass] = useState(false);
   const {
-    authState: { authLoading, isAuthenticated, user },
+    authState: { authLoading, user },
   } = useContext(AuthContext);
   const handleIsChangePass = () => {
     console.log("sdsd");

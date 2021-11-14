@@ -26,17 +26,17 @@ const CartContextProvider = ({ children }) => {
     console.log("save local");
   }, [state]);
   // console.log(state);
-  const addItem = (item, number) => {
+  const addItem = (item, number, exist) => {
     dispatch({
       type: ADD_TO_CART,
       payload: { item, quantity: number },
     });
     let check = state.cartItems.find((x) => x._id === item._id);
 
-    if (check === undefined) {
+    if (check === undefined || exist === 0) {
       toast.success("Added to cart successfully", {
         position: "bottom-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

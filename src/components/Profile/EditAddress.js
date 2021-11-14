@@ -39,7 +39,7 @@ export const EditAddress = () => {
       district: arrAddress !== "" ? arrAddress[1] : "",
       province: arrAddress !== "" ? arrAddress[2] : "",
     });
-  }, []);
+  }, [user]);
 
   const onChangeInfoUserForm = (event) =>
     setInfoUserForm({

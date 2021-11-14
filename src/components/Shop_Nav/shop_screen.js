@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 //lib
-import queryString from "query-string";
-import { useQuery } from "../../Helper/use_query";
 import { Link } from "react-router-dom";
 import productApi from "../../api/product_api";
 //css
@@ -12,13 +10,15 @@ import Cards from "./Cards";
 import Title from "./title";
 import { Loader } from "../Layout/loader";
 import { FilterContext } from "../../contexts/filter_context";
+import { ProductContext } from "../../contexts/product_context";
 
 export const ShopScreen = ({ onClickFilter }) => {
   // const query = queryString.parse(useQuery());
   const { query } = useContext(FilterContext);
 
   const [isLoading, setIsLoading] = useState(true);
-  const [productList, setProductList] = useState([]);
+
+  const { productList, setProductList } = useContext(ProductContext);
   // const [query, setQuery] = useState(queryString.parse(useQuery()));
   useEffect(() => {
     console.log("useEfect");
@@ -53,8 +53,8 @@ export const ShopScreen = ({ onClickFilter }) => {
   ) : (
     <>
       <div className="ShopScreen">
-        <Title item={productList.length} onClickFilter={onClickFilter} />
-        <Cards productList={productList} />
+        <Title onClickFilter={onClickFilter} />
+        <Cards />
       </div>
     </>
   );

@@ -2,14 +2,17 @@ import React, { useContext } from "react";
 import { CartContext } from "../../contexts/cart_context";
 import { useHistory } from "react-router-dom";
 import "../../style/Shop/Card.css";
-function Cards(props) {
-  const { productList } = props;
+import { ProductContext } from "../../contexts/product_context";
+
+function Cards() {
+  const { productList } = useContext(ProductContext);
   const { addItem } = useContext(CartContext);
+
   let history = useHistory();
   const handleClickItemPassDetail = (item) => {
-    console.log("sdd");
     history.push("/detail/" + item._id);
   };
+
   return (
     <>
       <div className="groupCard">
@@ -30,7 +33,10 @@ function Cards(props) {
                       <h6>{item.price.$numberDecimal} VND</h6>
                     </div>
                   </div>
-                  <div className="card_btn " onClick={() => addItem(item, 1)}>
+                  <div
+                    className="card_btn "
+                    onClick={() => addItem(item, 1, 0)}
+                  >
                     ADD TO CART
                   </div>
                 </div>

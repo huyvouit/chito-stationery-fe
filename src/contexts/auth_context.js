@@ -1,6 +1,6 @@
 import { createContext, useReducer, useEffect } from "react";
 import { authReducer } from "../reducers/auth_reducer";
-import { TOKEN_NAME } from "../constants/constant";
+import { TOKEN_NAME, REFTOKEN } from "../constants/constant";
 import authApi from "../api/auth_api";
 
 export const AuthContext = createContext();
@@ -31,6 +31,7 @@ const AuthContextProvider = ({ children }) => {
       }
     } catch (error) {
       localStorage.removeItem(TOKEN_NAME);
+      localStorage.removeItem(REFTOKEN);
       console.log("faild verify");
       dispatch({
         type: "SET_AUTH",
@@ -48,7 +49,8 @@ const AuthContextProvider = ({ children }) => {
       // console.log(response.data.accessToken);
       if (response.data.success)
         localStorage.setItem(TOKEN_NAME, response.data.accessToken);
-      // console.log(`data: ${response.data}`);
+      localStorage.setItem(REFTOKEN, response.data.refreshToken);
+      console.log(`data: ${response.config}`);
       await loadUser();
 
       return response.data;
@@ -79,6 +81,7 @@ const AuthContextProvider = ({ children }) => {
   // Logout;
   const logoutUser = () => {
     localStorage.removeItem(TOKEN_NAME);
+    localStorage.removeItem(REFTOKEN);
     dispatch({
       type: "SET_AUTH",
       payload: { authLoading: false, isAuthenticated: false, user: null },

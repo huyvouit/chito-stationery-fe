@@ -1,12 +1,44 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import filterIcon from "../../assets/Icons/filter.svg";
+import { ProductContext } from "../../contexts/product_context";
 import "../../style/Shop/Title.css";
-import upIcon from "../../assets/Icons/up.svg";
-import downIcon from "../../assets/Icons/down-arrow.svg";
 
 function Title(props) {
-  const [open, setOpen] = useState([]);
-  const toggle = () => setOpen(!open);
+  const { productList, setProductList } = useContext(ProductContext);
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    setList(productList);
+  }, []);
+
+  function sortMin() {
+    const x = [...productList].sort(
+      (a, b) => a.price.$numberDecimal - b.price.$numberDecimal
+    );
+    setProductList(x);
+    console.log("min");
+  }
+
+  function sortMax() {
+    const x = [...productList].sort(
+      (a, b) => b.price.$numberDecimal - a.price.$numberDecimal
+    );
+    setProductList(x);
+    console.log("max");
+  }
+
+  function OnChange(event) {
+    if (event.target.value === "0") {
+      setProductList(list);
+    }
+    if (event.target.value === "1") {
+      sortMin();
+    }
+    if (event.target.value === "2") {
+      sortMax();
+    }
+  }
+
   return (
     <>
       <div className="title">
@@ -26,29 +58,16 @@ function Title(props) {
             <h6>FILTERS</h6>
           </div>
           <div className="title-content-right">
-            <p>{props.item} items</p>
+            <p>{productList.length} items</p>
             <strong>|</strong>
-            <div className="groupDefaut" role="button"
-              style={{
-                backgroundColor: open ? "#F5F2F0" : "#ffffff",
-                boxShadow: open ? "none" : "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-              }}
-              onClick={() => toggle(!open)}>
-              <h6 className="default">Default Sorting</h6>
-              <img
-                src={open ? downIcon : upIcon}
-                alt="Icon open and close"
-              />
-            </div>
+            <select className="default" onChange={OnChange}>
+              <option value="0">Default Sorting</option>
+              <option value="1">Price: Low To High</option>
+              <option value="2">Price: High To Low</option>
+            </select>
           </div>
         </div>
       </div>
-      {!open && (
-        <div className="groupPrice">
-          <p className="price">Price: Low To High</p>
-          <p className="price">Price: High To Low</p>
-        </div>
-      )}
     </>
   );
 }

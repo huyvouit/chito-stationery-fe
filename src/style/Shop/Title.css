@@ -49,40 +49,15 @@
 }
 
 .default {
-  width: 20.9vh;
-  height: 5vh;
-  padding: 1vh 0;
+  border: none;
   text-align: center;
   font: normal normal bold 18px/22px Bellota Text;
   letter-spacing: 0.45px;
   color: #524d4b;
+  background: transparent 0% 0% no-repeat padding-box;
 }
 
-.groupDefaut {
-  cursor: pointer;
-  display: flex;
-}
-
-.groupPrice {
-  position: absolute;
-  right: 150px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  z-index: 1;
-  height: 14vh;
-  width: 24vh;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.groupPrice p {
-  cursor: pointer;
-  margin: 3vh 1vh;
-  text-align: center;
-  font: normal normal bold 16px/18px Bellota Text;
-  letter-spacing: 0.45px;
-  color: #524d4b;
-}
-
-.groupPrice p:hover{
-  color: #cfc7bc;
-  cursor: pointer;
+.default:focus {
+  outline: none;
+  background: transparent 0% 0% no-repeat padding-box;
 }

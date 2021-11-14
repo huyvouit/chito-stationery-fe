@@ -20,6 +20,11 @@ const userApi = {
     const url = "/purchase/history/";
     return axiosClient.get(url, { params });
   },
+
+  getPurchaseHistoryById: (params) => {
+    const url = "/purchase/history/";
+    return axiosClient.get(url, { params });
+  },
 };
 
 export default userApi;
