@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import userIcon from "../../assets/Icons/user.svg";
 import cartIcon from "../../assets/Icons/shopping-basket.svg";
 import searchIcon from "../../assets/Icons/search-interface-symbol.svg";
+import stickerImg from "../../assets/Images/ava.jpg";
 import "../../style/Header/header.css";
 import { PopUpContext } from "../../contexts/popup_context";
-// import DropDown from "../Shop_Dropdown/DropDown";
 import { AuthContext } from "../../contexts/auth_context";
 import { CartContext } from "../../contexts/cart_context";
 // import refreshPage from "../../Helper/refresh_page";
@@ -93,18 +93,36 @@ export const Header = () => {
                 onClick={() => setShowSearch(true)}
               />
             </div>
-            <Link to="/cart" className="item-icon">
-              <img
-                className="image-icon"
-                src={cartIcon}
-                width="20px"
-                height="20px"
-                alt="cart icon"
-              />
-              {state.totalItems !== 0 && (
-                <span className="btn-number-cart-item">{state.totalItems}</span>
-              )}
-            </Link>
+            <div className="item-icon hover-menu">
+              <Link to="/cart">
+                <img
+                  className="image-icon"
+                  src={cartIcon}
+                  width="20px"
+                  height="20px"
+                  alt="cart icon"
+                />
+                {state.totalItems !== 0 && (
+                  <span className="btn-number-cart-item">{state.totalItems}</span>
+                )}
+              </Link>
+              <div className="dropdown-menu cart">
+                <div className="hover-flex">
+                  <div className="sub-hover-flex">
+                    <img className="img-hover" src={stickerImg} alt="productImg"/>
+                    <div>Minimalist Washi Tape Set 2</div>
+                  </div>
+                  <div>₫80,000</div>
+                </div>
+                <div className="hover-flex">
+                  <div className="sub-hover-flex">
+                    <img className="img-hover" src={stickerImg} alt="productImg"/>
+                    <div>Minimalist Washi Tape Set 2</div>
+                  </div>
+                  <div>₫80,000</div>
+                </div>
+              </div>
+            </div>
             {!authLoading && isAuthenticated ? (
               <div className="item-icon hover-user">
                 <div className="avatar-user"></div>

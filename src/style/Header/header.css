@@ -146,3 +146,27 @@ header {
   background-color: var(--text-subTitle);
   border-radius: 100rem;
 }
+
+.img-hover {
+  width: 32px;
+  height: 32px;
+  margin-right: 9px;
+}
+
+.cart {
+  left: -8em;
+}
+
+.hover-flex {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
+}
+
+.sub-hover-flex {
+  display: flex;
+  align-items: flex-start;
+  text-align: initial;
+}
