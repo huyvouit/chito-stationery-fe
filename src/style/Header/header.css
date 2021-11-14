@@ -37,7 +37,7 @@ header {
 .dropdown-menu {
   text-align: center;
   position: absolute;
-  font-size: 16px;
+  font-size: 14px;
   top: 1.2rem;
   background-color: var(--primary-background);
   box-shadow: 0 3px 5px var(--blend-mode);
@@ -53,15 +53,15 @@ header {
 }
 
 .shop {
-  left: -91%;
+  left: -160%;
 }
 
 .about {
-  left: -105%;
+  left: -180%;
 }
 
 .icon {
-  right: 20px;
+  right: 0px;
   top: 30px;
 }
 
@@ -148,25 +148,54 @@ header {
 }
 
 .img-hover {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   margin-right: 9px;
 }
 
 .cart {
-  left: -8em;
+  left: -18em;
+  z-index: 5;
 }
 
 .hover-flex {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 250px;
   margin-top: 2.5px;
   margin-bottom: 2.5px;
+  cursor: pointer;
+}
+
+.hover-flex:hover {
+  background-color: var(--primary-footer);
+}
+
+.cart-hover-info p {
+  font-size: 14;
 }
 
 .sub-hover-flex {
   display: flex;
   align-items: flex-start;
   text-align: initial;
+}
+.cart-hover-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-hover-btn {
+  background-color: var(--text-title);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  font-family: "Bellota Text", cursive;
+  cursor: pointer;
 }

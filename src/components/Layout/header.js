@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import userIcon from "../../assets/Icons/user.svg";
 import cartIcon from "../../assets/Icons/shopping-basket.svg";
 import searchIcon from "../../assets/Icons/search-interface-symbol.svg";
-import stickerImg from "../../assets/Images/ava.jpg";
+import { formatter } from "../../Helper/formatter";
 import "../../style/Header/header.css";
 import { PopUpContext } from "../../contexts/popup_context";
 import { AuthContext } from "../../contexts/auth_context";
@@ -13,16 +13,23 @@ import { useHistory } from "react-router-dom";
 export const Header = () => {
   const { setShowPopUp, setShowSearch } = useContext(PopUpContext);
   const { logoutUser } = useContext(AuthContext);
-  const { state } = useContext(CartContext);
-  // const handleClick = () => setClick(!click);
+  const {
+    state: { cartItems, totalItems },
+  } = useContext(CartContext);
+
   let history = useHistory();
   const handleClickNavbar = (item) => {
     history.push(`/${item}`);
   };
+
+  const handleClickItemPassDetail = (item) => {
+    history.push("/detail/" + item);
+  };
+
   const {
     authState: { authLoading, isAuthenticated },
   } = useContext(AuthContext);
-  // console.log(authLoading, isAuthenticated);
+
   return (
     <header>
       <div className="navigation-bar">
@@ -102,24 +109,43 @@ export const Header = () => {
                   height="20px"
                   alt="cart icon"
                 />
-                {state.totalItems !== 0 && (
-                  <span className="btn-number-cart-item">{state.totalItems}</span>
+                {totalItems !== 0 && (
+                  <span className="btn-number-cart-item">{totalItems}</span>
                 )}
               </Link>
               <div className="dropdown-menu cart">
-                <div className="hover-flex">
-                  <div className="sub-hover-flex">
-                    <img className="img-hover" src={stickerImg} alt="productImg"/>
-                    <div>Minimalist Washi Tape Set 2</div>
+                {cartItems &&
+                  cartItems.length > 0 &&
+                  cartItems.slice(0, 3).map((item) => {
+                    return (
+                      <div
+                        key={item._id}
+                        className="hover-flex"
+                        title={item.productName}
+                        onClick={() => handleClickItemPassDetail(item._id)}
+                      >
+                        <div className="sub-hover-flex">
+                          <img
+                            className="img-hover"
+                            src={item.image}
+                            alt={item.productName}
+                          />
+                          <div className="cart-hover-info">
+                            <p>{item.productName}</p>
+                            <p>Quantity: {item.quantity}</p>
+                          </div>
+                        </div>
+                        <div>{formatter.format(item.totalPriceByItem)}</div>
+                      </div>
+                    );
+                  })}
+                <div className="cart-hover-footer">
+                  <div className="cart-hover-more">
+                    More {totalItems - 3} item(s)
                   </div>
-                  <div>₫80,000</div>
-                </div>
-                <div className="hover-flex">
-                  <div className="sub-hover-flex">
-                    <img className="img-hover" src={stickerImg} alt="productImg"/>
-                    <div>Minimalist Washi Tape Set 2</div>
-                  </div>
-                  <div>₫80,000</div>
+                  <Link to="/cart" className="cart-hover-btn">
+                    SEE CART
+                  </Link>
                 </div>
               </div>
             </div>
