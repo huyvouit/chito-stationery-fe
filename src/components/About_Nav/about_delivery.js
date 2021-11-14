@@ -4,7 +4,7 @@ import "../../style/About/about.css";
 export const Delivery = () => {
     return (
         <div className="about_wrapper">
-            <h1 className="about_title">DELIVERY & RETURNS</h1>
+            <h1 className="about_title">DELIVERY &amp; RETURNS</h1>
             <div className="about_content">
                 <div className="about_subwrapper">
                     <h3 className="about_subtitle">FREE SHIPPING</h3>

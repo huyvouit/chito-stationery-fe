@@ -68,12 +68,12 @@ export const Header = () => {
               <ul className="dropdown-menu about">
                 <li>
                   <Link className="drop-link" to="/about">
-                    DELIVERY RETURNS
+                    DELIVERY &amp; RETURNS
                   </Link>
                 </li>
                 <li>
                   <Link className="drop-link" to="/about/term-consition">
-                    TERMS CONDITIONS
+                    TERMS &amp; CONDITIONS
                   </Link>
                 </li>
                 <li>

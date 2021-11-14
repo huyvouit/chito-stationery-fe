@@ -4,7 +4,7 @@ import "../../style/About/about.css";
 export const Terms = () => {
   return (
     <div className="about_wrapper">
-      <h1 className="about_title">TERMS & CONDITIONS</h1>
+      <h1 className="about_title">TERMS &amp; CONDITIONS</h1>
       <div className="about_content">
         <div className="about_subwrapper">
           <h3 className="about_subtitle">DELIVERY</h3>
