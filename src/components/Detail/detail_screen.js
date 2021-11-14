@@ -207,7 +207,7 @@ export const DetailScreen = () => {
               </div>
               {!openProduct2 && (
                 <p className="detail-title-group-container">
-                  Email help@chitostationery.com or call 0927272727
+                  Email <a href="mailto:">help@chitostationery.com</a> or call 0927272727
                 </p>
               )}
             </div>
