@@ -13,7 +13,7 @@
 }
 
 .ac_content {
-    margin: 0 500px;
+    margin: 0 auto;
     text-align: center;
     font-size: 18px;
     color: var(--primary-text);
@@ -36,4 +36,10 @@
 .ac_icon {
     margin-top: 36px;
     margin-bottom: 36px;
+}
+
+@media only screen and (max-width: 1366px){
+    .ac-wrapper {
+      padding: 15px;
+    }
 }
