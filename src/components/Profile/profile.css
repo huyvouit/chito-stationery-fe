@@ -324,3 +324,18 @@ input[type="number"]::-webkit-inner-spin-button {
 .detail-order-tr:hover {
   background-color: var(--primary-footer);
 }
+
+@media only screen and (max-width: 991px) {
+  .detail-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .detail-name {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  
+}
