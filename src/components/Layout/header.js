@@ -141,9 +141,13 @@ export const Header = () => {
                       );
                     })}
                   <div className="cart-hover-footer">
-                    <div className="cart-hover-more">
-                      More {totalItems - 3} item(s)
-                    </div>
+                    {totalItems > 3 ? (
+                      <div className="cart-hover-more">
+                        More {totalItems - 3} item(s)
+                      </div>
+                    ) : (
+                      <div></div>
+                    )}
                     <Link to="/cart" className="cart-hover-btn">
                       SEE CART
                     </Link>

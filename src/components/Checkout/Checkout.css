@@ -1,9 +1,7 @@
 .checkout-wrapper {
-  margin-left: 206px;
-  margin-right: 206px;
-  margin-top: 30px;
-  margin-bottom: 80px;
   display: flex;
+  max-width: 1140px;
+  margin: 0 auto;
   justify-content: space-between;
   gap: 3vw;
 }
@@ -62,7 +60,6 @@
 .checkout-cart {
   border-collapse: separate;
   border-spacing: 0 1em;
-  height: 300px;
 }
 
 .checkout-info-title {

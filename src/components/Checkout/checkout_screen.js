@@ -81,6 +81,9 @@ export const Checkout = () => {
   const handlePushPage = () => {
     history.push("/after-checkout");
   };
+  const handleClickItemPassDetail = (item) => {
+    history.push("/detail/" + item);
+  };
 
   const validateAll = () => {
     const msg = {};
@@ -159,7 +162,12 @@ export const Checkout = () => {
                       cartItems.length > 0 &&
                       cartItems.map((item) => {
                         return (
-                          <tr key={item._id}>
+                          <tr
+                            key={item._id}
+                            title={item.productName}
+                            onClick={() => handleClickItemPassDetail(item._id)}
+                            style={{ cursor: "pointer" }}
+                          >
                             <td>
                               <img
                                 className="detail-img"
