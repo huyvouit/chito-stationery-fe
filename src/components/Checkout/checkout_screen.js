@@ -154,8 +154,8 @@ export const Checkout = () => {
                 <table className="checkout-cart">
                   <colgroup>
                     <col style={{ width: "21%" }}></col>
-                    <col style={{ width: "50%" }}></col>
-                    <col style={{ width: "18%" }}></col>
+                    <col style={{ width: "75%" }}></col>
+                    <col style={{ width: "5%" }}></col>
                   </colgroup>
                   <tbody className="checkout-table-tbody">
                     {cartItems &&

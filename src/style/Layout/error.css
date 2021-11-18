@@ -31,3 +31,9 @@
   font-family: "Bellota Text", cursive;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 1366px){
+  .error {
+    padding: 15px;
+  }
+}
