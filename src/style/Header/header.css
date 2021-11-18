@@ -200,3 +200,72 @@ header {
   font-family: "Bellota Text", cursive;
   cursor: pointer;
 }
+
+@media only screen and (min-width:991px) and (max-width:1366px) {
+  .navigation-bar {
+    height: 40px;
+    max-width: 1366px;
+    margin: 0 auto;
+    opacity: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar-logo {
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+
+  .nav-link {
+    font-size: 19px;
+    position: relative;
+  }
+  .navbar-right {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 35px;
+    list-style: none;
+    align-items: center;
+    margin-bottom: 0 !important;
+  }
+}
+
+@media only screen and (min-width:575px) and (max-width:991px){
+  .navigation-bar {
+    height: 30px;
+    max-width: 991px;
+    margin: 0 auto;
+    opacity: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar-logo {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  .nav-link {
+    font-size: 16px;
+    position: relative;
+  }
+  .navbar-right {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    list-style: none;
+    align-items: center;
+    margin-bottom: 0 !important;
+  }
+  .navbar-icon {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 5px;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width:575px){
+  
+}
