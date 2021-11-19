@@ -11,12 +11,12 @@ export const SignUpForm = ({ clickSignIn }) => {
   const { registerUser } = useContext(AuthContext);
 
   const [registerForm, setRegisterForm] = useState({
-    username: "",
+    fullname: "",
     email: "",
     password: "",
   });
 
-  const { username, email, password } = registerForm;
+  const { fullname, email, password } = registerForm;
   const [errors, setErrors] = useState({});
 
   //function onChange Input Form
@@ -26,7 +26,6 @@ export const SignUpForm = ({ clickSignIn }) => {
       [event.target.name]: event.target.value,
     });
 
-  console.log(`err: ${errors}`);
   //function submit form
   const register = async (event) => {
     event.preventDefault();
@@ -43,6 +42,7 @@ export const SignUpForm = ({ clickSignIn }) => {
     try {
       setErrors(Validation(registerForm));
       const registerData = await registerUser(registerForm);
+      console.log(registerData);
       if (registerData.success) {
         toast.success(registerData.message, {
           position: "top-right",
@@ -54,7 +54,7 @@ export const SignUpForm = ({ clickSignIn }) => {
         });
 
         setRegisterForm({
-          username: "",
+          fullname: "",
           email: "",
           password: "",
         });
@@ -67,7 +67,6 @@ export const SignUpForm = ({ clickSignIn }) => {
           pauseOnHover: true,
           draggable: true,
         });
-        // clickSignIn();
       }
     } catch (error) {
       throw error;
@@ -83,12 +82,12 @@ export const SignUpForm = ({ clickSignIn }) => {
             <p className="form-label">Full name*</p>
             <input
               type="text"
-              name="username"
-              value={username}
+              name="fullname"
+              value={fullname}
               onChange={onChangeRegisterForm}
             />
-            {errors["username"] && ( //will work even if data has not declared propertyName
-              <p className="validate-error">{errors.username}</p>
+            {errors["fullname"] && ( //will work even if data has not declared propertyName
+              <p className="validate-error">{errors.fullname}</p>
             )}
           </div>
           <div className="input-field">
