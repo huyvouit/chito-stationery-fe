@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect,useState } from "react";
 import { Link } from "react-router-dom";
 import userIcon from "../../assets/Icons/user.svg";
+import menuIcon from "../../assets/Icons/menu.svg";
 import cartIcon from "../../assets/Icons/shopping-basket.svg";
 import searchIcon from "../../assets/Icons/search-interface-symbol.svg";
 import { formatter } from "../../Helper/formatter";
@@ -11,6 +12,8 @@ import { CartContext } from "../../contexts/cart_context";
 // import refreshPage from "../../Helper/refresh_page";
 import { useHistory } from "react-router-dom";
 export const Header = () => {
+
+
   const { setShowPopUp, setShowSearch } = useContext(PopUpContext);
   const { logoutUser } = useContext(AuthContext);
   const {
@@ -30,6 +33,9 @@ export const Header = () => {
     authState: { authLoading, isAuthenticated },
   } = useContext(AuthContext);
 
+
+
+
   return (
     <header>
       <div className="navigation-bar">
@@ -39,7 +45,7 @@ export const Header = () => {
           </Link>
         </div>
 
-        <ul className="navbar-right">
+        <ul className="navbar-right" >
           <li className="hover-menu nav-item">
             <div className="nav-link">
               <p onClick={() => handleClickNavbar("shop")}>SHOP</p>

@@ -15,6 +15,11 @@ header {
   align-items: center;
 }
 
+.navbar-left-contain-right{
+  visibility: hidden;
+  display: none;
+}
+
 .navbar-logo,
 .nav-link,
 .drop-link {
@@ -117,6 +122,11 @@ header {
   align-items: center;
 }
 
+.image-icon-menu {
+  cursor: pointer;
+  visibility: hidden;
+}
+
 .image-icon {
   cursor: pointer;
 }
@@ -201,7 +211,7 @@ header {
   cursor: pointer;
 }
 
-@media only screen and (min-width:991px) and (max-width:1366px) {
+@media only screen and (min-width:992px) and (max-width:1366px) {
   .navigation-bar {
     height: 40px;
     max-width: 1366px;
@@ -231,7 +241,7 @@ header {
   }
 }
 
-@media only screen and (min-width:575px) and (max-width:991px){
+@media only screen and (min-width:576px) and (max-width:991px){
   .navigation-bar {
     height: 30px;
     max-width: 991px;
@@ -267,5 +277,7 @@ header {
 }
 
 @media only screen and (max-width:575px){
+
   
+
 }
