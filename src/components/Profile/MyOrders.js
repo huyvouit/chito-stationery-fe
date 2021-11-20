@@ -33,63 +33,47 @@ export const MyOrders = () => {
   }, []);
 
   return (
-    <>
-      {authLoading || isLoading ? (
-        <Loader />
+    <div>
+      <h2>My Orders</h2>
+      {purchaseHistory && purchaseHistory.length === 0 ? (
+        <p>You have purchased no orders.</p>
       ) : (
-        <div className="profile-wrapper">
-          <h1 className="profile-title">MY ACCOUNT</h1>
-          <div className="profile-content">
-            <SideBar />
-            <div>
-              <h2>My Orders</h2>
-              {purchaseHistory && purchaseHistory.length === 0 ? (
-                <p>You have purchased no orders.</p>
-              ) : (
-                <table className="table-profile table-width">
-                  <colgroup>
-                    <col style={{ width: "10%" }}></col>
-                    <col style={{ width: "50%" }}></col>
-                    <col style={{ width: "10%" }}></col>
-                    <col style={{ width: "30%" }}></col>
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Date</th>
-                      <th>Quantity</th>
-                      <th>Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[...purchaseHistory].reverse().map((item) => {
-                      return (
-                        <tr
-                          key={item._id}
-                          onClick={() => handleClickItemPassDetail(item._id)}
-                          className="detail-order-tr"
-                          style={{ cursor: "pointer" }}
-                        >
-                          <td>#{item._id}</td>
-                          <td>
-                            <Moment format="DD/MM/YYYY">
-                              {item.createdAt}
-                            </Moment>
-                          </td>
-                          <td>{item.productList.length}</td>
-                          <td>
-                            {formatter.format(item.totalCost.$numberDecimal)}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              )}
-            </div>
-          </div>
-        </div>
+        <table className="table-profile table-width">
+          <colgroup>
+            <col style={{ width: "10%" }}></col>
+            <col style={{ width: "50%" }}></col>
+            <col style={{ width: "10%" }}></col>
+            <col style={{ width: "30%" }}></col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Date</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[...purchaseHistory].reverse().map((item) => {
+              return (
+                <tr
+                  key={item._id}
+                  onClick={() => handleClickItemPassDetail(item._id)}
+                  className="detail-order-tr"
+                  style={{ cursor: "pointer" }}
+                >
+                  <td>#{item._id}</td>
+                  <td>
+                    <Moment format="DD/MM/YYYY">{item.createdAt}</Moment>
+                  </td>
+                  <td>{item.productList.length}</td>
+                  <td>{formatter.format(item.totalCost.$numberDecimal)}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       )}
-    </>
+    </div>
   );
 };

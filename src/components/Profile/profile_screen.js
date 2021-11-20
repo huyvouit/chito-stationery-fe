@@ -37,14 +37,14 @@ export const ProfileScreen = () => {
 
   useEffect(() => {
     const resWidth = () => {
-      if(document.body.clientWidth > 575){
+      if (document.body.clientWidth > 575) {
         setShowSidebar(false);
       }
-    }
-    window.addEventListener("resize",resWidth);
+    };
+    window.addEventListener("resize", resWidth);
     resWidth();
-    return () => window.removeEventListener("resize",resWidth);
-  }, [])
+    return () => window.removeEventListener("resize", resWidth);
+  }, []);
 
   let history = useHistory();
   const handleRoute = (endpoint) => {
@@ -54,114 +54,83 @@ export const ProfileScreen = () => {
   const dropdownSidebar = () => setShowSidebar(!showSidebar);
 
   return (
-    <>
-      {authLoading || isLoading ? (
-        <Loader />
-      ) : (
-        <div className="profile-wrapper">
-          <div className="profile-header-responsive">
-            <h1 className="profile-title">MY ACCOUNT</h1>
-            <img className="profile-title-icon" src={arrowDownTitle} alt="arrow-down" onClick={dropdownSidebar} />
+    <div className="right-col-center">
+      <div className="profile-content-right">
+        <div className="profile-info">
+          <div className="profile-col-width">
+            <h2
+              style={{ cursor: "pointer" }}
+              onClick={() => handleRoute("/profile/acc-info")}
+            >
+              Account Information
+            </h2>
+            <h5 className="profile-info-subtitle">CONTACT INFORMATION</h5>
+            <p>{user.fullname}</p>
+            <p>{user.email}</p>
           </div>
-
-          <div className="sidebar-center" style={{display:showSidebar ? "initial" : "none"}} >
-            <div className="sidebar-990" onClick={dropdownSidebar}>
-                <SideBar />            
-            </div>
-          </div>
-          
-          
-          <div className="profile-content">
-            <div className="sidebar-dropdown">
-              <SideBar />
-            </div>
-
-            <div className="right-col-center">
-              <div className="profile-content-right">
-                <div className="profile-info">
-                  <div className="profile-col-width">
-                    <h2
-                      style={{ cursor: "pointer" }}
-                      onClick={() => handleRoute("/profile/acc-info")}
-                    >
-                      Account Information
-                    </h2>
-                    <h5 className="profile-info-subtitle">CONTACT INFORMATION</h5>
-                    <p>{user.fullname}</p>
-                    <p>{user.email}</p>
-                  </div>
-                  <div className="profile-col-width">
-                    <h2
-                      style={{ cursor: "pointer" }}
-                      onClick={() => handleRoute("/profile/acc-address")}
-                    >
-                      Address Book
-                    </h2>
-                    <h5 className="profile-info-subtitle">
-                      DEFAULT SHIPPING ADDRESS
-                    </h5>
-                    {user.fullname && <p>{user.fullname}</p>}
-                    {user.phone && <p>{user.phone}</p>}
-                    {user.address && <p>{user.address}</p>}
-                  </div>
-                </div>
-                <div className="profile-order">
-                  <h2
-                    style={{ cursor: "pointer" }}
-                    onClick={() => handleRoute("/profile/acc-orders")}
-                  >
-                    My Orders
-                  </h2>
-                  {purchaseHistory && purchaseHistory.length === 0 ? (
-                    <p>You have purchased no orders.</p>
-                  ) : (
-                    <table className="table-profile">
-                      <colgroup>
-                        <col style={{ width: "10%" }}></col>
-                        <col style={{ width: "50%" }}></col>
-                        <col style={{ width: "10%" }}></col>
-                        <col style={{ width: "30%" }}></col>
-                      </colgroup>
-                      <thead>
-                        <tr>
-                          <th>ID</th>
-                          <th>Date</th>
-                          <th>Quantity</th>
-                          <th>Total</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {[...purchaseHistory]
-                          .reverse()
-                          .slice(0, 4)
-                          .map((item) => {
-                            return (
-                              <tr key={item._id}>
-                                <td className="ellipsis"><span>#{item._id}</span></td>
-                                <td>
-                                  <Moment format="DD/MM/YYYY">
-                                    {item.createdAt}
-                                  </Moment>
-                                </td>
-                                <td>{item.productList.length}</td>
-                                <td>
-                                  {formatter.format(
-                                    item.totalCost.$numberDecimal
-                                  )}
-                                </td>
-                              </tr>
-                            );
-                          })}
-                      </tbody>
-                    </table>
-                  )}
-                </div>
-            </div>
-            </div>
-            
+          <div className="profile-col-width">
+            <h2
+              style={{ cursor: "pointer" }}
+              onClick={() => handleRoute("/profile/acc-address")}
+            >
+              Address Book
+            </h2>
+            <h5 className="profile-info-subtitle">DEFAULT SHIPPING ADDRESS</h5>
+            {user.fullname && <p>{user.fullname}</p>}
+            {user.phone && <p>{user.phone}</p>}
+            {user.address && <p>{user.address}</p>}
           </div>
         </div>
-      )}
-    </>
+        <div className="profile-order">
+          <h2
+            style={{ cursor: "pointer" }}
+            onClick={() => handleRoute("/profile/acc-orders")}
+          >
+            My Orders
+          </h2>
+          {purchaseHistory && purchaseHistory.length === 0 ? (
+            <p>You have purchased no orders.</p>
+          ) : (
+            <table className="table-profile">
+              <colgroup>
+                <col style={{ width: "10%" }}></col>
+                <col style={{ width: "50%" }}></col>
+                <col style={{ width: "10%" }}></col>
+                <col style={{ width: "30%" }}></col>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Date</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[...purchaseHistory]
+                  .reverse()
+                  .slice(0, 4)
+                  .map((item) => {
+                    return (
+                      <tr key={item._id}>
+                        <td className="ellipsis">
+                          <span>#{item._id}</span>
+                        </td>
+                        <td>
+                          <Moment format="DD/MM/YYYY">{item.createdAt}</Moment>
+                        </td>
+                        <td>{item.productList.length}</td>
+                        <td>
+                          {formatter.format(item.totalCost.$numberDecimal)}
+                        </td>
+                      </tr>
+                    );
+                  })}
+              </tbody>
+            </table>
+          )}
+        </div>
+      </div>
+    </div>
   );
 };

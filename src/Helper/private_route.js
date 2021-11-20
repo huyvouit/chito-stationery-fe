@@ -1,19 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Redirect, Route, useLocation } from "react-router-dom";
 import { AuthContext } from "../contexts/auth_context";
 import { Loader } from "../components/Layout/loader";
-// Nhận component, để biết là cần render component nào
+import { SideBar } from "../components/Profile/SideBar";
+import arrowDownTitle from "../assets/Icons/arrow-down-title.svg";
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const {
     authState: { authLoading, isAuthenticated },
   } = useContext(AuthContext);
   const location = useLocation(); // sử dụng để lấy trang hiện tại
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Luồng
+  useEffect(() => {
+    const resWidth = () => {
+      if (document.body.clientWidth > 575) {
+        setShowSidebar(false);
+      }
+    };
+    window.addEventListener("resize", resWidth);
+    resWidth();
+    return () => window.removeEventListener("resize", resWidth);
+  }, []);
 
-  // Check xem có đăng nhập thành công chưa
-  // Nếu chưa thì cho lại trang login
-  // Rồi thì quay lại trang location (trang hiện tại)
+  const dropdownSidebar = () => setShowSidebar(!showSidebar);
+
   if (authLoading) return <Loader />;
 
   return (
@@ -22,7 +33,30 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       render={(props) =>
         isAuthenticated ? (
           <>
-            <Component {...rest} {...props} />
+            <div className="profile-wrapper">
+              <div className="profile-header-responsive">
+                <h1 className="profile-title">MY ACCOUNT</h1>
+                <img
+                  className="profile-title-icon"
+                  src={arrowDownTitle}
+                  alt="arrow-down"
+                  onClick={dropdownSidebar}
+                />
+              </div>
+
+              <div style={{ display: showSidebar ? "initial" : "none" }}>
+                <div className="sidebar-990" onClick={dropdownSidebar}>
+                  <SideBar />
+                </div>
+              </div>
+
+              <div className="profile-content">
+                <div className="sidebar-dropdown">
+                  <SideBar />
+                </div>
+                <Component {...rest} {...props} />
+              </div>
+            </div>
           </>
         ) : (
           <Redirect
