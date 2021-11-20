@@ -121,237 +121,243 @@ export const Checkout = () => {
           </Link>
         </div>
       ) : (
-        <div className="checkout-wrapper">
-          <div className="checkout-left">
-            <div className="checkout-header">
-              <h1 className="checkout-title">CHECKOUT</h1>
-              <Link className="checkout-link" to="/shop">
-                KEEP SHOPPING
-                <img
-                  className="checkout-arrow-icon"
-                  src={arrow}
-                  alt="arrow"
-                ></img>
-              </Link>
-            </div>
-            <div className="checkout-view-cart">
-              <div className="checkout-cart-info">
-                <div className="checkout-cart-info-style">
-                  <h3>PRODUCT</h3>
-                  <h5>({totalItems} ITEMS)</h5>
+        <div className="section-checkout">
+          <div className="checkout-container">
+            <div className="checkout-wrapper-bk row">
+              <div className="checkout-left-bk">
+                <div className="checkout-header">
+                  <h1 className="checkout-title">CHECKOUT</h1>
+                  <Link className="checkout-link" to="/shop">
+                    KEEP SHOPPING
+                    <img
+                      className="checkout-arrow-icon"
+                      src={arrow}
+                      alt="arrow"
+                    ></img>
+                  </Link>
                 </div>
-                <div className="checkout-cart-info-style">
-                  <h5>{openCart ? "Close Cart" : "Open Cart"}</h5>
-                  <button
-                    className="checkout-cart-info-btn"
-                    onClick={() => setOpenCart(!openCart)}
-                  >
-                    {openCart ? "-" : "+"}
-                  </button>
-                </div>
-              </div>
-              {openCart && (
-                <table className="checkout-cart">
-                  <colgroup>
-                    <col style={{ width: "21%" }}></col>
-                    <col style={{ width: "75%" }}></col>
-                    <col style={{ width: "5%" }}></col>
-                  </colgroup>
-                  <tbody className="checkout-table-tbody">
-                    {cartItems &&
-                      cartItems.length > 0 &&
-                      cartItems.map((item) => {
-                        return (
-                          <tr
-                            key={item._id}
-                            title={item.productName}
-                            onClick={() => handleClickItemPassDetail(item._id)}
-                            style={{ cursor: "pointer" }}
-                          >
-                            <td>
-                              <img
-                                className="detail-img"
-                                src={item.image}
-                                alt="detail"
-                              ></img>
-                            </td>
-                            <td>
-                              <h4 className="detail-name">
-                                {item.productName}{" "}
-                              </h4>
-                              <p>Quantity: {item.quantity}</p>
-                            </td>
-                            <td>{formatter.format(item.totalPriceByItem)} </td>
-                          </tr>
-                        );
-                      })}
-                  </tbody>
-                </table>
-              )}
-            </div>
-            <div className="checkout-info-wrapper">
-              <div className="checkout-info-title">
-                <h3>1. Shipping</h3>
-                {!openStepOne && (
-                  <button
-                    className="checkout-btn checkout-info-title-btn"
-                    onClick={() => {
-                      setStepOne(true);
-                      setStepTwo(false);
-                      setConfirmOrder(false);
-                    }}
-                  >
-                    EDIT
-                  </button>
-                )}
-              </div>
-              {openStepOne && (
-                <div className="checkout-info-form">
-                  <div className="checkout-info-content">
-                    <div className="checkout-subtitle">FULL NAME*</div>
-                    <input
-                      type="text"
-                      className="checkout-info-input"
-                      name="fullname"
-                      value={fullname}
-                      onChange={onChangeInfoCheckout}
-                    />
-                    <p style={{ color: "red" }}>{validationMsg["fullname"]}</p>
+                <div className="checkout-view-cart">
+                  <div className="checkout-cart-info">
+                    <div className="checkout-cart-info-style">
+                      <h3>PRODUCT</h3>
+                      <h5>({totalItems} ITEMS)</h5>
+                    </div>
+                    <div className="checkout-cart-info-style">
+                      <h5>{openCart ? "Close Cart" : "Open Cart"}</h5>
+                      <button
+                        className="checkout-cart-info-btn"
+                        onClick={() => setOpenCart(!openCart)}
+                      >
+                        {openCart ? "-" : "+"}
+                      </button>
+                    </div>
                   </div>
-                  <div className="checkout-info-content">
-                    <div className="checkout-subtitle">PHONE NUMBER*</div>
-                    <input
-                      type="number"
-                      className="checkout-info-input"
-                      name="phone"
-                      value={phone}
-                      onChange={onChangeInfoCheckout}
-                    />
-                    <p style={{ color: "red" }}>{validationMsg["phone"]}</p>
-                  </div>
-                  <div className="checkout-info-content">
-                    <div className="checkout-subtitle">STREET ADDRESS*</div>
-                    <input
-                      type="text"
-                      className="checkout-info-input"
-                      name="streetAddress"
-                      value={streetAddress}
-                      onChange={onChangeInfoCheckout}
-                    />
-                    <p style={{ color: "red" }}>
-                      {validationMsg["streetAddress"]}
-                    </p>
-                  </div>
-                  <div className="checkout-info-content">
-                    <div className="checkout-subtitle">DISTRICT*</div>
-                    <input
-                      type="text"
-                      className="checkout-info-input"
-                      name="district"
-                      value={district}
-                      onChange={onChangeInfoCheckout}
-                    />
-                    <p style={{ color: "red" }}>{validationMsg["district"]}</p>
-                  </div>
-                  <div className="checkout-info-content">
-                    <div className="checkout-subtitle">PROVINCE/CITY*</div>
-                    <input
-                      type="text"
-                      className="checkout-info-input"
-                      name="province"
-                      value={province}
-                      onChange={onChangeInfoCheckout}
-                    />
-                    <p style={{ color: "red" }}>{validationMsg["province"]}</p>
-                  </div>
-                  <div className="checkout-btn-continue">
-                    <button
-                      className="checkout-btn checkout-info-content-btn"
-                      onClick={() => {
-                        const isValid = validateAll();
-                        if (!isValid) return;
-                        setStepOne(false);
-                        setStepTwo(true);
-                      }}
-                    >
-                      CONTINUE
-                    </button>
-                  </div>
-                </div>
-              )}
-              {!openStepOne && (
-                <div className="checkout-info-after">
-                  {fullname && <p>{fullname}</p>}
-                  {phone && <p>{phone}</p>}
-                  {streetAddress && district && province && (
-                    <p>{`${streetAddress}, ${district}, ${province}`}</p>
+                  {openCart && (
+                    <table className="checkout-cart">
+                      <colgroup>
+                        <col style={{ width: "21%" }}></col>
+                        <col style={{ width: "75%" }}></col>
+                        <col style={{ width: "5%" }}></col>
+                      </colgroup>
+                      <tbody className="checkout-table-tbody">
+                        {cartItems &&
+                          cartItems.length > 0 &&
+                          cartItems.map((item) => {
+                            return (
+                              <tr
+                                key={item._id}
+                                title={item.productName}
+                                onClick={() => handleClickItemPassDetail(item._id)}
+                                style={{ cursor: "pointer" }}
+                              >
+                                <td>
+                                  <img
+                                    className="detail-img"
+                                    src={item.image}
+                                    alt="detail"
+                                  ></img>
+                                </td>
+                                <td>
+                                  <h4 className="detail-name">
+                                    {item.productName}{" "}
+                                  </h4>
+                                  <p>Quantity: {item.quantity}</p>
+                                </td>
+                                <td>{formatter.format(item.totalPriceByItem)} </td>
+                              </tr>
+                            );
+                          })}
+                      </tbody>
+                    </table>
                   )}
                 </div>
-              )}
-            </div>
-            <div className="checkout-info-wrapper">
-              <h3>2. Payment</h3>
-              {openStepTwo && (
-                <div className="checkout-payment-content">
-                  <div className="checkout-group-button">
-                    <label className="container">
-                      Cash on Delivery (COD)
-                      <input type="radio" name="radio" checked="checked" />
-                      <span className="checkmark"></span>
-                    </label>
-                    <label className="container">
-                      VISA
-                      <input type="radio" name="radio" />
-                      <span className="checkmark"></span>
-                    </label>
-                    <label className="container">
-                      Momo E-Wallet
-                      <input type="radio" name="radio" />
-                      <span className="checkmark"></span>
-                    </label>
+                <div className="checkout-info-wrapper">
+                  <div className="checkout-info-title">
+                    <h3>1. Shipping</h3>
+                    {!openStepOne && (
+                      <button
+                        className="checkout-btn checkout-info-title-btn"
+                        onClick={() => {
+                          setStepOne(true);
+                          setStepTwo(false);
+                          setConfirmOrder(false);
+                        }}
+                      >
+                        EDIT
+                      </button>
+                    )}
                   </div>
-                  <div className="checkout-btn-continue">
-                    <button
-                      className="checkout-btn checkout-info-content-btn"
-                      onClick={() => setConfirmOrder(true)}
-                    >
-                      CONTINUE
-                    </button>
-                  </div>
+                  {openStepOne && (
+                    <div className="checkout-info-form">
+                      <div className="checkout-info-content">
+                        <div className="checkout-subtitle">FULL NAME*</div>
+                        <input
+                          type="text"
+                          className="checkout-info-input"
+                          name="fullname"
+                          value={fullname}
+                          onChange={onChangeInfoCheckout}
+                        />
+                        <p style={{ color: "red" }}>{validationMsg["fullname"]}</p>
+                      </div>
+                      <div className="checkout-info-content">
+                        <div className="checkout-subtitle">PHONE NUMBER*</div>
+                        <input
+                          type="number"
+                          className="checkout-info-input"
+                          name="phone"
+                          value={phone}
+                          onChange={onChangeInfoCheckout}
+                        />
+                        <p style={{ color: "red" }}>{validationMsg["phone"]}</p>
+                      </div>
+                      <div className="checkout-info-content">
+                        <div className="checkout-subtitle">STREET ADDRESS*</div>
+                        <input
+                          type="text"
+                          className="checkout-info-input"
+                          name="streetAddress"
+                          value={streetAddress}
+                          onChange={onChangeInfoCheckout}
+                        />
+                        <p style={{ color: "red" }}>
+                          {validationMsg["streetAddress"]}
+                        </p>
+                      </div>
+                      <div className="checkout-info-content">
+                        <div className="checkout-subtitle">DISTRICT*</div>
+                        <input
+                          type="text"
+                          className="checkout-info-input"
+                          name="district"
+                          value={district}
+                          onChange={onChangeInfoCheckout}
+                        />
+                        <p style={{ color: "red" }}>{validationMsg["district"]}</p>
+                      </div>
+                      <div className="checkout-info-content">
+                        <div className="checkout-subtitle">PROVINCE/CITY*</div>
+                        <input
+                          type="text"
+                          className="checkout-info-input"
+                          name="province"
+                          value={province}
+                          onChange={onChangeInfoCheckout}
+                        />
+                        <p style={{ color: "red" }}>{validationMsg["province"]}</p>
+                      </div>
+                      <div className="checkout-btn-continue">
+                        <button
+                          className="checkout-btn checkout-info-content-btn"
+                          onClick={() => {
+                            const isValid = validateAll();
+                            if (!isValid) return;
+                            setStepOne(false);
+                            setStepTwo(true);
+                          }}
+                        >
+                          CONTINUE
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                  {!openStepOne && (
+                    <div className="checkout-info-after">
+                      {fullname && <p>{fullname}</p>}
+                      {phone && <p>{phone}</p>}
+                      {streetAddress && district && province && (
+                        <p>{`${streetAddress}, ${district}, ${province}`}</p>
+                      )}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          </div>
-          <div className="checkout-right">
-            <div className="checkout-right-content">
-              <div className="checkout-summary">
-                <div className="checkout-summary-title">ORDER SUMMARY</div>
-                <div className="checkout-summary-content">
-                  <div className="checkout-right-flex checkout-more-space">
-                    <div>Subtotal</div>
-                    <div>{formatter.format(totalPrice)}</div>
-                  </div>
-                  <div className="checkout-right-flex">
-                    <div>Shipping</div>
-                    <div>{formatter.format(0)}</div>
-                  </div>
-                </div>
-                <div className="checkout-right-flex">
-                  <div>ORDER TOTAL</div>
-                  <div>{formatter.format(totalPrice)}</div>
+                <div className="checkout-info-wrapper">
+                  <h3>2. Payment</h3>
+                  {openStepTwo && (
+                    <div className="checkout-payment-content">
+                      <div className="checkout-group-button">
+                        <label className="container">
+                          Cash on Delivery (COD)
+                          <input type="radio" name="radio" checked="checked" />
+                          <span className="checkmark"></span>
+                        </label>
+                        <label className="container">
+                          VISA
+                          <input type="radio" name="radio" />
+                          <span className="checkmark"></span>
+                        </label>
+                        <label className="container">
+                          Momo E-Wallet
+                          <input type="radio" name="radio" />
+                          <span className="checkmark"></span>
+                        </label>
+                      </div>
+                      <div className="checkout-btn-continue">
+                        <button
+                          className="checkout-btn checkout-info-content-btn"
+                          onClick={() => setConfirmOrder(true)}
+                        >
+                          CONTINUE
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
-              {confirmOrder && (
-                <div
-                  className="checkout-btn-bigger checkout-info-content-btn"
-                  onClick={handleSubmitInfoCheckout}
-                >
-                  ORDER
+              <div className="checkout-right-bk">
+                <div className="checkout-right-content">
+                  <div className="checkout-summary">
+                    <div className="checkout-summary-title">ORDER SUMMARY</div>
+                    <div className="checkout-summary-content">
+                      <div className="checkout-right-flex checkout-more-space">
+                        <div>Subtotal</div>
+                        <div>{formatter.format(totalPrice)}</div>
+                      </div>
+                      <div className="checkout-right-flex">
+                        <div>Shipping</div>
+                        <div>{formatter.format(0)}</div>
+                      </div>
+                    </div>
+                    <div className="checkout-right-flex">
+                      <div>ORDER TOTAL</div>
+                      <div>{formatter.format(totalPrice)}</div>
+                    </div>
+                  </div>
+                  {confirmOrder && (
+                    <div
+                      className="checkout-btn-bigger checkout-info-content-btn"
+                      onClick={handleSubmitInfoCheckout}
+                    >
+                      ORDER
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
             </div>
           </div>
+          
         </div>
+        
       )}
     </>
   );

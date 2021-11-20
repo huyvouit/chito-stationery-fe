@@ -136,7 +136,7 @@ function App() {
                 <Filter />
               </FilterContextProvider>
               <ToastContainer />
-              <Footer />
+              {/* <Footer /> */}
             </div>
           </ProductContextProvider>
         </CartContextProvider>

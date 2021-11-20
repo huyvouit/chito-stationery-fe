@@ -1,6 +1,9 @@
 /* General CSS + Main Profile Page */
 .profile-wrapper {
-  margin: 0 200px;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .profile-title {
@@ -48,7 +51,7 @@
 
 .profile-info p {
   font-weight: bold;
-  margin-bottom: 9px;
+  line-height: 24px;
 }
 
 .table-profile {
@@ -87,19 +90,24 @@
 }
 
 .sidebar-title-container {
-  margin-left: 11px;
-  margin-top: 27px;
   list-style-type: none;
 }
 
 .sidebar-title-container li {
   margin-bottom: 20px;
-  font-size: 18px;
 }
 
 .sidebar-title {
   text-decoration: none;
   color: var(--primary-text);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.right-col-center {
+  width: 100%;
+  padding-right: 20px;
 }
 
 /* Account Information */
@@ -110,11 +118,7 @@
 }
 
 .profile-col-width {
-  width: 20vw;
-}
-
-.account-info-right {
-  /* margin-bottom: 45px; */
+  width: 83vh;
 }
 
 .profile-info-input {
@@ -325,7 +329,65 @@ input[type="number"]::-webkit-inner-spin-button {
   background-color: var(--primary-footer);
 }
 
+.profile-title-icon, .sidebar-center {
+  display: none;
+}
+
+@media only screen and (max-width: 1366px){
+  .profile-wrapper {
+    max-width: 900px;
+  }
+
+  .profile-col-width {
+    width: 48vh;
+    padding-right: 20px;
+  }
+
+  .profile-col-width h2, .profile-order h2 {
+    font-size: 20px;
+  }
+
+  .sidebar-img {
+    width: 165px;
+    height: 165px;
+  }
+}
+
 @media only screen and (max-width: 991px) {
+  .profile-title {
+    font-size: 21px;
+    margin-top: 14px;
+    margin-bottom: 12px;
+  }
+
+  .profile-col-width h2, .profile-order h2{
+    font-size: 18px;
+  }
+
+  .profile-info {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .profile-info-subtitle {
+    font-size: 14px;
+    margin-top: 18px;
+    margin-bottom: 9px;
+  }
+
+  .profile-info p, .table-profile td {
+    font-size: 14px;
+  }
+
+  .sidebar-wrapper {
+    margin-right: 40px;
+  }
+
+  .sidebar-title {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
   .detail-img {
     width: 50px;
     height: 50px;
@@ -334,8 +396,73 @@ input[type="number"]::-webkit-inner-spin-button {
   .detail-name {
     font-size: 12px;
   }
+
+  .sidebar-dropdown {
+    display: none;
+  }
+
+  .profile-header-responsive {
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-title-icon {
+    display: initial;
+    margin-left: 3px;
+  }
+
+  .sidebar-center {
+    width: 100%;
+    display: initial;
+    position: absolute;
+  }
+
+  .sidebar-990 {
+    background-color: white;
+    text-align: center;
+    margin: 0 auto;
+    width: max-content;
+    box-shadow: 5px 5px 10px grey;
+    border-radius: 15px;
+  }
+  
+  .sidebar-wrapper {
+    margin: 0;
+    padding: 20px 0 5px 0;
+  }
+
+  .right-col-center {
+    padding-right: 0;
+  }
 }
 
 @media only screen and (max-width: 575px) {
-  
+  .profile-col-width h2, .profile-order h2 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .profile-info-subtitle {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+
+  .ellipsis {
+    position: relative;
+  }
+
+  .ellipsis:before {
+    content: '&nbsp;';
+    visibility: hidden;
+  }
+
+  .ellipsis span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

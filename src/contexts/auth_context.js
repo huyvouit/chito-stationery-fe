@@ -67,9 +67,10 @@ const AuthContextProvider = ({ children }) => {
   // Register
   const registerUser = async (userForm) => {
     try {
+      console.log(userForm);
       const response = await authApi.postSignUp(userForm);
 
-      console.log(`data: ${response.data}`);
+      console.log(`data: ${response}`);
 
       return response.data;
     } catch (error) {
