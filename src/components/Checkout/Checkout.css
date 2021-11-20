@@ -41,7 +41,7 @@
   padding: 27px 27px 5px 27px;
   margin-bottom: 27px;
   /* height: auto; */
-  width: 45.375rem;
+  /* width: 45.375rem; */
 }
 
 .checkout-cart-info {
@@ -201,7 +201,7 @@
   background-color: white;
   padding: 27px;
   margin-bottom: 27px;
-  width: 26rem;
+  /* width: 26rem; */
 }
 
 .checkout-summary-title {
@@ -252,6 +252,8 @@
 }
 
 @media only screen and (max-width: 991px) {
+  
+
   .checkout-wrapper {
     justify-content: space-between;
     margin: 0 auto;
@@ -285,7 +287,7 @@
   .checkout-view-cart {
     padding: 14px 14px 5px 14px;
     margin-bottom: 14px;
-    width: 23.375rem;
+    /* width: 23.375rem; */
   }
 
   .checkout-cart-info-btn {
@@ -353,7 +355,7 @@
 
   .checkout-summary {
     padding: 14px;
-    width: 17rem;
+    /* width: 17rem; */
     margin-bottom: 16px;
   }
 }
@@ -388,5 +390,87 @@
   .checkout-summary {
     width: 100%;
     margin-bottom: 18px;
+  }
+}
+
+.checkout-container{
+  padding-left: 0.88235rem;
+  padding-right: 0.88235rem;
+}
+
+.checkout-container .row{
+  margin-left: 0.88235rem;
+  margin-right: 0.88235rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.checkout-left-bk{
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+  position: relative;
+    width: 100%;
+    min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.checkout-right-bk{
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+flex: 0 0 33.333333%;
+max-width: 33.333333%;
+}
+
+@media(max-width: 991px){
+  .checkout-left-bk{
+    flex: 0 0 60%;
+    max-width: 60%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  .checkout-right-bk{
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  flex: 0 0 40%;
+  max-width: 40%;
+  }
+}
+
+@media(max-width: 575px){
+  .checkout-container .row{
+    margin-left: -0.88235rem;
+    margin-right: -0.88235rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .checkout-left-bk{
+    flex: 0 0 100%;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  .checkout-right-bk{
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  flex: 0 0 100%;
+  max-width: 100%;
   }
 }
