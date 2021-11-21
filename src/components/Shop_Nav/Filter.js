@@ -63,74 +63,75 @@ function Filter() {
         opacity: showFilter ? "1" : "0",
       }}
     >
-      <h1>Filter</h1>
-      <div
-        className="filter-group-product"
-        role="button"
-        style={{
-          borderBottom: openProduct ? "1px solid var(--underline)" : "none",
-        }}
-        onClick={() => toggleProduct(!openProduct)}
-      >
-        <div className="filter-title">
-          <p>PRODUCT TYPE</p>
+      <div className="filter-header">
+        <h1>Filter</h1>
+        <div
+          className="filter-group-product"
+          role="button"
+          style={{
+            borderBottom: openProduct ? "1px solid var(--underline)" : "none",
+          }}
+          onClick={() => toggleProduct(!openProduct)}
+        >
+          <div className="filter-title">
+            <p>PRODUCT TYPE</p>
+          </div>
+          <div className="filter-icon">
+            <img
+              src={openProduct ? rightIcon : downIcon}
+              alt="Icon open and close"
+            />
+          </div>
         </div>
-        <div className="filter-icon">
-          <img
-            src={openProduct ? rightIcon : downIcon}
-            alt="Icon open and close"
-          />
+        {!openProduct && (
+          <ul className="list-type">
+            {arrayType.map((itemType, index) => (
+              <li key={index} className="list">
+                <div className="btn-list">
+                  <input
+                    type="checkbox"
+                    id={itemType}
+                    // checked={isCheckBox}
+                    onClick={() => handleOnChangeType(itemType)}
+                  ></input>
+                  <label htmlFor={itemType}>{itemType}</label>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+        <div
+          className="filter-group-price"
+          role="button"
+          style={{
+            borderBottom: openPrice ? "1px solid var(--underline)" : "none",
+          }}
+          onClick={() => togglePrice(!openPrice)}
+        >
+          <div className="filter-title">
+            <p>PRICE {openPrice ? "" : "(VND)"}</p>
+          </div>
+          <div className="filter-icon">
+            <img
+              src={openPrice ? rightIcon : downIcon}
+              alt="Icon open and close"
+            />
+          </div>
         </div>
+        {!openPrice && (
+          <div className="group-input">
+            <div className="price">
+              <input type="number" />
+            </div>
+            <div className="line">
+              <h2>-</h2>
+            </div>
+            <div className="price">
+              <input type="number" />
+            </div>
+          </div>
+        )}
       </div>
-      {!openProduct && (
-        <ul className="list-type">
-          {arrayType.map((itemType, index) => (
-            <li key={index} className="list">
-              <button type="button" className="btn-list">
-                <input
-                  type="checkbox"
-                  id={itemType}
-                  // checked={isCheckBox}
-                  onClick={() => handleOnChangeType(itemType)}
-                ></input>
-                <label htmlFor={itemType}>{itemType}</label>
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-      <div
-        className="filter-group-price"
-        role="button"
-        style={{
-          borderBottom: openPrice ? "1px solid var(--underline)" : "none",
-        }}
-        onClick={() => togglePrice(!openPrice)}
-      >
-        <div className="filter-title">
-          <p>PRICE {openPrice ? "" : "(VND)"}</p>
-        </div>
-        <div className="filter-icon">
-          <img
-            src={openPrice ? rightIcon : downIcon}
-            alt="Icon open and close"
-          />
-        </div>
-      </div>
-      {!openPrice && (
-        <div className="group-input">
-          <div className="price">
-            <input type="number" />
-          </div>
-          <div className="line">
-            <h2>-</h2>
-          </div>
-          <div className="price">
-            <input type="number" />
-          </div>
-        </div>
-      )}
-
       <div className="filter-group-btn">
         <button className="btn-clear">CLEAR FILTERS</button>
         <button className="btn-apply" onClick={handlePushHistory}>

@@ -74,10 +74,10 @@ export const SignUpForm = ({ clickSignIn }) => {
   };
 
   return (
-    <div className="signup-container">
+    <div className="signin-container">
       <form className="auth-form">
-        <h2 className="form-title">Sign up</h2>
-        <div className="form-input">
+        <h2 className="form-title-signup">Sign up</h2>
+        <div className="form-input-signup">
           <div className="input-field">
             <p className="form-label">Full name*</p>
             <input
@@ -115,7 +115,7 @@ export const SignUpForm = ({ clickSignIn }) => {
             )}
           </div>
         </div>
-        <p>
+        <p style={{ marginTop: "15px" }}>
           This site is protected by reCAPTCHA and the Google{" "}
           <a
             className="signin_link"
@@ -136,7 +136,7 @@ export const SignUpForm = ({ clickSignIn }) => {
           </a>{" "}
           apply.
         </p>
-        <div className="form-submit">
+        <div className="form-submit-signup">
           <p className="form-linking" onClick={clickSignIn}>
             back to sign in
           </p>
