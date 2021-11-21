@@ -98,8 +98,9 @@ footer .footer-content {
   }
 
   .footer-col {
-    display: flex;
-    gap: 30px;
+    display: grid;
+    grid-column-gap: 30px;
+    grid-template-columns: auto auto;
     margin-top: 10px;
   }
   
@@ -127,6 +128,10 @@ footer .footer-content {
     color: var(--primary-text);
     font-size: 12px;
     text-decoration: none;
+  }
+
+  .col-top-width {
+    width: 50px;
   }
   
 }
