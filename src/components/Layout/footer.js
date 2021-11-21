@@ -8,7 +8,7 @@ export const Footer = () => {
     <footer>
       <div className="footer-content">
         <div className="footer-col">
-          <p className="col-top col-top-width">shop</p>
+          <p className="col-top ">shop</p>
           <div className="col-bottom">
             <div className="col-cate">
               <Link className="link-cate" to="/category/washi-tape">
@@ -30,7 +30,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="footer-col">
-          <p className="col-top col-top-width">ABOUT</p>
+          <p className="col-top ">ABOUT</p>
           <div className="col-bottom">
             <div className="col-cate">
               <Link className="link-cate" to="/category/washi-tape">
