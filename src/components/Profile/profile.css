@@ -1,6 +1,6 @@
 /* General CSS + Main Profile Page */
 .profile-wrapper {
-  max-width: 1360px;
+  /* max-width: 1360px; */
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
@@ -329,11 +329,12 @@ input[type="number"]::-webkit-inner-spin-button {
   background-color: var(--primary-footer);
 }
 
-.profile-title-icon, .sidebar-center {
+.profile-title-icon,
+.sidebar-center {
   display: none;
 }
 
-@media only screen and (max-width: 1366px){
+@media only screen and (max-width: 1366px) {
   .profile-wrapper {
     max-width: 900px;
   }
@@ -343,7 +344,8 @@ input[type="number"]::-webkit-inner-spin-button {
     padding-right: 20px;
   }
 
-  .profile-col-width h2, .profile-order h2 {
+  .profile-col-width h2,
+  .profile-order h2 {
     font-size: 20px;
   }
 
@@ -360,7 +362,8 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-bottom: 12px;
   }
 
-  .profile-col-width h2, .profile-order h2{
+  .profile-col-width h2,
+  .profile-order h2 {
     font-size: 18px;
   }
 
@@ -375,7 +378,8 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-bottom: 9px;
   }
 
-  .profile-info p, .table-profile td {
+  .profile-info p,
+  .table-profile td {
     font-size: 14px;
   }
 
@@ -411,21 +415,17 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-left: 3px;
   }
 
-  .sidebar-center {
-    width: 100%;
-    display: initial;
-    position: absolute;
-  }
-
   .sidebar-990 {
     background-color: white;
     text-align: center;
-    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     width: max-content;
     box-shadow: 5px 5px 10px grey;
     border-radius: 15px;
   }
-  
+
   .sidebar-wrapper {
     margin: 0;
     padding: 20px 0 5px 0;
@@ -437,7 +437,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 @media only screen and (max-width: 575px) {
-  .profile-col-width h2, .profile-order h2 {
+  .profile-col-width h2,
+  .profile-order h2 {
     font-size: 18px;
     font-weight: bold;
   }
@@ -453,7 +454,7 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 
   .ellipsis:before {
-    content: '&nbsp;';
+    content: "&nbsp;";
     visibility: hidden;
   }
 

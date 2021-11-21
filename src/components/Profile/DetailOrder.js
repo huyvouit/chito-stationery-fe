@@ -33,79 +33,67 @@ export const DetailOrder = () => {
     fetchDetailOrderById();
   }, [id]);
 
-  return isLoading ? (
-    <Loader />
-  ) : Object.keys(detailOrder).length === 0 ? (
+  return Object.keys(detailOrder).length === 0 ? (
     <ErrorPage />
   ) : (
-    <div className="profile-wrapper">
-      <h1 className="profile-title">MY ACCOUNT</h1>
-      <div className="profile-content">
-        <SideBar />
+    <div>
+      <div className="detail-order-top">
+        <h3>ID: #{detailOrder["_id"]}</h3>
+        <h3>
+          Date: <Moment format="DD/MM/YYYY">{detailOrder["createdAt"]}</Moment>
+        </h3>
+      </div>
+      <table className="table-detail-profile table-width">
+        <colgroup>
+          <col style={{ width: "18%" }}></col>
+          <col style={{ width: "62%" }}></col>
+          <col style={{ width: "18%" }}></col>
+        </colgroup>
+        <tbody>
+          {detailOrder &&
+            Object.keys(detailOrder).length !== 0 &&
+            detailOrder["productList"].map((item) => {
+              return (
+                <tr key={item._id}>
+                  <td>
+                    <img
+                      className="detail-img"
+                      src={item["image"]}
+                      alt={item["productName"]}
+                    ></img>
+                  </td>
+                  <td>
+                    <h4 className="detail-name">{item["productName"]} </h4>
+                    <p>Quantity: {item["quantity"]}</p>
+                  </td>
+                  <td>
+                    {formatter.format(item.totalPriceByItem.$numberDecimal)}
+                  </td>
+                </tr>
+              );
+            })}
+        </tbody>
+      </table>
+      <div className="detail-order-bottom">
+        <div className="detail-order-title">Shipping Address</div>
+        <div className="detail-order-title">
+          Total: {formatter.format(detailOrder["totalCost"].$numberDecimal)}
+        </div>
+      </div>
+      <div>
+        <div className="detail-order-content">
+          {detailOrder["customerName"]}
+        </div>
+        <div className="detail-order-content">
+          {detailOrder["customerPhone"]}
+        </div>
+        <div className="detail-order-content">
+          {detailOrder["customerAddress"]}
+        </div>
         <div>
-          <div className="detail-order-top">
-            <h3>ID: #{detailOrder["_id"]}</h3>
-            <h3>
-              Date:{" "}
-              <Moment format="DD/MM/YYYY">{detailOrder["createdAt"]}</Moment>
-            </h3>
-          </div>
-          <table className="table-detail-profile table-width">
-            <colgroup>
-              <col style={{ width: "18%" }}></col>
-              <col style={{ width: "62%" }}></col>
-              <col style={{ width: "18%" }}></col>
-            </colgroup>
-            <tbody>
-              {detailOrder &&
-                Object.keys(detailOrder).length !== 0 &&
-                detailOrder["productList"].map((item) => {
-                  return (
-                    <tr key={item._id}>
-                      <td>
-                        <img
-                          className="detail-img"
-                          src={item["image"]}
-                          alt={item["productName"]}
-                        ></img>
-                      </td>
-                      <td>
-                        <h4 className="detail-name">{item["productName"]} </h4>
-                        <p>Quantity: {item["quantity"]}</p>
-                      </td>
-                      <td>
-                        {formatter.format(item.totalPriceByItem.$numberDecimal)}
-                      </td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
-          <div className="detail-order-bottom">
-            <div className="detail-order-title">Shipping Address</div>
-            <div className="detail-order-title">
-              Total: {formatter.format(detailOrder["totalCost"].$numberDecimal)}
-            </div>
-          </div>
-          <div>
-            <div className="detail-order-content">
-              {detailOrder["customerName"]}
-            </div>
-            <div className="detail-order-content">
-              {detailOrder["customerPhone"]}
-            </div>
-            <div className="detail-order-content">
-              {detailOrder["customerAddress"]}
-            </div>
-            <div>
-              <Link
-                to="/profile/acc-orders"
-                className="detail-order-bottom-btn"
-              >
-                BACK
-              </Link>
-            </div>
-          </div>
+          <Link to="/profile/acc-orders" className="detail-order-bottom-btn">
+            BACK
+          </Link>
         </div>
       </div>
     </div>
