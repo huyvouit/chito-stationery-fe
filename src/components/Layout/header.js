@@ -18,20 +18,41 @@ export const Header = () => {
     state: { cartItems, totalItems },
   } = useContext(CartContext);
   const [showNavBar, setShowNavBar] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const ClickedToggle = () => {
     setShowNavBar(!showNavBar);
+    setScrolled(true);
+  };
+  const closeMobileMenu = () => setShowNavBar(false);
+  const changeBgHeader = () => {
+    if (window.scrollY >= 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
   };
 
+  const resWidth = () => {
+    if (window.innerWidth > 768) {
+      setShowNavBar(false);
+    }
+  };
   useEffect(() => {
-    const resWidth = () => {
-      if (document.body.clientWidth > 768) {
-        setShowNavBar(false);
-      }
-    };
-    window.addEventListener("resize", resWidth);
     resWidth();
     return () => window.removeEventListener("resize", resWidth);
   }, []);
+
+  useEffect(() => {
+    if (showNavBar) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [showNavBar]);
+
+  window.addEventListener("resize", resWidth);
+  window.addEventListener("scroll", changeBgHeader);
 
   let history = useHistory();
   const handleClickNavbar = (item) => {
@@ -47,7 +68,7 @@ export const Header = () => {
   } = useContext(AuthContext);
 
   return (
-    <header>
+    <header className={scrolled ? "l-header active-scroll" : "l-header"}>
       <div className="navigation-bar">
         <div className="navbar-left">
           <Link to="/" className="navbar-logo">
@@ -63,7 +84,7 @@ export const Header = () => {
               <p
                 onClick={() => {
                   handleClickNavbar("shop");
-                  ClickedToggle();
+                  closeMobileMenu();
                 }}
               >
                 SHOP
@@ -74,7 +95,7 @@ export const Header = () => {
                     to="/shop?type=washi%20tape"
                     className="drop-link"
                     onClick={() => {
-                      ClickedToggle();
+                      closeMobileMenu();
                     }}
                   >
                     WASHI TAPE
@@ -85,7 +106,7 @@ export const Header = () => {
                     to="/shop?type=sticker"
                     className="drop-link"
                     onClick={() => {
-                      ClickedToggle();
+                      closeMobileMenu();
                     }}
                   >
                     STICKER
@@ -96,7 +117,7 @@ export const Header = () => {
                     to="/shop?type=sticky%20note"
                     className="drop-link"
                     onClick={() => {
-                      ClickedToggle();
+                      closeMobileMenu();
                     }}
                   >
                     STICKY NOTE
@@ -110,7 +131,7 @@ export const Header = () => {
               <p
                 onClick={() => {
                   handleClickNavbar("about");
-                  ClickedToggle();
+                  closeMobileMenu();
                 }}
               >
                 ABOUT
@@ -121,7 +142,7 @@ export const Header = () => {
                     className="drop-link"
                     to="/about"
                     onClick={() => {
-                      ClickedToggle();
+                      closeMobileMenu();
                     }}
                   >
                     DELIVERY &amp; RETURNS
@@ -132,7 +153,7 @@ export const Header = () => {
                     className="drop-link"
                     to="/about/term-consition"
                     onClick={() => {
-                      ClickedToggle();
+                      closeMobileMenu();
                     }}
                   >
                     TERMS &amp; CONDITIONS
@@ -143,7 +164,7 @@ export const Header = () => {
                     className="drop-link"
                     to="/about/privacy-policy"
                     onClick={() => {
-                      ClickedToggle();
+                      closeMobileMenu();
                     }}
                   >
                     PRIVACY POLICY
@@ -153,7 +174,13 @@ export const Header = () => {
             </div>
           </li>
           <li className="nav-item">
-            <Link to="/contact" className="nav-link">
+            <Link
+              to="/contact"
+              className="nav-link"
+              onClick={() => {
+                closeMobileMenu();
+              }}
+            >
               CONTACT
             </Link>
           </li>
@@ -170,7 +197,12 @@ export const Header = () => {
             />
           </div>
           <div className="item-icon hover-menu">
-            <Link to="/cart">
+            <Link
+              to="/cart"
+              onClick={() => {
+                closeMobileMenu();
+              }}
+            >
               <img
                 className="image-icon"
                 src={cartIcon}
@@ -229,12 +261,24 @@ export const Header = () => {
               <div className="avatar-user"></div>
               <ul className="dropdown-menu icon">
                 <li>
-                  <Link to="/profile" className="drop-link">
+                  <Link
+                    to="/profile"
+                    className="drop-link"
+                    onClick={() => {
+                      closeMobileMenu();
+                    }}
+                  >
                     PROFILE
                   </Link>
                 </li>
                 <li>
-                  <div className="drop-link" onClick={logoutUser}>
+                  <div
+                    className="drop-link"
+                    onClick={() => {
+                      logoutUser();
+                      closeMobileMenu();
+                    }}
+                  >
                     SIGN OUT
                   </div>
                 </li>

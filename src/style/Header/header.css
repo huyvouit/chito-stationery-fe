@@ -1,13 +1,16 @@
 @import "../../constants/Color/variable.css";
-header {
+.l-header {
   /* height: 120px; */
   padding: 20px 20px;
   width: 100%;
-  /* position: fixed; */
-  /* display: inline-block; */
-  /* background-color: var(--primary-background); */
+  position: sticky;
+  top: 0;
+  background-color: transparent;
+  z-index: 20;
+}
+
+.l-header.active-scroll {
   background-color: var(--primary-footer);
-  z-index: 10;
 }
 .navigation-bar {
   height: 40px;
@@ -254,7 +257,7 @@ header {
     margin-left: 0;
   }
   .dropdown-menu {
-    text-align: center;
+    text-align: start;
     position: relative;
     font-size: 14px;
     top: 10px;
@@ -262,7 +265,8 @@ header {
     box-shadow: none;
     border-radius: 10px;
     width: max-content;
-    padding: 0;
+    padding: 0px;
+    padding-left: 15px;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -311,72 +315,3 @@ header {
     background-color: var(--primary-background);
   }
 }
-
-/* @media screen and (max-width: 768px) { */
-/* @media only screen and (min-width: 992px) and (max-width: 1366px) {
-  .navigation-bar {
-    height: 40px;
-    max-width: 1366px;
-    margin: 0 auto;
-    opacity: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .navbar-logo {
-    font-size: 30px;
-    font-weight: bold;
-    margin-left: 5px;
-  }
-
-  .nav-link {
-    font-size: 19px;
-    position: relative;
-  }
-  .navbar-right {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-gap: 35px;
-    list-style: none;
-    align-items: center;
-    margin-bottom: 0 !important;
-  }
-} */
-
-/* @media only screen and (min-width: 576px) and (max-width: 991px) {
-  .navigation-bar {
-    height: 30px;
-    max-width: 991px;
-    margin: 0 auto;
-    opacity: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .navbar-logo {
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 5px;
-  }
-  .nav-link {
-    font-size: 16px;
-    position: relative;
-  }
-  .navbar-right {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-gap: 10px;
-    list-style: none;
-    align-items: center;
-    margin-bottom: 0 !important;
-  }
-  .navbar-icon {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-gap: 5px;
-    align-items: center;
-  }
-} */
-
-/* @media only screen and (max-width: 575px) {
-} */
