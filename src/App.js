@@ -47,15 +47,6 @@ function App() {
     };
   }, [showPopUp, showSearch, showFilter]);
 
-  useEffect(() => {
-    if (showFilter) {
-      document.body.style.overflow = "hidden";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [showFilter]);
-
   return (
     <Router>
       <AuthContextProvider>
@@ -66,7 +57,7 @@ function App() {
                 <div onClick={closePopUp} className="back-drop"></div>
               ) : null}
 
-              {/* <Header /> */}
+              <Header />
               <FilterContextProvider>
                 <Switch>
                   <Route exact path="/" component={HomeScreen} />

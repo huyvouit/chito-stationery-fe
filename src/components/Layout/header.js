@@ -1,4 +1,4 @@
-import React, { useContext,useEffect,useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import userIcon from "../../assets/Icons/user.svg";
 import menuIcon from "../../assets/Icons/menu.svg";
@@ -12,13 +12,26 @@ import { CartContext } from "../../contexts/cart_context";
 // import refreshPage from "../../Helper/refresh_page";
 import { useHistory } from "react-router-dom";
 export const Header = () => {
-
-
   const { setShowPopUp, setShowSearch } = useContext(PopUpContext);
   const { logoutUser } = useContext(AuthContext);
   const {
     state: { cartItems, totalItems },
   } = useContext(CartContext);
+  const [showNavBar, setShowNavBar] = useState(false);
+  const ClickedToggle = () => {
+    setShowNavBar(!showNavBar);
+  };
+
+  useEffect(() => {
+    const resWidth = () => {
+      if (document.body.clientWidth > 768) {
+        setShowNavBar(false);
+      }
+    };
+    window.addEventListener("resize", resWidth);
+    resWidth();
+    return () => window.removeEventListener("resize", resWidth);
+  }, []);
 
   let history = useHistory();
   const handleClickNavbar = (item) => {
@@ -33,35 +46,59 @@ export const Header = () => {
     authState: { authLoading, isAuthenticated },
   } = useContext(AuthContext);
 
-
-
-
   return (
     <header>
       <div className="navigation-bar">
         <div className="navbar-left">
           <Link to="/" className="navbar-logo">
-            CHITO STATIONERY
+            CHITO
           </Link>
         </div>
 
-        <ul className="navbar-right" >
-          <li className="hover-menu nav-item">
-            <div className="nav-link">
-              <p onClick={() => handleClickNavbar("shop")}>SHOP</p>
+        <ul
+          className={showNavBar ? "navbar-right show-nav-bar" : "navbar-right"}
+        >
+          <li className="nav-item">
+            <div className="nav-link hover-menu">
+              <p
+                onClick={() => {
+                  handleClickNavbar("shop");
+                  ClickedToggle();
+                }}
+              >
+                SHOP
+              </p>
               <ul className="dropdown-menu shop">
                 <li>
-                  <Link to="/shop?type=washi%20tape" className="drop-link">
+                  <Link
+                    to="/shop?type=washi%20tape"
+                    className="drop-link"
+                    onClick={() => {
+                      ClickedToggle();
+                    }}
+                  >
                     WASHI TAPE
                   </Link>
                 </li>
                 <li>
-                  <Link to="/shop?type=sticker" className="drop-link">
+                  <Link
+                    to="/shop?type=sticker"
+                    className="drop-link"
+                    onClick={() => {
+                      ClickedToggle();
+                    }}
+                  >
                     STICKER
                   </Link>
                 </li>
                 <li>
-                  <Link to="/shop?type=sticky%20note" className="drop-link">
+                  <Link
+                    to="/shop?type=sticky%20note"
+                    className="drop-link"
+                    onClick={() => {
+                      ClickedToggle();
+                    }}
+                  >
                     STICKY NOTE
                   </Link>
                 </li>
@@ -70,20 +107,45 @@ export const Header = () => {
           </li>
           <li className="hover-menu nav-item">
             <div className="nav-link">
-              <p onClick={() => handleClickNavbar("about")}>ABOUT</p>
+              <p
+                onClick={() => {
+                  handleClickNavbar("about");
+                  ClickedToggle();
+                }}
+              >
+                ABOUT
+              </p>
               <ul className="dropdown-menu about">
                 <li>
-                  <Link className="drop-link" to="/about">
+                  <Link
+                    className="drop-link"
+                    to="/about"
+                    onClick={() => {
+                      ClickedToggle();
+                    }}
+                  >
                     DELIVERY &amp; RETURNS
                   </Link>
                 </li>
                 <li>
-                  <Link className="drop-link" to="/about/term-consition">
+                  <Link
+                    className="drop-link"
+                    to="/about/term-consition"
+                    onClick={() => {
+                      ClickedToggle();
+                    }}
+                  >
                     TERMS &amp; CONDITIONS
                   </Link>
                 </li>
                 <li>
-                  <Link className="drop-link" to="/about/privacy-policy">
+                  <Link
+                    className="drop-link"
+                    to="/about/privacy-policy"
+                    onClick={() => {
+                      ClickedToggle();
+                    }}
+                  >
                     PRIVACY POLICY
                   </Link>
                 </li>
@@ -95,102 +157,112 @@ export const Header = () => {
               CONTACT
             </Link>
           </li>
-          <li className="navbar-icon">
-            <div className="item-icon">
+        </ul>
+        <div className="navbar-icon">
+          <div className="item-icon">
+            <img
+              className="image-icon"
+              src={searchIcon}
+              width="20px"
+              height="20px"
+              alt="search icon"
+              onClick={() => setShowSearch(true)}
+            />
+          </div>
+          <div className="item-icon hover-menu">
+            <Link to="/cart">
               <img
                 className="image-icon"
-                src={searchIcon}
+                src={cartIcon}
                 width="20px"
                 height="20px"
-                alt="search icon"
-                onClick={() => setShowSearch(true)}
+                alt="cart icon"
               />
-            </div>
-            <div className="item-icon hover-menu">
-              <Link to="/cart">
-                <img
-                  className="image-icon"
-                  src={cartIcon}
-                  width="20px"
-                  height="20px"
-                  alt="cart icon"
-                />
-                {totalItems !== 0 && (
-                  <span className="btn-number-cart-item">{totalItems}</span>
-                )}
-              </Link>
-              {totalItems > 0 && (
-                <div className="dropdown-menu cart">
-                  {cartItems &&
-                    cartItems.length > 0 &&
-                    cartItems.slice(0, 3).map((item) => {
-                      return (
-                        <div
-                          key={item._id}
-                          className="hover-flex"
-                          title={item.productName}
-                          onClick={() => handleClickItemPassDetail(item._id)}
-                        >
-                          <div className="sub-hover-flex">
-                            <img
-                              className="img-hover"
-                              src={item.image}
-                              alt={item.productName}
-                            />
-                            <div className="cart-hover-info">
-                              <p>{item.productName}</p>
-                              <p>Quantity: {item.quantity}</p>
-                            </div>
-                          </div>
-                          <div>{formatter.format(item.totalPriceByItem)}</div>
-                        </div>
-                      );
-                    })}
-                  <div className="cart-hover-footer">
-                    {totalItems > 3 ? (
-                      <div className="cart-hover-more">
-                        More {totalItems - 3} item(s)
-                      </div>
-                    ) : (
-                      <div></div>
-                    )}
-                    <Link to="/cart" className="cart-hover-btn">
-                      SEE CART
-                    </Link>
-                  </div>
-                </div>
+              {totalItems !== 0 && (
+                <span className="btn-number-cart-item">{totalItems}</span>
               )}
-            </div>
-            {!authLoading && isAuthenticated ? (
-              <div className="item-icon hover-user">
-                <div className="avatar-user"></div>
-                <ul className="dropdown-menu icon">
-                  <li>
-                    <Link to="/profile" className="drop-link">
-                      PROFILE
-                    </Link>
-                  </li>
-                  <li>
-                    <div className="drop-link" onClick={logoutUser}>
-                      SIGN OUT
+            </Link>
+            {totalItems > 0 && (
+              <div className="dropdown-menu cart">
+                {cartItems &&
+                  cartItems.length > 0 &&
+                  cartItems.slice(0, 3).map((item) => {
+                    return (
+                      <div
+                        key={item._id}
+                        className="hover-flex"
+                        title={item.productName}
+                        onClick={() => handleClickItemPassDetail(item._id)}
+                      >
+                        <div className="sub-hover-flex">
+                          <img
+                            className="img-hover"
+                            src={item.image}
+                            alt={item.productName}
+                          />
+                          <div className="cart-hover-info">
+                            <p>{item.productName}</p>
+                            <p>Quantity: {item.quantity}</p>
+                          </div>
+                        </div>
+                        <div>{formatter.format(item.totalPriceByItem)}</div>
+                      </div>
+                    );
+                  })}
+                <div className="cart-hover-footer">
+                  {totalItems > 3 ? (
+                    <div className="cart-hover-more">
+                      More {totalItems - 3} item(s)
                     </div>
-                  </li>
-                </ul>
-              </div>
-            ) : (
-              <div className="item-icon">
-                <img
-                  className="image-icon "
-                  src={userIcon}
-                  width="20px"
-                  height="20px"
-                  alt="user icon"
-                  onClick={() => setShowPopUp(true)}
-                />
+                  ) : (
+                    <div></div>
+                  )}
+                  <Link to="/cart" className="cart-hover-btn">
+                    SEE CART
+                  </Link>
+                </div>
               </div>
             )}
-          </li>
-        </ul>
+          </div>
+          {!authLoading && isAuthenticated ? (
+            <div className="item-icon hover-user">
+              <div className="avatar-user"></div>
+              <ul className="dropdown-menu icon">
+                <li>
+                  <Link to="/profile" className="drop-link">
+                    PROFILE
+                  </Link>
+                </li>
+                <li>
+                  <div className="drop-link" onClick={logoutUser}>
+                    SIGN OUT
+                  </div>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <div className="item-icon">
+              <img
+                className="image-icon "
+                src={userIcon}
+                width="20px"
+                height="20px"
+                alt="user icon"
+                onClick={() => setShowPopUp(true)}
+              />
+            </div>
+          )}
+          <div className="item-icon toggle-icon">
+            <img
+              className="image-icon "
+              src={menuIcon}
+              width="20px"
+              height="20px"
+              alt="user icon"
+              onClick={ClickedToggle}
+            />
+          </div>
+        </div>
       </div>
     </header>
   );
