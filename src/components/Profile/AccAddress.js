@@ -9,7 +9,7 @@ export const AccAddress = () => {
     authState: { authLoading, user },
   } = useContext(AuthContext);
   return (
-    <div>
+    <div className="profile-col-width address-col-width">
       <h2>Default Shipping Address</h2>
       <div className="profile-info-subtitle">
         {user.fullname && <p>{user.fullname}</p>}

@@ -111,10 +111,15 @@
 }
 
 /* Account Information */
+.account-info, .info-footer {
+  width: 95%;
+}
+
 .account-info {
   display: flex;
   justify-content: space-between;
   margin-bottom: 45px;
+  gap: 50px
 }
 
 .profile-col-width {
@@ -204,9 +209,14 @@
   transform: rotate(45deg);
 }
 
+.info-footer p {
+  margin-bottom: 36px;
+  margin-top: 36px;
+}
+
 .btn-save {
   float: right;
-  margin-top: 36px;
+  margin-bottom: 36px;
   background-color: var(--text-title);
   border: solid 1px var(--text-title);
   color: var(--primary-background);
@@ -222,12 +232,13 @@
 
 /* My Orders */
 .table-width {
-  width: 48vw;
+  width: 100%;
 }
 
 .btn-save-edit-address {
   float: right;
-  margin-top: 18px;
+  margin-top: 36px;
+  margin-bottom: 36px;
   background-color: var(--text-title);
   border: solid 1px var(--text-title);
   color: var(--primary-background);
@@ -243,7 +254,8 @@
 
 .btn-cancel {
   float: right;
-  margin-top: 18px;
+  margin-top: 36px;
+  margin-bottom: 36px;
   background-color: var(--primary-background);
   border: solid 1px var(--text-title);
   color: var(--text-title);
@@ -301,6 +313,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .detail-order-bottom-btn {
   margin-top: 36px;
+  margin-bottom: 36px;
   background-color: var(--primary-background);
   border: solid 1px var(--text-title);
   color: var(--text-title);
@@ -325,6 +338,10 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-bottom: 5px;
 }
 
+.detail-order-content-top {
+  margin-bottom: 18px;
+}
+
 .detail-order-tr:hover {
   background-color: var(--primary-footer);
 }
@@ -334,9 +351,22 @@ input[type="number"]::-webkit-inner-spin-button {
   display: none;
 }
 
+.account-info-container, .edit-address-container, .my-order-container,
+.detail-order-container {
+  width: 100%;
+}
+
+.address-col-width {
+  width: max-content !important;
+}
+
 @media only screen and (max-width: 1366px) {
   .profile-wrapper {
     max-width: 900px;
+  }
+
+  .account-info, .info-footer {
+    margin: 0 auto;
   }
 
   .profile-col-width {
@@ -367,11 +397,6 @@ input[type="number"]::-webkit-inner-spin-button {
     font-size: 18px;
   }
 
-  .profile-info {
-    flex-direction: column;
-    gap: 32px;
-  }
-
   .profile-info-subtitle {
     font-size: 14px;
     margin-top: 18px;
@@ -398,7 +423,7 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 
   .detail-name {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .sidebar-dropdown {
@@ -424,6 +449,7 @@ input[type="number"]::-webkit-inner-spin-button {
     width: max-content;
     box-shadow: 5px 5px 10px grey;
     border-radius: 15px;
+    z-index: 2;
   }
 
   .sidebar-wrapper {
@@ -449,6 +475,11 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-bottom: 4px;
   }
 
+  .profile-info {
+    flex-direction: column;
+    gap: 32px;
+  }
+
   .ellipsis {
     position: relative;
   }
@@ -465,5 +496,14 @@ input[type="number"]::-webkit-inner-spin-button {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .account-info {
+    flex-direction: column;
+    gap:32px;
+  }
+
+  .detail-order-bottom {
+    flex-direction: column;
   }
 }

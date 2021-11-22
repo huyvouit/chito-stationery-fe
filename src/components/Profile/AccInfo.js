@@ -76,7 +76,7 @@ export const AccInfo = () => {
       {authLoading ? (
         <Loader />
       ) : (
-        <div>
+        <div className="account-info-container">
           <div className="account-info">
             <div className="profile-col-width">
               <h2>Account Information</h2>
