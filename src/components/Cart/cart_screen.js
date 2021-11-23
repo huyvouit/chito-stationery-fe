@@ -44,7 +44,7 @@ export const CartScreen = () => {
             <thead>
               <tr className="cart-table-header">
                 <th>Product</th>
-                <th>Price</th>
+                <th className="col-price-item">Price</th>
                 <th>Quantity</th>
                 <th>Total</th>
               </tr>
@@ -64,14 +64,18 @@ export const CartScreen = () => {
                             onClick={() => handleClickItemPassDetail(item._id)}
                           />
                           <div className="cart-table-body-product-content">
-                            <p
-                              className="cart-table-body-product-content-name"
-                              onClick={() =>
-                                handleClickItemPassDetail(item._id)
-                              }
-                            >
-                              {item.productName}
-                            </p>
+                            <div className="">
+                              <span>
+                                <p
+                                  className="cart-table-body-product-content-name"
+                                  onClick={() =>
+                                    handleClickItemPassDetail(item._id)
+                                  }
+                                >
+                                  {item.productName}
+                                </p>
+                              </span>
+                            </div>
                             <p
                               className="cart-table-body-product-content-remove"
                               onClick={() => removeItem(item)}
@@ -81,7 +85,7 @@ export const CartScreen = () => {
                           </div>
                         </div>
                       </td>
-                      <td className="">
+                      <td className="col-price-item fz-price">
                         <h4>{formatter.format(item.price.$numberDecimal)} </h4>
                       </td>
                       <td>
@@ -96,7 +100,7 @@ export const CartScreen = () => {
                           <button onClick={() => addItem(item, 1, 1)}>+</button>
                         </div>
                       </td>
-                      <td>
+                      <td className="fz-price">
                         <h4>{formatter.format(item.totalPriceByItem)}</h4>
                       </td>
                     </tr>
@@ -105,7 +109,7 @@ export const CartScreen = () => {
 
               <tr className="cart-total-checkout">
                 <td colSpan="4">
-                  <h3>{formatter.format(totalPrice)}</h3>
+                  <h3 className="fz-price">{formatter.format(totalPrice)}</h3>
                   <Link to="/checkout" className="error_btn">
                     CHECKOUT
                   </Link>

@@ -1,20 +1,27 @@
 .groupCard {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 30px;
+  /* gap: 24px; */
+  width: 100%;
+  padding: 20px;
 }
 
+.groupCard .card-wrapper {
+  padding: 15px 15px;
+  width: 25%;
+}
 .card-wrapper:hover {
   transform: scale(1.03);
   transition: all 0.1s ease-out;
 }
 
 .card {
-  padding: 32px;
-  width: 286px;
-  height: 450px;
+  padding: 20px 15px;
+  min-width: 225px;
+  min-height: 315px;
+  max-height: 400px;
+  width: 100%;
   background: #ffffff 0% 0% no-repeat padding-box;
 }
 
@@ -23,13 +30,21 @@
   color: #ffffff;
   cursor: pointer;
 }
-.ItemImg {
-  width: 220px;
+.card-img {
+  width: 100%;
+  height: 100%;
+}
+
+.card-img img {
+  width: 100%;
   height: 220px;
 }
 
-.ItemTxt > h5 {
+.ItemTxt {
   padding-top: 20px;
+  margin: 0 auto;
+}
+.ItemTxt > h5 {
   font: normal normal bold 20px/30px Bellota Text;
   letter-spacing: 0.6px;
   color: var(--primary-text);
@@ -42,20 +57,17 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   margin-top: 8%;
-  font: normal normal bold 12px/16px Bellota Text;
-  height: 32px;
+  font: normal normal 16px Bellota Text;
   overflow: hidden;
   text-overflow: ellipsis;
   word-break: break-word;
 }
 
-.ItemTxt > h6 {
+.ItemTxt > h4 {
   padding-top: 9%;
-  font: normal normal bold 19px/30px Bellota Text;
+  font: normal normal bold 20px Bellota Text;
   letter-spacing: 0.6px;
   color: var(--primary-text);
-  margin: 0px;
-  font-size: 16px;
 }
 
 .card_btn {
@@ -69,11 +81,38 @@
   font-size: 16px;
   font-family: "Bellota Text", cursive;
   cursor: pointer;
-  margin-bottom: 30px;
   width: 100%;
+  min-width: 225px;
 }
 
 .card_btn:hover {
   color: white;
   background-color: var(--text-title);
+}
+
+@media screen and (max-width: 1024px) {
+  .groupCard .card-wrapper {
+    width: 33%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .groupCard .card-wrapper {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .groupCard .card-wrapper {
+    width: 100%;
+  }
+  .card {
+    max-height: 500px;
+  }
+  .card-img {
+    height: 100%;
+  }
+  .card-img img {
+    height: 275px;
+  }
 }

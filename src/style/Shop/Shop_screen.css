@@ -1,3 +1,4 @@
 .ShopScreen {
-  margin: 0px 150px;
+  max-width: 1140px;
+  margin: 0 auto;
 }

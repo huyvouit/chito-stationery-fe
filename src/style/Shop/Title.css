@@ -1,5 +1,5 @@
 .title {
-  padding-top: 30px;
+  padding: 30px 20px 20px;
 }
 
 .title-head {
@@ -12,7 +12,7 @@
 }
 
 .title-content {
-  padding-top: 50px;
+  padding: 50px 20px 0;
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
@@ -32,26 +32,26 @@
 }
 .title-content-right {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  width: auto;
 }
 
 .title-content-right > p {
   text-align: center;
-  font: normal normal bold 18px/22px Bellota Text;
+  font: normal normal bold 18px Bellota Text;
   letter-spacing: 0.45px;
   color: #524d4b;
 }
 
 .title-content-right > strong {
-  margin: 0 20px;
-  text-align: center;
+  margin-left: 20px;
 }
 
 .default {
   border: none;
   text-align: center;
-  font: normal normal bold 18px/22px Bellota Text;
+  font: normal normal bold 18px Bellota Text;
   letter-spacing: 0.45px;
   color: #524d4b;
   background: transparent 0% 0% no-repeat padding-box;
@@ -60,4 +60,24 @@
 .default:focus {
   outline: none;
   background: transparent 0% 0% no-repeat padding-box;
+}
+
+@media screen and (max-width: 568px) {
+  .title-content {
+    flex-direction: column;
+  }
+  .title-content-right > strong {
+    margin-left: 10px;
+  }
+  .title-content-right > p,
+  .default {
+    font: normal normal bold 16px Bellota Text;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .title-content-right > p,
+  t {
+    font: normal normal bold 14px Bellota Text;
+  }
 }

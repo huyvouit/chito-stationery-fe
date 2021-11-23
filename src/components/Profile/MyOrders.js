@@ -33,7 +33,7 @@ export const MyOrders = () => {
   }, []);
 
   return (
-    <div>
+    <div className="my-order-container">
       <h2>My Orders</h2>
       {purchaseHistory && purchaseHistory.length === 0 ? (
         <p>You have purchased no orders.</p>
@@ -62,7 +62,7 @@ export const MyOrders = () => {
                   className="detail-order-tr"
                   style={{ cursor: "pointer" }}
                 >
-                  <td>#{item._id}</td>
+                  <td className="ellipsis"><span>#{item._id}</span></td>
                   <td>
                     <Moment format="DD/MM/YYYY">{item.createdAt}</Moment>
                   </td>

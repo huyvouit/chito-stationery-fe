@@ -4,5 +4,5 @@
   position: fixed;
   width: 100vw;
   cursor: pointer;
-  z-index: 99;
+  z-index: 90;
 }

@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import { SideBar } from "./SideBar";
 import { AuthContext } from "../../contexts/auth_context";
 import { Loader } from "../Layout/loader";
 import userApi from "../../api/user_api";
@@ -76,7 +75,7 @@ export const AccInfo = () => {
       {authLoading ? (
         <Loader />
       ) : (
-        <div>
+        <div className="account-info-container">
           <div className="account-info">
             <div className="profile-col-width">
               <h2>Account Information</h2>
@@ -94,7 +93,7 @@ export const AccInfo = () => {
                 <span className="checkmark"></span>
               </label>
             </div>
-            {isChangePass && (
+            {isChangePass ? (
               <div className="profile-col-width ">
                 <h2>Change Password</h2>
                 <h5 className="profile-info-subtitle">CURRENT PASSWORD*</h5>
@@ -128,6 +127,8 @@ export const AccInfo = () => {
                   <p className="validate-error">{errors}</p>
                 )}
               </div>
+            ) : (
+              <div className="profile-col-width "></div>
             )}
           </div>
           <div className="info-footer">

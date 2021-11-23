@@ -1,646 +1,669 @@
 @import "../../constants//Color/variable.css";
 
 .detail {
-    padding-top: 5vh;
-    padding-bottom: 2vw;
+  padding-top: 5vh;
+  padding-bottom: 2vw;
 }
 
 .detail-contain {
-    display: flex;
+  display: flex;
 }
 
 .detail-contain .detail-img {
-    flex: 50%;
-    height: 480px;
+  flex: 50%;
+  height: 480px;
 }
 
 .detail-contain .detail-img img {
-    margin-left: 32vh;
-    height: 100%;
-    width: 60%;
-    object-fit: cover;
+  margin-left: 32vh;
+  height: 100%;
+  width: 60%;
+  object-fit: cover;
 }
 
-.detail-contain .detail-contain-right{
-    flex: 50%;
-    margin-top: 1vh;
-    margin-left: 10vh;
+.detail-contain .detail-contain-right {
+  flex: 50%;
+  margin-top: 1vh;
+  margin-left: 10vh;
 }
 
 .detail-contain .detail-contain-right h2 {
+  text-align: left;
+  font: normal normal bold 27px/27px Bellota Text;
+  letter-spacing: 1.05px;
+  color: #524d4b;
+  text-transform: capitalize;
+}
+
+.detail-contain-right-price {
+  padding-top: 2vh;
+  text-align: left;
+  font: normal normal bold 21px/27px Bellota Text;
+  letter-spacing: 0.48px;
+  color: #524d4b;
+}
+
+.detail-contain-right-quantity {
+  margin-top: 2vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+.detail-contain-right-quantity p {
+  padding-top: 8px;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  background-color: white;
+  font-size: 18px;
+}
+
+.detail-contain-right-quantity button {
+  width: 36px;
+  height: 36px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.detail-contain-right-quantity button:hover {
+  background-color: var(--underline);
+}
+
+.detail-contain-right-button {
+  margin-top: 4vh;
+  margin-bottom: 5vh;
+  width: 60%;
+  display: flex;
+}
+
+.add {
+  padding: 12px 24px;
+  cursor: pointer;
+  border: none;
+  margin-right: 5vh;
+  background: #e5e1df 0% 0% no-repeat padding-box;
+  text-align: center;
+  font: normal normal bold 16px/27px Bellota Text;
+  letter-spacing: 0.27px;
+  color: #966a57;
+  text-transform: uppercase;
+}
+
+.buy {
+  border: none;
+  cursor: pointer;
+  background: #966a57 0% 0% no-repeat padding-box;
+  padding: 12px 24px;
+  text-align: center;
+  font: normal normal bold 16px/27px Bellota Text;
+  letter-spacing: 0.27px;
+  color: #f2efed;
+  text-transform: uppercase;
+}
+
+.detail-contain-right-group {
+  cursor: pointer;
+  margin-top: 2vh;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-title-group {
+  text-align: left;
+  font: normal normal bold 18px/27px Bellota Text;
+  letter-spacing: 0.36px;
+  color: #524d4b;
+  text-transform: uppercase;
+  margin-bottom: 1vh;
+}
+
+.detail-title-group-container {
+  width: 60%;
+  text-align: left;
+  font: normal normal bold 15px/27px Bellota Text;
+  letter-spacing: 0.27px;
+  color: #524d4b;
+  padding-bottom: 3vh;
+  border-bottom: 1px solid var(--underline);
+}
+
+.detail-title-group-container a {
+  color: var(--text-title);
+}
+
+.more-products {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.title-more-product {
+  text-align: left;
+  font: normal normal bold 27px/27px Bellota Text;
+  letter-spacing: 0.63px;
+  color: #524d4b;
+  text-transform: capitalize;
+  margin-bottom: 3vh;
+}
+
+.detail-groupCard {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.detail-card-wrapper {
+  padding: 15px 15px;
+  width: 25%;
+}
+
+.detail-card {
+  padding: 20px 15px;
+  min-width: 225px;
+  min-height: 315px;
+  max-height: 400px;
+  width: 100%;
+  background-color: white;
+}
+
+.detail-card:hover {
+  background-color: #cfc7bc;
+  color: #ffffff;
+  cursor: pointer;
+  transform: scale(1.03);
+  transition: all 0.1s ease-out;
+}
+
+.detail-card-img {
+  width: 100%;
+  height: 100%;
+}
+
+.detail-card-img img {
+  width: 100%;
+  height: 220px;
+}
+
+.detail-ItemTxt h5 {
+  padding-top: 1vh;
+  height: 9vh;
+  text-align: left;
+  font: normal normal bold 17px/20px Bellota Text;
+  letter-spacing: 0.6px;
+  color: #524d4b;
+  text-transform: capitalize;
+  overflow: visible;
+  margin-bottom: 5px;
+}
+
+.detail-ItemTxt h6 {
+  text-align: left;
+  margin: 0;
+  font: normal normal bold 18px/30px Bellota Text;
+  letter-spacing: 0.6px;
+  color: #7c7b7b;
+}
+
+.labelQuantity {
+  padding-top: 4vh;
+  text-align: left;
+  font: normal normal bold 20px/27px Bellota Text;
+  letter-spacing: 0.6px;
+  color: #524d4b;
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 991px) and (max-width: 1366px) {
+  .detail-contain .detail-img img {
+    margin-left: 15vh;
+    height: 100%;
+    width: 80%;
+    object-fit: cover;
+  }
+
+  .detail-contain .detail-contain-right h2 {
     text-align: left;
     font: normal normal bold 27px/27px Bellota Text;
     letter-spacing: 1.05px;
-    color: #524D4B;
+    color: #524d4b;
     text-transform: capitalize;
-}
+  }
 
- .detail-contain-right-price {
+  .detail-contain-right-price {
     padding-top: 2vh;
     text-align: left;
     font: normal normal bold 21px/27px Bellota Text;
     letter-spacing: 0.48px;
-    color: #524D4B;
-}
+    color: #524d4b;
+  }
 
-.detail-contain-right-quantity {
+  .labelQuantity {
+    padding-top: 1.8vh;
+    text-align: left;
+    font: normal normal bold 20px/27px Bellota Text;
+    letter-spacing: 0.6px;
+    color: #524d4b;
+    text-transform: uppercase;
+  }
+
+  .detail-contain-right-quantity {
     margin-top: 2vh;
     display: flex;
     align-items: center;
     text-align: center;
-    margin-bottom: 5vh;
-}
+    margin-bottom: 1.8vh;
+  }
 
-.detail-contain-right-quantity p {
+  .detail-contain-right-quantity p {
     padding-top: 8px;
     width: 36px;
     height: 36px;
     text-align: center;
     background-color: white;
     font-size: 18px;
-}
+  }
 
-.detail-contain-right-quantity button {
+  .detail-contain-right-quantity button {
     width: 36px;
     height: 36px;
     background-color: white;
     border: none;
     cursor: pointer;
     font-size: 18px;
-}
-
-.detail-contain-right-quantity button:hover {
-    background-color: var(--underline);
-}
-
-.detail-contain-right-button {
+  }
+  .detail-contain-right-button {
     margin-top: 4vh;
-    margin-bottom: 5vh;
-    width: 60%;
+    margin-bottom: 2.5vh;
+    width: 90%;
     display: flex;
-}
+  }
 
-.add {
+  .add {
     padding: 12px 24px;
     cursor: pointer;
     border: none;
     margin-right: 5vh;
-    background: #E5E1DF 0% 0% no-repeat padding-box;
+    background: #e5e1df 0% 0% no-repeat padding-box;
     text-align: center;
-    font: normal normal bold 16px/27px Bellota Text;
+    font: normal normal bold 16px/20px Bellota Text;
     letter-spacing: 0.27px;
-    color: #966A57;
+    color: #966a57;
     text-transform: uppercase;
-}
+  }
 
-.buy{
+  .buy {
     border: none;
     cursor: pointer;
-    background: #966A57 0% 0% no-repeat padding-box;
+    background: #966a57 0% 0% no-repeat padding-box;
     padding: 12px 24px;
     text-align: center;
-    font: normal normal bold 16px/27px Bellota Text;
+    font: normal normal bold 16px/20px Bellota Text;
     letter-spacing: 0.27px;
-    color: #F2EFED;
+    color: #f2efed;
     text-transform: uppercase;
-}
+  }
 
-.detail-contain-right-group {
+  .detail-contain-right-group {
     cursor: pointer;
     margin-top: 2vh;
-    width: 60%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
-}
+  }
 
-.detail-title-group {
+  .detail-title-group {
     text-align: left;
     font: normal normal bold 18px/27px Bellota Text;
     letter-spacing: 0.36px;
-    color: #524D4B;
+    color: #524d4b;
     text-transform: uppercase;
     margin-bottom: 1vh;
-}
+  }
 
-.detail-title-group-container {
-    width: 60%;
+  .detail-title-group-container {
+    width: 80%;
     text-align: left;
     font: normal normal bold 15px/27px Bellota Text;
     letter-spacing: 0.27px;
-    color: #524D4B;
-    padding-bottom: 3vh;
+    color: #524d4b;
+    padding-bottom: 1.5vh;
     border-bottom: 1px solid var(--underline);
+  }
 }
 
-.detail-title-group-container a {
-    color: var(--text-title);
-}
-
-.more-products {
-    margin: 5vh 32vh;
-}
-
-.title-more-product {
-    text-align: left;
-    font: normal normal bold 27px/27px Bellota Text;
-    letter-spacing: 0.63px;
-    color: #524D4B;
-    text-transform: capitalize;
-    margin-bottom: 3vh;
-}
-
-.detail-groupCard {
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    gap: 27px;
-}
-
-.detail-card-wrapper {
-    width: 220px;
-    background-color: white;
-}
-
-.detail-card-wrapper:hover {
-    background-color: #cfc7bc;
-    color: #ffffff;
-    cursor: pointer;
-    transform: scale(1.03);
-    transition: all 0.1s ease-out;
+@media only screen and (min-width: 575px) and (max-width: 991px) {
+  .detail {
+    padding-top: 3vh;
+    padding-bottom: 2vw;
   }
 
-.detail-card {
-    padding: 20px;
-}
+  .detail-contain {
+    display: flex;
+  }
 
-.detail-ItemImg {
-    width: 180px;
-    height: 180px;
+  .detail-contain .detail-img {
+    flex: 50%;
+    height: 430px;
+  }
+
+  .detail-contain .detail-img img {
+    margin-left: 10vh;
+    height: 100%;
+    width: 90%;
     object-fit: cover;
+  }
+
+  .detail-contain .detail-contain-right {
+    flex: 50%;
+    margin-top: 1vh;
+    margin-left: 10vh;
+  }
+
+  .detail-contain .detail-contain-right h2 {
+    text-align: left;
+    font: normal normal bold 22px/22px Bellota Text;
+    letter-spacing: 1.05px;
+    color: #524d4b;
+    text-transform: capitalize;
+  }
+
+  .detail-contain-right-price {
+    padding-top: 1vh;
+    text-align: left;
+    font: normal normal bold 18px/22px Bellota Text;
+    letter-spacing: 0.48px;
+    color: #524d4b;
+  }
+
+  .labelQuantity {
+    padding-top: 1.5vh;
+    text-align: left;
+    font: normal normal bold 20px/24px Bellota Text;
+    letter-spacing: 0.6px;
+    color: #524d4b;
+    text-transform: uppercase;
+  }
+
+  .detail-contain-right-quantity {
+    margin-top: 1vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3vh;
+  }
+
+  .detail-contain-right-quantity p {
+    padding-top: 8px;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    background-color: white;
+    font-size: 18px;
+  }
+
+  .detail-contain-right-quantity button {
+    width: 36px;
+    height: 36px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .detail-contain-right-button {
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+    width: 90%;
+    display: flex;
+  }
+
+  .add {
+    padding: 8px 12px;
+    cursor: pointer;
+    border: none;
+    margin-right: 5vh;
+    background: #e5e1df 0% 0% no-repeat padding-box;
+    text-align: center;
+    font: normal normal bold 16px/18px Bellota Text;
+    letter-spacing: 0.27px;
+    color: #966a57;
+    text-transform: uppercase;
+  }
+
+  .buy {
+    border: none;
+    cursor: pointer;
+    background: #966a57 0% 0% no-repeat padding-box;
+    padding: 8px 12px;
+    text-align: center;
+    font: normal normal bold 16px/18px Bellota Text;
+    letter-spacing: 0.27px;
+    color: #f2efed;
+    text-transform: uppercase;
+  }
+
+  .detail-contain-right-group {
+    cursor: pointer;
+    margin-top: 2vh;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .detail-title-group {
+    text-align: left;
+    font: normal normal bold 16px/27px Bellota Text;
+    letter-spacing: 0.36px;
+    color: #524d4b;
+    text-transform: uppercase;
+    margin-bottom: 1vh;
+  }
+
+  .detail-title-group-container {
+    width: 90%;
+    text-align: left;
+    font: normal normal bold 14px/18px Bellota Text;
+    letter-spacing: 0.27px;
+    color: #524d4b;
+    padding-bottom: 1.5vh;
+    border-bottom: 1px solid var(--underline);
+  }
 }
 
-.detail-ItemTxt h5 {
-    padding-top: 1vh;
-    height: 9vh;
+@media only screen and (max-width: 575px) {
+  .detail {
+    padding-top: 1.5vh;
+    padding-bottom: 2vw;
+  }
+  .detail-contain {
+    display: flex;
+    flex-direction: column;
+  }
+  .detail-contain .detail-img {
+    height: 350px;
+    width: 100%;
+  }
+
+  .detail-contain .detail-img img {
+    margin-left: 0;
+    padding: 0 10%;
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .detail-contain .detail-contain-right {
+    margin-left: 0;
+    margin-top: 2vh;
+    padding: 0 10%;
+  }
+
+  .detail-contain .detail-contain-right h2 {
     text-align: left;
-    font: normal normal bold 17px/20px Bellota Text;
+    font: normal normal bold 18px Bellota Text;
+    letter-spacing: 1.05px;
+    color: #524d4b;
+    text-transform: capitalize;
+  }
+
+  .detail-contain-right-price {
+    padding-top: 5px;
+    text-align: left;
+    font: normal normal bold 15px Bellota Text;
+    letter-spacing: 0.48px;
+    color: #524d4b;
+  }
+
+  .labelQuantity {
+    padding-top: 8px;
+    text-align: left;
+    font: normal normal bold 14px Bellota Text;
     letter-spacing: 0.6px;
-    color: #524D4B;
+    color: #524d4b;
+    text-transform: uppercase;
+  }
+
+  .detail-contain-right-quantity {
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2vh;
+  }
+
+  .detail-contain-right-quantity p {
+    padding-top: 8px;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    background-color: white;
+    font-size: 18px;
+  }
+
+  .detail-contain-right-button {
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+  }
+
+  .add {
+    padding: 4px 12px;
+    cursor: pointer;
+    border: none;
+    margin-right: 0;
+    background: #e5e1df 0% 0% no-repeat padding-box;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.27px;
+    color: #966a57;
+    text-transform: uppercase;
+  }
+
+  .buy {
+    border: none;
+    cursor: pointer;
+    background: #966a57 0% 0% no-repeat padding-box;
+    padding: 4px 12px;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.27px;
+    color: #f2efed;
+    text-transform: uppercase;
+  }
+
+  .detail-contain-right-group {
+    cursor: pointer;
+    margin-top: 3vh;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .detail-title-group {
+    text-align: left;
+    font: normal normal bold 15px/25px Bellota Text;
+    letter-spacing: 0.36px;
+    color: #524d4b;
+    text-transform: uppercase;
+    margin-bottom: 1vh;
+  }
+
+  .detail-title-group-container {
+    width: 95%;
+    text-align: left;
+    font: normal normal bold 12px Bellota Text;
+    letter-spacing: 0.27px;
+    color: #524d4b;
+    padding-bottom: 2vh;
+    border-bottom: 1px solid var(--underline);
+  }
+
+  .title-more-product {
+    text-align: left;
+    font: normal normal bold 18px/27px Bellota Text;
+    letter-spacing: 0.63px;
+    color: #524d4b;
+    text-transform: capitalize;
+    margin-bottom: 3vh;
+  }
+
+  .detail-ItemTxt h5 {
+    padding-top: 1vh;
+    height: 5vh;
+    text-align: left;
+    font: normal normal bold 80%/18px Bellota Text;
+    letter-spacing: 0.6px;
+    color: #524d4b;
     text-transform: capitalize;
     overflow: visible;
     margin-bottom: 5px;
-}
+  }
 
-.detail-ItemTxt h6{
+  .detail-ItemTxt h6 {
     text-align: left;
     margin: 0;
-    font: normal normal bold 18px/30px Bellota Text;
+    font: normal normal bold 80%/18px Bellota Text;
     letter-spacing: 0.6px;
-    color: #7C7B7B;
+    color: #7c7b7b;
+  }
 }
 
-.labelQuantity{
-    padding-top: 4vh;
-    text-align: left;
-    font: normal normal bold 20px/27px Bellota Text;
-    letter-spacing: 0.6px;
-    color: #524D4B;
-    text-transform: uppercase;
+@media screen and (max-width: 922px) {
+  .detail-card-wrapper {
+    width: 50%;
+  }
+  .detail-card {
+    max-height: 500px;
+  }
+  .detail-card-img {
+    height: 100%;
+  }
+  .detail-card-img img {
+    height: 400px;
+  }
 }
 
+@media screen and (max-width: 568px) {
+  .detail-card-wrapper {
+    width: 100%;
+  }
 
-@media only screen and (min-width:991px) and (max-width:1366px) {
-    .detail-contain .detail-img img {
-        margin-left: 15vh;
-        height: 100%;
-        width: 80%;
-        object-fit: cover;
-    }
-
-    .detail-contain .detail-contain-right h2 {
-        text-align: left;
-        font: normal normal bold 27px/27px Bellota Text;
-        letter-spacing: 1.05px;
-        color: #524D4B;
-        text-transform: capitalize;
-    }
-    
-     .detail-contain-right-price {
-        padding-top: 2vh;
-        text-align: left;
-        font: normal normal bold 21px/27px Bellota Text;
-        letter-spacing: 0.48px;
-        color: #524D4B;
-    }
-    
-    .labelQuantity{
-        padding-top: 1.8vh;
-        text-align: left;
-        font: normal normal bold 20px/27px Bellota Text;
-        letter-spacing: 0.6px;
-        color: #524D4B;
-        text-transform: uppercase;
-    }
-
-    .detail-contain-right-quantity {
-        margin-top: 2vh;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        margin-bottom: 1.8vh;
-    }
-    
-    .detail-contain-right-quantity p {
-        padding-top: 8px;
-        width: 36px;
-        height: 36px;
-        text-align: center;
-        background-color: white;
-        font-size: 18px;
-    }
-    
-    .detail-contain-right-quantity button {
-        width: 36px;
-        height: 36px;
-        background-color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 18px;
-    }
-    .detail-contain-right-button {
-        margin-top: 4vh;
-        margin-bottom: 2.5vh;
-        width: 90%;
-        display: flex;
-    }
-    
-    .add {
-        padding: 12px 24px;
-        cursor: pointer;
-        border: none;
-        margin-right: 5vh;
-        background: #E5E1DF 0% 0% no-repeat padding-box;
-        text-align: center;
-        font: normal normal bold 16px/20px Bellota Text;
-        letter-spacing: 0.27px;
-        color: #966A57;
-        text-transform: uppercase;
-    }
-    
-    .buy{
-        border: none;
-        cursor: pointer;
-        background: #966A57 0% 0% no-repeat padding-box;
-        padding: 12px 24px;
-        text-align: center;
-        font: normal normal bold 16px/20px Bellota Text;
-        letter-spacing: 0.27px;
-        color: #F2EFED;
-        text-transform: uppercase;
-    }
-    
-    .detail-contain-right-group {
-        cursor: pointer;
-        margin-top: 2vh;
-        width: 80%;
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .detail-title-group {
-        text-align: left;
-        font: normal normal bold 18px/27px Bellota Text;
-        letter-spacing: 0.36px;
-        color: #524D4B;
-        text-transform: uppercase;
-        margin-bottom: 1vh;
-    }
-    
-    .detail-title-group-container {
-        width: 80%;
-        text-align: left;
-        font: normal normal bold 15px/27px Bellota Text;
-        letter-spacing: 0.27px;
-        color: #524D4B;
-        padding-bottom: 1.5vh;
-        border-bottom: 1px solid var(--underline);
-    }
-
-    .more-products {
-        margin: 5vh 15vh;
-    }
-}
-
-@media only screen and (min-width:575px) and (max-width:991px) {
-
-    .detail {
-        padding-top: 3vh;
-        padding-bottom: 2vw;
-    }
-    
-    .detail-contain {
-        display: flex;
-    }   
-
-    .detail-contain .detail-img {
-        flex: 50%;
-        height: 430px;
-    }
-    
-    .detail-contain .detail-img img {
-        margin-left: 10vh;
-        height: 100%;
-        width: 90%;
-        object-fit: cover;
-    }
-    
-    .detail-contain .detail-contain-right{
-        flex: 50%;
-        margin-top: 1vh;
-        margin-left: 10vh;
-    }
-    
-    .detail-contain .detail-contain-right h2 {
-        text-align: left;
-        font: normal normal bold 22px/22px Bellota Text;
-        letter-spacing: 1.05px;
-        color: #524D4B;
-        text-transform: capitalize;
-    }
-    
-     .detail-contain-right-price {
-        padding-top: 1vh;
-        text-align: left;
-        font: normal normal bold 18px/22px Bellota Text;
-        letter-spacing: 0.48px;
-        color: #524D4B;
-    }
-
-    .labelQuantity{
-        padding-top: 1.5vh;
-        text-align: left;
-        font: normal normal bold 20px/24px Bellota Text;
-        letter-spacing: 0.6px;
-        color: #524D4B;
-        text-transform: uppercase;
-    }
-    
-    .detail-contain-right-quantity {
-        margin-top: 1vh;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        margin-bottom: 3vh;
-    }
-    
-    .detail-contain-right-quantity p {
-        padding-top: 8px;
-        width: 36px;
-        height: 36px;
-        text-align: center;
-        background-color: white;
-        font-size: 18px;
-    }
-    
-    .detail-contain-right-quantity button {
-        width: 36px;
-        height: 36px;
-        background-color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 18px;
-    }
-    
-    
-    .detail-contain-right-button {
-        margin-top: 2vh;
-        margin-bottom: 5vh;
-        width: 90%;
-        display: flex;
-    }
-    
-    .add {
-        padding: 8px 12px;
-        cursor: pointer;
-        border: none;
-        margin-right: 5vh;
-        background: #E5E1DF 0% 0% no-repeat padding-box;
-        text-align: center;
-        font: normal normal bold 16px/18px Bellota Text;
-        letter-spacing: 0.27px;
-        color: #966A57;
-        text-transform: uppercase;
-    }
-    
-    .buy{
-        border: none;
-        cursor: pointer;
-        background: #966A57 0% 0% no-repeat padding-box;
-        padding: 8px 12px;
-        text-align: center;
-        font: normal normal bold 16px/18px Bellota Text;
-        letter-spacing: 0.27px;
-        color: #F2EFED;
-        text-transform: uppercase;
-    }
-    
-    .detail-contain-right-group {
-        cursor: pointer;
-        margin-top: 2vh;
-        width: 90%;
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .detail-title-group {
-        text-align: left;
-        font: normal normal bold 16px/27px Bellota Text;
-        letter-spacing: 0.36px;
-        color: #524D4B;
-        text-transform: uppercase;
-        margin-bottom: 1vh;
-    }
-    
-    .detail-title-group-container {
-        width: 90%;
-        text-align: left;
-        font: normal normal bold 14px/18px Bellota Text;
-        letter-spacing: 0.27px;
-        color: #524D4B;
-        padding-bottom: 1.5vh;
-        border-bottom: 1px solid var(--underline);
-    }
-    
-    .more-products {
-        margin: 2.5vh 10vh;
-    }
-
-}
-
-@media only screen and (max-width:575px){
-    .detail {
-        padding-top: 1.5vh;
-        padding-bottom: 2vw;
-    }
-    .detail-contain {
-        display: flex;
-        flex-direction: column;
-    }
-    .detail-contain .detail-img {
-        height: 350px;
-        width: 100%;
-    }
-    
-    .detail-contain .detail-img img {
-        margin-left: 0;
-        padding: 0 10%;
-        height: 350px;
-        width: 100%;
-        object-fit: cover;
-    }
-    
-    .detail-contain .detail-contain-right{
-        margin-left: 0;
-        margin-top: 2vh;
-        padding: 0 10%;
-    }
-    
-    .detail-contain .detail-contain-right h2 {
-        text-align: left;
-        font: normal normal bold 18px Bellota Text;
-        letter-spacing: 1.05px;
-        color: #524D4B;
-        text-transform: capitalize;
-    }
-    
-     .detail-contain-right-price {
-        padding-top: 5px;
-        text-align: left;
-        font: normal normal bold 15px Bellota Text;
-        letter-spacing: 0.48px;
-        color: #524D4B;
-    }
-    
-    .labelQuantity{
-        padding-top: 8px;
-        text-align: left;
-        font: normal normal bold 14px Bellota Text;
-        letter-spacing: 0.6px;
-        color: #524D4B;
-        text-transform: uppercase;
-    }
-
-    .detail-contain-right-quantity {
-        margin-top: 2vh;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        margin-bottom: 2vh;
-    }
-    
-    .detail-contain-right-quantity p {
-        padding-top: 8px;
-        width: 36px;
-        height: 36px;
-        text-align: center;
-        background-color: white;
-        font-size: 18px;
-    }
-
-    .detail-contain-right-button {
-        margin-top: 2vh;
-        margin-bottom: 3vh;
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        gap: 30px;
-    }
-
-    .add {
-        padding: 4px 12px;
-        cursor: pointer;
-        border: none;
-        margin-right: 0;
-        background: #E5E1DF 0% 0% no-repeat padding-box;
-        text-align: center;
-        font-size: 12px;
-        letter-spacing: 0.27px;
-        color: #966A57;
-        text-transform: uppercase;
-    }
-    
-    .buy{
-        border: none;
-        cursor: pointer;
-        background: #966A57 0% 0% no-repeat padding-box;
-        padding: 4px 12px;
-        text-align: center;
-        font-size: 12px;
-        letter-spacing: 0.27px;
-        color: #F2EFED;
-        text-transform: uppercase;
-    }
-
-    .detail-contain-right-group {
-        cursor: pointer;
-        margin-top: 3vh;
-        width: 95%;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .detail-title-group {
-        text-align: left;
-        font: normal normal bold 15px/25px Bellota Text;
-        letter-spacing: 0.36px;
-        color: #524D4B;
-        text-transform: uppercase;
-        margin-bottom: 1vh;
-    }
-    
-    .detail-title-group-container {
-        width: 95%;
-        text-align: left;
-        font: normal normal bold 12px Bellota Text;
-        letter-spacing: 0.27px;
-        color: #524D4B;
-        padding-bottom: 2vh;
-        border-bottom: 1px solid var(--underline);
-    }
-
-    .more-products {
-        margin: 0;
-        margin: 2vh 10%;
-    }
-
-    .title-more-product {
-        text-align: left;
-        font: normal normal bold 18px/27px Bellota Text;
-        letter-spacing: 0.63px;
-        color: #524D4B;
-        text-transform: capitalize;
-        margin-bottom: 3vh;
-    }
-    
-
-
-    .detail-ItemTxt h5 {
-        padding-top: 1vh;
-        height: 5vh;
-        text-align: left;
-        font: normal normal bold 80%/18px Bellota Text;
-        letter-spacing: 0.6px;
-        color: #524D4B;
-        text-transform: capitalize;
-        overflow: visible;
-        margin-bottom: 5px;
-    }
-    
-    .detail-ItemTxt h6{
-        text-align: left;
-        margin: 0;
-        font: normal normal bold 80%/18px Bellota Text;
-        letter-spacing: 0.6px;
-        color: #7C7B7B;
-    }
+  .detail-card {
+    max-height: 500px;
+  }
+  .detail-card-img {
+    height: 100%;
+  }
+  .detail-card-img img {
+    height: 275px;
+  }
 }

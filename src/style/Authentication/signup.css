@@ -1,95 +1,17 @@
-@import "../../constants/Color/variable.css";
-.signup-container {
-    background: var(--primary-background);
-    left: 50%;
-    width: 36vw;
-    height: 580px;
-    top: 6%;
-}
-
-.auth-form {
-  margin: 0 40px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.form-title {
+.form-title-signup {
   font-size: 2.2rem;
   color: var(--text-title);
+  padding-top: 20px;
 }
 
-.form-input {
-  margin-top: 45px;
+.form-input-signup {
+  margin-top: 20px;
 }
 
-.input-field {
-  background-color: transparent;
-  display: grid;
-  grid-template-rows: 50% 50%;
-  height: 60px;
-  margin: 20px 0;
-  position: relative;
-  width: 100%;
-}
-
-.form-label {
-  color: var(--primary-text);
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.input-field input {
-  background: transparent;
-  border-bottom: 1px solid #999;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  color: var(--primary-text);
-  font-size: 18px;
-  outline: none;
-}
-
-.form-submit {
+.form-submit-signup {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 50px;
-}
-
-.form-linking {
-  color: var(--primary-text);
-  cursor: pointer;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.auth-btn-submit {
-  background-color: var(--text-title);
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 1.2rem;
-  font-size: 16px;
-  height: 50px;
-  text-transform: uppercase;
-  width: 150px;
-}
-.modal-footer button {
-  background: var(--text-title);
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  display: block;
-  font-size: 1rem;
-  margin-left: auto;
-  outline: none;
-}
-
-.signin_link {
-  color: var(--blue-light);
-  cursor: pointer;
-  text-decoration: none;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }

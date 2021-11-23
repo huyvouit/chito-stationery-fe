@@ -240,11 +240,9 @@ export const DetailScreen = () => {
                     onClick={() => handleClickItemPassDetail(item._id)}
                   >
                     <div className="detail-card">
-                      <img
-                        className="detail-ItemImg"
-                        src={item.image}
-                        alt={item.productName}
-                      />
+                      <div className="detail-card-img">
+                        <img src={item.image} alt={item.productName} />
+                      </div>
                       <div className="detail-ItemTxt">
                         <h5>{item.productName}</h5>
                         <h6>{item.price.$numberDecimal} VND</h6>

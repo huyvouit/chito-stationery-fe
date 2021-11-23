@@ -91,7 +91,7 @@ export const EditAddress = () => {
     }
   };
   return (
-    <div>
+    <div className="edit-address-container">
       <div className="account-info">
         <div className="profile-col-width">
           <h2>Contact Information</h2>

@@ -119,9 +119,8 @@ export const SearchBox = () => {
                     closePopUp();
                   }}
                 >
-                  <div className="product-image">
-                    <img className="item-image" src={item.image} alt="Avatar" />
-                  </div>
+                  <img className="item-image" src={item.image} alt="Avatar" />
+
                   <div className="product-info">
                     <h4 className="info-name">{item.productName}</h4>
                     <p className="info-desc">{item.description}</p>

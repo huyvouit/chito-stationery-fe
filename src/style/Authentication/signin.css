@@ -102,3 +102,33 @@
   cursor: pointer;
   text-decoration: none;
 }
+.validate-error {
+  color: red;
+}
+@media screen and (max-width: 1024px) {
+  .signin-signup {
+    width: 45vw;
+  }
+}
+
+@media screen and (max-width: 876px) {
+  .signin-signup {
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .signin-signup {
+    width: 65vw;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .signin-signup {
+    width: 85vw;
+  }
+
+  .auth-form {
+    margin: 0 20px;
+  }
+}

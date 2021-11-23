@@ -2,15 +2,18 @@
 .filter {
   background: var(--primary-background);
   left: 0;
-  width: 30vw;
+  width: 35vw;
   height: 100%;
   position: fixed;
   top: 0;
   transition: all 0.5s ease;
   z-index: 101;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.filter > h1 {
+.filter-header > h1 {
   color: var(--text-title);
   text-align: center;
   margin-top: 30px;
@@ -21,8 +24,7 @@
   height: 40px;
   display: flex;
   justify-content: space-between;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin: 0 15px;
 }
 
 .filter-group-price {
@@ -30,8 +32,7 @@
   margin-top: 3.5%;
   display: flex;
   justify-content: space-between;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin: 15px 15px 0;
   border-bottom: 1px solid var(--underline);
 }
 
@@ -53,16 +54,15 @@
 }
 .list-type {
   border-bottom: 1px solid var(--underline);
-  margin: 0 15px;
   padding-bottom: 9px;
 }
 .list > .btn-list {
   display: flex;
   background: var(--primary-background);
-  border: none;
-  margin-left: 5%;
+  /* border: none; */
+  margin-left: 15px;
   margin-bottom: 1.5%;
-  width: 50%;
+  width: 80%;
 }
 
 .list > .btn-list > label {
@@ -86,8 +86,7 @@
 .group-input {
   display: flex;
   justify-content: space-between;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin: 0 15px;
   border-bottom: 1px solid var(--underline);
   height: 58px;
 }
@@ -95,12 +94,16 @@
 .btn-list label {
   text-transform: uppercase;
 }
+.price {
+  width: 100%;
+  text-align: center;
+}
 .price > input {
   font: normal normal bold 18px/27px Bellota Text;
   letter-spacing: 1.2px;
   color: #524d4b;
   text-align: center;
-  width: 160px;
+  width: 80%;
   height: 40px;
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #707070;
@@ -118,25 +121,22 @@
 }
 
 .filter-group-btn {
-  position: absolute;
-  bottom: 0;
+  /* position: absolute; */
+  /* bottom: 0; */
   display: flex;
   justify-content: space-between;
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-bottom: 30px;
-  gap: 62px;
+  margin: 0 15px 30px;
 }
 
 .btn-clear {
   background-color: var(--primary-background);
   border: 1px solid var(--text-title);
   color: var(--text-title);
-  padding: 12px 32px;
+  padding: 12px 22px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 15px;
   font-family: "Bellota Text", cursive;
   cursor: pointer;
   text-transform: uppercase;
@@ -146,12 +146,56 @@
   background-color: var(--text-title);
   border: none;
   color: white;
-  padding: 12px 32px;
+  padding: 12px 22px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 15px;
   font-family: "Bellota Text", cursive;
   cursor: pointer;
   text-transform: uppercase;
+}
+
+@media screen and (max-width: 1024px) {
+  .filter {
+    width: 40vw;
+  }
+}
+
+@media screen and (max-width: 876px) {
+  .filter {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .filter {
+    width: 70vw;
+  }
+
+  .btn-clear {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .btn-apply {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .filter {
+    width: 80vw;
+  }
+
+  .btn-clear {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .btn-apply {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
 }
