@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { SideBar } from "./SideBar";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/auth_context";
 import { Loader } from "../Layout/loader";

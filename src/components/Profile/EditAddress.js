@@ -49,6 +49,8 @@ export const EditAddress = () => {
   // console.log(infoUserForm);
 
   const handleSubmitChangeInfoUser = async () => {
+    const isValid = validateAll();
+    if (!isValid) return;
     try {
       const infoUser = {
         email: user.email,
@@ -79,7 +81,7 @@ export const EditAddress = () => {
         // });
       }
     } catch (error) {
-      console.log("error pass", error.response.data);
+      console.log("error pass", error.data.error);
       toast.error(error.response.data.error, {
         position: "top-right",
         autoClose: 5000,
@@ -100,7 +102,7 @@ export const EditAddress = () => {
     }
     if (isEmpty(phone)) {
       msg.phone = "Please input your phone number.";
-    } else if (phone.length>11 || phone.length<10) {
+    } else if (phone.length > 11 || phone.length < 10) {
       msg.phone = "Please input a valid phone number.";
     }
     if (isEmpty(streetAddress)) {
@@ -117,13 +119,6 @@ export const EditAddress = () => {
     if (Object.keys(msg).length > 0) return false;
     return true;
   };
-
-  const onSaveButton = () => {
-    const isValid = validateAll();
-    if (!isValid) return;
-
-    
-  }
 
   return (
     <div className="edit-address-container">
@@ -188,14 +183,13 @@ export const EditAddress = () => {
       <div className="info-footer">
         <button
           className="btn-save-edit-address"
-          onClick={() => {
-            onSaveButton();
-            handleSubmitChangeInfoUser();
-          }}
+          onClick={handleSubmitChangeInfoUser}
         >
           SAVE
         </button>
-        <Link to="/profile/acc-address" className="btn-cancel">CANCEL</Link>
+        <Link to="/profile/acc-address" className="btn-cancel">
+          CANCEL
+        </Link>
       </div>
     </div>
   );

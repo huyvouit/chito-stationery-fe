@@ -58,7 +58,6 @@ export const AccInfo = () => {
         });
       }
     } catch (error) {
-      console.log("error pass", error.response.data);
       toast.error(error.response.data.error, {
         position: "top-right",
         autoClose: 5000,

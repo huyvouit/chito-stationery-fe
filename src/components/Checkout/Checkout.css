@@ -242,18 +242,16 @@
 .checkout-right-content {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: 80px;
 }
 
-@media only screen and (max-width: 1366px){
+@media only screen and (max-width: 1366px) {
   .checkout-wrapper {
     padding: 15px;
   }
 }
 
 @media only screen and (max-width: 991px) {
-  
-
   .checkout-wrapper {
     justify-content: space-between;
     margin: 0 auto;
@@ -266,7 +264,9 @@
     margin-bottom: 9px;
   }
 
-  .checkout-link, .checkout-table-tbody p, td {
+  .checkout-link,
+  .checkout-table-tbody p,
+  td {
     font-size: 10px;
   }
 
@@ -274,13 +274,16 @@
     font-size: 21px;
   }
 
-  .checkout-cart-info-style h3, .checkout-summary-title, 
+  .checkout-cart-info-style h3,
+  .checkout-summary-title,
   .checkout-right-flex {
     font-size: 12px;
   }
 
-  .checkout-cart-info-style h5, .checkout-subtitle,
-  .checkout-info-content-btn, .checkout-info-title-btn {
+  .checkout-cart-info-style h5,
+  .checkout-subtitle,
+  .checkout-info-content-btn,
+  .checkout-info-title-btn {
     font-size: 9px;
   }
 
@@ -309,7 +312,8 @@
     padding-bottom: 21px;
   }
 
-  .checkout-info-title h3, .checkout-info-wrapper h3 {
+  .checkout-info-title h3,
+  .checkout-info-wrapper h3 {
     font-size: 12px;
     margin-bottom: 3px;
   }
@@ -323,7 +327,8 @@
     font-size: 10px;
   }
 
-  .checkout-btn, .checkout-btn-bigger {
+  .checkout-btn,
+  .checkout-btn-bigger {
     padding: 10px 23px;
   }
 
@@ -393,40 +398,40 @@
   }
 }
 
-.checkout-container{
+.checkout-container {
   padding-left: 0.88235rem;
   padding-right: 0.88235rem;
 }
 
-.checkout-container .row{
+.checkout-container .row {
   margin-left: 0.88235rem;
   margin-right: 0.88235rem;
   display: flex;
   flex-wrap: wrap;
 }
 
-.checkout-left-bk{
+.checkout-left-bk {
   flex: 0 0 66.666667%;
   max-width: 66.666667%;
-  position: relative;
-    width: 100%;
-    min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-.checkout-right-bk{
   position: relative;
   width: 100%;
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
-flex: 0 0 33.333333%;
-max-width: 33.333333%;
 }
 
-@media(max-width: 991px){
-  .checkout-left-bk{
+.checkout-right-bk {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+@media (max-width: 991px) {
+  .checkout-left-bk {
     flex: 0 0 60%;
     max-width: 60%;
     position: relative;
@@ -435,26 +440,26 @@ max-width: 33.333333%;
     padding-right: 15px;
     padding-left: 15px;
   }
-  
-  .checkout-right-bk{
+
+  .checkout-right-bk {
     position: relative;
     width: 100%;
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
-  flex: 0 0 40%;
-  max-width: 40%;
+    flex: 0 0 40%;
+    max-width: 40%;
   }
 }
 
-@media(max-width: 575px){
-  .checkout-container .row{
+@media (max-width: 575px) {
+  .checkout-container .row {
     margin-left: -0.88235rem;
     margin-right: -0.88235rem;
     display: flex;
     flex-wrap: wrap;
   }
-  .checkout-left-bk{
+  .checkout-left-bk {
     flex: 0 0 100%;
     max-width: 100%;
     position: relative;
@@ -463,14 +468,14 @@ max-width: 33.333333%;
     padding-right: 15px;
     padding-left: 15px;
   }
-  
-  .checkout-right-bk{
+
+  .checkout-right-bk {
     position: relative;
     width: 100%;
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
-  flex: 0 0 100%;
-  max-width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
