@@ -237,7 +237,7 @@
   margin-top: 36px;
   margin-bottom: 36px;
   background-color: var(--text-title);
-  border: solid 1px var(--text-title);
+  border: none;
   color: var(--primary-background);
   padding: 12px 32px;
   text-align: center;

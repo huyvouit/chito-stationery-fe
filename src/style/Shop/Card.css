@@ -1,6 +1,6 @@
 .groupCard {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-wrap: wrap;
   /* gap: 24px; */
   width: 100%;
@@ -20,7 +20,7 @@
   padding: 20px 15px;
   min-width: 225px;
   min-height: 315px;
-  max-height: 400px;
+  max-height: 404px;
   width: 100%;
   background: #ffffff 0% 0% no-repeat padding-box;
 }

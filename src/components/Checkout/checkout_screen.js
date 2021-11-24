@@ -92,6 +92,8 @@ export const Checkout = () => {
     }
     if (isEmpty(phone)) {
       msg.phone = "Please input your phone.";
+    } else if (phone.length>11 || phone.length<10) {
+      msg.phone = "Please input a valid phone number.";
     }
     if (isEmpty(streetAddress)) {
       msg.streetAddress = "Please input your street address.";
