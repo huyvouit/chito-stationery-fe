@@ -24,9 +24,10 @@ function Cards() {
                 <div
                   className="card"
                   onClick={() => handleClickItemPassDetail(item)}
+                  title={item.productName}
                 >
                   <div className="card-img">
-                    <img src={item.image} alt="Avatar" />
+                    <img src={item.image} alt={item.productName} />
                   </div>
                   <div className="ItemTxt">
                     <h5>{item.productName}</h5>
