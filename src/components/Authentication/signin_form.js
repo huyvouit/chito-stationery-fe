@@ -81,30 +81,10 @@ export const SignInform = ({ clickSignUp }) => {
             />
           </div>
         </div>
-        <p>
-          This site is protected by reCAPTCHA and the Google{" "}
-          <a
-            className="signin_link"
-            href="https://policies.google.com/privacy"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Privacy Policy
-          </a>{" "}
-          and{" "}
-          <a
-            className="signin_link"
-            href="https://policies.google.com/terms"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Terms of Service
-          </a>{" "}
-          apply.
-        </p>
+        
         <div className="form-submit">
           <p className="form-linking" onClick={clickSignUp}>
-            create a account
+            create an account
           </p>
           <input type="submit" value="Login" className="auth-btn-submit" />
         </div>

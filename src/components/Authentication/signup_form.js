@@ -115,27 +115,7 @@ export const SignUpForm = ({ clickSignIn }) => {
             )}
           </div>
         </div>
-        <p style={{ marginTop: "15px" }}>
-          This site is protected by reCAPTCHA and the Google{" "}
-          <a
-            className="signin_link"
-            href="https://policies.google.com/privacy"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Privacy Policy
-          </a>{" "}
-          and{" "}
-          <a
-            className="signin_link"
-            href="https://policies.google.com/terms"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Terms of Service
-          </a>{" "}
-          apply.
-        </p>
+        
         <div className="form-submit-signup">
           <p className="form-linking" onClick={clickSignIn}>
             back to sign in

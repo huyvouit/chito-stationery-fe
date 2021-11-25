@@ -131,7 +131,7 @@ export const AccInfo = () => {
             )}
           </div>
           <div className="info-footer">
-            <p>
+            {/* <p>
               This site is protected by reCAPTCHA and the Google{" "}
               <a
                 className="signin_link"
@@ -151,7 +151,7 @@ export const AccInfo = () => {
                 Terms of Service
               </a>{" "}
               apply.
-            </p>
+            </p> */}
             {isChangePass && (
               <button className="btn-save" onClick={handlleSubmitChangePass}>
                 SAVE
