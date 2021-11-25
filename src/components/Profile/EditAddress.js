@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
-import { SideBar } from "./SideBar";
 import { AuthContext } from "../../contexts/auth_context";
 import { Loader } from "../Layout/loader";
 import userApi from "../../api/user_api";
 import { toast } from "react-toastify";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import isEmpty from "validator/lib/isEmpty";
 
 export const EditAddress = () => {
   const {
@@ -49,6 +49,8 @@ export const EditAddress = () => {
   // console.log(infoUserForm);
 
   const handleSubmitChangeInfoUser = async () => {
+    const isValid = validateAll();
+    if (!isValid) return;
     try {
       const infoUser = {
         email: user.email,
@@ -79,7 +81,7 @@ export const EditAddress = () => {
         // });
       }
     } catch (error) {
-      console.log("error pass", error.response.data);
+      console.log("error pass", error.data.error);
       toast.error(error.response.data.error, {
         position: "top-right",
         autoClose: 5000,
@@ -90,6 +92,34 @@ export const EditAddress = () => {
       });
     }
   };
+
+  const [validationMsg, setValidationMsg] = useState({});
+
+  const validateAll = () => {
+    const msg = {};
+    if (isEmpty(fullname)) {
+      msg.fullname = "Please input your full name.";
+    }
+    if (isEmpty(phone)) {
+      msg.phone = "Please input your phone number.";
+    } else if (phone.length > 11 || phone.length < 10) {
+      msg.phone = "Please input a valid phone number.";
+    }
+    if (isEmpty(streetAddress)) {
+      msg.streetAddress = "Please input your street address.";
+    }
+    if (isEmpty(district)) {
+      msg.district = "Please input your district.";
+    }
+    if (isEmpty(province)) {
+      msg.province = "Please input your province or city.";
+    }
+
+    setValidationMsg(msg);
+    if (Object.keys(msg).length > 0) return false;
+    return true;
+  };
+
   return (
     <div className="edit-address-container">
       <div className="account-info">
@@ -104,6 +134,7 @@ export const EditAddress = () => {
               onChange={onChangeInfoUserForm}
             />
           </div>
+          <p style={{ color: "red" }}>{validationMsg["fullname"]}</p>
           <h5 className="profile-info-subtitle">PHONE NUMBER</h5>
           <div className="profile-info-input">
             <input
@@ -113,6 +144,7 @@ export const EditAddress = () => {
               onChange={onChangeInfoUserForm}
             />
           </div>
+          <p style={{ color: "red" }}>{validationMsg["phone"]}</p>
         </div>
         <div className="profile-col-width account-info-right">
           <h2>Address</h2>
@@ -125,6 +157,7 @@ export const EditAddress = () => {
               onChange={onChangeInfoUserForm}
             />
           </div>
+          <p style={{ color: "red" }}>{validationMsg["streetAddress"]}</p>
           <h5 className="profile-info-subtitle">DISTRICT*</h5>
           <div className="profile-info-input">
             <input
@@ -134,6 +167,7 @@ export const EditAddress = () => {
               onChange={onChangeInfoUserForm}
             />
           </div>
+          <p style={{ color: "red" }}>{validationMsg["district"]}</p>
           <h5 className="profile-info-subtitle">PROVINCE/CITY*</h5>
           <div className="profile-info-input">
             <input
@@ -143,6 +177,7 @@ export const EditAddress = () => {
               onChange={onChangeInfoUserForm}
             />
           </div>
+          <p style={{ color: "red" }}>{validationMsg["province"]}</p>
         </div>
       </div>
       <div className="info-footer">
@@ -152,7 +187,9 @@ export const EditAddress = () => {
         >
           SAVE
         </button>
-        <button className="btn-cancel">CANCEL</button>
+        <Link to="/profile/acc-address" className="btn-cancel">
+          CANCEL
+        </Link>
       </div>
     </div>
   );

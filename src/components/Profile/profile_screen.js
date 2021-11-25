@@ -26,7 +26,7 @@ export const ProfileScreen = () => {
       try {
         const param = { email: user.email };
         const response = await userApi.getPurchaseHistory(param);
-        setPurchaseHistory(response.data);
+        setPurchaseHistory(response.data.orders);
         setIsLoading(false);
       } catch (error) {
         console.log("Failed to fetch product list: ", error);
@@ -107,25 +107,20 @@ export const ProfileScreen = () => {
                 </tr>
               </thead>
               <tbody>
-                {[...purchaseHistory]
-                  .reverse()
-                  .slice(0, 4)
-                  .map((item) => {
-                    return (
-                      <tr key={item._id}>
-                        <td className="ellipsis">
-                          <span>#{item._id}</span>
-                        </td>
-                        <td>
-                          <Moment format="DD/MM/YYYY">{item.createdAt}</Moment>
-                        </td>
-                        <td>{item.productList.length}</td>
-                        <td>
-                          {formatter.format(item.totalCost.$numberDecimal)}
-                        </td>
-                      </tr>
-                    );
-                  })}
+                {[...purchaseHistory].slice(0, 4).map((item) => {
+                  return (
+                    <tr key={item._id}>
+                      <td className="ellipsis">
+                        <span>#{item._id}</span>
+                      </td>
+                      <td>
+                        <Moment format="DD/MM/YYYY">{item.createdAt}</Moment>
+                      </td>
+                      <td>{item.productList.length}</td>
+                      <td>{formatter.format(item.totalCost.$numberDecimal)}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           )}

@@ -65,7 +65,7 @@ export const Checkout = () => {
         productList: cartItems,
         totalCost: totalPrice,
       };
-      console.log("postCheckout: ", info);
+
       const checkoutData = await checkoutApi.postCheckout(info);
       if (checkoutData.data.success) {
         console.log(checkoutData.data.message);
@@ -92,6 +92,8 @@ export const Checkout = () => {
     }
     if (isEmpty(phone)) {
       msg.phone = "Please input your phone.";
+    } else if (phone.length > 11 || phone.length < 10) {
+      msg.phone = "Please input a valid phone number.";
     }
     if (isEmpty(streetAddress)) {
       msg.streetAddress = "Please input your street address.";
@@ -167,7 +169,9 @@ export const Checkout = () => {
                               <tr
                                 key={item._id}
                                 title={item.productName}
-                                onClick={() => handleClickItemPassDetail(item._id)}
+                                onClick={() =>
+                                  handleClickItemPassDetail(item._id)
+                                }
                                 style={{ cursor: "pointer" }}
                               >
                                 <td>
@@ -183,7 +187,9 @@ export const Checkout = () => {
                                   </h4>
                                   <p>Quantity: {item.quantity}</p>
                                 </td>
-                                <td>{formatter.format(item.totalPriceByItem)} </td>
+                                <td>
+                                  {formatter.format(item.totalPriceByItem)}{" "}
+                                </td>
                               </tr>
                             );
                           })}
@@ -218,7 +224,9 @@ export const Checkout = () => {
                           value={fullname}
                           onChange={onChangeInfoCheckout}
                         />
-                        <p style={{ color: "red" }}>{validationMsg["fullname"]}</p>
+                        <p style={{ color: "red" }}>
+                          {validationMsg["fullname"]}
+                        </p>
                       </div>
                       <div className="checkout-info-content">
                         <div className="checkout-subtitle">PHONE NUMBER*</div>
@@ -253,7 +261,9 @@ export const Checkout = () => {
                           value={district}
                           onChange={onChangeInfoCheckout}
                         />
-                        <p style={{ color: "red" }}>{validationMsg["district"]}</p>
+                        <p style={{ color: "red" }}>
+                          {validationMsg["district"]}
+                        </p>
                       </div>
                       <div className="checkout-info-content">
                         <div className="checkout-subtitle">PROVINCE/CITY*</div>
@@ -264,7 +274,9 @@ export const Checkout = () => {
                           value={province}
                           onChange={onChangeInfoCheckout}
                         />
-                        <p style={{ color: "red" }}>{validationMsg["province"]}</p>
+                        <p style={{ color: "red" }}>
+                          {validationMsg["province"]}
+                        </p>
                       </div>
                       <div className="checkout-btn-continue">
                         <button
@@ -355,9 +367,7 @@ export const Checkout = () => {
               </div>
             </div>
           </div>
-          
         </div>
-        
       )}
     </>
   );

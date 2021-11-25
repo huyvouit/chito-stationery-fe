@@ -23,7 +23,7 @@ export const MyOrders = () => {
       try {
         const param = { email: user.email };
         const response = await userApi.getPurchaseHistory(param);
-        setPurchaseHistory(response.data);
+        setPurchaseHistory(response.data.orders);
         setIsLoading(false);
       } catch (error) {
         console.log("Failed to fetch product list: ", error);
@@ -54,7 +54,7 @@ export const MyOrders = () => {
             </tr>
           </thead>
           <tbody>
-            {[...purchaseHistory].reverse().map((item) => {
+            {[...purchaseHistory].map((item) => {
               return (
                 <tr
                   key={item._id}
@@ -62,7 +62,9 @@ export const MyOrders = () => {
                   className="detail-order-tr"
                   style={{ cursor: "pointer" }}
                 >
-                  <td className="ellipsis"><span>#{item._id}</span></td>
+                  <td className="ellipsis">
+                    <span>#{item._id}</span>
+                  </td>
                   <td>
                     <Moment format="DD/MM/YYYY">{item.createdAt}</Moment>
                   </td>

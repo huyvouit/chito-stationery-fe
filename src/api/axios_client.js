@@ -46,7 +46,10 @@ const getNewTokenAndReattemptRequest = async (config, refToken) => {
 };
 
 axiosClient.interceptors.response.use(
-  (res) => res,
+  (response) => {
+    return response;
+  },
+
   (error) => {
     const {
       config,
@@ -71,7 +74,8 @@ axiosClient.interceptors.response.use(
       console.log("404 error");
       return;
     }
-    return error;
+
+    throw error;
   }
 );
 export default axiosClient;

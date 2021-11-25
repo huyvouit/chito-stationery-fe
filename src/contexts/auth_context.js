@@ -2,7 +2,7 @@ import { createContext, useReducer, useEffect } from "react";
 import { authReducer } from "../reducers/auth_reducer";
 import { TOKEN_NAME, REFTOKEN } from "../constants/constant";
 import authApi from "../api/auth_api";
-
+import { toast } from "react-toastify";
 export const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
@@ -74,7 +74,15 @@ const AuthContextProvider = ({ children }) => {
 
       return response.data;
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error.response.data.success);
+      toast.error(error.response.data.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
       if (error.response.data) return error.response.data;
     }
   };

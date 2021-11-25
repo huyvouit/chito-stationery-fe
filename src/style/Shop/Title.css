@@ -73,6 +73,10 @@
   .default {
     font: normal normal bold 16px Bellota Text;
   }
+
+  .title-head-name {
+    font-size: 24px;
+  }
 }
 
 @media screen and (max-width: 330px) {

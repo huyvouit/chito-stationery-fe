@@ -1,6 +1,6 @@
 .groupCard {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   /* gap: 24px; */
   width: 100%;
@@ -20,7 +20,7 @@
   padding: 20px 15px;
   min-width: 225px;
   min-height: 315px;
-  max-height: 400px;
+  max-height: 404px;
   width: 100%;
   background: #ffffff 0% 0% no-repeat padding-box;
 }
@@ -49,6 +49,12 @@
   letter-spacing: 0.6px;
   color: var(--primary-text);
   text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .ItemTxt > p {
