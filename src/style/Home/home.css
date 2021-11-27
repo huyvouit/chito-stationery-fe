@@ -3,3 +3,48 @@
   top: -146px;
   z-index: -1;
 } */
+
+.parallax {
+  height: 400px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: none;
+  /* padding: 80px 0; */
+  color: #ffffff;
+  margin: 20px 0;
+  top: -60px;
+}
+
+.parallax-bg {
+  background-image: url(../../assets/Images/poster_home.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  margin: 0 auto;
+  position: absolute;
+}
+.parallax-content {
+  max-width: 576px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.parallax-content h2 {
+  font-size: 35px;
+  margin-bottom: 30px;
+}
+.parallax-content p {
+  font-size: 18px;
+  line-height: 1.3;
+}
+.image-center {
+  margin: 0 auto;
+  max-width: 100vh;
+}

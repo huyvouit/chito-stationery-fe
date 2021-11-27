@@ -23,19 +23,28 @@
 
 .marketing-cards {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 90%;
-  cursor: pointer;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 .marketing-child-card {
-  width: auto;
+  width: 33.33%;
   height: auto;
   cursor: pointer;
+  padding: 20px;
 }
-
+.marketing-child {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
 .marketing-img {
-  width: 300px;
+  width: 100%;
   height: 300px;
 }
 .marketing-img img {
@@ -46,4 +55,18 @@
 .marketing-script {
   text-align: center;
   margin-top: 15px;
+}
+.marketing-script p {
+  color: var(--text-title);
+}
+@media screen and (max-width: 768px) {
+  .marketing-child-card {
+    width: 100%;
+  }
+  .marketing-img {
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 568px) {
 }

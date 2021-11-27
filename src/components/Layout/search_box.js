@@ -93,7 +93,7 @@ export const SearchBox = () => {
               src={iconClose}
               width="20px"
               height="20px"
-              alt="cart icon"
+              alt="close icon"
               onClick={closePopUp}
             />
           </div>
