@@ -32,7 +32,9 @@ export const MyOrders = () => {
     fetchPurchaseHistory();
   }, []);
 
-  return (
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : (
     <div className="my-order-container">
       <h2>My Orders</h2>
       {purchaseHistory && purchaseHistory.length === 0 ? (

@@ -8,6 +8,7 @@ import downIcon from "../../assets/Icons/down-arrow.svg";
 import "../../style/Detail/Detail.css";
 import { CartContext } from "../../contexts/cart_context";
 import { useHistory } from "react-router-dom";
+import { formatter } from "../../Helper/formatter";
 
 export const DetailScreen = () => {
   const { id } = useParams();
@@ -114,7 +115,7 @@ export const DetailScreen = () => {
             <div className="detail-contain-right">
               <h2>{infoProduct["productName"]}</h2>
               <p className="detail-contain-right-price">
-                {infoProduct.price.$numberDecimal} VNĐ
+                {formatter.format(infoProduct?.price.$numberDecimal)}
               </p>
 
               <p className="labelQuantity">Quantity</p>
