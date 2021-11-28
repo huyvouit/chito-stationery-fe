@@ -99,6 +99,25 @@ export const DetailScreen = () => {
     history.push("/detail/" + item);
   };
 
+    //test
+    const [value, setValue] = useState(4);
+
+    useEffect(() => {
+      const resWidth = () => {
+        if (document.body.clientWidth < 575) {
+          setValue(1);
+        } else if (document.body.clientWidth >= 575 && document.body.clientWidth <= 600) {
+          setValue(2);
+        } else if (document.body.clientWidth > 600 && document.body.clientWidth < 1000) {
+          setValue(3);
+        } else setValue(4);
+  
+      };
+      window.addEventListener("resize", resWidth);
+      resWidth();
+      return () => window.removeEventListener("resize", resWidth);
+    }, []);
+
   return isLoading ? (
     <Loader />
   ) : Object.keys(infoProduct).length === 0 ? (
@@ -231,7 +250,7 @@ export const DetailScreen = () => {
           {relatedProduct &&
             relatedProduct.length > 0 &&
             shuffle(relatedProduct)
-              .slice(0, 4)
+              .slice(0, value)
               .map((item) => {
                 return (
                   <div
