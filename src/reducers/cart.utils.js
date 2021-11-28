@@ -7,7 +7,6 @@ export const addItemsToCart = (cartItems, cartItemToAdd, number) => {
   ); // check item exxited in array local yet?
   // console.log("exist item: ", existingCartItem);
   if (existingCartItem !== undefined) {
-    console.log(cartItemToAdd.price.$numberDecimal * 2);
     return cartItems.map((cartItem) =>
       cartItem._id === cartItemToAdd._id
         ? {

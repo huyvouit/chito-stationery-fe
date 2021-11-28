@@ -34,11 +34,13 @@ export const DetailOrder = () => {
   }, [id]);
 
   return Object.keys(detailOrder).length === 0 ? (
-    <ErrorPage />
+    <p>Loading...</p>
   ) : (
     <div className="detail-order-container">
       <div className="detail-order-top">
-        <h3 className="ellipsis"><span>ID: #{detailOrder["_id"]}</span></h3>
+        <h3 className="ellipsis">
+          <span>ID: #{detailOrder["_id"]}</span>
+        </h3>
         <h3>
           Date: <Moment format="DD/MM/YYYY">{detailOrder["createdAt"]}</Moment>
         </h3>

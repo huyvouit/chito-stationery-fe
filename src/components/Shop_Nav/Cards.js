@@ -3,6 +3,7 @@ import { CartContext } from "../../contexts/cart_context";
 import { useHistory } from "react-router-dom";
 import "../../style/Shop/Card.css";
 import { ProductContext } from "../../contexts/product_context";
+import { formatter } from "../../Helper/formatter";
 
 function Cards() {
   const { productList } = useContext(ProductContext);
@@ -32,7 +33,7 @@ function Cards() {
                   <div className="ItemTxt">
                     <h5>{item.productName}</h5>
                     <p>{item.description}</p>
-                    <h4>{item.price.$numberDecimal} VND</h4>
+                    <h4>{formatter.format(item.price.$numberDecimal)}</h4>
                   </div>
                 </div>
                 <div className="card_btn " onClick={() => addItem(item, 1, 0)}>
