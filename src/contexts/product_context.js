@@ -10,7 +10,7 @@ const ProductContextProvider = ({ children }) => {
     productList,
     setProductList,
   };
-  console.log("product");
+
   return (
     <ProductContext.Provider value={ProductContextData}>
       {children}

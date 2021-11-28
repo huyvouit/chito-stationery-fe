@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { SideBar } from "./SideBar";
 import "./profile.css";
 import { AuthContext } from "../../contexts/auth_context";
 import { Loader } from "../Layout/loader";
@@ -7,9 +6,9 @@ import userApi from "../../api/user_api";
 import { formatter } from "../../Helper/formatter";
 import Moment from "react-moment";
 import { useHistory } from "react-router-dom";
-import { normalizeUnits } from "moment";
-import arrowUpTitle from "../../assets/Icons/arrow-up-title.svg";
-import arrowDownTitle from "../../assets/Icons/arrow-down-title.svg";
+// import { normalizeUnits } from "moment";
+// import arrowUpTitle from "../../assets/Icons/arrow-up-title.svg";
+// import arrowDownTitle from "../../assets/Icons/arrow-down-title.svg";
 
 export const ProfileScreen = () => {
   const {
@@ -53,7 +52,9 @@ export const ProfileScreen = () => {
 
   const dropdownSidebar = () => setShowSidebar(!showSidebar);
 
-  return (
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : (
     <div className="right-col-center">
       <div className="profile-content-right">
         <div className="profile-info">

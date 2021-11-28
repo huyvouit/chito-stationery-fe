@@ -62,8 +62,8 @@ function App() {
                 <div onClick={closePopUp} className="back-drop"></div>
               ) : null}
 
-              <Header />
               <FilterContextProvider>
+                <Header />
                 <Switch>
                   <Route exact path="/" component={HomeScreen} />
                   <Route
@@ -130,9 +130,9 @@ function App() {
                 {showSearch && <SearchBox />}
                 <AuthScreen />
                 <Filter />
+                <ToastContainer />
+                <Footer />
               </FilterContextProvider>
-              <ToastContainer />
-              <Footer />
             </div>
           </ProductContextProvider>
         </CartContextProvider>

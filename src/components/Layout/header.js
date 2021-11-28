@@ -11,12 +11,14 @@ import { AuthContext } from "../../contexts/auth_context";
 import { CartContext } from "../../contexts/cart_context";
 // import refreshPage from "../../Helper/refresh_page";
 import { useHistory } from "react-router-dom";
+import { FilterContext } from "../../contexts/filter_context";
 export const Header = () => {
   const { setShowPopUp, setShowSearch } = useContext(PopUpContext);
   const { logoutUser } = useContext(AuthContext);
   const {
     state: { cartItems, totalItems },
   } = useContext(CartContext);
+  const { handleQuery } = useContext(FilterContext);
   const [showNavBar, setShowNavBar] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const ClickedToggle = () => {
@@ -85,6 +87,9 @@ export const Header = () => {
                 onClick={() => {
                   handleClickNavbar("shop");
                   closeMobileMenu();
+                  handleQuery({
+                    type: [],
+                  });
                 }}
               >
                 SHOP
@@ -95,6 +100,7 @@ export const Header = () => {
                     to="/shop?type=washi%20tape"
                     className="drop-link"
                     onClick={() => {
+                      handleQuery({ type: ["washi tape"] });
                       closeMobileMenu();
                     }}
                   >
@@ -106,6 +112,7 @@ export const Header = () => {
                     to="/shop?type=sticker"
                     className="drop-link"
                     onClick={() => {
+                      handleQuery({ type: ["sticker"] });
                       closeMobileMenu();
                     }}
                   >
@@ -117,6 +124,7 @@ export const Header = () => {
                     to="/shop?type=sticky%20note"
                     className="drop-link"
                     onClick={() => {
+                      handleQuery({ type: ["sticky note"] });
                       closeMobileMenu();
                     }}
                   >

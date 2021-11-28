@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { PopUpContext } from "../../contexts/popup_context";
 import "../../style/Shop/Filter.css";
 import rightIcon from "../../assets/Icons/right-arrow.svg";
@@ -10,51 +10,108 @@ import { FilterContext } from "../../contexts/filter_context";
 function Filter() {
   const { showFilter, closePopUp } = useContext(PopUpContext);
   const { query, handleQuery } = useContext(FilterContext);
-  const [openProduct, setOpenProduct] = useState([]);
+  const [openProduct, setOpenProduct] = useState(false);
   const toggleProduct = () => setOpenProduct(!openProduct);
 
-  const [openPrice, setOpenPrice] = useState([]);
+  const [openPrice, setOpenPrice] = useState(false);
   const togglePrice = () => setOpenPrice(!openPrice);
 
-  const arrayType = ["sticker", "sticky note", "washi tape"];
-  const [arrrayFilter, setArrayFilter] = useState({
-    type: [],
-    lowerPrice: [],
-    higherPrice: [],
+  const initArrayType = [
+    {
+      name: "sticker",
+      check: false,
+    },
+    {
+      name: "sticky note",
+      check: false,
+    },
+    {
+      name: "washi tape",
+      check: false,
+    },
+  ];
+  const [arrType, setType] = useState(initArrayType);
+
+  const [arrayFilter, setArrayFilter] = useState({
+    type: query?.type || [],
+    lowerPrice: query?.lowerPrice || [],
+    higherPrice: query?.higherPrice || [],
   });
 
-  const history = useHistory();
+  useEffect(() => {
+    // set
+    setArrayFilter({
+      ...arrayFilter,
+      type: query?.type || [],
+      lowerPrice: query?.lowerPrice || [],
+      higherPrice: query?.higherPrice || [],
+    });
+    const temp = [...arrType];
 
+    if (query?.type) {
+      temp.forEach((item) => {
+        const index = query.type.includes(item.name);
+        if (index) {
+          item.check = true;
+        } else {
+          item.check = false;
+        }
+      });
+      setType(temp);
+    } else {
+      setType(initArrayType);
+    }
+  }, [query]);
+
+  const history = useHistory();
   function handlePushHistory() {
     history.push({
       pathname: "/shop",
-      search: queryString.stringify(arrrayFilter),
+      search: queryString.stringify(arrayFilter),
     });
 
-    handleQuery(arrrayFilter);
+    handleQuery(arrayFilter);
     closePopUp();
+  }
+  function handleClearFilter() {
+    history.push({
+      pathname: "/shop",
+    });
+    handleQuery({});
   }
 
   const handleOnChangeType = (itemType) => {
-    let newArrayTypeSelected = arrrayFilter["type"];
+    let newArrayTypeSelected = arrayFilter["type"];
 
-    if (newArrayTypeSelected && newArrayTypeSelected.includes(itemType)) {
+    //handle select item exist
+    if (newArrayTypeSelected && newArrayTypeSelected.includes(itemType.name)) {
       newArrayTypeSelected = newArrayTypeSelected.filter(
-        (item) => item !== itemType
+        (item) => item !== itemType.name
       );
     } else {
-      newArrayTypeSelected.push(itemType);
+      newArrayTypeSelected.push(itemType.name);
     }
-
+    //update arrayFilter
     setArrayFilter({
-      ...arrrayFilter,
+      ...arrayFilter,
       type: newArrayTypeSelected,
+    });
+
+    // handle check in checkbox
+    const temp = [...arrType];
+    const index = temp.findIndex((item) => item.name === itemType.name);
+    temp[index].check = !temp[index].check;
+    setType(temp);
+  };
+
+  const handleInputPrice = (event) => {
+    event.preventDefault();
+    setArrayFilter({
+      ...arrayFilter,
+      [event.target.name]: event.target.value || [],
     });
   };
 
-  const isCheckBox = (itemType) => {
-    return arrrayFilter.type.includes(itemType) ? "true" : "false";
-  };
   return (
     <div
       className="filter"
@@ -85,16 +142,16 @@ function Filter() {
         </div>
         {!openProduct && (
           <ul className="list-type">
-            {arrayType.map((itemType, index) => (
+            {arrType.map((item, index) => (
               <li key={index} className="list">
                 <div className="btn-list">
                   <input
                     type="checkbox"
-                    id={itemType}
-                    // checked={isCheckBox}
-                    onClick={() => handleOnChangeType(itemType)}
+                    id={item.name}
+                    checked={item.check}
+                    onChange={() => handleOnChangeType(item)}
                   ></input>
-                  <label htmlFor={itemType}>{itemType}</label>
+                  <label htmlFor={item.name}>{item.name}</label>
                 </div>
               </li>
             ))}
@@ -121,19 +178,33 @@ function Filter() {
         {!openPrice && (
           <div className="group-input">
             <div className="price">
-              <input type="number" />
+              <input
+                type="number"
+                min="0"
+                name="higherPrice"
+                value={arrayFilter.higherPrice}
+                onChange={handleInputPrice}
+              />
             </div>
             <div className="line">
               <h2>-</h2>
             </div>
             <div className="price">
-              <input type="number" />
+              <input
+                type="number"
+                min="0"
+                name="lowerPrice"
+                value={arrayFilter.lowerPrice}
+                onChange={handleInputPrice}
+              />
             </div>
           </div>
         )}
       </div>
       <div className="filter-group-btn">
-        <button className="btn-clear">CLEAR FILTERS</button>
+        <button className="btn-clear" onClick={handleClearFilter}>
+          CLEAR FILTERS
+        </button>
         <button className="btn-apply" onClick={handlePushHistory}>
           APPLY CHANGES
         </button>
