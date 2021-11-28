@@ -112,7 +112,6 @@ export const DetailScreen = () => {
         } else if (document.body.clientWidth > 600 && document.body.clientWidth < 1000) {
           setValue(3);
         } else setValue(4);
-  
       };
       window.addEventListener("resize", resWidth);
       resWidth();
