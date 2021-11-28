@@ -63,7 +63,7 @@ function ContactScreen() {
     const msg = {};
     if (isEmpty(email)) {
       msg.email = "Please input your email.";
-    } else if (isEmail(email)) {
+    } else if (!isEmail(email)) {
       msg.email = "Email is invaid.";
     }
     if (isEmpty(firstName)) {
