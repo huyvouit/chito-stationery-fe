@@ -151,6 +151,7 @@ function Filter() {
                     checked={item.check}
                     onChange={() => handleOnChangeType(item)}
                   ></input>
+                  <span className="custom-checkbox"></span>
                   <label htmlFor={item.name}>{item.name}</label>
                 </div>
               </li>

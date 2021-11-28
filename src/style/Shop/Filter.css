@@ -79,9 +79,6 @@
   width: 20px;
 }
 
-.list > .btn-list > input[type="checkbox"]:checked {
-  background-color: #966a57;
-}
 
 .group-input {
   display: flex;
@@ -94,6 +91,50 @@
 .btn-list label {
   text-transform: uppercase;
 }
+
+.custom-checkbox {
+  margin-right: 20px;
+  margin-top: 3.75px;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  border: solid 1px var(--text-title);
+}
+.btn-list input[type=checkbox] {
+  visibility: hidden;
+}
+
+.btn-list:hover input ~ .custom-checkbox {
+  background-color: #e5e1df;
+}
+
+.btn-list input:checked ~ .custom-checkbox {
+  background-color: #966a57;
+}
+
+.custom-checkbox:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.btn-list input:checked ~ .custom-checkbox:after {
+  display: block;
+} 
+
+.btn-list .custom-checkbox:after {
+  left: 6px;
+  bottom: 5px;
+  width: 3px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 .price {
   width: 100%;
   text-align: center;
