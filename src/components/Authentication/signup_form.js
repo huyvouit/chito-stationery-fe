@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-// import authApi from "../../api/auth_api";
 import { AuthContext } from "../../contexts/auth_context";
-// import AlertMessage from "../Layout/message";
 import { Validation } from "../../Helper/validation";
 import { toast } from "react-toastify";
 import "../../style/Authentication/signup.css";
+import eyeShow from "../../assets/Images/eye_show.png";
+import eyeHide from "../../assets/Images/eye_hide.png";
 
 export const SignUpForm = ({ clickSignIn }) => {
   //authContext
@@ -18,7 +18,7 @@ export const SignUpForm = ({ clickSignIn }) => {
 
   const { fullname, email, password } = registerForm;
   const [errors, setErrors] = useState({});
-
+  const [showPass, setShowPass] = useState(false);
   //function onChange Input Form
   const onChangeRegisterForm = (event) =>
     setRegisterForm({
@@ -104,38 +104,28 @@ export const SignUpForm = ({ clickSignIn }) => {
           </div>
           <div className="input-field">
             <div className="form-label">Password*</div>
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={onChangeRegisterForm}
-            />
+            <div className="password-style">
+              <input
+                type={showPass ? "text" : "password"}
+                required
+                name="password"
+                value={password}
+                onChange={onChangeRegisterForm}
+              />
+              <img
+                src={showPass ? eyeHide : eyeShow}
+                alt="icon eye"
+                width="18px"
+                height="18px"
+                onClick={() => setShowPass(!showPass)}
+              />
+            </div>
             {errors["password"] && (
               <p className="validate-error">{errors.password}</p>
             )}
           </div>
         </div>
-        <p style={{ marginTop: "15px" }}>
-          This site is protected by reCAPTCHA and the Google{" "}
-          <a
-            className="signin_link"
-            href="https://policies.google.com/privacy"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Privacy Policy
-          </a>{" "}
-          and{" "}
-          <a
-            className="signin_link"
-            href="https://policies.google.com/terms"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Terms of Service
-          </a>{" "}
-          apply.
-        </p>
+
         <div className="form-submit-signup">
           <p className="form-linking" onClick={clickSignIn}>
             back to sign in

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/auth_context";
-// import AlertMessage from "../Layout/message";
+import eyeShow from "../../assets/Images/eye_show.png";
+import eyeHide from "../../assets/Images/eye_hide.png";
 import { toast } from "react-toastify";
 import { PopUpContext } from "../../contexts/popup_context";
 import "../../style/Authentication/signin.css";
@@ -14,7 +15,7 @@ export const SignInform = ({ clickSignUp }) => {
     email: "",
     password: "",
   });
-
+  const [showPass, setShowPass] = useState(false);
   // const [alert, setAlert] = useState(null);
 
   const { email, password } = loginForm;
@@ -72,39 +73,28 @@ export const SignInform = ({ clickSignUp }) => {
           </div>
           <div className="input-field">
             <p className="form-label">password*</p>
-            <input
-              type="password"
-              required
-              name="password"
-              value={password}
-              onChange={onChangeLoginForm}
-            />
+            <div className="password-style">
+              <input
+                type={showPass ? "text" : "password"}
+                required
+                name="password"
+                value={password}
+                onChange={onChangeLoginForm}
+              />
+              <img
+                src={showPass ? eyeHide : eyeShow}
+                alt="icon eye"
+                width="18px"
+                height="18px"
+                onClick={() => setShowPass(!showPass)}
+              />
+            </div>
           </div>
         </div>
-        <p>
-          This site is protected by reCAPTCHA and the Google{" "}
-          <a
-            className="signin_link"
-            href="https://policies.google.com/privacy"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Privacy Policy
-          </a>{" "}
-          and{" "}
-          <a
-            className="signin_link"
-            href="https://policies.google.com/terms"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Terms of Service
-          </a>{" "}
-          apply.
-        </p>
+
         <div className="form-submit">
           <p className="form-linking" onClick={clickSignUp}>
-            create a account
+            create an account
           </p>
           <input type="submit" value="Login" className="auth-btn-submit" />
         </div>

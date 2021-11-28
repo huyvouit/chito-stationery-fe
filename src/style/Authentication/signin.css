@@ -59,6 +59,8 @@
   color: var(--primary-text);
   font-size: 18px;
   outline: none;
+  width: 100%;
+  padding-right: 22px;
 }
 
 .form-submit {
@@ -104,6 +106,16 @@
 }
 .validate-error {
   color: red;
+}
+.password-style {
+  display: flex;
+  justify-content: space-between;
+}
+.password-style img {
+  position: absolute;
+  right: 0;
+  opacity: 0.7;
+  bottom: 7px;
 }
 @media screen and (max-width: 1024px) {
   .signin-signup {

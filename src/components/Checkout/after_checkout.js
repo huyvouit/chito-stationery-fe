@@ -1,6 +1,7 @@
 import React from 'react'
 import "../../style/Checkout/after_checkout.css"
 import cartTick from "../../assets/Icons/cart-tick.png"
+import { Link } from 'react-router-dom'
 
 export const AfterCheckout = () => {
     return (
@@ -10,6 +11,9 @@ export const AfterCheckout = () => {
             <p className="ac_content">It will be delivered in 3-6 business days.</p>
             <img className="ac_icon" src={cartTick} alt="cart-tick"></img>
             <p className="ac_content more_space">Contact us at <a href="mailto: studio@chitostationery.com">studio@chitostationery.com</a> for any inquiries!</p>
+            <Link to="/shop" className="cart-empty-btn">
+                BACK TO SHOP
+            </Link>
         </div>
     )
 }

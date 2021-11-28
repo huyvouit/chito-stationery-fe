@@ -126,6 +126,7 @@
 .profile-info-input {
   border-bottom: 1px solid var(--text-title);
   width: auto;
+  display: flex;
 }
 
 .profile-info-input input {

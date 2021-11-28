@@ -8,7 +8,15 @@
 
 .image-banner {
   width: 100%;
-  height: 824px;
+  height: 750px;
+  transition: 0.1s;
   overflow: hidden;
   object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .image-banner {
+    height: 500px;
+    transition: 0.1s;
+  }
 }

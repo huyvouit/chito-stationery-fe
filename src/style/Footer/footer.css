@@ -2,8 +2,8 @@
 footer {
   height: 300px;
   width: 100%;
-  padding: 70px 350px;
   background-color: var(--primary-footer);
+  padding: 0 100px;
 }
 
 footer .footer-content {
@@ -11,8 +11,11 @@ footer .footer-content {
   display: flex;
   flex-shrink: 0;
   justify-content: space-between;
-  max-width: 1280px;
+  max-width: 991px;
   margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .col-top {
@@ -43,93 +46,57 @@ footer .footer-content {
   color: var(--primary-text);
 }
 
-@media only screen and (min-width:991px) and (max-width:1366px) {
-  footer {
-    height: 250px;
-    width: 100%;
-    padding: 55px 300px;
-    background-color: var(--primary-footer);
-  }
-
-  footer .footer-content {
-    align-items: flex-start;
-    display: flex;
-    flex-shrink: 0;
-    justify-content: space-between;
-    max-width: 1366px;
-    margin: 0 auto;
-  }
-}
-
-@media only screen and (min-width:575px) and (max-width:991px) {
-  footer {
+@media only screen and (min-width: 575px) and (max-width: 991px) {
+  /* footer {
     height: 250px;
     width: 100%;
     padding: 55px 110px;
     background-color: var(--primary-footer);
+  } */
+
+  footer .footer-content {
+    max-width: 768px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  footer {
+    padding: 0;
   }
 
   footer .footer-content {
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     display: flex;
-    flex-shrink: 0;
-    justify-content: space-between;
-    max-width: 991px;
+    flex-direction: column;
+    max-width: 80%;
     margin: 0 auto;
   }
 
-}
-
-@media only screen and (max-width:575px) {
-  footer {
-    height: 250px;
-    width: 100%;
-    padding: 0;
-    padding-left: 20%;
-    background-color: var(--primary-footer);
-  }
-  
-  footer .footer-content {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    max-width: 575px;
-    margin: 0;
-  }
-
   .footer-col {
+    width: 100%;
     display: grid;
-    grid-column-gap: 10px;
-    grid-template-columns: auto auto;
-    margin-top: 10px;
+    grid-template-columns: 30% 70%;
+    gap: 20px;
   }
-  
+
   .col-top {
-    margin: auto;
-    width: 100px;
     text-align: center;
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
   }
-  
-  .col-bottom .col-cate {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  
+
   .col-bottom {
-    margin-top: 0;
+    flex: auto;
   }
-  
+
   .link-cate {
     text-transform: uppercase;
     margin-bottom: 0;
     margin: 8px 0;
     color: var(--primary-text);
-    font-size: 12px;
+    font-size: 14px;
     text-decoration: none;
   }
-  
 }

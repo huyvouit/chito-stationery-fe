@@ -34,6 +34,7 @@ import CartContextProvider from "./contexts/cart_context";
 import { DetailScreen } from "./components/Detail/detail_screen";
 import PrivateRoute from "./Helper/private_route";
 import ProductContextProvider from "./contexts/product_context";
+import ScrollToTop from "./Helper/scroll_to_top";
 function App() {
   const { showPopUp, showSearch, showFilter, closePopUp, setShowFilter } =
     useContext(PopUpContext);
@@ -47,8 +48,12 @@ function App() {
     };
   }, [showPopUp, showSearch, showFilter]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Router>
+      <ScrollToTop />
       <AuthContextProvider>
         <CartContextProvider>
           <ProductContextProvider>

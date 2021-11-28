@@ -310,6 +310,12 @@
     right: 0px;
     top: 20px;
   }
+  .hover-menu:hover .cart {
+    opacity: 1;
+    display: none;
+    visibility: visible;
+    transition: all 0.01s ease;
+  }
   .dropdown-menu li:hover,
   .dropdown-menu li:focus {
     background-color: var(--primary-background);

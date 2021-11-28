@@ -3,6 +3,9 @@ import { AuthContext } from "../../contexts/auth_context";
 import { Loader } from "../Layout/loader";
 import userApi from "../../api/user_api";
 import { toast } from "react-toastify";
+import eyeShow from "../../assets/Images/eye_show.png";
+import eyeHide from "../../assets/Images/eye_hide.png";
+
 export const AccInfo = () => {
   const [isChangePass, setIsChangePass] = useState(false);
   const {
@@ -21,6 +24,11 @@ export const AccInfo = () => {
   });
   const { oldPassword, newPassword, confirmPassword } = passwordForm;
   const [errors, setErrors] = useState("");
+
+  const [showCurPass, setShowCurPass] = useState(false);
+  const [showNewPass, setShowNewPass] = useState(false);
+  const [showConfirmPass, setShowConfirmPass] = useState(false);
+
   const onChangePassForm = (event) =>
     setPasswordForm({
       ...passwordForm,
@@ -98,28 +106,52 @@ export const AccInfo = () => {
                 <h5 className="profile-info-subtitle">CURRENT PASSWORD*</h5>
                 <div className="profile-info-input">
                   <input
-                    type="password"
+                    type={showCurPass ? "text" : "password"}
                     name="oldPassword"
                     value={oldPassword}
                     onChange={onChangePassForm}
+                  />
+                  <img
+                    src={showCurPass ? eyeHide : eyeShow}
+                    alt="icon eye"
+                    width="18px"
+                    height="18px"
+                    style={{ opacity: "0.7" }}
+                    onClick={() => setShowCurPass(!showCurPass)}
                   />
                 </div>
                 <h5 className="profile-info-subtitle">NEW PASSWORD*</h5>
                 <div className="profile-info-input">
                   <input
-                    type="password"
+                    type={showNewPass ? "text" : "password"}
                     name="newPassword"
                     value={newPassword}
                     onChange={onChangePassForm}
+                  />
+                  <img
+                    src={showNewPass ? eyeHide : eyeShow}
+                    alt="icon eye"
+                    width="18px"
+                    height="18px"
+                    style={{ opacity: "0.7" }}
+                    onClick={() => setShowNewPass(!showNewPass)}
                   />
                 </div>
                 <h5 className="profile-info-subtitle">CONFIRM NEW PASSWORD*</h5>
                 <div className="profile-info-input">
                   <input
-                    type="password"
+                    type={showConfirmPass ? "text" : "password"}
                     name="confirmPassword"
                     value={confirmPassword}
                     onChange={onChangePassForm}
+                  />
+                  <img
+                    src={showConfirmPass ? eyeHide : eyeShow}
+                    alt="icon eye"
+                    width="18px"
+                    height="18px"
+                    style={{ opacity: "0.7" }}
+                    onClick={() => setShowConfirmPass(!showConfirmPass)}
                   />
                 </div>
                 {errors && ( //will work even if data has not declared propertyName
@@ -131,7 +163,7 @@ export const AccInfo = () => {
             )}
           </div>
           <div className="info-footer">
-            <p>
+            {/* <p>
               This site is protected by reCAPTCHA and the Google{" "}
               <a
                 className="signin_link"
@@ -151,7 +183,7 @@ export const AccInfo = () => {
                 Terms of Service
               </a>{" "}
               apply.
-            </p>
+            </p> */}
             {isChangePass && (
               <button className="btn-save" onClick={handlleSubmitChangePass}>
                 SAVE
