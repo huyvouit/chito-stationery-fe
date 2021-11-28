@@ -1,7 +1,8 @@
 import React,{ useState } from 'react'
 import contactApi from '../../api/contact_api';
 import { toast } from "react-toastify";
-import '../../style/Contact/Contact.css'
+import '../../style/Contact/Contact.css';
+import isEmpty from "validator/lib/isEmpty";
 
 function ContactScreen() {
     
@@ -20,6 +21,8 @@ function ContactScreen() {
     });
 
     const submitContact = async (event) => {
+        const isValid = validateAll();
+        if (!isValid) return;
         event.preventDefault();
         const contactForm = {
             email,
@@ -52,8 +55,29 @@ function ContactScreen() {
             console.log(error.response.data);
             if (error.response.data) return error.response.data;
         }
-
     }
+
+    const [validationMsg, setValidationMsg] = useState({});
+
+    const validateAll = () => {
+    const msg = {};
+    if (isEmpty(email)) {
+        msg.email = "Please input your email.";
+    }
+    if (isEmpty(firstName)) {
+        msg.firstName = "Please input your first name.";
+    }
+    if (isEmpty(lastName)) {
+        msg.lastName = "Please input your last name.";
+    }
+    if (isEmpty(message)) {
+        msg.message = "Please input your message.";
+    }
+
+    setValidationMsg(msg);
+    if (Object.keys(msg).length > 0) return false;
+    return true;
+  };
 
     return (
         <div className="contact">
@@ -66,26 +90,35 @@ function ContactScreen() {
                             value={email}
                             onChange={onChangeContactForm}
                             pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
-                            required  autoFocus/>
+                            required autoFocus/>
+                            
                         <span></span>
                         <label>EMAIL*</label>
                     </div>
                 <div className="contact-fullName">
                     <div className="contact-txt_field">
-                        <input type="text"
-                            name="firstName"
-                            value={firstName}
-                            onChange={onChangeContactForm}
-                            required />
-                        <span></span>
-                        <label>FIRST NAME*</label>
+                        <div>
+                            <input type="text"
+                                name="firstName"
+                                value={firstName}
+                                onChange={onChangeContactForm}
+                                required />
+                                
+                            <span></span>
+                            
+                            <label>FIRST NAME*</label>
+                        </div>
+                        {/* <p style={{ color: "red" }}>{validationMsg["firstName"]}</p> */}
+                        
                     </div>
+                    
                     <div className="contact-txt_field">
                         <input type="text" 
                             name="lastName"
                             value={lastName}
                             onChange={onChangeContactForm}
                             required />
+                            {/* <p style={{ color: "red" }}>{validationMsg["lastName"]}</p> */}
                         <span></span>
                         <label>LAST NAME*</label>
                     </div>
@@ -97,6 +130,7 @@ function ContactScreen() {
                         value={message}
                         onChange={onChangeContactForm}
                         required />
+                        {/* <p style={{ color: "red" }}>{validationMsg["message"]}</p> */}
                 </div>
                 <button className="submit" onClick={submitContact}>
                     SUBMIT

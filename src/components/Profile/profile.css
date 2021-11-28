@@ -119,7 +119,7 @@
 .account-info {
   display: flex;
   /* justify-content: space-between; */
-  margin-bottom: 45px;
+  /* margin-bottom: 45px; */
   gap: 50px;
 }
 
@@ -380,6 +380,10 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-bottom: 12px;
   }
 
+  .profile-content {
+    margin-top: 18px;
+  }
+
   .profile-col-width h2,
   .profile-order h2 {
     font-size: 18px;
@@ -442,7 +446,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
   .sidebar-wrapper {
     margin: 0;
-    padding: 20px 0 5px 0;
+    padding: 20px 10px 5px 10px;
   }
 
   .right-col-center,
