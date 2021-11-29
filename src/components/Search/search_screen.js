@@ -21,8 +21,7 @@ export const SearchScreen = () => {
       try {
         const params = query;
         const response = await productApi.getBySearch(params);
-
-        setProductList(response.data.searchedProducts);
+        setProductList(response.data.searchedProducts.slice(0, 8));
         setIsLoading(false);
       } catch (error) {
         console.log("Failed to fetch product list: ", error);

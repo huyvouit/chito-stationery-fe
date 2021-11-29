@@ -7,38 +7,39 @@
 
 .detail-contain {
   display: flex;
+  padding: 20px;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 .detail-contain .detail-img {
   flex: 50%;
-  height: 480px;
+  height: 80%;
 }
 
 .detail-contain .detail-img img {
-  margin-left: 32vh;
   height: 100%;
-  width: 60%;
+  width: 100%;
   object-fit: cover;
 }
 
 .detail-contain .detail-contain-right {
   flex: 50%;
-  margin-top: 1vh;
-  margin-left: 10vh;
+  margin-left: 50px;
 }
 
 .detail-contain .detail-contain-right h2 {
   text-align: left;
-  font: normal normal bold 27px/27px Bellota Text;
+  font: normal normal bold 30px Bellota Text;
   letter-spacing: 1.05px;
   color: #524d4b;
   text-transform: capitalize;
 }
 
 .detail-contain-right-price {
-  padding-top: 2vh;
+  padding-top: 30px;
   text-align: left;
-  font: normal normal bold 21px/27px Bellota Text;
+  font: normal normal bold 21px Bellota Text;
   letter-spacing: 0.48px;
   color: #524d4b;
 }
@@ -48,7 +49,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  margin-bottom: 5vh;
+  /* margin-bottom: 5vh; */
 }
 
 .detail-contain-right-quantity p {
@@ -74,9 +75,9 @@
 }
 
 .detail-contain-right-button {
-  margin-top: 4vh;
-  margin-bottom: 5vh;
-  width: 60%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 100%;
   display: flex;
 }
 
@@ -107,8 +108,8 @@
 
 .detail-contain-right-group {
   cursor: pointer;
-  margin-top: 2vh;
-  width: 60%;
+  margin-top: 20px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -123,9 +124,9 @@
 }
 
 .detail-title-group-container {
-  width: 60%;
+  width: 100%;
   text-align: left;
-  font: normal normal bold 15px/27px Bellota Text;
+  font: normal normal bold 18px Bellota Text;
   letter-spacing: 0.27px;
   color: #524d4b;
   padding-bottom: 3vh;
@@ -139,16 +140,17 @@
 .more-products {
   max-width: 1140px;
   margin: 0 auto;
-  padding-top: 30px;
+  padding: 30px 0;
 }
 
 .title-more-product {
   text-align: left;
-  font: normal normal bold 27px/27px Bellota Text;
+  font: normal normal bold 30px Bellota Text;
   letter-spacing: 0.63px;
   color: #524d4b;
   text-transform: capitalize;
   margin-bottom: 3vh;
+  margin-left: 20px;
 }
 
 .detail-groupCard {
@@ -167,7 +169,7 @@
   padding: 20px 15px;
   min-width: 225px;
   min-height: 315px;
-  max-height: 400px;
+  /* max-height: 400px; */
   width: 100%;
   background-color: white;
 }
@@ -195,7 +197,7 @@
   padding-top: 1vh;
   height: 9vh;
   text-align: left;
-  font: normal normal bold 17px/20px Bellota Text;
+  font: normal normal bold 20px Bellota Text;
   letter-spacing: 0.6px;
   color: #524d4b;
   text-transform: capitalize;
@@ -212,7 +214,7 @@
 }
 
 .labelQuantity {
-  padding-top: 4vh;
+  padding-top: 30px;
   text-align: left;
   font: normal normal bold 14px Bellota Text;
   letter-spacing: 0.6px;
@@ -222,21 +224,16 @@
 
 @media only screen and (min-width: 991px) and (max-width: 1366px) {
   .detail-contain .detail-img img {
-    margin-left: 15vh;
-    width: 80%;
-  }
-
-  .labelQuantity {
-    padding-top: 3vh;
+    width: 100%;
   }
 
   .detail-contain-right-quantity {
-    margin-bottom: 1.8vh;
+    /* margin-bottom: 1.8vh; */
   }
 
   .detail-contain-right-button {
-    margin-bottom: 2.5vh;
-    width: 90%;
+    margin-bottom: 40px;
+    width: 100%;
   }
 
   .add {
@@ -248,11 +245,11 @@
   }
 
   .detail-contain-right-group {
-    width: 80%;
+    width: 100%;
   }
 
   .detail-title-group-container {
-    width: 80%;
+    width: 100%;
     padding-bottom: 1.5vh;
   }
 }
@@ -267,36 +264,37 @@
   }
 
   .detail-contain .detail-img img {
-    margin-left: 10vh;
-    width: 90%;
+    width: 100%;
   }
 
+  .detail-contain .detail-contain-right {
+    margin-left: 25px;
+  }
   .detail-contain .detail-contain-right h2 {
-    font: normal normal bold 22px/22px Bellota Text;
+    font: normal normal bold 30px Bellota Text;
   }
 
   .detail-contain-right-price {
-    padding-top: 1vh;
-    font: normal normal bold 18px/22px Bellota Text;
+    font: normal normal bold 21px Bellota Text;
   }
 
   .labelQuantity {
-    padding-top: 3vh;
+    padding-top: 20px;
   }
 
   .detail-contain-right-quantity {
     margin-top: 1vh;
-    margin-bottom: 3vh;
+    /* margin-bottom: 3vh; */
   }
 
-
   .detail-contain-right-button {
-    margin-top: 2vh;
-    width: 90%;
+    /* margin-top: 50px; */
+    width: 100%;
   }
 
   .add {
     padding: 8px 12px;
+    margin-right: 20px;
     font: normal normal bold 16px/18px Bellota Text;
   }
 
@@ -306,7 +304,7 @@
   }
 
   .detail-contain-right-group {
-    width: 90%;
+    width: 100%;
   }
 
   .detail-title-group {
@@ -314,8 +312,8 @@
   }
 
   .detail-title-group-container {
-    width: 90%;
-    font: normal normal bold 14px/18px Bellota Text;
+    width: 100%;
+    font: normal normal bold 18px Bellota Text;
     padding-bottom: 1.5vh;
   }
 }
@@ -324,14 +322,16 @@
   .detail-card-wrapper {
     width: 50%;
   }
-  .detail-card {
+
+  /* .detail-card {
     max-height: 500px;
-  }
+  } */
+
   .detail-card-img {
     height: 100%;
   }
   .detail-card-img img {
-    height: 400px;
+    height: 100%;
   }
 }
 
@@ -351,24 +351,23 @@
 
   .detail-contain .detail-img img {
     margin-left: 0;
-    padding: 0 15px;
-    height: 350px;
+    /* height: 350px; */
     width: 100%;
   }
 
   .detail-contain .detail-contain-right {
     margin-left: 0;
     margin-top: 2vh;
-    padding: 0 15px;
+    /* padding: 0 15px; */
   }
 
   .detail-contain .detail-contain-right h2 {
-    font: normal normal bold 18px Bellota Text;
+    font: normal normal bold 30px Bellota Text;
   }
 
   .detail-contain-right-price {
-    padding-top: 5px;
-    font: normal normal bold 15px Bellota Text;
+    padding-top: 20px;
+    font: normal normal bold 18px Bellota Text;
   }
 
   .labelQuantity {
@@ -376,13 +375,12 @@
   }
 
   .detail-contain-right-quantity {
-    margin-bottom: 2vh;
+    /* margin-bottom: 2vh; */
   }
 
-
   .detail-contain-right-button {
-    margin-top: 2vh;
-    margin-bottom: 3vh;
+    margin-top: 40px;
+    margin-bottom: 25px;
     width: 100%;
     justify-content: flex-start;
     gap: 30px;
@@ -391,7 +389,7 @@
   .add {
     padding: 4px 12px;
     margin-right: 0;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .buy {
@@ -401,7 +399,7 @@
 
   .detail-contain-right-group {
     margin-top: 3vh;
-    width: 95%;
+    width: 100%;
   }
 
   .detail-title-group {
@@ -409,38 +407,33 @@
   }
 
   .detail-title-group-container {
-    width: 95%;
-    font: normal normal bold 12px Bellota Text;
+    width: 100%;
+    font: normal normal bold 16px Bellota Text;
     padding-bottom: 2vh;
   }
 
   .title-more-product {
-    font: normal normal bold 18px/27px Bellota Text;
+    font: normal normal bold 30px Bellota Text;
   }
 
   .detail-ItemTxt h5 {
     padding-top: 1vh;
     height: 5vh;
-    font: normal normal bold 80%/18px Bellota Text;
+    font: normal normal bold 18px Bellota Text;
   }
 
   .detail-ItemTxt h6 {
-    font: normal normal bold 80%/18px Bellota Text;
+    font: normal normal bold 16px Bellota Text;
   }
-}
 
-@media screen and (max-width: 568px) {
   .detail-card-wrapper {
     width: 100%;
   }
 
-  .detail-card {
-    max-height: 500px;
-  }
   .detail-card-img {
     height: 100%;
   }
   .detail-card-img img {
-    height: 275px;
+    height: 80%;
   }
 }

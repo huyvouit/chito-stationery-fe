@@ -52,6 +52,7 @@ function ContactScreen() {
           draggable: true,
         });
       }
+      setContact({ email: "", firstName: "", lastName: "", message: "" });
     } catch (error) {
       console.log(error.response.data);
       if (error.response.data) return error.response.data;
