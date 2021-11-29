@@ -7,19 +7,21 @@ import productApi from "../../api/product_api";
 import { Loader } from "../Layout/loader";
 import "../../style/Search/search_screen.css";
 import { ProductContext } from "../../contexts/product_context";
+import searchIcon from "../../assets/Icons/search-interface-symbol.svg";
+
 export const SearchScreen = () => {
   const { query, handleQuery } = useContext(FilterContext);
   const [isLoading, setIsLoading] = useState(true);
   const { productList, setProductList } = useContext(ProductContext);
   const [searchInput, setSearchInput] = useState(query.q || "");
+
   useEffect(() => {
-    console.log("useEfect search");
     setIsLoading(true);
     const fetchProductList = async () => {
       try {
         const params = query;
         const response = await productApi.getBySearch(params);
-        console.log(response.data.searchedProducts);
+
         setProductList(response.data.searchedProducts);
         setIsLoading(false);
       } catch (error) {
@@ -33,7 +35,7 @@ export const SearchScreen = () => {
     const value = e.target.value;
     setSearchInput(value);
   };
-
+  console.log(searchInput);
   const history = useHistory();
   const handleKeyDown = (e) => {
     const value = {
@@ -47,7 +49,19 @@ export const SearchScreen = () => {
       });
     }
   };
-  console.log("pro", productList);
+
+  // const handleLookUp = (name) => {
+  //   console.log(name);
+  //   const value = {
+  //     q: name || [],
+  //   };
+  //   handleQuery(value);
+  //   history.push({
+  //     pathname: "/search",
+  //     search: queryString.stringify(value),
+  //   });
+  // };
+
   return isLoading ? (
     <Loader />
   ) : productList.length === 0 ? (
@@ -62,6 +76,14 @@ export const SearchScreen = () => {
             autoFocus
           />
         </div>
+        {/* <img
+          className="image-icon"
+          src={searchIcon}
+          width="20px"
+          height="20px"
+          alt="search icon"
+          onClick={ handleLookUp}
+        /> */}
       </div>
       <div className="search-result">
         <p>No found product</p>
@@ -79,6 +101,14 @@ export const SearchScreen = () => {
             autoFocus
           />
         </div>
+        {/* <img
+          className="image-icon"
+          src={searchIcon}
+          width="20px"
+          height="20px"
+          alt="search icon"
+          onClick={handleLookUp}
+        /> */}
       </div>
       <div className="search-result">
         <Cards productList={productList} />

@@ -24,6 +24,8 @@
 .search-input {
   width: 100%;
   background-color: transparent;
+  display: flex;
+  justify-content: space-between;
 }
 
 .search-input input {

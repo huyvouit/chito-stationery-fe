@@ -13,6 +13,7 @@ function ContactScreen() {
     message: "",
   });
   const { email, firstName, lastName, message } = contact;
+
   //function onChange Input Form
   const onChangeContactForm = (event) =>
     setContact({

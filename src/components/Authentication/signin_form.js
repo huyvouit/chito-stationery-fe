@@ -4,6 +4,8 @@ import eyeShow from "../../assets/Images/eye_show.png";
 import eyeHide from "../../assets/Images/eye_hide.png";
 import { toast } from "react-toastify";
 import { PopUpContext } from "../../contexts/popup_context";
+import isEmpty from "validator/lib/isEmpty";
+import isEmail from "validator/lib/isEmail";
 import "../../style/Authentication/signin.css";
 
 export const SignInform = ({ clickSignUp }) => {
@@ -16,15 +18,33 @@ export const SignInform = ({ clickSignUp }) => {
     password: "",
   });
   const [showPass, setShowPass] = useState(false);
-  // const [alert, setAlert] = useState(null);
+  const [validationMsg, setValidationMsg] = useState({});
 
   const { email, password } = loginForm;
 
   const onChangeLoginForm = (event) =>
     setLoginForm({ ...loginForm, [event.target.name]: event.target.value });
 
+  const validateAll = () => {
+    const msg = {};
+    if (isEmpty(email)) {
+      msg.email = "Please input your email.";
+    } else if (!isEmail(email)) {
+      msg.email = "Email is invaid.";
+    }
+    if (isEmpty(password)) {
+      msg.password = "Please input your password.";
+    }
+
+    setValidationMsg(msg);
+    if (Object.keys(msg).length > 0) return false;
+    return true;
+  };
+
   const login = async (event) => {
     event.preventDefault();
+    const isValid = validateAll();
+    if (!isValid) return;
 
     try {
       const loginData = await loginUser(loginForm);
@@ -49,8 +69,6 @@ export const SignInform = ({ clickSignUp }) => {
           draggable: true,
         });
       }
-      // setAlert({ type: "danger", message: loginData.error });
-      // setTimeout(() => setAlert(null), 10000);
     } catch (error) {
       console.log(error);
     }
@@ -65,22 +83,22 @@ export const SignInform = ({ clickSignUp }) => {
             <p className="form-label">email*</p>
             <input
               type="text"
-              required
               name="email"
               value={email}
               onChange={onChangeLoginForm}
             />
+            <p style={{ color: "red" }}>{validationMsg["email"]}</p>
           </div>
           <div className="input-field">
             <p className="form-label">password*</p>
             <div className="password-style">
               <input
                 type={showPass ? "text" : "password"}
-                required
                 name="password"
                 value={password}
                 onChange={onChangeLoginForm}
               />
+
               <img
                 src={showPass ? eyeHide : eyeShow}
                 alt="icon eye"
@@ -89,6 +107,7 @@ export const SignInform = ({ clickSignUp }) => {
                 onClick={() => setShowPass(!showPass)}
               />
             </div>
+            <p style={{ color: "red" }}>{validationMsg["password"]}</p>
           </div>
         </div>
 

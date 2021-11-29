@@ -4,7 +4,7 @@ export const Validation = (registerForm) => {
 
   //validate fullname
   if (!registerForm.fullname) {
-    errors.fullname = "Please enter your fullname.";
+    errors.fullname = "Please input your fullname.";
   } else if (
     registerForm.fullname.length < 3 ||
     registerForm.fullname.length > 35
@@ -14,14 +14,14 @@ export const Validation = (registerForm) => {
 
   //validate email
   if (!registerForm.email) {
-    errors.email = "Please enter your email.";
+    errors.email = "Please input your email.";
   } else if (!/\S+@\S+/.test(registerForm.email)) {
     errors.email = "Email is invalid.";
   }
 
   //validate password
   if (!registerForm.password) {
-    errors.password = "Please enter your password.";
+    errors.password = "Please input your password.";
   } else if (!/^(?=.*\d)(?=.*[a-zA-Z]).{6,}$/.test(registerForm.password)) {
     errors.password = "Password must have character, number and at least 6.";
   }

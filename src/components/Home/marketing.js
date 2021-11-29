@@ -16,7 +16,13 @@ export const Marketing = () => {
       </div>
       <div className="marketing-cards">
         <div className="marketing-child-card">
-          <Link to="/shop?type=sticker" className="marketing-child">
+          <Link
+            to="/shop?type=sticker"
+            className="marketing-child"
+            onClick={() => {
+              handleQuery({ type: ["sticker"] });
+            }}
+          >
             <div className="marketing-img">
               <img src={sticker} alt="sticker" />
             </div>
@@ -26,7 +32,13 @@ export const Marketing = () => {
           </Link>
         </div>
         <div className="marketing-child-card">
-          <Link to="/shop?type=washi%20tape" className="marketing-child">
+          <Link
+            to="/shop?type=washi%20tape"
+            className="marketing-child"
+            onClick={() => {
+              handleQuery({ type: ["washi tape"] });
+            }}
+          >
             <div className="marketing-img">
               <img src={washiTape} alt="washi-tape" />
             </div>
@@ -36,7 +48,13 @@ export const Marketing = () => {
           </Link>
         </div>
         <div className="marketing-child-card">
-          <Link to="/shop?type=sticky%20note" className="marketing-child">
+          <Link
+            to="/shop?type=sticky%20note"
+            className="marketing-child"
+            onClick={() => {
+              handleQuery({ type: ["sticky note"] });
+            }}
+          >
             <div className="marketing-img">
               <img src={stickyNote} alt="sticky-note" />
             </div>
@@ -49,42 +67,3 @@ export const Marketing = () => {
     </div>
   );
 };
-
-/* <Row className="marketing-content justify-content-xl-center text-center">
-          <Col lg="4">
-            <Row>
-              <img
-                className="marketing-image mx-5"
-                src={washiTape}
-                alt="washi tape"
-              />
-            </Row>
-            <Row>
-              <p className="marketing-subTitle">washi tape</p>
-            </Row>
-          </Col>
-          <Col lg="4">
-            <Row>
-              <img
-                className="marketing-image mx-5"
-                src={washiTape}
-                alt="washi tape"
-              />
-            </Row>
-            <Row>
-              <p className="marketing-subTitle">washi tape</p>
-            </Row>
-          </Col>
-          <Col lg="4">
-            <Row>
-              <img
-                className="marketing-image mx-5"
-                src={washiTape}
-                alt="washi tape"
-              />
-            </Row>
-            <Row>
-              <p className="marketing-subTitle">washi tape</p>
-            </Row>
-          </Col>
-        </Row> */

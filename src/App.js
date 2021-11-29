@@ -124,6 +124,7 @@ function App() {
                     path="/profile/acc-orders/:id"
                     component={DetailOrder}
                   />
+                  <Route exact path="/register-success" component={AfterAuth} />
                   <Route exact path="/404" component={ErrorPage} />
                   <Route exact path="*" component={ErrorPage} />
                 </Switch>

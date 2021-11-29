@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import userIcon from "../../assets/Icons/user.svg";
 import menuIcon from "../../assets/Icons/menu.svg";
 import cartIcon from "../../assets/Icons/shopping-basket.svg";
 import searchIcon from "../../assets/Icons/search-interface-symbol.svg";
-import { formatter } from "../../Helper/formatter";
-import "../../style/Header/header.css";
 import { PopUpContext } from "../../contexts/popup_context";
 import { AuthContext } from "../../contexts/auth_context";
 import { CartContext } from "../../contexts/cart_context";
-// import refreshPage from "../../Helper/refresh_page";
-import { useHistory } from "react-router-dom";
 import { FilterContext } from "../../contexts/filter_context";
+import { formatter } from "../../Helper/formatter";
+import "../../style/Header/header.css";
+
 export const Header = () => {
   const { setShowPopUp, setShowSearch } = useContext(PopUpContext);
   const { logoutUser } = useContext(AuthContext);

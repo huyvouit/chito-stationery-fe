@@ -43,7 +43,12 @@ function Title(props) {
     <>
       <div className="title">
         <div className="title-head">
-          <h1 className="title-head-name">ALL PRODUCTS</h1>
+          <h1
+            className="title-head-name"
+            style={{ textTransform: "uppercase" }}
+          >
+            {props.header}
+          </h1>
         </div>
         <div className="title-content">
           <div className=" title-content-left">

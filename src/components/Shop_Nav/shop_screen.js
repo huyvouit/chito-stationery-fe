@@ -47,7 +47,10 @@ export const ShopScreen = ({ onClickFilter }) => {
   ) : (
     <>
       <div className="ShopScreen">
-        <Title onClickFilter={onClickFilter} />
+        <Title
+          onClickFilter={onClickFilter}
+          header={query.type?.length === 1 ? query.type : "ALL PRODUCTS"}
+        />
         <Cards />
       </div>
     </>
