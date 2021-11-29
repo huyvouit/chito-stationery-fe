@@ -101,17 +101,17 @@ export const DetailScreen = () => {
   };
 
     //test
-    const [value, setValue] = useState(4);
+    const [showProduct, setShowProduct] = useState(4);
 
     useEffect(() => {
       const resWidth = () => {
         if (document.body.clientWidth < 575) {
-          setValue(1);
+          setShowProduct(1);
         } else if (document.body.clientWidth >= 575 && document.body.clientWidth <= 600) {
-          setValue(2);
+          setShowProduct(2);
         } else if (document.body.clientWidth > 600 && document.body.clientWidth < 1000) {
-          setValue(3);
-        } else setValue(4);
+          setShowProduct(3);
+        } else setShowProduct(4);
       };
       window.addEventListener("resize", resWidth);
       resWidth();
@@ -250,7 +250,7 @@ export const DetailScreen = () => {
           {relatedProduct &&
             relatedProduct.length > 0 &&
             shuffle(relatedProduct)
-              .slice(0, value)
+              .slice(0, showProduct)
               .map((item) => {
                 return (
                   <div
