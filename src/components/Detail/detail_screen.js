@@ -115,7 +115,7 @@ export const DetailScreen = () => {
             <div className="detail-contain-right">
               <h2>{infoProduct["productName"]}</h2>
               <p className="detail-contain-right-price">
-                Price: {formatter.format(infoProduct?.price.$numberDecimal)}
+                Price: {formatter.format(infoProduct["price"].$numberDecimal)}
               </p>
 
               <p className="labelQuantity">Quantity</p>
@@ -246,7 +246,7 @@ export const DetailScreen = () => {
                       </div>
                       <div className="detail-ItemTxt">
                         <h5>{item.productName}</h5>
-                        <h6>{item.price.$numberDecimal} VND</h6>
+                        <h6>{formatter.format(item.price.$numberDecimal)}</h6>
                       </div>
                     </div>
                   </div>

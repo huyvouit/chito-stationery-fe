@@ -138,7 +138,7 @@ export const Checkout = () => {
                     ></img>
                   </Link>
                 </div>
-                <div className="checkout-view-cart">
+                <div className="checkout-view-cart ">
                   <div className="checkout-cart-info">
                     <div className="checkout-cart-info-style">
                       <h3>PRODUCT</h3>
@@ -155,46 +155,48 @@ export const Checkout = () => {
                     </div>
                   </div>
                   {openCart && (
-                    <table className="checkout-cart">
-                      <colgroup>
-                        <col style={{ width: "21%" }}></col>
-                        <col style={{ width: "75%" }}></col>
-                        <col style={{ width: "5%" }}></col>
-                      </colgroup>
-                      <tbody className="checkout-table-tbody">
-                        {cartItems &&
-                          cartItems.length > 0 &&
-                          cartItems.map((item) => {
-                            return (
-                              <tr
-                                key={item._id}
-                                title={item.productName}
-                                onClick={() =>
-                                  handleClickItemPassDetail(item._id)
-                                }
-                                style={{ cursor: "pointer" }}
-                              >
-                                <td>
-                                  <img
-                                    className="detail-img"
-                                    src={item.image}
-                                    alt="detail"
-                                  ></img>
-                                </td>
-                                <td>
-                                  <h4 className="detail-name">
-                                    {item.productName}{" "}
-                                  </h4>
-                                  <p>Quantity: {item.quantity}</p>
-                                </td>
-                                <td>
-                                  {formatter.format(item.totalPriceByItem)}{" "}
-                                </td>
-                              </tr>
-                            );
-                          })}
-                      </tbody>
-                    </table>
+                    <div className="table-scroll">
+                      <table className="checkout-cart ">
+                        <colgroup>
+                          <col style={{ width: "21%" }}></col>
+                          <col style={{ width: "75%" }}></col>
+                          <col style={{ width: "5%" }}></col>
+                        </colgroup>
+                        <tbody className="checkout-table-tbody">
+                          {cartItems &&
+                            cartItems.length > 0 &&
+                            cartItems.map((item) => {
+                              return (
+                                <tr
+                                  key={item._id}
+                                  title={item.productName}
+                                  onClick={() =>
+                                    handleClickItemPassDetail(item._id)
+                                  }
+                                  style={{ cursor: "pointer" }}
+                                >
+                                  <td>
+                                    <img
+                                      className="detail-img"
+                                      src={item.image}
+                                      alt="detail"
+                                    ></img>
+                                  </td>
+                                  <td>
+                                    <h4 className="detail-name">
+                                      {item.productName}{" "}
+                                    </h4>
+                                    <p>Quantity: {item.quantity}</p>
+                                  </td>
+                                  <td>
+                                    {formatter.format(item.totalPriceByItem)}{" "}
+                                  </td>
+                                </tr>
+                              );
+                            })}
+                        </tbody>
+                      </table>
+                    </div>
                   )}
                 </div>
                 <div className="checkout-info-wrapper">
@@ -310,7 +312,11 @@ export const Checkout = () => {
                       <div className="checkout-group-button">
                         <label className="container">
                           Cash on Delivery (COD)
-                          <input type="radio" name="radio" checked="checked" />
+                          <input
+                            type="radio"
+                            name="radio"
+                            defaultChecked="checked"
+                          />
                           <span className="checkmark"></span>
                         </label>
                         <label className="container">
