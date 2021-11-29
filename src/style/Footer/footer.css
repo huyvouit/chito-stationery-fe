@@ -83,8 +83,6 @@ footer .footer-content {
   .col-top {
     text-align: center;
     font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
   }
 
   .col-bottom {
@@ -92,11 +90,8 @@ footer .footer-content {
   }
 
   .link-cate {
-    text-transform: uppercase;
     margin-bottom: 0;
     margin: 8px 0;
-    color: var(--primary-text);
     font-size: 14px;
-    text-decoration: none;
   }
 }

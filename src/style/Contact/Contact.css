@@ -126,21 +126,16 @@ form .contact-txt_field {
 @media only screen and (max-width: 575px) {
   .contact {
     max-width: 90%;
-    margin: 0 auto;
   }
 
   .contact h1 {
-    color: var(--text-title);
-    text-align: center;
-    margin-top: 30px;
     margin-bottom: 10px;
     font-size: 24px;
-    text-transform: uppercase;
   }
 
   .contact p {
-    font: normal normal 15px/20px Bellota Text;
-    color: #524d4b;
+    text-align: center;
+    font: normal normal 13px/18px Bellota Text;
     padding-bottom: 15px;
   }
   .contact-fullName {
@@ -149,65 +144,32 @@ form .contact-txt_field {
   }
 
   .contact-txt_field input {
-    width: 100%;
-    padding: 0 5px;
     height: 30px;
     font: normal normal bold 12px/40px Bellota Text;
-    letter-spacing: 0.75px;
-    color: #524d4b;
-    border: none;
-    background: none;
-    outline: none;
-    border-bottom: 1px solid var(--underline);
   }
 
   .contact-txt_field label {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
     font: normal normal bold 12px/40px Bellota Text;
-    letter-spacing: 0.75px;
-    color: #524d4b;
-    pointer-events: none;
   }
   form .contact-txt_field {
-    position: relative;
-
     margin: 20px 0;
   }
   .contact-message label {
     font: normal normal bold 13px/27px Bellota Text;
     padding-left: 5px;
-    letter-spacing: 0.75px;
-    color: #524d4b;
-    text-transform: uppercase;
   }
 
   .contact-message textarea {
-    resize: none;
-    margin-top: 15px;
     margin-bottom: 30px;
     padding: 8px;
-    border: none;
     height: 15vh;
-    text-align: start;
     font: normal normal bold 12px/20px Bellota Text;
-    letter-spacing: 0.75px;
-    color: #524d4b;
   }
   .contact .submit {
     margin-bottom: 30px;
     margin-left: 70%;
     width: 30%;
     height: 40px;
-    border: 1px solid;
-    background: #966a57;
     font: normal normal bold 15px/27px Bellota Text;
-    letter-spacing: 0.27px;
-    color: #f2efed;
-    text-transform: uppercase;
-    cursor: pointer;
-    outline: none;
   }
 }
