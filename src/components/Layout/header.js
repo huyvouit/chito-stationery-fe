@@ -11,6 +11,7 @@ import { CartContext } from "../../contexts/cart_context";
 import { FilterContext } from "../../contexts/filter_context";
 import { formatter } from "../../Helper/formatter";
 import "../../style/Header/header.css";
+import avatar from "../../assets/Images/ava.jpg";
 
 export const Header = () => {
   const { setShowPopUp, setShowSearch } = useContext(PopUpContext);
@@ -266,7 +267,8 @@ export const Header = () => {
           </div>
           {!authLoading && isAuthenticated ? (
             <div className="item-icon hover-user">
-              <div className="avatar-user"></div>
+              <img src={avatar} alt="avatar" className="avatar-user" />
+
               <ul className="dropdown-menu icon">
                 <li>
                   <Link
