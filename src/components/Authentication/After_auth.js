@@ -5,12 +5,13 @@ import { TOKEN_NAME, REFTOKEN } from "../../constants/constant";
 import { useParams } from "react-router";
 
 export const AfterAuth = () => {
-  const { token } = useParams();
+  const { access, refresh } = useParams();
 
   useEffect(() => {
-    const string = token.split("-");
-    localStorage.setItem(TOKEN_NAME, string[0]);
-    localStorage.setItem(REFTOKEN, string[1]);
+    console.log(access, refresh);
+    // const string = token.split("/");
+    localStorage.setItem(TOKEN_NAME, access);
+    localStorage.setItem(REFTOKEN, refresh);
   }, []);
 
   return (

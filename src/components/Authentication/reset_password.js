@@ -63,7 +63,7 @@ export const ResetPassword = () => {
           pauseOnHover: true,
           draggable: true,
         });
-        // handlePushHistory();
+        handlePushHistory();
       } else {
         toast.error(formData.data.error, {
           position: "top-right",

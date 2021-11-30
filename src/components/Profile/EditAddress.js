@@ -57,7 +57,7 @@ export const EditAddress = () => {
         info: {
           fullname,
           phone,
-          address: streetAddress + "," + district + "," + province,
+          address: streetAddress + ", " + district + ", " + province,
         },
       };
       const passData = await userApi.patchUpdateInfoUser(infoUser);
