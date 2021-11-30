@@ -5,6 +5,7 @@ import userApi from "../../api/user_api";
 import { toast } from "react-toastify";
 import eyeShow from "../../assets/Images/eye_show.png";
 import eyeHide from "../../assets/Images/eye_hide.png";
+import isEmpty from "validator/lib/isEmpty";
 
 export const AccInfo = () => {
   const [isChangePass, setIsChangePass] = useState(false);
@@ -12,7 +13,6 @@ export const AccInfo = () => {
     authState: { authLoading, user },
   } = useContext(AuthContext);
   const handleIsChangePass = () => {
-    console.log("sdsd");
     setIsChangePass(!isChangePass);
   };
 
@@ -23,12 +23,13 @@ export const AccInfo = () => {
     confirmPassword: "",
   });
   const { oldPassword, newPassword, confirmPassword } = passwordForm;
-  const [errors, setErrors] = useState("");
 
   const [showCurPass, setShowCurPass] = useState(false);
   const [showNewPass, setShowNewPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
+  const [validationMsg, setValidationMsg] = useState({});
 
+  //handle change password
   const onChangePassForm = (event) =>
     setPasswordForm({
       ...passwordForm,
@@ -36,17 +37,13 @@ export const AccInfo = () => {
       [event.target.name]: event.target.value,
     });
 
+  //handle submit
   const handlleSubmitChangePass = async (event) => {
     event.preventDefault();
-
-    if (newPassword !== confirmPassword) {
-      console.log("Validate Fail!!");
-      setErrors("Confirm password is not matched");
-      return;
-    }
+    const isValid = validateAll();
+    if (!isValid) return;
 
     try {
-      setErrors("");
       const passData = await userApi.patchChangePass(passwordForm);
       if (passData.data.success) {
         toast.success(passData.data.msg, {
@@ -75,6 +72,26 @@ export const AccInfo = () => {
         draggable: true,
       });
     }
+  };
+
+  //check validate
+  const validateAll = () => {
+    const msg = {};
+    if (isEmpty(oldPassword)) {
+      msg.oldPassword = "Please input your old password.";
+    }
+    if (isEmpty(newPassword)) {
+      msg.newPassword = "Please input your new password.";
+    } else if (!/^(?=.*\d)(?=.*[a-zA-Z]).{6,}$/.test(newPassword)) {
+      msg.newPassword = "Password must have character, number and at least 6.";
+    }
+    if (newPassword !== confirmPassword) {
+      msg.confirmPassword = "Confirm password is not matched";
+    }
+
+    setValidationMsg(msg);
+    if (Object.keys(msg).length > 0) return false;
+    return true;
   };
 
   return (
@@ -120,6 +137,7 @@ export const AccInfo = () => {
                     onClick={() => setShowCurPass(!showCurPass)}
                   />
                 </div>
+                <p style={{ color: "red" }}>{validationMsg["oldPassword"]}</p>
                 <h5 className="profile-info-subtitle">NEW PASSWORD*</h5>
                 <div className="profile-info-input">
                   <input
@@ -137,6 +155,7 @@ export const AccInfo = () => {
                     onClick={() => setShowNewPass(!showNewPass)}
                   />
                 </div>
+                <p style={{ color: "red" }}>{validationMsg["newPassword"]}</p>
                 <h5 className="profile-info-subtitle">CONFIRM NEW PASSWORD*</h5>
                 <div className="profile-info-input">
                   <input
@@ -154,9 +173,9 @@ export const AccInfo = () => {
                     onClick={() => setShowConfirmPass(!showConfirmPass)}
                   />
                 </div>
-                {errors && ( //will work even if data has not declared propertyName
-                  <p className="validate-error">{errors}</p>
-                )}
+                <p style={{ color: "red" }}>
+                  {validationMsg["confirmPassword"]}
+                </p>
               </div>
             ) : (
               <div className="profile-col-width "></div>

@@ -36,6 +36,7 @@ function Filter() {
     type: query?.type || [],
     lowerPrice: query?.lowerPrice || [],
     higherPrice: query?.higherPrice || [],
+    sortType: query?.sortType || [],
   });
 
   useEffect(() => {
@@ -45,6 +46,7 @@ function Filter() {
       type: query?.type || [],
       lowerPrice: query?.lowerPrice || [],
       higherPrice: query?.higherPrice || [],
+      sortType: query?.sortType || [],
     });
     const temp = [...arrType];
 
@@ -145,15 +147,15 @@ function Filter() {
             {arrType.map((item, index) => (
               <li key={index} className="list">
                 <div className="btn-list">
-                  
-                  <label htmlFor={item.name}>{item.name}
-                  <input
-                    type="checkbox"
-                    id={item.name}
-                    checked={item.check}
-                    onChange={() => handleOnChangeType(item)}
-                  ></input>
-                  <span className="custom-checkbox" ></span>
+                  <label htmlFor={item.name}>
+                    {item.name}
+                    <input
+                      type="checkbox"
+                      id={item.name}
+                      checked={item.check}
+                      onChange={() => handleOnChangeType(item)}
+                    ></input>
+                    <span className="custom-checkbox"></span>
                   </label>
                 </div>
               </li>
