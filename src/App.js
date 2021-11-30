@@ -126,7 +126,11 @@ function App() {
                     path="/profile/acc-orders/:id"
                     component={DetailOrder}
                   />
-                  <Route exact path="/register-success" component={AfterAuth} />
+                  <Route
+                    exact
+                    path="/register-success/:token"
+                    component={AfterAuth}
+                  />
                   <Route
                     exact
                     path="/forgot-password"

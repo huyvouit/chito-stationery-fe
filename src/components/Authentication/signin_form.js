@@ -127,7 +127,7 @@ export const SignInform = ({ clickSignUp }) => {
             setShowPopUp(false);
           }}
         >
-          Forget password?
+          Forgot password?
         </p>
         <div className="form-submit">
           <p className="form-linking" onClick={clickSignUp}>
