@@ -14,11 +14,10 @@ const AuthContextProvider = ({ children }) => {
 
   //Authenticate user
   const loadUser = async () => {
-    console.log("checking user");
     try {
       const response = await authApi.verifyUser();
       if (response.data.success) {
-        console.log("Verify token");
+        // console.log("Verify token");
         dispatch({
           type: "SET_AUTH",
           payload: {
@@ -31,7 +30,7 @@ const AuthContextProvider = ({ children }) => {
     } catch (error) {
       localStorage.removeItem(TOKEN_NAME);
       localStorage.removeItem(REFTOKEN);
-      console.log("faild verify");
+      // console.log("faild verify");
       dispatch({
         type: "SET_AUTH",
         payload: { authLoading: false, isAuthenticated: false, user: null },

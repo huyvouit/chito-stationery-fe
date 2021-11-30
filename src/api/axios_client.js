@@ -33,14 +33,14 @@ const getNewTokenAndReattemptRequest = async (config, refToken) => {
         refreshToken: refToken,
       }
     );
-    console.log("đã refresh: ", getNewToken);
+    // console.log("đã refresh: ", getNewToken);
     const { accessToken, refreshToken } = getNewToken.data;
     localStorage.setItem(TOKEN_NAME, accessToken);
     localStorage.setItem(REFTOKEN, refreshToken);
     config.headers.common["Authorization"] = `Bearer ${accessToken}`;
     return await axios(config);
   } catch (err) {
-    window.location.reload();
+    // console.log(err);
     return Promise.reject(err);
   }
 };
@@ -61,17 +61,17 @@ axiosClient.interceptors.response.use(
       return error;
     }
     if (status === 401) {
-      console.log("401");
+      // console.log("401");
       const refreshToken = localStorage.getItem(REFTOKEN);
       if (refreshToken)
         return getNewTokenAndReattemptRequest(config, refreshToken);
       else {
-        console.log("chưa có refreshToken");
+        // console.log("chưa có refreshToken");
         return;
       }
     }
     if (status === 404) {
-      console.log("404 error");
+      // console.log("404 error");
       return;
     }
 

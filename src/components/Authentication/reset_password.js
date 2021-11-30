@@ -98,7 +98,7 @@ export const ResetPassword = () => {
       <div className="input-field" style={{ marginTop: "40px" }}>
         <p className="form-label"> new password*</p>
         <input
-          type="text"
+          type="password"
           name="newPassword"
           value={newPassword}
           onChange={onChangePassForm}
@@ -108,7 +108,7 @@ export const ResetPassword = () => {
       <div className="input-field" style={{ marginTop: "40px" }}>
         <p className="form-label"> confirm password*</p>
         <input
-          type="text"
+          type="password"
           name="confirmPassword"
           value={confirmPassword}
           onChange={onChangePassForm}
