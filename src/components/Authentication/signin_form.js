@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { PopUpContext } from "../../contexts/popup_context";
 import isEmpty from "validator/lib/isEmpty";
 import isEmail from "validator/lib/isEmail";
+import { useHistory } from "react-router-dom";
 import "../../style/Authentication/signin.css";
 
 export const SignInform = ({ clickSignUp }) => {
@@ -74,6 +75,14 @@ export const SignInform = ({ clickSignUp }) => {
     }
   };
 
+  const history = useHistory();
+
+  function handlePushHistory() {
+    history.push({
+      pathname: "/forgot-password",
+    });
+  }
+
   return (
     <div className="signin-container">
       <form className="auth-form" onSubmit={login}>
@@ -111,6 +120,15 @@ export const SignInform = ({ clickSignUp }) => {
           </div>
         </div>
 
+        <p
+          style={{ marginTop: "5px", cursor: "pointer" }}
+          onClick={() => {
+            handlePushHistory();
+            setShowPopUp(false);
+          }}
+        >
+          Forget password?
+        </p>
         <div className="form-submit">
           <p className="form-linking" onClick={clickSignUp}>
             create an account

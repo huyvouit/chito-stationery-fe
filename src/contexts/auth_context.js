@@ -74,7 +74,6 @@ const AuthContextProvider = ({ children }) => {
 
       return response.data;
     } catch (error) {
-      console.log(error.response.data.success);
       toast.error(error.response.data.message, {
         position: "top-right",
         autoClose: 5000,

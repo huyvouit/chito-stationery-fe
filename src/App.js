@@ -35,6 +35,8 @@ import { DetailScreen } from "./components/Detail/detail_screen";
 import PrivateRoute from "./Helper/private_route";
 import ProductContextProvider from "./contexts/product_context";
 import ScrollToTop from "./Helper/scroll_to_top";
+import { ForgotPassword } from "./components/Authentication/forget_password";
+import { ResetPassword } from "./components/Authentication/reset_password";
 function App() {
   const { showPopUp, showSearch, showFilter, closePopUp, setShowFilter } =
     useContext(PopUpContext);
@@ -125,6 +127,16 @@ function App() {
                     component={DetailOrder}
                   />
                   <Route exact path="/register-success" component={AfterAuth} />
+                  <Route
+                    exact
+                    path="/forgot-password"
+                    component={ForgotPassword}
+                  />
+                  <Route
+                    exact
+                    path="/reset-password/:token"
+                    component={ResetPassword}
+                  />
                   <Route exact path="/404" component={ErrorPage} />
                   <Route exact path="*" component={ErrorPage} />
                 </Switch>

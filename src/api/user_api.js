@@ -25,6 +25,16 @@ const userApi = {
     const url = "/purchase/history/";
     return axiosClient.get(url, { params });
   },
+
+  patchForgotPass: (body) => {
+    const url = "/user/forgotpassword";
+    return axiosClient.patch(url, body);
+  },
+
+  patchNewPass: (body) => {
+    const url = "/user/forgotpassword";
+    return axiosClient.patch(url, body);
+  },
 };
 
 export default userApi;

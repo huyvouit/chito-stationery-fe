@@ -1,46 +1,49 @@
 .ac_wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 55px;
+  max-width: 550px;
+  padding: 0 20px;
 }
 
 .ac_title {
-    color: var(--text-title);
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 60px;
+  color: var(--text-title);
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 60px;
 }
 
 .ac_content {
-    margin: 0 auto;
-    text-align: center;
-    font-size: 18px;
-    color: var(--primary-text);
-    line-height: 1.5;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 18px;
+  color: var(--primary-text);
+  line-height: 1.5;
 }
 
 .more_space {
-    margin-top: 9px;
-    margin-bottom: 32px;
+  margin-top: 9px;
+  margin-bottom: 32px;
 }
 
 .ac_content a {
-    text-decoration: none;
-    color: var(--text-title);
+  text-decoration: none;
+  color: var(--text-title);
 }
 
 .ac_content a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .ac_icon {
-    margin-top: 36px;
-    margin-bottom: 36px;
+  margin-top: 36px;
+  margin-bottom: 36px;
 }
 
-@media only screen and (max-width: 1366px){
-    .ac-wrapper {
-      padding: 15px;
-    }
+@media only screen and (max-width: 1366px) {
+  .ac-wrapper {
+    padding: 15px;
+  }
 }
