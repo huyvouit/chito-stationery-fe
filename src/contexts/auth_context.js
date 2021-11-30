@@ -27,7 +27,6 @@ const AuthContextProvider = ({ children }) => {
             user: response.data.user,
           },
         });
-        // console.log(response.data.user);
       }
     } catch (error) {
       localStorage.removeItem(TOKEN_NAME);
@@ -46,21 +45,19 @@ const AuthContextProvider = ({ children }) => {
   const loginUser = async (userForm) => {
     try {
       const response = await authApi.postSignIn(userForm);
-      // console.log(response.data.accessToken);
-      if (response.data.success)
+
+      if (response.data.success) {
         localStorage.setItem(TOKEN_NAME, response.data.accessToken);
-      localStorage.setItem(REFTOKEN, response.data.refreshToken);
-      console.log(`data: ${response.config}`);
+        localStorage.setItem(REFTOKEN, response.data.refreshToken);
+      }
+
       await loadUser();
 
       return response.data;
     } catch (error) {
       if (error.response.data) {
-        // console.log(error.response.data);
         return error.response.data;
       }
-
-      // else return { success: false, message: error.message };
     }
   };
 
