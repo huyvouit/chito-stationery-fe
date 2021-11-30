@@ -32,7 +32,7 @@ const userApi = {
   },
 
   patchNewPass: (body) => {
-    const url = "/user/forgotpassword";
+    const url = "/user/resetpassword";
     return axiosClient.patch(url, body);
   },
 };

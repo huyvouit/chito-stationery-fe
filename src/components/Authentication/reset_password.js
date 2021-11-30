@@ -53,7 +53,7 @@ export const ResetPassword = () => {
     try {
       const body = { resetLink: token, newPassword };
       const formData = await userApi.patchNewPass(body);
-
+      console.log(formData.data);
       if (formData.data.success) {
         toast.success(formData.data.message, {
           position: "top-right",
@@ -63,7 +63,7 @@ export const ResetPassword = () => {
           pauseOnHover: true,
           draggable: true,
         });
-        handlePushHistory();
+        // handlePushHistory();
       } else {
         toast.error(formData.data.error, {
           position: "top-right",
@@ -75,6 +75,7 @@ export const ResetPassword = () => {
         });
       }
     } catch (error) {
+      console.log(error.response.data.error);
       toast.error(error.response.data.error, {
         position: "top-right",
         autoClose: 3000,
