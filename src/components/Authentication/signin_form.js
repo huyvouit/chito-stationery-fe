@@ -133,7 +133,7 @@ export const SignInform = ({ clickSignUp }) => {
           <p className="form-linking" onClick={clickSignUp}>
             create an account
           </p>
-          <input type="submit" value="Login" className="auth-btn-submit" />
+          <input type="submit" value="SIGN IN" className="auth-btn-submit" />
         </div>
       </form>
     </div>
