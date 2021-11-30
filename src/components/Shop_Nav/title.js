@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import queryString from "query-string";
 import filterIcon from "../../assets/Icons/filter.svg";
 import { ProductContext } from "../../contexts/product_context";
@@ -9,7 +9,11 @@ import "../../style/Shop/Title.css";
 function Title(props) {
   const { productList } = useContext(ProductContext);
   const { query, handleQuery } = useContext(FilterContext);
+  const [selected, setSelected] = useState("");
 
+  useEffect(() => {
+    setSelected(query?.sortType);
+  }, []);
   // function sortMin() {
   //   const x = [...productList].sort(
   //     (a, b) => a.price.$numberDecimal - b.price.$numberDecimal
@@ -83,7 +87,8 @@ function Title(props) {
             <select
               className="default"
               onChange={OnChange}
-              value={query?.sortType || []}
+              value={selected}
+              multiple={false}
             >
               <option value="0">Default Sorting</option>
               <option value="1">Price: Low To High</option>

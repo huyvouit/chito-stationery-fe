@@ -47,6 +47,7 @@ function Filter() {
       lowerPrice: query?.lowerPrice || [],
       higherPrice: query?.higherPrice || [],
       sortType: query?.sortType || [],
+      page: 1,
     });
     const temp = [...arrType];
 
