@@ -18,14 +18,13 @@ const initialState = JSON.parse(localStorage.getItem(CART)) || {
 };
 
 const CartContextProvider = ({ children }) => {
-  //   const { saveCart } = useRef(initialState);
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
   useEffect(() => {
     localStorage.setItem(CART, JSON.stringify(state));
-    console.log("save local");
+    // console.log("save local");
   }, [state]);
-  // console.log(state);
+
   const addItem = (item, number, exist) => {
     dispatch({
       type: ADD_TO_CART,
@@ -44,6 +43,7 @@ const CartContextProvider = ({ children }) => {
       });
     }
   };
+
   const removeItem = (item) =>
     dispatch({
       type: REMOVE_ITEM,

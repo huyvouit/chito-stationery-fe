@@ -128,7 +128,7 @@ function App() {
                   />
                   <Route
                     exact
-                    path="/register-success/:token"
+                    path="/register-success/:access/:refresh"
                     component={AfterAuth}
                   />
                   <Route

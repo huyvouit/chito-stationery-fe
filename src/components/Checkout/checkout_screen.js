@@ -58,7 +58,7 @@ export const Checkout = () => {
   const handleSubmitInfoCheckout = async () => {
     try {
       const info = {
-        customerAddress: streetAddress + "," + district + "," + province,
+        customerAddress: streetAddress + ", " + district + ", " + province,
         customerEmail: user?.email || "",
         customerName: fullname,
         customerPhone: phone,
