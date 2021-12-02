@@ -13,7 +13,6 @@ export const CartScreen = () => {
     removeItem,
     removeItemWithQuantity,
   } = useContext(CartContext);
-  console.log(totalItems);
 
   let history = useHistory();
   const handleClickItemPassDetail = (item) => {
@@ -101,7 +100,9 @@ export const CartScreen = () => {
                         </div>
                       </td>
                       <td className="fz-price">
-                        <h4 className="col-total-item">{formatter.format(item.totalPriceByItem)}</h4>
+                        <h4 className="col-total-item">
+                          {formatter.format(item.totalPriceByItem)}
+                        </h4>
                       </td>
                     </tr>
                   );

@@ -62,7 +62,7 @@
   /* border: none; */
   margin-left: 15px;
   margin-bottom: 1.5%;
-  width: 54vh;
+  width: 100%;
 }
 
 .list > .btn-list > label {
@@ -82,7 +82,6 @@
   height: 20px;
   width: 20px;
 }
-
 
 .group-input {
   display: flex;
@@ -106,7 +105,7 @@
   background-color: white;
   border: solid 1px var(--text-title);
 }
-.btn-list input[type=checkbox] {
+.btn-list input[type="checkbox"] {
   visibility: hidden;
 }
 
@@ -126,7 +125,7 @@
 
 .btn-list input:checked ~ .custom-checkbox:after {
   display: block;
-} 
+}
 
 .btn-list .custom-checkbox:after {
   left: 6px;

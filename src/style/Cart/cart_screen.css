@@ -2,6 +2,7 @@
   max-width: 80%;
   margin: 0 auto;
 }
+
 .cart-table {
   position: relative;
   left: 50%;
@@ -201,8 +202,8 @@ th {
   }
 
   .cart-empty-image {
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
   }
 
   .cart-empty-msg {
