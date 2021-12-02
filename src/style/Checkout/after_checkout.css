@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto 55px;
-  max-width: 550px;
+  max-width: 553px;
   padding: 0 20px;
 }
 
@@ -45,5 +45,21 @@
 @media only screen and (max-width: 1366px) {
   .ac-wrapper {
     padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .ac_title {
+    font-size: 29px;
+    margin-bottom: 30px;
+  }
+
+  .ac_content {
+    font-size: 16px;
+  }
+
+  .ac_icon {
+    width: 100px;
+    height: 100px;
   }
 }
