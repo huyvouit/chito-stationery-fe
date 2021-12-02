@@ -1,7 +1,7 @@
 import React from "react";
 import check from "../../assets/Icons/check.svg";
 import { Link } from "react-router-dom";
-import { TOKEN_NAME, REFTOKEN } from "../constants/constant";
+import { TOKEN_NAME, REFTOKEN } from "../../constants/constant";
 
 export const AfterAuth = () => {
   return (
