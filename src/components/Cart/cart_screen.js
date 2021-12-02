@@ -101,7 +101,7 @@ export const CartScreen = () => {
                         </div>
                       </td>
                       <td className="fz-price">
-                        <h4>{formatter.format(item.totalPriceByItem)}</h4>
+                        <h4 className="col-total-item">{formatter.format(item.totalPriceByItem)}</h4>
                       </td>
                     </tr>
                   );

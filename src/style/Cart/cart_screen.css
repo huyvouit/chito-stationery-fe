@@ -173,7 +173,16 @@ th {
   }
 
   .cart-table-body-product-content .cart-table-body-product-content-name {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.15;
+  }
+
+  .fz-price {
+    font-size: 13px;
+  }
+
+  .col-total-item {
+    margin-left: 12px;
   }
 
   .col-price-item {
@@ -181,8 +190,8 @@ th {
   }
 
   .cart-table-body-product-image {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     object-fit: cover;
   }
 
@@ -197,7 +206,15 @@ th {
   }
 
   .cart-empty-msg {
-    
     font-size: 20px;
+  }
+
+  .cart-table-body-product-content {
+    margin-left: 8px;
+    margin-right: 9px;
+  }
+
+  .fz-price {
+    margin-left: 9px;
   }
 }
