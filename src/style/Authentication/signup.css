@@ -1,7 +1,6 @@
 .form-title-signup {
   font-size: 2.2rem;
   color: var(--text-title);
-  padding-top: 20px;
 }
 
 .form-input-signup {
@@ -14,4 +13,10 @@
   align-items: center;
   margin-top: 30px;
   margin-bottom: 20px;
+}
+
+.signup-header {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
 }

@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import "../../style/Authentication/signup.css";
 import eyeShow from "../../assets/Images/eye_show.png";
 import eyeHide from "../../assets/Images/eye_hide.png";
+import x from "../../assets/Icons/x.svg";
 
 export const SignUpForm = ({ clickSignIn }) => {
   //authContext
@@ -76,7 +77,11 @@ export const SignUpForm = ({ clickSignIn }) => {
   return (
     <div className="signin-container">
       <form className="auth-form">
-        <h2 className="form-title-signup">Sign up</h2>
+        
+        <div className="signup-header">
+          <h2 className="form-title-signup">Sign up</h2>
+          <img src={x} alt="close" onClick={clickSignIn}/>
+        </div>
         <div className="form-input-signup">
           <div className="input-field">
             <p className="form-label">Full name*</p>

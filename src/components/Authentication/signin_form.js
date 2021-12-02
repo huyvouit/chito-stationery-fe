@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/auth_context";
 import eyeShow from "../../assets/Images/eye_show.png";
 import eyeHide from "../../assets/Images/eye_hide.png";
+import x from "../../assets/Icons/x.svg";
 import { toast } from "react-toastify";
 import { PopUpContext } from "../../contexts/popup_context";
 import isEmpty from "validator/lib/isEmpty";
@@ -83,10 +84,18 @@ export const SignInform = ({ clickSignUp }) => {
     });
   }
 
+  const handleClosePopup = () => {
+    setShowPopUp(false);
+  };
+
   return (
     <div className="signin-container">
       <form className="auth-form" onSubmit={login}>
-        <h2 className="form-title">Sign in</h2>
+        <div className="signin-header">
+          <h2 className="form-title">Sign in</h2>
+          <img src={x} alt="close" onClick={handleClosePopup}/>
+        </div>
+        
         <div className="form-input">
           <div className="input-field">
             <p className="form-label">email*</p>
