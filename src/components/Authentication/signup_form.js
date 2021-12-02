@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/auth_context";
 import { Validation } from "../../Helper/validation";
 import { toast } from "react-toastify";
+import { PopUpContext } from "../../contexts/popup_context";
 import "../../style/Authentication/signup.css";
 import eyeShow from "../../assets/Images/eye_show.png";
 import eyeHide from "../../assets/Images/eye_hide.png";
@@ -20,6 +21,8 @@ export const SignUpForm = ({ clickSignIn }) => {
   const { fullname, email, password } = registerForm;
   const [errors, setErrors] = useState({});
   const [showPass, setShowPass] = useState(false);
+  const { setShowPopUp } = useContext(PopUpContext);
+
   //function onChange Input Form
   const onChangeRegisterForm = (event) =>
     setRegisterForm({
@@ -74,13 +77,16 @@ export const SignUpForm = ({ clickSignIn }) => {
     }
   };
 
+  const handleClosePopup = () => {
+    setShowPopUp(false);
+  };
+
   return (
     <div className="signin-container">
       <form className="auth-form">
-        
         <div className="signup-header">
           <h2 className="form-title-signup">Sign up</h2>
-          <img src={x} alt="close" onClick={clickSignIn}/>
+          <img src={x} alt="close" onClick={handleClosePopup}/>
         </div>
         <div className="form-input-signup">
           <div className="input-field">
