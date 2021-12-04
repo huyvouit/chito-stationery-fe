@@ -49,7 +49,7 @@
   cursor: pointer;
   text-decoration: none;
   color: var(--primary-text);
-  font-size: 12.5px;
+  font-size: 15px;
   font-weight: bold;
 }
 
@@ -108,6 +108,15 @@
   font-size: 14px;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+.sidebar-title.sidebar-active {
+  text-decoration: none;
+  color: var(--text-title);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-bottom: 2px solid var(--text-title);
 }
 
 .right-col-center {
@@ -362,10 +371,10 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 @media only screen and (max-width: 1366px) {
-  .profile-col-width h2,
+  /* .profile-col-width h2,
   .profile-order h2 {
     font-size: 20px;
-  }
+  } */
 
   .sidebar-img {
     width: 165px;
@@ -384,10 +393,10 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-top: 18px;
   }
 
-  .profile-col-width h2,
+  /* .profile-col-width h2,
   .profile-order h2 {
     font-size: 18px;
-  }
+  } */
 
   .profile-info-subtitle {
     font-size: 14px;
@@ -402,11 +411,6 @@ input[type="number"]::-webkit-inner-spin-button {
 
   .sidebar-wrapper {
     margin-right: 40px;
-  }
-
-  .sidebar-title {
-    font-size: 14px;
-    text-transform: uppercase;
   }
 
   .detail-img {
@@ -456,14 +460,14 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 @media only screen and (max-width: 575px) {
-  .profile-col-width h2,
+  /* .profile-col-width h2,
   .profile-order h2 {
     font-size: 18px;
     font-weight: bold;
-  }
+  } */
 
   .profile-info-subtitle {
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 10px;
     margin-bottom: 4px;
   }

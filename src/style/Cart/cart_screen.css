@@ -166,6 +166,18 @@ th {
   }
 }
 
+colgroup col:nth-child(1) {
+  width: auto !important;
+}
+colgroup col:nth-child(2) {
+  width: 15% !important;
+}
+colgroup col:nth-child(3) {
+  width: 30% !important;
+}
+colgroup col:nth-child(4) {
+  width: 15% !important;
+}
 @media only screen and (max-width: 575px) {
   .cart_title {
     font-size: 21px;
@@ -217,5 +229,18 @@ th {
 
   .fz-price {
     margin-left: 9px;
+  }
+
+  colgroup col:nth-child(1) {
+    width: 50% !important;
+  }
+  colgroup col:nth-child(2) {
+    width: 0% !important;
+  }
+  colgroup col:nth-child(3) {
+    width: 50% !important;
+  }
+  colgroup col:nth-child(4) {
+    width: 20% !important;
   }
 }

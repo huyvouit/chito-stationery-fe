@@ -24,6 +24,8 @@ import { Checkout } from "./components/Checkout/checkout_screen";
 import Filter from "./components/Shop_Nav/Filter";
 import { SearchBox } from "./components/Layout/search_box";
 import { AfterAuth } from "./components/Authentication/After_auth";
+import { ForgotPassword } from "./components/Authentication/forget_password";
+import { ResetPassword } from "./components/Authentication/reset_password";
 //context
 import AuthContextProvider from "./contexts/auth_context";
 import FilterContextProvider from "./contexts/filter_context";
@@ -35,8 +37,7 @@ import { DetailScreen } from "./components/Detail/detail_screen";
 import PrivateRoute from "./Helper/private_route";
 import ProductContextProvider from "./contexts/product_context";
 import ScrollToTop from "./Helper/scroll_to_top";
-import { ForgotPassword } from "./components/Authentication/forget_password";
-import { ResetPassword } from "./components/Authentication/reset_password";
+
 function App() {
   const { showPopUp, showSearch, showFilter, closePopUp, setShowFilter } =
     useContext(PopUpContext);

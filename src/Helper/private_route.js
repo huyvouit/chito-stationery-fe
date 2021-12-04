@@ -12,17 +12,18 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const resWidth = () => {
+    if (document.body.clientWidth > 575) {
+      setShowSidebar(false);
+    }
+  };
+
   useEffect(() => {
-    const resWidth = () => {
-      if (document.body.clientWidth > 575) {
-        setShowSidebar(false);
-      }
-    };
-    window.addEventListener("resize", resWidth);
     resWidth();
     return () => window.removeEventListener("resize", resWidth);
   }, []);
 
+  window.addEventListener("resize", resWidth);
   const dropdownSidebar = () => setShowSidebar(!showSidebar);
 
   if (authLoading) return <Loader />;
@@ -46,13 +47,13 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 
               <div style={{ display: showSidebar ? "initial" : "none" }}>
                 <div className="sidebar-990" onClick={dropdownSidebar}>
-                  <SideBar />
+                  <SideBar {...props} />
                 </div>
               </div>
 
               <div className="profile-content">
                 <div className="sidebar-dropdown">
-                  <SideBar />
+                  <SideBar {...props} />
                 </div>
                 <Component {...rest} {...props} />
               </div>
