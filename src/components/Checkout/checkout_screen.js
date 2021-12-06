@@ -37,7 +37,7 @@ export const Checkout = () => {
     console.log("run effect");
     let arrAddress = "";
     if (user?.address) {
-      arrAddress = user?.address.split(",") || "";
+      arrAddress = user?.address.split(", ") || "";
     }
     setInfoCheckout({
       ...infoCheckout,
