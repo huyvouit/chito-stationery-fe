@@ -9,7 +9,7 @@ import "../../style/Layout/search_box.css";
 import iconClose from "../../assets/Icons/cancel.svg";
 //component
 import productApi from "../../api/product_api";
-
+import { formatter } from "../../Helper/formatter";
 export const SearchBox = () => {
   const { showSearch, closePopUp } = useContext(PopUpContext);
   const { handleQuery } = useContext(FilterContext);
@@ -124,7 +124,9 @@ export const SearchBox = () => {
                   <div className="product-info">
                     <h4 className="info-name">{item.productName}</h4>
                     <p className="info-desc">{item.description}</p>
-                    <p className="info-price">{item.price.$numberDecimal}</p>
+                    <p className="info-price">
+                      {formatter.format(item.price.$numberDecimal)}
+                    </p>
                   </div>
                 </div>
               ))

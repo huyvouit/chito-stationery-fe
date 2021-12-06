@@ -35,10 +35,10 @@ export const CartScreen = () => {
           <h1 className="cart_title">SHOPPING CART</h1>
           <table className="cart-table">
             <colgroup>
-              <col></col>
-              <col></col>
-              <col></col>
-              <col></col>
+              <col style={{ width: "auto" }}></col>
+              <col style={{ width: "15%" }}></col>
+              <col style={{ width: "30%" }}></col>
+              <col style={{ width: "15%" }}></col>
             </colgroup>
             <thead>
               <tr className="cart-table-header">
