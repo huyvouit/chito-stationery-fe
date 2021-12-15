@@ -1,59 +1,46 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const SideBar = (props) => {
-  const path = props.location.pathname;
-  console.log(path);
   return (
     <div className="sidebar-wrapper">
       <ul className="sidebar-title-container">
         <li>
-          <Link
+          <NavLink
             to="/profile"
-            className={
-              path === "/profile"
-                ? "sidebar-title sidebar-active"
-                : "sidebar-title"
-            }
+            exact={true}
+            className="sidebar-title"
+            activeClassName="sidebar-active"
           >
             My Account
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link
+          <NavLink
             to="/profile/acc-info"
-            className={
-              path === "/profile/acc-info"
-                ? "sidebar-title sidebar-active"
-                : "sidebar-title"
-            }
+            className="sidebar-title"
+            activeClassName="sidebar-active"
           >
             Account Information
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link
+          <NavLink
             to="/profile/acc-address"
-            className={
-              path === "/profile/acc-address"
-                ? "sidebar-title sidebar-active"
-                : "sidebar-title"
-            }
+            className="sidebar-title"
+            activeClassName="sidebar-active"
           >
             Address Book
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link
+          <NavLink
             to="/profile/acc-orders"
-            className={
-              path === "/profile/acc-orders"
-                ? "sidebar-title sidebar-active"
-                : "sidebar-title"
-            }
+            className="sidebar-title"
+            activeClassName="sidebar-active"
           >
             My Orders
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </div>
