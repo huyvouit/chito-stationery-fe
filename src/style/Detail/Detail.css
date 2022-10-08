@@ -195,7 +195,7 @@
 
 .detail-ItemTxt h5 {
   padding-top: 1vh;
-  height: 9vh;
+  /* height: 9vh; */
   text-align: left;
   font: normal normal bold 20px Bellota Text;
   letter-spacing: 0.6px;
@@ -203,6 +203,14 @@
   text-transform: capitalize;
   overflow: visible;
   margin-bottom: 5px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+
+  line-height: 1.2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
 
 .detail-ItemTxt h6 {
